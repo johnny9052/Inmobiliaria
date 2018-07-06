@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+        <title>Inmobiliaria Armenia</title>
+        <link rel="shortcut icon" type="image/png" href="System/Resource/Images/Public/favicon.ico"/>
+
+        <!-- CSS  -->        
+
+        <link href="Resources/public/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        
+        <link href="Resources/public/css/album.css" rel="stylesheet" type="text/css"/>  
+        
+        <link href="Resources/public/css/carousel.css" rel="stylesheet" type="text/css"/>
+        
+        <!-- Font Awesome <Esta es utilizada para los iconos de bootstrap> -->
+        <link href="Resources/public/css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+
+        <!--  Scripts-->
+        <script src="Resources/public/js/jquery/code.jquery.com_jquery-3.3.1.slim.min.js" type="text/javascript"></script>
+        <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>        
+        <script src="Resources/public/js/bootstrap/vendor/popper.min.js" type="text/javascript"></script>        
+        <script src="Resources/public/js/bootstrap/bootstrap.min.js" type="text/javascript"></script>        
+        <script src="Resources/public/js/bootstrap/vendor/holder.min.js" type="text/javascript"></script>
+
+    </head>
+    <body>
+
+
+
+        <!-- MASTER PAGE CONTROL  -->
+        <?php
+        include("View/public/main/banner.php");
+
+
+        if (isset($_GET['page'])) {
+            include("View/public/" . $_GET['page'] . ".php");
+        } else {
+            include("View/public/home.php");
+        }
+
+
+        include("View/public/main/footer.php");
+        ?>                        
+        <!--END MASTER PAGE CONTROL  -->
+
+
+
+
+       
+
+        
+
+     
+    </body>
+</html>
