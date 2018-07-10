@@ -1,6 +1,8 @@
 $(document).ready(function () {
 
-    $.fn.modal.Constructor.DEFAULTS.backdrop = 'static';
+    /*Configuraciones basicas del modal, no permite cerrar con click por fuera 
+     * del modal, y no se permite cerrarlo con la tecla escape*/
+    $.fn.modal.Constructor.DEFAULTS.backdrop = false;
     $.fn.modal.Constructor.DEFAULTS.keyboard = false;
 
 
@@ -17,18 +19,22 @@ $(document).ready(function () {
 /**
  * Muestra un mensaje en un toast 
  * @param {String} message Mensaje a mostrar en la ventana emergente
- * @param {String} type Tipo de mensaje a mostrar {error,warning,sucess}, si no 
- * se especifica sera uno por defecto
+ * @param {String} type Tipo de mensaje a mostrar {error,warning,sucess}, si no
+ *                 se quiere uno especifico, mandar esta campo como vacio 
+ * @param {String} idModalBefore desde donde se llama el toast, este solo se 
+ *                 especifica si se quiere que, cuando se cierre el modal que se 
+ *                 va a abrir, regrese al modal definido.
  * @returns {void} 
  * @author Johnny Alexander Salazar
- * @version 0.1
+ * @version 0.3
  */
-function showToast(message, type) {
+function showToast(message, type, idModalBefore) {
 
+    /*Segun el tipo de mensaje, muestra un estilo de Modal*/
     if (message) {
-
+        /*Se quita cualquier estilo previo que pueda tener el mensaje*/
         $("#modal-default").removeClass("modal-danger modal-warning modal-success");
-
+        /*Por cada tipo de mensaje, se especifica un estilo y un titulo al modal*/
         switch (type) {
             case "error":
                 $("#lblTituloMensajeModal").html("Error");
@@ -51,11 +57,36 @@ function showToast(message, type) {
 
         }
 
+        /*Se establece el mensaje*/
         $("#lblMessageModal").html(message);
+
         setTimeout(function () {
+            /*Se muestra el modal del mensaje*/
             $('#modal-default').modal('show');
         }, 400);
 
+
+        /*Cuando el mensaje se cierra,en el caso de que sea de tipo error 
+         * regresa al modal anterior*/
+        if (type === "error") {
+            /*Se cierra la ventana actual, si no se especifica uno, calculara el modal 
+             * por defecto, el ModalNew. Ademas se indica con false que no limpie los 
+             * campos*/
+            closeWindow(idModalBefore, false);
+
+            /*Se especifica que hacer cuando el modal del mensaje se ciere*/
+            $('#modal-default').on('hide.bs.modal', function (e) {
+                setTimeout(function () {
+                    /*Se abre el modal previo*/
+                    openWindow(idModalBefore);
+                    /*Del modal que muestra el mensaje, se desasocia el evento 
+                     * que regresa a la ventana previa*/
+                    $('#modal-default').unbind();
+                }, 400);
+            });
+
+
+        }
     }
 }
 
@@ -70,7 +101,6 @@ function showToast(message, type) {
  * @version 0.1
  */
 function showLoadBar(status) {
-
     if (status) {
         $(".progress").show();
     } else {
@@ -92,10 +122,9 @@ function showLoadBar(status) {
  */
 function Execute(dataSend, url, before, success) {
 
-    console.log("Lo que se envia: "+dataSend);
+    console.log("INFO QUE SE ENVIA");
+    console.log(dataSend);
 
-
-    //alert("ffsfsdfsd");
     $.ajax({
         type: 'post',
         url: "Controller/" + url + ".php",
@@ -107,6 +136,7 @@ function Execute(dataSend, url, before, success) {
         },
         data: dataSend,
         success: function (data) {
+            console.log("RESPUESTA DEL SERVER");
             console.log(data);
             //document.write(data);
             //alert(data);
@@ -115,13 +145,15 @@ function Execute(dataSend, url, before, success) {
             /*Se reemplaza cualquier tipo de ENTER se que encuentre, ya que esto 
              * afecta la estructura del JSON*/
             var info = eval("(" + data.replace(/\n/ig, "") + ")");
+
             var response = (info.res !== undefined) ? info.res : info[0].res;
             var msg = (info.msg !== undefined) ? info.msg : "";
+
             switch (response) {
 
                 case "Success":
                     /*Funcion que refresca la pagina*/
-                    showToast(info.msg, "success");
+                    showToast(msg, "success");
 
                     if (success !== "") {
                         /*Si en la estructura enviada se tienen datos, entonces
@@ -187,12 +219,12 @@ function ExecuteNewTab(dataSend, url) {
  * sus valores a un array para ser enviados por post. Adicionalmente añade por 
  * defecto el valor type mandado por parametro 
  * @param {String} type : Accion que se ejecutara en el server
+ * @param {Boolean} status : Determina si escanea los campos del formulario
  * @param {String} form : Id del formulario donde se encuentran los inputs
  * @param {Array} dataPlus : Array de arrays con datos adicionales, la primera posicion
  * de cada objeto en cada posicion del array padre, es el nombre que se le asignara
  * a dichos datos. Recordar que el array padre se llamara datos, por lo que se debe mandar
- * el parametro asi [{datos: arrayQueSeManda }]
- * @param {Boolean} status : Determina si escanea los campos del formulario
+ * el parametro asi [{datos: arrayQueSeManda }] 
  * @returns {Object} Objeto o array nombrado que se enviara por POST
  * @author Johnny Alexander Salazar
  * @version 0.5
@@ -239,25 +271,35 @@ function scanInfo(type, status, form, dataPlus) {
                 }
 
                 /*Escanea todos los datos adicionados*/
-                while (valTemp.length > 0) {
-                    var nombreData = valTemp.shift();
-                    var data = valTemp.shift();
-                    arrayParameters.push(newArg(nombreData, data));
-                }
+                var nombreData = valTemp.shift();
+                arrayParameters.push(newArg(nombreData, valTemp.toString()));
+
+                /*
+                 while (valTemp.length > 0) {
+                 var nombreData = valTemp.shift();
+                 var data = valTemp.shift();
+                 arrayParameters.push(newArg(nombreData, data));
+                 }*/
             }
         }
 
     }
 
-    //alert(arrayToObject(arrayParameters));
+    //console.log(arrayToObject(arrayParameters));
     return arrayToObject(arrayParameters);
 }
 
 
 
 
-
-
+/**
+ * Codifica un archivo a base64
+ * @param {String} file : Pendiente de documentacion
+ * @param {Boolean} callback : Pendiente de documentacion
+ * @returns {Object} Pendiente de documentacion
+ * @author Johnny Alexander Salazar
+ * @version 0.2
+ */
 function base64(file, callback) {
 
     var coolFile = {};
@@ -391,7 +433,7 @@ function buildPaginatorFilter(info) {
  */
 function buildSelect(info, idSelect) {
 
-    //alert(info);
+    console.log(info);
 
     var combo = document.getElementById(idSelect);
 
@@ -427,15 +469,16 @@ function refreshSelect(id, val) {
  * validos o no, si no son validos muestra un mensaje emergente con los campos
  * que se solicita que sean llenados
  * @param {String} form id del formulario
+ * @param {String} modal id del modal
  * @returns {boolean} true si es correctamente validado, false si tiene errores
  * en la validacion
  * @author Johnny Alexander Salazar
  * @version 0.3
  */
-function validateForm(form) {
+function validateForm(form, modal) {
     var status = true;
     form = defualtForm(form);
-
+    modal = DefaultModal();
 
     var campos = '#' + form + ' :input,\n\
                  #' + form + ' select, \n\
@@ -466,7 +509,7 @@ function validateForm(form) {
     });
 
     if (!status) {
-        showToast("Ingrese o valide los datos requeridos", "error");
+        showToast("Ingrese o valide los datos requeridos", "error", modal);
     }
 
     return status;
@@ -631,14 +674,21 @@ function BuildMenu(data) {
 /**
  * Cierra el modal que se especique
  * @param {String} idModal id del modal a cerrar
+ * @param {Boolean} clean indica si no se deben limpiar el formulario, si no 
+ *                  se desea limpiar el formulario mandar false, si se manda true 
+ *                  o no se manda nada, se entendera que SI se quiere limpiar el
+ *                  formulario.
  * @returns {void}
  * @author Johnny Alexander Salazar
- * @version 0.1
+ * @version 0.2
  */
-function closeWindow(idModal) {
+function closeWindow(idModal, clean) {
     idModal = DefaultModal(idModal);
     $('#' + idModal).modal('hide');
-    cleanForm(idModal);
+
+    if (typeof clean === "undefined" || clean === true) {
+        cleanForm(idModal);
+    }
 }
 
 
@@ -648,13 +698,13 @@ function closeWindow(idModal) {
  * @param {String} open id del modal a abrir
  * @returns {void}
  * @author Johnny Alexander Salazar
- * @version 0.1
+ * @version 0.2
  */
 function goNavigation(close, open) {
     $('#' + close).modal('hide');
     setTimeout(function () {
         $('#' + open).modal({
-            backdrop: 'static',
+            backdrop: false,
             keyboard: false
         });
     }, 400);

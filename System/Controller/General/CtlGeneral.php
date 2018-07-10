@@ -7,7 +7,7 @@ include '../../Helper/Action/Load.php';
 
 /*RECEPCION DE DATOS*/
 $action = (isset($_REQUEST['action']) ? $_REQUEST['action'] : "");
-$id = (isset($_POST['id']) ? $_POST['id'] : "");
+$id = (isset($_REQUEST['id']) ? $_REQUEST['id'] : "");
 
 /*DEFINICION DE OBJETOS*/
 $obj = new GeneralDTO($id);

@@ -31,7 +31,7 @@ class MenuDAO {
         $padresHijos = $this->FindSon($padres, $data);
         //Se construye el menu
         $menu = $this->BuildMenu($padresHijos);
-        echo $menu;
+        echo $menu;        
     }
 
     /**

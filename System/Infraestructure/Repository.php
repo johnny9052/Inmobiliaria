@@ -247,7 +247,7 @@ class Repository extends Internationalization {
 
 
         if (isset($vec)) {
-            return(json_encode($vec));
+            return(json_encode($vec,JSON_UNESCAPED_UNICODE));
         } else {
             echo ' {
                 "res" : ' . $this->getOperationError() . '

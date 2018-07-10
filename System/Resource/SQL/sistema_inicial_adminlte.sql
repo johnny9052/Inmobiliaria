@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 15-02-2018 a las 22:36:31
+-- Tiempo de generación: 30-11-2017 a las 16:09:50
 -- Versión del servidor: 5.6.12-log
 -- Versión de PHP: 5.4.16
 
@@ -26,14 +26,6 @@ DELIMITER $$
 --
 -- Procedimientos
 --
-CREATE DEFINER=`root`@`localhost` PROCEDURE `listnoticia`(iduser int)
-    COMMENT 'Procedimiento que lista los roles de un determinado usuario'
-BEGIN
-   select id,titulo as titulo_noticia,descripcion ,fecha,foto as ruta_foto,video as ruta_video
-   from noticia
-   order by fecha;
-END$$
-
 CREATE DEFINER=`root`@`localhost` PROCEDURE `listrol`(iduser int)
     COMMENT 'Procedimiento que lista los roles de un determinado usuario'
 BEGIN
@@ -117,17 +109,6 @@ BEGIN
    where password=pass and usuario=usu;		
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `searchnoticia`(idnoticia int)
-    COMMENT 'Procedimiento que carga la informacion de una noticia'
-BEGIN
- 
-	
-	select id,titulo,descripcion, fecha,foto,video
-	from noticia
-	where id = idnoticia;
-	
-END$$
-
 CREATE DEFINER=`root`@`localhost` PROCEDURE `searchrol`(idrol int)
     COMMENT 'Procedimiento que carga la informacion de un rol'
 BEGIN
@@ -153,17 +134,6 @@ END$$
 --
 -- Funciones
 --
-CREATE DEFINER=`root`@`localhost` FUNCTION `deletenoticia`(vid INT) RETURNS int(1)
-    READS SQL DATA
-    DETERMINISTIC
-    COMMENT 'Funcion que elimina una noticia'
-BEGIN 
-    DECLARE res INT DEFAULT 0;
-    DELETE FROM noticia WHERE id = vid;
-SET res = 1;
-	RETURN res;
-END$$
-
 CREATE DEFINER=`root`@`localhost` FUNCTION `deleterol`(cod INT) RETURNS int(1)
     READS SQL DATA
     DETERMINISTIC
@@ -184,24 +154,6 @@ BEGIN
     DELETE FROM usuario WHERE id = vid;
 SET res = 1;
 	RETURN res;
-END$$
-
-CREATE DEFINER=`root`@`localhost` FUNCTION `savenoticia`(`cod` INT, `titl` VARCHAR(200), `des` VARCHAR(10000), `fech` VARCHAR(20), `phot` VARCHAR(2000), `vid` VARCHAR(500)) RETURNS int(1)
-    READS SQL DATA
-    DETERMINISTIC
-    COMMENT 'Funcion que almacena una noticia'
-BEGIN 
-    DECLARE res INT DEFAULT 0;
-    
-IF NOT EXISTS(select titulo from noticia where titulo=titl)
-		THEN
-			insert into noticia(titulo,descripcion,fecha,foto,video) values(titl,des,fech,phot,vid);	
-			set res = 1;							
-			
-		END IF;
-
-	RETURN res;
-	
 END$$
 
 CREATE DEFINER=`root`@`localhost` FUNCTION `saverol`(cod INT,nom varchar(50),des varchar(2000)) RETURNS int(1)
@@ -243,26 +195,6 @@ IF NOT EXISTS(select usuario from usuario where usuario=vuser)
 
 	RETURN res;
 	
-	
-
-END$$
-
-CREATE DEFINER=`root`@`localhost` FUNCTION `updatenoticia`(`cod` INT, `titl` VARCHAR(200), `des` VARCHAR(10000), `fech` VARCHAR(20), `phot` VARCHAR(2000), `vid` VARCHAR(500)) RETURNS int(1)
-    READS SQL DATA
-    DETERMINISTIC
-    COMMENT 'Funcion que modifica una noticia'
-BEGIN 
-    DECLARE res INT DEFAULT 0;
-    
-IF NOT EXISTS(select titulo from noticia where titulo=titl and id<>cod)
-		THEN
-			update noticia set titulo = titl,descripcion = des, fecha = fech,foto = phot, video = vid
-                        where id = cod;		
-			set res=1;
-														
-		END IF;
-
-	RETURN res;
 	
 
 END$$
@@ -357,20 +289,19 @@ CREATE TABLE IF NOT EXISTS `menu` (
   `prioridad` int(11) DEFAULT NULL,
   `icono` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Volcado de datos para la tabla `menu`
 --
 
 INSERT INTO `menu` (`id`, `nombre`, `codigo`, `padre`, `descripcion`, `prioridad`, `icono`) VALUES
-(1, 'Parametrizacion', NULL, -1, NULL, 4, 'fa-gear'),
-(2, 'Configuracion', NULL, -1, NULL, 3, 'fa-group'),
+(1, 'Parametrizacion', NULL, -1, NULL, 4, 'fa-home'),
+(2, 'Configuracion', NULL, -1, NULL, 3, 'fa-gear'),
 (3, 'Roles', 'Configuration/Rol', 2, NULL, 1, ''),
 (4, 'Usuarios', 'Configuration/User', 2, NULL, 2, ''),
 (5, 'Inicio', NULL, -1, NULL, 1, 'fa-home'),
-(6, 'Permisos', 'Configuration/Permission', 2, NULL, 3, ''),
-(7, 'Noticias', 'Parameterized/New', 1, NULL, 1, '');
+(6, 'Permisos', 'Configuration/Permission', 2, NULL, 3, '');
 
 -- --------------------------------------------------------
 
@@ -390,36 +321,11 @@ CREATE TABLE IF NOT EXISTS `menu_rol` (
 --
 
 INSERT INTO `menu_rol` (`idrol`, `idmenu`) VALUES
-(85, 3),
-(85, 6),
 (1, 3),
 (1, 4),
 (1, 6),
-(1, 7);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `noticia`
---
-
-CREATE TABLE IF NOT EXISTS `noticia` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `titulo` varchar(200) DEFAULT NULL,
-  `descripcion` varchar(10000) DEFAULT NULL,
-  `fecha` varchar(20) DEFAULT NULL,
-  `foto` varchar(2000) DEFAULT NULL,
-  `video` varchar(500) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Volcado de datos para la tabla `noticia`
---
-
-INSERT INTO `noticia` (`id`, `titulo`, `descripcion`, `fecha`, `foto`, `video`) VALUES
-(1, 'Noticia 1 de prueba', 'Contenido de la noticia 1', '02/21/2018', '', 'esta es la url del video'),
-(2, 'Noticia 2 ', 'contenido de la noticia 2', '02/21/2018', '../../Resource/Images/News/Noticia 2 20180214210514.jpg', 'sfsdfdsd');
+(85, 3),
+(85, 6);
 
 -- --------------------------------------------------------
 
@@ -432,7 +338,7 @@ CREATE TABLE IF NOT EXISTS `rol` (
   `nombre` varchar(50) DEFAULT NULL,
   `descripcion` varchar(2000) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=86 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=129 ;
 
 --
 -- Volcado de datos para la tabla `rol`
@@ -460,7 +366,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `descripcion` varchar(2000) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `usuario_rol_fkey` (`rol`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Volcado de datos para la tabla `usuario`
@@ -468,7 +374,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 
 INSERT INTO `usuario` (`id`, `primer_nombre`, `segundo_nombre`, `primer_apellido`, `segundo_apellido`, `usuario`, `password`, `rol`, `descripcion`) VALUES
 (1, 'Johnny', 'Alexander', 'Salazar', 'Cardona', 'johnny9052', 'df5be1862ca6bf8589cf799004248e87', 1, ''),
-(2, 'David', 'Alberto', 'Angarita', 'Garcia', 'David', 'e10adc3949ba59abbe56e057f20f883e', 1, 'Es un gran programador jajajajajaaj');
+(2, 'David', '', 'Angarita', '', 'loquita', '202cb962ac59075b964b07152d234b70', 85, 'es una loquita');
 
 --
 -- Restricciones para tablas volcadas
@@ -478,8 +384,8 @@ INSERT INTO `usuario` (`id`, `primer_nombre`, `segundo_nombre`, `primer_apellido
 -- Filtros para la tabla `menu_rol`
 --
 ALTER TABLE `menu_rol`
-  ADD CONSTRAINT `menu_rol_ibfk_1` FOREIGN KEY (`idrol`) REFERENCES `rol` (`id`),
-  ADD CONSTRAINT `menu_rol_ibfk_2` FOREIGN KEY (`idmenu`) REFERENCES `menu` (`id`);
+  ADD CONSTRAINT `menu_rol_ibfk_2` FOREIGN KEY (`idmenu`) REFERENCES `menu` (`id`),
+  ADD CONSTRAINT `menu_rol_ibfk_1` FOREIGN KEY (`idrol`) REFERENCES `rol` (`id`);
 
 --
 -- Filtros para la tabla `usuario`

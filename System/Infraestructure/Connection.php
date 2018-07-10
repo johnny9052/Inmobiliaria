@@ -23,11 +23,12 @@ class Connection {
     public function connect() {
         $this->userbd = "root";
         $this->passworddb = "admin";
-        $this->database = "inmobiliaria";        
+        $this->database = "inmobiliaria";
         $this->host = "localhost";
 
         try {
-            $this->connect = new PDO("mysql:host=$this->host;dbname=$this->database", $this->userbd, $this->passworddb);
+            /*Ultima linea de UTF8 es para evitar problemas con las acentuaciones y las Ñ*/
+            $this->connect = new PDO("mysql:host=$this->host;dbname=$this->database", $this->userbd, $this->passworddb, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
             // set the PDO error mode to exception
             $this->connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             //echo "Connected successfully";
@@ -35,8 +36,7 @@ class Connection {
             echo "Connection failed: " . $e->getMessage();
         }
     }
-    
-    
+
     public function getConnect() {
         return $this->connect;
     }

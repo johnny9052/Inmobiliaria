@@ -39,7 +39,6 @@ function update() {
         }
     });
 
-
     if (validateForm() === true) {
         Execute(scanInfo('update', true, '', [{datos: temp}]), 'Configuration/CtlPermission', '', 'closeWindow();list();');
     }

@@ -15,29 +15,9 @@ function ExecuteActionLoad($action, $obj, $dao) {
             $dao->LoadSelect($obj, "loadrol");
             break;
 
-        case "loadAmargor":
-            $dao->LoadSelect($obj, "loadamargor");
-            break;
 
-        case "loadTypeInventary":
-            $dao->LoadSelect($obj, "loadtypeinventary");
-            break;
-
-        case "loadBeerType":
-            $dao->LoadSelect($obj, "loadbeertype");
-            break;
-
-        case "loadClientType":
-            $dao->LoadSelect($obj, "loadclienttype");
-            break;
-
-        case "loadTypeExpense":
-            $dao->LoadSelect($obj, "loadexpensetype");
-            break;
-
-
-        case "loadBeerTypeStock":
-            $dao->LoadSelect($obj, "loadbeertypestock");
+        case "loadTipoIdentificacion":
+            $dao->LoadSelect($obj, "loadtipoidentificacion");
             break;
 
         case "loadDepartment":
@@ -48,8 +28,26 @@ function ExecuteActionLoad($action, $obj, $dao) {
             $dao->LoadSelect($obj, "loadcity");
             break;
 
+
+        case "loadGender":
+            $dao->LoadSelect($obj, "loadgender");
+            break;
+        
+        
+        case "loadClientType":
+            $dao->LoadSelect($obj, "loadclientType");
+            break;
+        
+        case "loadProfessionNivel":
+            $dao->LoadSelect($obj, "loadprofessionnivel");
+            break;
+        
+         case "loadProfession":
+            $dao->LoadSelect($obj, "loadprofession");
+            break;
+
         /* End load selects */
- 
+
 
         default :
             echo 'No action found';
