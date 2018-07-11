@@ -489,7 +489,7 @@ function validateForm(form, modal) {
 
         /*Si es un select se valida que no sea -1*/
         if (elemento.type === "select-one") {
-            if (elemento.value === "-1") { //es valido?   
+            if (elemento.value === "-1" && $(elemento).prop('required')) { //es valido?   
                 $(elemento).parent().closest('div').addClass("has-error");
                 //$(elemento.id).addClass("invalid");
                 status = false; // si no es valido retorne falso                               

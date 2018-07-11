@@ -130,8 +130,8 @@ and open the template in the editor.
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Departamento de expedicion</label>
-                                    <select id="selStateExpedition" name="stateExpedition" required 
-                                            class="form-control select2" style="width: 100%;" 
+                                    <select id="selStateExpedition" name="stateExpedition" 
+                                            class="form-control select2" style="width: 100%;"  
                                             onchange="loadCity(this.value)">
                                         <option value="-1" selected> -- SELECCIONE --</option>                            
                                     </select>
@@ -247,7 +247,7 @@ and open the template in the editor.
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="txtAddress">Direccion</label>                                    
-                                    <input id="txtUser" name="address" class="form-control" type="text" value="" autocomplete="off" required
+                                    <input id="txtAddress" name="address" class="form-control" type="text" value="" autocomplete="off" required
                                            placeholder="Direccion de residencia">
                                 </div>
                             </div>                                                
@@ -301,7 +301,7 @@ and open the template in the editor.
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Departamento de residencia</label>
-                                    <select id="selStateResidence" name="stateResidence" required 
+                                    <select id="selStateResidence" name="stateResidence"  
                                             class="form-control select2" style="width: 100%;" 
                                             onchange="loadCityResidence(this.value);">
                                         <option value="-1" selected> -- SELECCIONE --</option>                            
@@ -328,7 +328,7 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <label>Nivel de profesion</label>
                                     <select id="selProfessionNivel" name="professionNivel" 
-                                            required class="form-control select2" style="width: 100%;" 
+                                             class="form-control select2" style="width: 100%;" 
                                             onchange="loadProfession(this.value);">
                                         <option value="-1" selected> -- SELECCIONE --</option>                            
                                     </select>

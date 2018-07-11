@@ -68,7 +68,7 @@ function save() {
 }
 
 function list() {
-    //Execute(scanInfo('list'), 'Client/CtlClient', '', 'buildPaginator(info);');
+    Execute(scanInfo('list'), 'Client/CtlClient', '', 'buildPaginator(info);');
 }
 
 
@@ -80,13 +80,23 @@ function search(id) {
 
 function showData(info) {
     $("#txtId").val(info[0].id);
+    $("#txtDocumentNumber").val(info[0].cedula);
     $("#txtFirstName").val(info[0].primer_nombre);
     $("#txtSecondName").val(info[0].segundo_nombre);
     $("#txtFirstLastName").val(info[0].primer_apellido);
-    $("#txtSecondLastName").val(info[0].segundo_apellido);
-    $("#txtClient").val(info[0].usuario);
-    refreshSelect("selRol", info[0].rol);
-    $("#txtDescription").val(info[0].descripcion);
+    $("#txtSecondLastName").val(info[0].segundo_apellido);    
+    $("#txtAddress").val(info[0].direccion);
+    $("#txtHomePhone").val(info[0].telefono);
+    $("#txtMobilePhone").val(info[0].celular);
+    $("#txtEmail").val(info[0].email);
+    refreshSelect("selGender", info[0].genero);    
+    $("#txtBirthdate").val(info[0].fecha);
+    refreshSelect("selCityResidence", info[0].id_ciudad_residencia);
+    refreshSelect("selDocumentType", info[0].id_tipo_identificacion);
+    refreshSelect("selCityExpedition", info[0].id_ciudad_expedicion);    
+    refreshSelect("selMaritalStatus", info[0].estado_civil);    
+    refreshSelect("selProfession", info[0].id_profesion);
+    refreshSelect("selPersonType", info[0].id_tipo_persona);
     openWindow();
     showButton(false);
 }

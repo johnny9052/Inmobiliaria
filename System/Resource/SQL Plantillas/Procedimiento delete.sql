@@ -1,3 +1,5 @@
+DROP PROCEDURE IF EXISTS deleteclient;
+
 DELIMITER //
 CREATE FUNCTION deleteclient(vid INT) RETURNS INT( 1 ) 
 COMMENT  'Funcion que elimina un cliente'

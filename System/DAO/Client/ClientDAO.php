@@ -45,7 +45,7 @@ class ClientDAO {
      * @version 0.1
      */
     public function ListAll(ClientDTO $obj) {
-        $query = $this->repository->buildQuery("listuser", array((int) $obj->getIdClient()));
+        $query = $this->repository->buildQuery("listclient", array((int) $obj->getId()));
         $this->repository->BuildPaginatorDataTable($query, '');
     }
 
@@ -57,7 +57,7 @@ class ClientDAO {
      * @version 0.1
      */
     public function Search(ClientDTO $obj) {
-        $query = $this->repository->buildQuery("searchuser", array((int) $obj->getId()));
+        $query = $this->repository->buildQuery("searchclient", array((int) $obj->getId()));
         $this->repository->Execute($query);
     }
 
@@ -69,7 +69,7 @@ class ClientDAO {
      * @version 0.1
      */
     public function Update(ClientDTO $obj) {
-        $query = $this->repository->buildQuerySimply("updateuser", array((int) $obj->getId(),
+        $query = $this->repository->buildQuerySimply("updateclient", array((int) $obj->getId(),
             (string) $obj->getFirstName(), (string) $obj->getSecondName(),
             (string) $obj->getFirstLastName(), (string) $obj->getSecondLastName(),
             (string) $obj->getClient(), (string) md5($obj->getPassword()),
@@ -85,7 +85,7 @@ class ClientDAO {
      * @version 0.1
      */
     public function Delete(ClientDTO $obj) {
-        $query = $this->repository->buildQuerySimply("deleteuser", array((int) $obj->getId()));
+        $query = $this->repository->buildQuerySimply("deleteclient", array((int) $obj->getId()));
         $this->repository->ExecuteTransaction($query);
     }
 
