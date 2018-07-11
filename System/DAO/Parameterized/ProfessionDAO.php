@@ -37,7 +37,7 @@ class ProfessionDAO {
      */
     public function ListAll(ProfessionDTO $obj, $type) {
         $query = $this->repository->buildQuery("listprofession", array((int) $obj->getIdUser()));
-        $this->repository->BuildPaginatorDataTable($query, '');
+        $this->repository->BuildPaginatorDataTable($query, '', 50);
     }
 
     /**

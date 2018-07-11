@@ -255,11 +255,11 @@ class Repository extends Internationalization {
         }
     }
 
-    public function BuildPaginatorDataTable($query, $actionclick) {
+    public function BuildPaginatorDataTable($query, $actionclick, $maxPetition = null) {
 
         //Longitud maxima de los caracteres del listado
-        //$max = (isset($maxPetition)) ? $maxPetition : 25;
-        $max = 25;
+        $max = (is_null($maxPetition)) ? 25 : $maxPetition;
+        //$max = 25;
 
         /* Le asigno la consulta SQL a la conexion de la base de datos */
         $resultado = $this->objCon->getConnect()->prepare($query);
