@@ -57,6 +57,10 @@ function ExecuteActionLoad($action, $obj, $dao) {
         case "loadProfessionNivel":
             $dao->LoadSelect($obj, "loadprofessionnivel");
             break;
+        
+        case "loadTypeEmployee":
+            $dao->LoadSelect($obj, "loadtypeemployee");
+            break;
 
         /* End load selects */
 
