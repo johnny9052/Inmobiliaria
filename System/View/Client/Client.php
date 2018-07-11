@@ -260,7 +260,7 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <label for="txtHomePhone">Telefono fijo</label>                                    
                                     <input id="txtHomePhone" name="homePhone" class="form-control" type="number" value="" autocomplete="off" required
-                                           placeholder="Telefono fijo">
+                                           max="9999999999" maxlength="10" placeholder="Telefono fijo (Max 10 digitos)">
                                 </div>
                             </div>     
 
@@ -268,7 +268,7 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <label for="txtMobilePhone">Telefono celular</label>                                    
                                     <input id="txtMobilePhone" name="mobilePhone" class="form-control" type="number" value="" autocomplete="off" required
-                                           placeholder="Telefono celular">
+                                           max="9999999999" maxlength="10" placeholder="Telefono celular (Max 10 digitos)">
                                 </div>
                             </div>     
                         </div>
@@ -328,7 +328,7 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <label>Nivel de profesion</label>
                                     <select id="selProfessionNivel" name="professionNivel" 
-                                             class="form-control select2" style="width: 100%;" 
+                                            class="form-control select2" style="width: 100%;" 
                                             onchange="loadProfession(this.value);">
                                         <option value="-1" selected> -- SELECCIONE --</option>                            
                                     </select>

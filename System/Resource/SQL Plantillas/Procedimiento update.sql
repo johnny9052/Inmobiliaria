@@ -1,34 +1,41 @@
+DROP PROCEDURE IF EXISTS updateclient;
+
 DELIMITER //
-CREATE FUNCTION updateclient(vId int, vfirstname varchar(50), vsecondname varchar(50), vfirstlastname varchar(50), 
-vsecondlastname varchar(50), vDocumentType int, vDocumentNumber varchar(11), vCityExpedition int, vBirthdate varchar(50), 
-vClientType int,vAddress varchar(45), 
-vHomePhone varchar(10),vMobilePhone varchar(10), vEmail varchar(45), vGender int, vCityResidence int, vProfession int) RETURNS INT( 1 ) 
+CREATE FUNCTION updateclient(vid INT, vfirstname VARCHAR(50), vsecondname VARCHAR(50), 
+                          vfirstlastname VARCHAR(50), vsecondlastname VARCHAR(50), 
+                          vDocumentType INT, vDocumentNumber VARCHAR(11), vCityExpedition INT, 
+                          vBirthdate VARCHAR(50), vClientType INT, vAddress VARCHAR(45), 
+                          vHomePhone VARCHAR(10), vMobilePhone VARCHAR(10), vEmail VARCHAR(45), 
+                          vGender INT, vCityResidence INT, vProfession INT, 
+                          vMaritalStatus INT, vPersonType INT) RETURNS INT( 1 ) 
 COMMENT  'Funcion que modifica un cliente'
 READS SQL DATA 
 DETERMINISTIC 
 BEGIN 
     DECLARE res INT DEFAULT 0;
     
-IF NOT EXISTS(select 1 from clientes where numeroIdentificacion =vDocumentNumber and id<>vId)
+IF NOT EXISTS(select 1 from clientes where numeroIdentificacion =vDocumentNumber and idCliente<>vId)
 		THEN
-			update clientes set primerNombreCliente = vfirstname, 
+			update clientes set numeroIdentificacion = vDocumentNumber,
+                                            primerNombreCliente = vfirstname, 
                                             segundoNombreCliente = vsecondname,
                                             primerApellidoCliente = vfirstlastname, 
                                             segundoApellidoCliente = vsecondlastname, 
-                                            tipoIdentificacion_idtipoIdentificacion = vDocumentType, 
-                                            numeroIdentificacion = vDocumentNumber,
-                                            ciudadExpedicion_idciudad = vCityExpedition, 
-                                            fechaNacimiento = vBirthdate, 
-                                            tipoPersonaCliente_idtipoPersonCliente = vClientType,
                                             direccionCliente = vAddress,
                                             telefonoFijoCliente = vHomePhone, 
                                             telefonoMovilCliente = vMobilePhone, 
                                             correoCliente = vEmail, 
-                                            generoCliente = vGender,                                             
+                                            fechaNacimiento = vBirthdate, 
                                             ciudadResidencia_idciudad = vCityResidence,                                                                                                                                     
-                                            profesiones_idprofesion = vProfession                                           
-                        where id = vId;		
+                                            tipoIdentificacion_idtipoIdentificacion = vDocumentType,                                             
+                                            ciudadExpedicion_idciudad = vCityExpedition, 
+                                            profesiones_idprofesion = vProfession,
+                                            tipoPersonaCliente_idtipoPersonCliente = vPersonType,
+                                            idEstadoCivil = vMaritalStatus,                                          
+                                            idGenero = vGender                                                                                                             
+                        where 	idCliente = vId;		
 			set res=1;
+                        
 														
 		END IF;
 

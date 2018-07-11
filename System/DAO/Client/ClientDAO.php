@@ -72,8 +72,13 @@ class ClientDAO {
         $query = $this->repository->buildQuerySimply("updateclient", array((int) $obj->getId(),
             (string) $obj->getFirstName(), (string) $obj->getSecondName(),
             (string) $obj->getFirstLastName(), (string) $obj->getSecondLastName(),
-            (string) $obj->getClient(), (string) md5($obj->getPassword()),
-            (int) $obj->getRol(), (string) $obj->getDescription()));
+            (int) $obj->getDocumentType(), (string) $obj->getDocumentNumber(),
+            (int) $obj->getCityExpedition(), (string) $obj->getBirthdate(),
+            (int) $obj->getClientType(), (string) $obj->getAddress(),
+            (string) $obj->getHomePhone(), (string) $obj->getMobilePhone(),
+            (string) $obj->getEmail(), (int) $obj->getGender(),
+            (int) $obj->getCityResidence(), (int) $obj->getProfession(),
+            (int) $obj->getMaritalStatus(), (int) $obj->getPersonType()));
         $this->repository->ExecuteTransaction($query);
     }
 
