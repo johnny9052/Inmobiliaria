@@ -32,18 +32,26 @@ function ExecuteActionLoad($action, $obj, $dao) {
         case "loadGender":
             $dao->LoadSelect($obj, "loadgender");
             break;
-        
-        
+
+
         case "loadClientType":
             $dao->LoadSelect($obj, "loadclientType");
             break;
-        
+
         case "loadProfessionNivel":
             $dao->LoadSelect($obj, "loadprofessionnivel");
             break;
-        
-         case "loadProfession":
+
+        case "loadProfession":
             $dao->LoadSelect($obj, "loadprofession");
+            break;
+
+        case "loadMaritalStatus":
+            $dao->LoadSelect($obj, "loadmaritalstatus");
+            break;
+
+        case "loadPersonType":
+            $dao->LoadSelect($obj, "loadpersontype");
             break;
 
         /* End load selects */

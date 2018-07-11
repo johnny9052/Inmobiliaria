@@ -24,12 +24,14 @@ $email = getInfoClient('email');
 $gender = getInfoClient('gender');
 $cityResidence = getInfoClient('cityResidence');
 $profession = getInfoClient('profession');
+$maritalStatus = getInfoClient('maritalStatus');
+$personType = getInfoClient('personType');
 
 
 $birthdate = date("Y-m-d", strtotime($birthdate));
 
 /* DEFINICION DE OBJETOS */
-$obj = new ClientDTO($id, $firstName, $secondName, $firstLastName, $secondLastName, $documentType, $documentNumber, $cityExpedition, $birthdate, $clientType, $address, $homePhone, $mobilePhone, $email, $gender, $cityResidence, $profession);
+$obj = new ClientDTO($id, $firstName, $secondName, $firstLastName, $secondLastName, $documentType, $documentNumber, $cityExpedition, $birthdate, $clientType, $address, $homePhone, $mobilePhone, $email, $gender, $cityResidence, $profession, $maritalStatus, $personType);
 $dao = new ClientDAO();
 
 /* CONTROL DE ACCIONES */

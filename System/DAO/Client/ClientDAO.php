@@ -24,7 +24,6 @@ class ClientDAO {
      */
     public function Save(ClientDTO $obj) {
         $query = $this->repository->buildQuerySimply("saveclient", array((int) $obj->getId(),
-            
             (string) $obj->getFirstName(), (string) $obj->getSecondName(),
             (string) $obj->getFirstLastName(), (string) $obj->getSecondLastName(),
             (int) $obj->getDocumentType(), (string) $obj->getDocumentNumber(),
@@ -32,7 +31,9 @@ class ClientDAO {
             (int) $obj->getClientType(), (string) $obj->getAddress(),
             (string) $obj->getHomePhone(), (string) $obj->getMobilePhone(),
             (string) $obj->getEmail(), (int) $obj->getGender(),
-            (int) $obj->getCityResidence(), (int) $obj->getProfession()));
+            (int) $obj->getCityResidence(), (int) $obj->getProfession(),
+            (int) $obj->getMaritalStatus(), (int) $obj->getPersonType()
+        ));
         $this->repository->ExecuteTransaction($query);
     }
 

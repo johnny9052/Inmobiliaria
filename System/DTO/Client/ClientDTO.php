@@ -21,8 +21,10 @@ class ClientDTO extends BaseDTO {
     private $gender;
     private $cityResidence;
     private $profession;
+    private $maritalStatus;
+    private $personType;
 
-    function __construct($id, $firstName, $secondName, $firstLastName, $secondLastName, $documentType, $documentNumber, $cityExpedition, $birthdate, $clientType, $address, $homePhone, $mobilePhone, $email, $gender, $cityResidence, $profession) {
+    function __construct($id, $firstName, $secondName, $firstLastName, $secondLastName, $documentType, $documentNumber, $cityExpedition, $birthdate, $clientType, $address, $homePhone, $mobilePhone, $email, $gender, $cityResidence, $profession, $maritalStatus, $personType) {
         $this->id = $id;
         $this->firstName = $firstName;
         $this->secondName = $secondName;
@@ -40,6 +42,8 @@ class ClientDTO extends BaseDTO {
         $this->gender = $gender;
         $this->cityResidence = $cityResidence;
         $this->profession = $profession;
+        $this->maritalStatus = $maritalStatus;
+        $this->personType = $personType;
     }
 
     function getId() {
@@ -110,6 +114,14 @@ class ClientDTO extends BaseDTO {
         return $this->profession;
     }
 
+    function getMaritalStatus() {
+        return $this->maritalStatus;
+    }
+
+    function getPersonType() {
+        return $this->personType;
+    }
+
     function setId($id) {
         $this->id = $id;
     }
@@ -176,6 +188,14 @@ class ClientDTO extends BaseDTO {
 
     function setProfession($profession) {
         $this->profession = $profession;
+    }
+
+    function setMaritalStatus($maritalStatus) {
+        $this->maritalStatus = $maritalStatus;
+    }
+
+    function setPersonType($personType) {
+        $this->personType = $personType;
     }
 
 }

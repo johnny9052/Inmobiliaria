@@ -247,7 +247,7 @@ class Repository extends Internationalization {
 
 
         if (isset($vec)) {
-            return(json_encode($vec,JSON_UNESCAPED_UNICODE));
+            return(json_encode($vec, JSON_UNESCAPED_UNICODE));
         } else {
             echo ' {
                 "res" : ' . $this->getOperationError() . '
@@ -445,7 +445,7 @@ class Repository extends Internationalization {
             $cadenaHTML = "<page>";
             $cadenaHTML .= '<link href="../../Resource/Style/estilosPDF.css" type="text/css" rel="stylesheet">';
             $cadenaHTML .= "<div><img class='logo' src='../../../Resources/public/image/logo.png'></div><br><br>";
-            
+
             if ($vec[0][4] != '' && $vec[0][4] != null) {
                 $cadenaHTML .= "<div><img class='imgNoticia' id='imgNoticia' src='../../../" . $vec[0][4] . "'></div>";
             }

@@ -6,6 +6,11 @@ $(window).on("load", function (e) {
     loadClientType();
     loadGender();
     loadProfessionNivel();
+    loadCity(-1);
+    loadCityResidence(-1);
+    loadProfession(-1);
+    loadMaritalStatus();
+    loadPersonType();
 });
 
 
@@ -45,7 +50,17 @@ function loadProfession(id) {
     Execute(scanInfo('loadProfession', false, '', [{datos: ["id", id]}]), 'General/CtlGeneral', '', 'buildSelect(info,"selProfession");');
 }
 
-function save() {    
+
+
+function loadMaritalStatus() {
+    Execute(scanInfo('loadMaritalStatus', false), 'General/CtlGeneral', '', 'buildSelect(info,"selMaritalStatus");');
+}
+
+function loadPersonType() {
+    Execute(scanInfo('loadPersonType', false), 'General/CtlGeneral', '', 'buildSelect(info,"selPersonType");');
+}
+
+function save() {
     if (validateForm() === true) {
         Execute(scanInfo('save', true), 'Client/CtlClient', '', 'closeWindow();list();');
     }
@@ -53,7 +68,7 @@ function save() {
 }
 
 function list() {
-    Execute(scanInfo('list'), 'Client/CtlClient', '', 'buildPaginator(info);');
+    //Execute(scanInfo('list'), 'Client/CtlClient', '', 'buildPaginator(info);');
 }
 
 

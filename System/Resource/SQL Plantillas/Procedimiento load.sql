@@ -1,21 +1,21 @@
-DROP PROCEDURE IF EXISTS loadgender;
+DROP PROCEDURE IF EXISTS loadpersontype;
 
 DELIMITER //
-CREATE PROCEDURE loadgender (IN idfilter INT)
-    COMMENT 'Procedimiento que carga los generos'
+CREATE PROCEDURE loadpersontype (IN idfilter INT)
+    COMMENT 'Procedimiento que carga los tipos de persona'
 BEGIN
  
 	IF idfilter > -1 THEN
 	
-		select 	idGenero as id,nombreGenero as nombre
-		from generos                
-		ORDER BY nombreGenero;
+		select idtipoPersonCliente  as id,nombreTipoPersonaCliente  as nombre
+		from tipoPersonaCliente                
+		ORDER BY nombreTipoPersonaCliente;
 		
         ELSE	
 	
-		select 	idGenero as id,nombreGenero as nombre
-		from generos                       
-		ORDER BY nombreGenero;
+		select idtipoPersonCliente  as id,nombreTipoPersonaCliente  as nombre
+		from tipoPersonaCliente                
+		ORDER BY nombreTipoPersonaCliente;
 	
         END IF;
 END//
