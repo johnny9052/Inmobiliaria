@@ -6,86 +6,85 @@
  * @author Johnny Alexander Salazar
  * @version 0.1
  */
-class ClientDAO {
+class EmployeeDAO {
 
     private $repository;
 
-    function ClientDAO() {
+    function EmployeeDAO() {
         require_once '../../Infraestructure/Repository.php';
         $this->repository = new Repository();
     }
 
     /**
      * Ejecuta un guardar en la base de datos
-     * @param ClientDTO $obj 
+     * @param EmployeeDTO $obj 
      * @return void      
      * @author Johnny Alexander Salazar
      * @version 0.1
      */
-    public function Save(ClientDTO $obj) {
-        $query = $this->repository->buildQuerySimply("saveclient", array((int) $obj->getId(),
+    public function Save(EmployeeDTO $obj) {
+        $query = $this->repository->buildQuerySimply("saveemployee", array((int) $obj->getId(),
             (string) $obj->getFirstName(), (string) $obj->getSecondName(),
             (string) $obj->getFirstLastName(), (string) $obj->getSecondLastName(),
-            (int) $obj->getDocumentType(), (string) $obj->getDocumentNumber(),
-            (int) $obj->getCityExpedition(), (string) $obj->getBirthdate(),
-            (int) $obj->getClientType(), (string) $obj->getAddress(),
+            (string) $obj->getDocumentNumber(),(string) $obj->getBirthdate(),
+            (int) $obj->getTypeEmployee(), (string) $obj->getAddress(),
             (string) $obj->getHomePhone(), (string) $obj->getMobilePhone(),
             (string) $obj->getEmail(), (int) $obj->getGender(),
             (int) $obj->getCityResidence(), (int) $obj->getProfession(),
-            (int) $obj->getMaritalStatus(), (int) $obj->getPersonType()
+            (int) $obj->getMaritalStatus()
         ));
         $this->repository->ExecuteTransaction($query);
     }
 
     /**
      * Ejecuta un listar en la base de datos
-     * @param ClientDTO $obj 
+     * @param EmployeeDTO $obj 
      * @return void      
      * @author Johnny Alexander Salazar
      * @version 0.1
      */
-    public function ListAll(ClientDTO $obj) {
-        $query = $this->repository->buildQuery("listclient", array((int) $obj->getId()));
+    public function ListAll(EmployeeDTO $obj) {
+        $query = $this->repository->buildQuery("listemployee", array((int) $obj->getId()));
         $this->repository->BuildPaginatorDataTable($query, '');
     }
 
     /**
      * Ejecuta un buscar en la base de datos
-     * @param ClientDTO $obj 
+     * @param EmployeeDTO $obj 
      * @return void      
      * @author Johnny Alexander Salazar
      * @version 0.1
      */
-    public function Search(ClientDTO $obj) {
-        $query = $this->repository->buildQuery("searchclient", array((int) $obj->getId()));
+    public function Search(EmployeeDTO $obj) {
+        $query = $this->repository->buildQuery("searchemployee", array((int) $obj->getId()));
         $this->repository->Execute($query);
     }
 
     /**
      * Ejecuta un actualizar en la base de datos
-     * @param ClientDTO $obj 
+     * @param EmployeeDTO $obj 
      * @return void      
      * @author Johnny Alexander Salazar
      * @version 0.1
      */
-    public function Update(ClientDTO $obj) {
-        $query = $this->repository->buildQuerySimply("updateclient", array((int) $obj->getId(),
+    public function Update(EmployeeDTO $obj) {
+        $query = $this->repository->buildQuerySimply("updateemployee", array((int) $obj->getId(),
             (string) $obj->getFirstName(), (string) $obj->getSecondName(),
             (string) $obj->getFirstLastName(), (string) $obj->getSecondLastName(),
-            (string) $obj->getClient(), (string) md5($obj->getPassword()),
+            (string) $obj->getEmployee(), (string) md5($obj->getPassword()),
             (int) $obj->getRol(), (string) $obj->getDescription()));
         $this->repository->ExecuteTransaction($query);
     }
 
     /**
      * Ejecuta un borrar en la base de datos
-     * @param ClientDTO $obj 
+     * @param EmployeeDTO $obj 
      * @return void      
      * @author Johnny Alexander Salazar
      * @version 0.1
      */
-    public function Delete(ClientDTO $obj) {
-        $query = $this->repository->buildQuerySimply("deleteclient", array((int) $obj->getId()));
+    public function Delete(EmployeeDTO $obj) {
+        $query = $this->repository->buildQuerySimply("deleteemployee", array((int) $obj->getId()));
         $this->repository->ExecuteTransaction($query);
     }
 

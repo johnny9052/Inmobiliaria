@@ -2,50 +2,44 @@
 
 require_once ('../../DTO/BaseDTO.php');
 
-class ClientDTO extends BaseDTO {
+class EmployeeDTO extends BaseDTO {
 
     private $id;
     private $firstName;
     private $secondName;
     private $firstLastName;
     private $secondLastName;
-    private $documentType;
     private $documentNumber;
-    private $cityExpedition;
     private $birthdate;
-    private $clientType;
     private $address;
     private $homePhone;
     private $mobilePhone;
     private $email;
     private $gender;
+    private $typeEmployee;
     private $cityResidence;
     private $profession;
     private $maritalStatus;
-    private $personType;
+   
 
-    function __construct($id, $firstName, $secondName, $firstLastName, $secondLastName, $documentType, $documentNumber, $cityExpedition, $birthdate, $clientType, $address, $homePhone, $mobilePhone, $email, $gender, $cityResidence, $profession, $maritalStatus, $personType) {
+    function __construct($id, $firstName, $secondName, $firstLastName, $secondLastName, $documentNumber, $birthdate, $address, $homePhone, $mobilePhone, $email, $gender, $typeEmployee, $cityResidence, $profession, $maritalStatus) {
         $this->id = $id;
         $this->firstName = $firstName;
         $this->secondName = $secondName;
         $this->firstLastName = $firstLastName;
         $this->secondLastName = $secondLastName;
-        $this->documentType = $documentType;
         $this->documentNumber = $documentNumber;
-        $this->cityExpedition = $cityExpedition;
         $this->birthdate = $birthdate;
-        $this->clientType = $clientType;
         $this->address = $address;
         $this->homePhone = $homePhone;
         $this->mobilePhone = $mobilePhone;
         $this->email = $email;
         $this->gender = $gender;
+        $this->typeEmployee = $typeEmployee;
         $this->cityResidence = $cityResidence;
         $this->profession = $profession;
         $this->maritalStatus = $maritalStatus;
-        $this->personType = $personType;
     }
-
     function getId() {
         return $this->id;
     }
@@ -66,24 +60,12 @@ class ClientDTO extends BaseDTO {
         return $this->secondLastName;
     }
 
-    function getDocumentType() {
-        return $this->documentType;
-    }
-
     function getDocumentNumber() {
         return $this->documentNumber;
     }
 
-    function getCityExpedition() {
-        return $this->cityExpedition;
-    }
-
     function getBirthdate() {
         return $this->birthdate;
-    }
-
-    function getClientType() {
-        return $this->clientType;
     }
 
     function getAddress() {
@@ -106,6 +88,10 @@ class ClientDTO extends BaseDTO {
         return $this->gender;
     }
 
+    function getTypeEmployee() {
+        return $this->typeEmployee;
+    }
+
     function getCityResidence() {
         return $this->cityResidence;
     }
@@ -116,10 +102,6 @@ class ClientDTO extends BaseDTO {
 
     function getMaritalStatus() {
         return $this->maritalStatus;
-    }
-
-    function getPersonType() {
-        return $this->personType;
     }
 
     function setId($id) {
@@ -142,24 +124,12 @@ class ClientDTO extends BaseDTO {
         $this->secondLastName = $secondLastName;
     }
 
-    function setDocumentType($documentType) {
-        $this->documentType = $documentType;
-    }
-
     function setDocumentNumber($documentNumber) {
         $this->documentNumber = $documentNumber;
     }
 
-    function setCityExpedition($cityExpedition) {
-        $this->cityExpedition = $cityExpedition;
-    }
-
     function setBirthdate($birthdate) {
         $this->birthdate = $birthdate;
-    }
-
-    function setClientType($clientType) {
-        $this->clientType = $clientType;
     }
 
     function setAddress($address) {
@@ -182,6 +152,10 @@ class ClientDTO extends BaseDTO {
         $this->gender = $gender;
     }
 
+    function setTypeEmployee($typeEmployee) {
+        $this->typeEmployee = $typeEmployee;
+    }
+
     function setCityResidence($cityResidence) {
         $this->cityResidence = $cityResidence;
     }
@@ -194,8 +168,6 @@ class ClientDTO extends BaseDTO {
         $this->maritalStatus = $maritalStatus;
     }
 
-    function setPersonType($personType) {
-        $this->personType = $personType;
-    }
+
 
 }

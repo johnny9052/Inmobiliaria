@@ -1,14 +1,14 @@
 /* Funciones jQuery */
 $(window).on("load", function (e) {
-//    list();
-//    loadTipoIdentificacion();
-//    loadDepartment();
-//    loadGender();
-//    loadProfessionNivel();
-//    loadCity(-1);
-//    loadCityResidence(-1);
-//    loadProfession(-1);
-//    loadMaritalStatus();
+    list();
+    loadTipoIdentificacion();
+    loadDepartment();
+    loadGender();
+    loadProfessionNivel();
+    loadCity(-1);
+    loadCityResidence(-1);
+    loadProfession(-1);
+    loadMaritalStatus();
     loadTypeEmployee();
 });
 
@@ -22,7 +22,7 @@ function loadTipoIdentificacion() {
 
 
 function loadDepartment() {
-    Execute(scanInfo('loadDepartment', false), 'General/CtlGeneral', '', 'buildSelect(info,"selStateExpedition");buildSelect(info,"selStateResidence");');
+    Execute(scanInfo('loadDepartment', false), 'General/CtlGeneral', '', 'buildSelect(info,"selStateResidence");');
 }
 
 
@@ -36,8 +36,8 @@ function loadCityResidence(id) {
 }
 
 
-function loadClientType() {
-    Execute(scanInfo('loadClientType', false), 'General/CtlGeneral', '', 'buildSelect(info,"selClientType");');
+function loadEmployeeType() {
+    Execute(scanInfo('loadEmployeeType', false), 'General/CtlGeneral', '', 'buildSelect(info,"selEmployeeType");');
 }
 
 function loadGender() {
@@ -64,24 +64,26 @@ function loadPersonType() {
 
 function save() {
     if (validateForm() === true) {
-        Execute(scanInfo('save', true), 'Client/CtlClient', '', 'closeWindow();list();');
+        Execute(scanInfo('save', true), 'Employee/CtlEmployee', '', 'closeWindow();list();');
     }
 
 }
 
 function list() {
-    Execute(scanInfo('list'), 'Client/CtlClient', '', 'buildPaginator(info);');
+    Execute(scanInfo('list'), 'Employee/CtlEmployee', '', 'buildPaginator(info);');
 }
 
 
 function search(id) {
     $("#txtId").val(id);
-    Execute(scanInfo('search', true), 'Client/CtlClient', '', 'showData(info);');
+    Execute(scanInfo('search', true), 'Employee/CtlEmployee', '', 'showData(info);');
 }
 
 
 function showData(info) {
+        
     $("#txtId").val(info[0].id);
+    refreshSelect("selTypeEmployee", info[0].tipo_cliente);
     $("#txtDocumentNumber").val(info[0].cedula);
     $("#txtFirstName").val(info[0].primer_nombre);
     $("#txtSecondName").val(info[0].segundo_nombre);
@@ -94,11 +96,9 @@ function showData(info) {
     refreshSelect("selGender", info[0].genero);    
     $("#txtBirthdate").val(info[0].fecha);
     refreshSelect("selCityResidence", info[0].id_ciudad_residencia);
-    refreshSelect("selDocumentType", info[0].id_tipo_identificacion);
     refreshSelect("selCityExpedition", info[0].id_ciudad_expedicion);    
     refreshSelect("selMaritalStatus", info[0].estado_civil);    
     refreshSelect("selProfession", info[0].id_profesion);
-    refreshSelect("selPersonType", info[0].id_tipo_persona);
     openWindow();
     showButton(false);
 }
@@ -110,7 +110,7 @@ function update() {
 
     if (password === confirm) {
         if (validateForm() === true) {
-            Execute(scanInfo('update', true), 'Client/CtlClient', '', 'closeWindow();list();');
+            Execute(scanInfo('update', true), 'Employee/CtlEmployee', '', 'closeWindow();list();');
         }
     } else {
         showToast("El password no coincide");
@@ -119,5 +119,5 @@ function update() {
 
 
 function deleteInfo() {
-    Execute(scanInfo('delete', true), 'Client/CtlClient', '', 'closeWindow("ModalConfirm");list();cleanForm("ModalNew");');
+    Execute(scanInfo('delete', true), 'Employee/CtlEmployee', '', 'closeWindow("ModalConfirm");list();cleanForm("ModalNew");');
 }
