@@ -2,7 +2,7 @@
 $(window).on("load", function (e) {
     list();
     loadTipoIdentificacion();
-    loadDepartment();    
+    loadDepartment();
     loadGender();
     loadProfessionNivel();
     loadCity(-1);

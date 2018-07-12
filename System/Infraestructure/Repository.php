@@ -597,7 +597,6 @@ class Repository extends Internationalization {
 
         //Longitud maxima de los caracteres del listado
         $max = (is_null($maxPetition)) ? 25 : $maxPetition;
-        //$max = 25;
 
         /* Le asigno la consulta SQL a la conexion de la base de datos */
         $resultado = $this->objCon->getConnect()->prepare($query);
@@ -608,21 +607,24 @@ class Repository extends Internationalization {
           si no enumarados */
         $vec = $resultado->fetchAll(PDO::FETCH_NUM);
 
+        /* Donde se almacenara el concatenado de todos los checkboxes */
+        $checkboxes = '';
 
-        $campos = '';
+        /* Espacios en blanco puestos por estetica */
         $espacioBlanco = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+
         if ($resultado->rowCount() > 0) {
             for ($cont = 0; $cont < sizeof($vec); $cont++) { //recorre registro por registro             
-                $campos .= $espacioBlanco . '<input type="checkbox" id="' . $vec[$cont][0] . '" value="' . $vec[$cont][0] . '"/> '
+                $checkboxes .= $espacioBlanco . '<input type="checkbox" id="' . $vec[$cont][0] . '" value="' . $vec[$cont][0] . '"/> '
                         . '<label for="' . $vec[$cont][0] . '">'
                         . substr($vec[$cont][1], 0, $max) .
                         ((strlen($vec[$cont][1]) > $max) ? ".." : "") . '</label> <br>';
             }
         } else {
-            $campos = "<label>No hay registros en la base de datos</label>";
+            $checkboxes = "<label>No hay registros en la base de datos</label>";
         }
 
-        echo(json_encode(["res" => $campos]));
+        echo(json_encode(["res" => $checkboxes]));
     }
 
 }
