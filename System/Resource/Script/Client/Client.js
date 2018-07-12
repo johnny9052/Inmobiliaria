@@ -10,7 +10,7 @@ $(window).on("load", function (e) {
     loadProfession(-1);
     loadMaritalStatus();
     loadPersonType();
-    loadClientType();
+    loadClientTypeCheckbox();
 });
 
 
@@ -56,17 +56,19 @@ function loadPersonType() {
 }
 
 
-function loadClientType() {
-    Execute(scanInfo('loadCheckboxClientType', false), 'General/CtlGeneral', '', 'BuildCheckbox(info,"FormContainerCheckboxClientType");');
+function loadClientTypeCheckbox() {
+    Execute(scanInfo('loadCheckboxClientType', false),
+            'General/CtlGeneral',
+            '',
+            'BuildCheckbox(info,"FormContainerCheckboxClientType", "ClientType");');
+            /*BuildCheckbox("Info que llega","Id del contenedor", "Nombre de los checks");')*/
 }
-
 
 
 function save() {
     if (validateForm() === true) {
         Execute(scanInfo('save', true), 'Client/CtlClient', '', 'closeWindow();list();');
     }
-
 }
 
 function list() {
@@ -76,7 +78,10 @@ function list() {
 
 function search(id) {
     $("#txtId").val(id);
-    Execute(scanInfo('search', true), 'Client/CtlClient', '', 'showData(info);');
+    Execute(scanInfo('search', true), 
+                     'Client/CtlClient', 
+                     '', 
+                     'showData(info);CheckCheckboxChecked("loadClientTypeSelected","ClientType");');
 }
 
 

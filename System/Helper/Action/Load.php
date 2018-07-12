@@ -72,6 +72,11 @@ function ExecuteActionLoad($action, $obj, $dao) {
         case "loadCheckboxClientType":
             $dao->LoadCheckbox($obj, "loadclientType");
             break;
+
+        case "loadClientTypeSelected":
+            $dao->LoadSelect($obj, "loadclienttypeselected");
+            break;
+
         /* END Load checkbox */
 
 

@@ -591,6 +591,7 @@ function cleanForm(form) {
     $(campos).each(function () {
         var elemento = this;
         if (elemento.id !== "txtFlag") {
+
             if (elemento.value) {
                 /*Si es un select, coloca el -1*/
                 if (elemento.type === "select-one") {
@@ -598,7 +599,12 @@ function cleanForm(form) {
                     //$('#' + elemento.id).material_select('destroy');
                     //$('#' + elemento.id).material_select();
                 } else {
-                    $("#" + elemento.id).val("");
+                    /*Si es un checkbox, lo deselecciona*/
+                    if (elemento.type === "checkbox") {
+                        $("#" + elemento.id).prop("checked", false);
+                    } else {
+                        $("#" + elemento.id).val("");
+                    }
                 }
             }
         }
@@ -827,7 +833,44 @@ function showDetail(info, idList, idModal) {
 
 
 
-function BuildCheckbox(info, id) {
-    $("#" + id).html(info.res);
-    //Execute(scanInfo('loadPermission', true), 'Configuration/CtlPermission', '', 'CheckPermission(info);');
+/**
+ * Se encarga de retornar un listado de checkbox estructurados a partir de una 
+ * consulta. 
+ * @param {string - JSON} info : CHECKBOX en formato JSON que se desea mostrar
+ * @param {string} id : Id del div contenedor donde se setearan los checkbox
+ * @param {string} nameChecks : Nombre por defecto que se le dara a los checkbox, 
+ * los cuales seran seguidos de los id de cada elemento
+ * @author Johnny Alexander Salazar
+ * @version 0.1
+ */
+function BuildCheckbox(info, id, nameChecks) {
+    $("#" + id).html((info.res).replace(/id="/g, 'id="' + nameChecks));
+}
+
+
+/**
+ * Se encarga de traer de la DB los checkbox que deben ser seleccionados
+ * @param {string} type : Tipo de ejecucion a ser ejecutada en el web service
+ * @param {string} name : Nombre de los checkboxes donde se seteara la informacion
+ * los cuales seran seguidos de los id de cada elemento
+ * @author Johnny Alexander Salazar
+ * @version 0.1
+ */
+function CheckCheckboxChecked(type, name) {
+    Execute(scanInfo(type, true), 'General/CtlGeneral', '', 'CheckCheckboxCheckedBuild(info,"' + name + '");');
+}
+
+
+/**
+ * Se encarga de seleccionar los elementos de los checkbox para ser editados. 
+ * @param {string} info : Id de los CHECKBOX que deben ser seleccionados
+ * @param {string} name : Nombre de los checkboxes donde se seteara la informacion
+ * los cuales seran seguidos de los id de cada elemento
+ * @author Johnny Alexander Salazar
+ * @version 0.1
+ */
+function CheckCheckboxCheckedBuild(info, name) {
+    for (var x in info) {
+        $("#" + name + info[x].id).prop('checked', true);
+    }
 }
