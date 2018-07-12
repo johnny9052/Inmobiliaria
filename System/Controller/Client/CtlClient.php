@@ -6,26 +6,26 @@ require '../../DAO/Client/ClientDAO.php';
 include '../../Helper/Action/Action.php';
 
 /* RECEPCION DE DATOS */
-$action = getInfoClient('action');
-$id = getInfoClient('id');
-$firstName = getInfoClient('firstName');
-$secondName = getInfoClient('secondName');
-$firstLastName = getInfoClient('firstLastName');
-$secondLastName = getInfoClient('secondLastName');
-$documentType = getInfoClient('documentType');
-$documentNumber = getInfoClient('documentNumber');
-$cityExpedition = getInfoClient('cityExpedition');
-$birthdate = getInfoClient('birthdate');
-$clientType = getInfoClient('clientType');
-$address = getInfoClient('address');
-$homePhone = getInfoClient('homePhone');
-$mobilePhone = getInfoClient('mobilePhone');
-$email = getInfoClient('email');
-$gender = getInfoClient('gender');
-$cityResidence = getInfoClient('cityResidence');
-$profession = getInfoClient('profession');
-$maritalStatus = getInfoClient('maritalStatus');
-$personType = getInfoClient('personType');
+$action = getInfo('action');
+$id = getInfo('id');
+$firstName = getInfo('firstName');
+$secondName = getInfo('secondName');
+$firstLastName = getInfo('firstLastName');
+$secondLastName = getInfo('secondLastName');
+$documentType = getInfo('documentType');
+$documentNumber = getInfo('documentNumber');
+$cityExpedition = getInfo('cityExpedition');
+$birthdate = getInfo('birthdate');
+$clientType = getInfo('clientType');
+$address = getInfo('address');
+$homePhone = getInfo('homePhone');
+$mobilePhone = getInfo('mobilePhone');
+$email = getInfo('email');
+$gender = getInfo('gender');
+$cityResidence = getInfo('cityResidence');
+$profession = getInfo('profession');
+$maritalStatus = getInfo('maritalStatus');
+$personType = getInfo('personType');
 
 
 $birthdate = date("Y-m-d", strtotime($birthdate));

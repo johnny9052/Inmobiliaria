@@ -57,7 +57,7 @@ function loadPersonType() {
 
 
 function loadClientType() {
-    Execute(scanInfo('loadCheckClientType', false), 'General/CtlGeneral', '', 'buildCheck(info,"selClientType");');
+    Execute(scanInfo('loadCheckboxClientType', false), 'General/CtlGeneral', '', 'BuildCheckbox(info,"FormContainerCheckboxClientType");');
 }
 
 

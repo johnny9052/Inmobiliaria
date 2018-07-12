@@ -221,16 +221,6 @@ and open the template in the editor.
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Tipo de cliente</label>
-                                    <select id="selClientType" name="clientType" required class="form-control select2" style="width: 100%;">
-                                        <option value="-1" selected> -- SELECCIONE --</option>                            
-                                    </select>
-                                </div>
-                            </div>    
-
-
-                            <div class="col-md-6">
-                                <div class="form-group">
                                     <label>Tipo de persona</label>
                                     <select id="selPersonType" name="personType" required class="form-control select2" style="width: 100%;">
                                         <option value="-1" selected> -- SELECCIONE --</option>                            
@@ -343,6 +333,29 @@ and open the template in the editor.
                                     </select>
                                 </div>
                             </div>     
+                        </div>
+
+
+                        <div class="row">
+
+                            <!--                            <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label>Tipo de cliente</label>
+                                                            <select id="selClientType" name="clientType" required class="form-control select2" style="width: 100%;">
+                                                                <option value="-1" selected> -- SELECCIONE --</option>                            
+                                                            </select>
+                                                        </div>
+                                                    </div>    -->
+                        
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Tipo Cliente</label>
+                                    <div id="FormContainerCheckboxClientType" class="containerPermission">
+
+                                    </div>
+                                </div>
+                            </div>           
                         </div>
 
 

@@ -822,3 +822,12 @@ function showDetail(info, idList, idModal) {
 
     showButton(false);
 }
+
+
+
+
+
+function BuildCheckbox(info, id) {
+    $("#" + id).html(info.res);
+    //Execute(scanInfo('loadPermission', true), 'Configuration/CtlPermission', '', 'CheckPermission(info);');
+}

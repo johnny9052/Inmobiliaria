@@ -57,12 +57,22 @@ function ExecuteActionLoad($action, $obj, $dao) {
         case "loadProfessionNivel":
             $dao->LoadSelect($obj, "loadprofessionnivel");
             break;
-        
+
         case "loadTypeEmployee":
             $dao->LoadSelect($obj, "loadtypeemployee");
             break;
 
+
+
         /* End load selects */
+
+
+        /* Load checkbox */
+
+        case "loadCheckboxClientType":
+            $dao->LoadCheckbox($obj, "loadclientType");
+            break;
+        /* END Load checkbox */
 
 
         default :

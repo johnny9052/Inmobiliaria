@@ -255,11 +255,23 @@ class Repository extends Internationalization {
         }
     }
 
-    public function BuildPaginatorDataTable($query, $actionclick, $maxPetition = null) {
-
+    /**
+     * Ejecuta una consulta sql y a partir de los resultados obtenidos de la 
+     * consulta, estructura una tabla paginadora con la estructura de la API 
+     * DATATABLE, colocando como cabeceras los nombres de los campos retornados 
+     * por la consulta    
+     * @return string Echo de resultado de la consulta en formato JSON
+     * @param string $query Consulta a ejecutar     
+     * @param string $actionclick nombre de la funcion JS que se quiera ejecutar, 
+     *               si esta no se especifica por defecto colocara SEARCH
+     * @param string $maxPetition Cantidad maxima de caracteres a mostrar por registro, 
+     *                            si este no se especifica, por defecto sera 25
+     * @author Johnny Alexander Salazar
+     * @version 0.8
+     */
+    public function BuildPaginatorDataTable($query, $actionclick = '', $maxPetition = null) {
         //Longitud maxima de los caracteres del listado
         $max = (is_null($maxPetition)) ? 25 : $maxPetition;
-        //$max = 25;
 
         /* Le asigno la consulta SQL a la conexion de la base de datos */
         $resultado = $this->objCon->getConnect()->prepare($query);
@@ -568,6 +580,49 @@ class Repository extends Internationalization {
      */
     public function cleanValue($value) {
         return $this->clean->cleanValue($value);
+    }
+
+    /**
+     * Ejecuta una consulta sql y a partir de los resultados obtenidos de la 
+     * consulta, estructura un listado de CHECKBOX, teniendo en cuenta el ID y el 
+     * nombre del elemento
+     * @return string Echo de resultado de la consulta en formato JSON
+     * @param string $query Consulta a ejecutar     
+     * @param string $maxPetition Cantidad maxima de caracteres a mostrar por registro, 
+     *                            si este no se especifica, por defecto sera 25
+     * @author Johnny Alexander Salazar
+     * @version 0.1
+     */
+    public function BuildCheckboxDinamic($query, $maxPetition = null) {
+
+        //Longitud maxima de los caracteres del listado
+        $max = (is_null($maxPetition)) ? 25 : $maxPetition;
+        //$max = 25;
+
+        /* Le asigno la consulta SQL a la conexion de la base de datos */
+        $resultado = $this->objCon->getConnect()->prepare($query);
+        /* Executo la consulta */
+        $resultado->execute();
+
+        /* Se meten los datos a un vector, organizados sus campos no por nombre, 
+          si no enumarados */
+        $vec = $resultado->fetchAll(PDO::FETCH_NUM);
+
+
+        $campos = '';
+        $espacioBlanco = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+        if ($resultado->rowCount() > 0) {
+            for ($cont = 0; $cont < sizeof($vec); $cont++) { //recorre registro por registro             
+                $campos .= $espacioBlanco . '<input type="checkbox" id="' . $vec[$cont][0] . '" value="' . $vec[$cont][0] . '"/> '
+                        . '<label for="' . $vec[$cont][0] . '">'
+                        . substr($vec[$cont][1], 0, $max) .
+                        ((strlen($vec[$cont][1]) > $max) ? ".." : "") . '</label> <br>';
+            }
+        } else {
+            $campos = "<label>No hay registros en la base de datos</label>";
+        }
+
+        echo(json_encode(["res" => $campos]));
     }
 
 }
