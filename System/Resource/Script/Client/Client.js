@@ -61,13 +61,16 @@ function loadClientTypeCheckbox() {
             'General/CtlGeneral',
             '',
             'BuildCheckbox(info,"FormContainerCheckboxClientType", "ClientType");');
-            /*BuildCheckbox("Info que llega","Id del contenedor", "Nombre de los checks");')*/
+    /*BuildCheckbox("Info que llega","Id del contenedor", "Nombre de los checks");')*/
 }
 
 
 function save() {
     if (validateForm() === true) {
-        Execute(scanInfo('save', true), 'Client/CtlClient', '', 'closeWindow();list();');
+        Execute(scanInfo('save', true, '', [{datos: scanCheckboxDinamic("typesClientSelecteds", "ClientType")}]),
+                'Client/CtlClient',
+                '',
+                'closeWindow();list();');
     }
 }
 
@@ -78,10 +81,10 @@ function list() {
 
 function search(id) {
     $("#txtId").val(id);
-    Execute(scanInfo('search', true), 
-                     'Client/CtlClient', 
-                     '', 
-                     'showData(info);CheckCheckboxChecked("loadClientTypeSelected","ClientType");');
+    Execute(scanInfo('search', true),
+            'Client/CtlClient',
+            '',
+            'showData(info);CheckCheckboxChecked("loadClientTypeSelected","ClientType");');
 }
 
 
@@ -104,21 +107,22 @@ function showData(info) {
     refreshSelect("selMaritalStatus", info[0].estado_civil);
     refreshSelect("selProfession", info[0].id_profesion);
     refreshSelect("selPersonType", info[0].id_tipo_persona);
+    refreshSelect("selProfessionNivel", info[0].nivel_profesional);
+
+    refreshSelect("selStateExpedition", info[0].departamento_expedicion);
+    refreshSelect("selStateResidence", info[0].departamento_residencia);
+
     openWindow();
     showButton(false);
 }
 
 
 function update() {
-    var password = $("#txtPassword").val();
-    var confirm = $("#txtPasswordConfirm").val();
-
-    if (password === confirm) {
-        if (validateForm() === true) {
-            Execute(scanInfo('update', true), 'Client/CtlClient', '', 'closeWindow();list();');
-        }
-    } else {
-        showToast("El password no coincide");
+    if (validateForm() === true) {
+        Execute(scanInfo('update', true, '', [{datos: scanCheckboxDinamic("typesClientSelecteds", "ClientType")}]),
+                'Client/CtlClient',
+                '',
+                'closeWindow();list();');
     }
 }
 

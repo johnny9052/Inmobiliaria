@@ -874,3 +874,29 @@ function CheckCheckboxCheckedBuild(info, name) {
         $("#" + name + info[x].id).prop('checked', true);
     }
 }
+
+
+/**
+ * Escanea un conjunto de checkbox puestos previamente con nombre pre-definido
+ * diferenciado por id, y retorna en un array solo los id de los elementos 
+ * seleccionados
+ * @param {string} nameData : Nombre que se le dara a los datos, esto estara en 
+ * la primera posicion del array
+ * @param {string} prefixCheckbox : Prefijo que tienen los checkbox que quiero 
+ * escanear 
+ * @author Johnny Alexander Salazar
+ * @version 0.1
+ */
+function scanCheckboxDinamic(nameData, prefixCheckbox) {
+    var temp = new Array();
+    temp.push(nameData);
+
+    $(":checked").each(function () {
+        var elemento = this;
+        if ((elemento.id).includes(prefixCheckbox)) {
+            temp.push(elemento.value);
+        }
+    });
+
+    return temp;
+}

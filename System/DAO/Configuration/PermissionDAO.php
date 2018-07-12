@@ -136,11 +136,11 @@ class PermissionDAO {
             //SI TIENE HIJOS PINTA EL PADRE Y SUS HIJOS
             if (count($x->hijos) > 0) {
                 //INICIA EL PADRE
-                $menu.= '<p class="flow-text">' . $x->nombre . '</p>';
+                $menu .= '<p class="flow-text">' . $x->nombre . '</p>';
                 $hijos = json_decode(json_encode($x->hijos));
                 foreach ($hijos as $y) {
                     //SE AÑADE CADA HIJO POR CADA PADRE
-                    $menu.= '<input type="checkbox" id="' . $y->id . '" value="' . $y->id . '"/> <label for="' . $y->id . '">'
+                    $menu .= '<input type="checkbox" id="' . $y->id . '" value="' . $y->id . '"/> <label for="' . $y->id . '">'
                             . $y->nombre . '</label> <br>';
                     //SE CIERRA EL HIJO
                 }

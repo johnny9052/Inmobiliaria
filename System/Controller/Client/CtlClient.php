@@ -26,12 +26,13 @@ $cityResidence = getInfo('cityResidence');
 $profession = getInfo('profession');
 $maritalStatus = getInfo('maritalStatus');
 $personType = getInfo('personType');
+$typesClientSelecteds = getInfo('typesClientSelecteds');
 
 
 $birthdate = date("Y-m-d", strtotime($birthdate));
 
 /* DEFINICION DE OBJETOS */
-$obj = new ClientDTO($id, $firstName, $secondName, $firstLastName, $secondLastName, $documentType, $documentNumber, $cityExpedition, $birthdate, $clientType, $address, $homePhone, $mobilePhone, $email, $gender, $cityResidence, $profession, $maritalStatus, $personType);
+$obj = new ClientDTO($id, $firstName, $secondName, $firstLastName, $secondLastName, $documentType, $documentNumber, $cityExpedition, $birthdate, $clientType, $address, $homePhone, $mobilePhone, $email, $gender, $cityResidence, $profession, $maritalStatus, $personType,$typesClientSelecteds);
 $dao = new ClientDAO();
 
 /* CONTROL DE ACCIONES */

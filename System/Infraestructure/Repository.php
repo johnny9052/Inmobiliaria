@@ -287,13 +287,13 @@ class Repository extends Internationalization {
          * sacar una copia de resultado despues del execute pues se hace.
          */
 
+
         if ($resultado->rowCount() > 0) {
-            //$cadenaHTML = "<table class='centered responsive-table striped'>";
+
             $cadenaHTML = "<thead>";
             $cadenaHTML .= "<tr>";
             $cadenaHTML .= "<th>registro #</th>";
-
-
+            //$cadenaHTML = "<table class='centered responsive-table striped'>";
 
             for ($cont = 1; $cont < $resultado->columnCount(); $cont++) { //arma la cabecera de la tabla
                 $col = $resultado->getColumnMeta($cont);
