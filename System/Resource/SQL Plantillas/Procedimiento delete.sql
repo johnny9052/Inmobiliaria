@@ -7,8 +7,10 @@ READS SQL DATA
 DETERMINISTIC 
 BEGIN 
     DECLARE res INT DEFAULT 0;
-    DELETE FROM clientes WHERE id = vid;
-SET res = 1;
+
+    DELETE FROM detalleclientestipoclientes where `clientes_cedulaCliente` = vid;
+    DELETE FROM clientes WHERE idCliente = vid;
+    SET res = 1;
 	RETURN res;
 END//
 

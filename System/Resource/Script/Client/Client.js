@@ -2,8 +2,7 @@
 $(window).on("load", function (e) {
     list();
     loadTipoIdentificacion();
-    loadDepartment();
-    loadClientType();
+    loadDepartment();    
     loadGender();
     loadProfessionNivel();
     loadCity(-1);
@@ -11,6 +10,7 @@ $(window).on("load", function (e) {
     loadProfession(-1);
     loadMaritalStatus();
     loadPersonType();
+    loadClientType();
 });
 
 
@@ -31,11 +31,6 @@ function loadCity(id) {
 
 function loadCityResidence(id) {
     Execute(scanInfo('loadCity', false, '', [{datos: ["id", id]}]), 'General/CtlGeneral', '', 'buildSelect(info,"selCityResidence");');
-}
-
-
-function loadClientType() {
-    Execute(scanInfo('loadClientType', false), 'General/CtlGeneral', '', 'buildSelect(info,"selClientType");');
 }
 
 function loadGender() {
@@ -59,6 +54,13 @@ function loadMaritalStatus() {
 function loadPersonType() {
     Execute(scanInfo('loadPersonType', false), 'General/CtlGeneral', '', 'buildSelect(info,"selPersonType");');
 }
+
+
+function loadClientType() {
+    Execute(scanInfo('loadCheckboxClientType', false), 'General/CtlGeneral', '', 'BuildCheckbox(info,"FormContainerCheckboxClientType");');
+}
+
+
 
 function save() {
     if (validateForm() === true) {
@@ -84,17 +86,17 @@ function showData(info) {
     $("#txtFirstName").val(info[0].primer_nombre);
     $("#txtSecondName").val(info[0].segundo_nombre);
     $("#txtFirstLastName").val(info[0].primer_apellido);
-    $("#txtSecondLastName").val(info[0].segundo_apellido);    
+    $("#txtSecondLastName").val(info[0].segundo_apellido);
     $("#txtAddress").val(info[0].direccion);
     $("#txtHomePhone").val(info[0].telefono);
     $("#txtMobilePhone").val(info[0].celular);
     $("#txtEmail").val(info[0].email);
-    refreshSelect("selGender", info[0].genero);    
+    refreshSelect("selGender", info[0].genero);
     $("#txtBirthdate").val(info[0].fecha);
     refreshSelect("selCityResidence", info[0].id_ciudad_residencia);
     refreshSelect("selDocumentType", info[0].id_tipo_identificacion);
-    refreshSelect("selCityExpedition", info[0].id_ciudad_expedicion);    
-    refreshSelect("selMaritalStatus", info[0].estado_civil);    
+    refreshSelect("selCityExpedition", info[0].id_ciudad_expedicion);
+    refreshSelect("selMaritalStatus", info[0].estado_civil);
     refreshSelect("selProfession", info[0].id_profesion);
     refreshSelect("selPersonType", info[0].id_tipo_persona);
     openWindow();

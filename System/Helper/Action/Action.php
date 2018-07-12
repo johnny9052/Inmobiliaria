@@ -92,6 +92,6 @@ function base64_to_jpeg($base64_string, $output_file) {
  * @author Johnny Alexander Salazar
  * @version 0.1
  */
-function getInfoClient($name) {
+function getInfo($name) {
     return (isset($_REQUEST[$name]) ? $_REQUEST[$name] : "");
 }

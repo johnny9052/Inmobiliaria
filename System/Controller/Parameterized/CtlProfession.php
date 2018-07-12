@@ -6,10 +6,10 @@ require '../../DAO/Parameterized/ProfessionDAO.php';
 include '../../Helper/Action/Action.php';
 
 /*RECEPCION DE DATOS*/
-$action = getInfoClient('action');
-$id = getInfoClient('id');
-$name = getInfoClient('name');
-$professionNivel = getInfoClient('professionNivel');
+$action = getInfo('action');
+$id = getInfo('id');
+$name = getInfo('name');
+$professionNivel = getInfo('professionNivel');
 
 /*DEFINICION DE OBJETOS*/
 $obj = new ProfessionDTO($id, $name, $professionNivel);

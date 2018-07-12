@@ -27,8 +27,19 @@ class GeneralDAO {
         //echo $query;
         $this->repository->Execute($query);
     }
-    
-    
-   
+
+    /**
+     * Ejecuta una consulta que sera cargado como relacion de N a N en un conjunto 
+     * de CHECKBOX     
+     * @param GeneralDTO $obj
+     * @return void      
+     * @author Johnny Alexander Salazar
+     * @version 0.1
+     */
+    public function LoadCheckbox(GeneralDTO $obj, $name) {
+        $query = $this->repository->buildQuery($name, array((int) $obj->getId()));
+        //echo $query;
+        $this->repository->BuildCheckboxDinamic($query);
+    }
 
 }

@@ -172,7 +172,10 @@ function Execute(dataSend, url, before, success) {
                     break;
 
                 case "Error":
-                    showToast(info.msg, "error");
+                    /*Cierra cualquier modal que se tenga previamente*/
+                    $('.modal').modal('hide');
+                    /*Muestra un modal de error*/
+                    showToast(msg, "error");
                     break;
                 case undefined:
                 default :
@@ -473,7 +476,7 @@ function refreshSelect(id, val) {
  * @returns {boolean} true si es correctamente validado, false si tiene errores
  * en la validacion
  * @author Johnny Alexander Salazar
- * @version 0.3
+ * @version 0.4
  */
 function validateForm(form, modal) {
     var status = true;
@@ -818,4 +821,13 @@ function showDetail(info, idList, idModal) {
     openWindow(idModal);
 
     showButton(false);
+}
+
+
+
+
+
+function BuildCheckbox(info, id) {
+    $("#" + id).html(info.res);
+    //Execute(scanInfo('loadPermission', true), 'Configuration/CtlPermission', '', 'CheckPermission(info);');
 }
