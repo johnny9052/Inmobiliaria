@@ -107,17 +107,23 @@ and open the template in the editor.
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="txtFirstName">Primer nombre</label>                                    
-                                    <input id="txtFirstName" name="firstName" class="form-control" type="text" value="" autocomplete="off" required
-                                           placeholder="Primer nombre">
+                                    <label for="txtFirstName">Primer nombre</label>   
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-info"></i></span>
+                                        <input id="txtFirstName" name="firstName" class="form-control" type="text" value="" autocomplete="off" required
+                                               placeholder="Primer nombre">
+                                    </div>
                                 </div>
                             </div>                       
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="txtName">Segundo nombre</label>                                    
-                                    <input id="txtSecondName" name="secondName" class="form-control" type="text" value="" autocomplete="off"
-                                           placeholder="Segundo nombre">
+                                    <label for="txtName">Segundo nombre</label>  
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-info"></i></span>
+                                        <input id="txtSecondName" name="secondName" class="form-control" type="text" value="" autocomplete="off"
+                                               placeholder="Segundo nombre">
+                                    </div>
                                 </div>
                             </div>     
                         </div>
@@ -126,17 +132,23 @@ and open the template in the editor.
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="txtFirstLastName">Primer apellido</label>                                    
-                                    <input id="txtFirstLastName" name="firstLastName" class="form-control" type="text" value="" autocomplete="off" required
-                                           placeholder="Primer apellido">
+                                    <label for="txtFirstLastName">Primer apellido</label>  
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-info"></i></span>
+                                        <input id="txtFirstLastName" name="firstLastName" class="form-control" type="text" value="" autocomplete="off" required
+                                               placeholder="Primer apellido">
+                                    </div>
                                 </div>
                             </div>                       
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="txtName">Segundo apellido</label>                                    
-                                    <input id="txtSecondLastName" name="secondLastName" class="form-control" type="text" value="" autocomplete="off" 
-                                           placeholder="Segundo apellido">
+                                    <label for="txtName">Segundo apellido</label>  
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-info"></i></span>
+                                        <input id="txtSecondLastName" name="secondLastName" class="form-control" type="text" value="" autocomplete="off" 
+                                               placeholder="Segundo apellido">
+                                    </div>
                                 </div>
                             </div>     
                         </div>
@@ -145,9 +157,12 @@ and open the template in the editor.
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="txtUser">Nickname</label>                                    
-                                    <input id="txtUser" name="user" class="form-control" type="text" value="" autocomplete="off" required
-                                           placeholder="Nickname">
+                                    <label for="txtUser">Nickname</label>    
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                        <input id="txtUser" name="user" class="form-control" type="text" value="" autocomplete="off" required
+                                               placeholder="Nickname">
+                                    </div>
                                 </div>
                             </div>                       
 
@@ -167,16 +182,22 @@ and open the template in the editor.
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="txtPassword">Password</label>                                    
-                                    <input id="txtPassword" name="password" type="password" class="form-control"  value="" autocomplete="off" required
-                                           placeholder="Password">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-asterisk"></i></span>
+                                        <input id="txtPassword" name="password" type="password" class="form-control"  value="" autocomplete="off" required
+                                               placeholder="Password">
+                                    </div>
                                 </div>
                             </div>     
 
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="txtPasswordConfirm">Confirme su password</label>                                    
-                                    <input id="txtPasswordConfirm" name="passwordConfirm" class="form-control" type="password" value="" autocomplete="off" required
-                                           placeholder="Confirme su password">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-asterisk"></i></span>
+                                        <input id="txtPasswordConfirm" name="passwordConfirm" class="form-control" type="password" value="" autocomplete="off" required
+                                               placeholder="Confirme su password">
+                                    </div>
                                 </div>
                             </div>                       
 
