@@ -23,8 +23,9 @@ class ClientDTO extends BaseDTO {
     private $profession;
     private $maritalStatus;
     private $personType;
+    private $typesClientSelecteds;
 
-    function __construct($id, $firstName, $secondName, $firstLastName, $secondLastName, $documentType, $documentNumber, $cityExpedition, $birthdate, $clientType, $address, $homePhone, $mobilePhone, $email, $gender, $cityResidence, $profession, $maritalStatus, $personType) {
+    function __construct($id, $firstName, $secondName, $firstLastName, $secondLastName, $documentType, $documentNumber, $cityExpedition, $birthdate, $clientType, $address, $homePhone, $mobilePhone, $email, $gender, $cityResidence, $profession, $maritalStatus, $personType, $typesClientSelecteds) {
         $this->id = $id;
         $this->firstName = $firstName;
         $this->secondName = $secondName;
@@ -44,6 +45,7 @@ class ClientDTO extends BaseDTO {
         $this->profession = $profession;
         $this->maritalStatus = $maritalStatus;
         $this->personType = $personType;
+        $this->typesClientSelecteds = $typesClientSelecteds;
     }
 
     function getId() {
@@ -122,6 +124,10 @@ class ClientDTO extends BaseDTO {
         return $this->personType;
     }
 
+    function getTypesClientSelecteds() {
+        return $this->typesClientSelecteds;
+    }
+
     function setId($id) {
         $this->id = $id;
     }
@@ -196,6 +202,10 @@ class ClientDTO extends BaseDTO {
 
     function setPersonType($personType) {
         $this->personType = $personType;
+    }
+
+    function setTypesClientSelecteds($typesClientSelecteds) {
+        $this->typesClientSelecteds = $typesClientSelecteds;
     }
 
 }
