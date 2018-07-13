@@ -1,12 +1,10 @@
 /* Funciones jQuery */
 $(window).on("load", function (e) {
     list();
-    loadTipoIdentificacion();
     loadDepartment();
     loadGender();
     loadProfessionNivel();
     loadCity(-1);
-    loadCityResidence(-1);
     loadProfession(-1);
     loadMaritalStatus();
     loadTypeEmployee();
@@ -27,12 +25,7 @@ function loadDepartment() {
 
 
 function loadCity(id) {
-    Execute(scanInfo('loadCity', false, '', [{datos: ["id", id]}]), 'General/CtlGeneral', '', 'buildSelect(info,"selCityExpedition");');
-}
-
-
-function loadCityResidence(id) {
-    Execute(scanInfo('loadCity', false, '', [{datos: ["id", id]}]), 'General/CtlGeneral', '', 'buildSelect(info,"selCityResidence");');
+    Execute(scanInfo('loadCity', false, '', [{datos: ["id", id]}]), 'General/CtlGeneral', '', 'buildSelect(info,"selCity");');
 }
 
 
@@ -83,7 +76,7 @@ function search(id) {
 function showData(info) {
         
     $("#txtId").val(info[0].id);
-    refreshSelect("selTypeEmployee", info[0].tipo_cliente);
+    refreshSelect("selTypeEmployee", info[0].id_tipo_empleado);
     $("#txtDocumentNumber").val(info[0].cedula);
     $("#txtFirstName").val(info[0].primer_nombre);
     $("#txtSecondName").val(info[0].segundo_nombre);
@@ -95,26 +88,20 @@ function showData(info) {
     $("#txtEmail").val(info[0].email);
     refreshSelect("selGender", info[0].genero);    
     $("#txtBirthdate").val(info[0].fecha);
-    refreshSelect("selCityResidence", info[0].id_ciudad_residencia);
-    refreshSelect("selCityExpedition", info[0].id_ciudad_expedicion);    
+    refreshSelect("selCity", info[0].id_ciudad_residencia);    
     refreshSelect("selMaritalStatus", info[0].estado_civil);    
     refreshSelect("selProfession", info[0].id_profesion);
+    refreshSelect("selStateResidence", info[0].id_departamento);
+    refreshSelect("selProfessionNivel", info[0].id_nivel);
     openWindow();
     showButton(false);
 }
 
 
-function update() {
-    var password = $("#txtPassword").val();
-    var confirm = $("#txtPasswordConfirm").val();
-
-    if (password === confirm) {
+function update() {    
         if (validateForm() === true) {
             Execute(scanInfo('update', true), 'Employee/CtlEmployee', '', 'closeWindow();list();');
         }
-    } else {
-        showToast("El password no coincide");
-    }
 }
 
 

@@ -6,23 +6,23 @@ require '../../DAO/Employee/EmployeeDAO.php';
 include '../../Helper/Action/Action.php';
 
 /* RECEPCION DE DATOS */
-$action = getInfoEmployee('action');
-$id = getInfoEmployee('id');
-$firstName = getInfoEmployee('firstName');
-$secondName = getInfoEmployee('secondName');
-$firstLastName = getInfoEmployee('firstLastName');
-$secondLastName = getInfoEmployee('secondLastName');
-$documentNumber = getInfoEmployee('documentNumber');
-$birthdate = getInfoEmployee('birthdate');
-$address = getInfoEmployee('address');
-$homePhone = getInfoEmployee('homePhone');
-$mobilePhone = getInfoEmployee('mobilePhone');
-$email = getInfoEmployee('email');
-$gender = getInfoEmployee('gender');
-$typeEmployee = getInfoEmployee('gender');
-$cityResidence = getInfoEmployee('cityResidence');
-$profession = getInfoEmployee('profession');
-$maritalStatus = getInfoEmployee('maritalStatus');
+$action = getInfo('action');
+$id = getInfo('id');
+$firstName = getInfo('firstName');
+$secondName = getInfo('secondName');
+$firstLastName = getInfo('firstLastName');
+$secondLastName = getInfo('secondLastName');
+$documentNumber = getInfo('documentNumber');
+$birthdate = getInfo('birthdate');
+$address = getInfo('address');
+$homePhone = getInfo('homePhone');
+$mobilePhone = getInfo('mobilePhone');
+$email = getInfo('email');
+$gender = getInfo('gender');
+$typeEmployee = getInfo('gender');
+$cityResidence = getInfo('cityResidence');
+$profession = getInfo('profession');
+$maritalStatus = getInfo('maritalStatus');
 
 
 $birthdate = date("Y-m-d", strtotime($birthdate));

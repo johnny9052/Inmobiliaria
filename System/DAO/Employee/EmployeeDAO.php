@@ -71,8 +71,12 @@ class EmployeeDAO {
         $query = $this->repository->buildQuerySimply("updateemployee", array((int) $obj->getId(),
             (string) $obj->getFirstName(), (string) $obj->getSecondName(),
             (string) $obj->getFirstLastName(), (string) $obj->getSecondLastName(),
-            (string) $obj->getEmployee(), (string) md5($obj->getPassword()),
-            (int) $obj->getRol(), (string) $obj->getDescription()));
+            (string) $obj->getDocumentNumber(),(string) $obj->getBirthdate(),
+            (int) $obj->getTypeEmployee(), (string) $obj->getAddress(),
+            (string) $obj->getHomePhone(), (string) $obj->getMobilePhone(),
+            (string) $obj->getEmail(), (int) $obj->getGender(),
+            (int) $obj->getCityResidence(), (int) $obj->getProfession(),
+            (int) $obj->getMaritalStatus()));
         $this->repository->ExecuteTransaction($query);
     }
 

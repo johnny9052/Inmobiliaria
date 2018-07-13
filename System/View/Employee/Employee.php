@@ -246,7 +246,7 @@ and open the template in the editor.
                                     <label>Departamento de residencia</label>
                                     <select id="selStateResidence" name="stateResidence"  
                                             class="form-control select2" style="width: 100%;" 
-                                            onchange="loadCityResidence(this.value);">
+                                            onchange="loadCity(this.value);">
                                         <option value="-1" selected> -- SELECCIONE --</option>                            
                                     </select>
                                 </div>
@@ -255,7 +255,7 @@ and open the template in the editor.
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Municipio de residencia</label>
-                                    <select id="selCityResidence" name="cityResidence" required class="form-control select2" style="width: 100%;">
+                                    <select id="selCity" name="cityResidence" required class="form-control select2" style="width: 100%;">
                                         <option value="-1" selected> -- SELECCIONE --</option>                            
                                     </select>
                                 </div>
