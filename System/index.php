@@ -18,6 +18,8 @@ session_start();
         <link rel="stylesheet" href="Resource/bower_components/bootstrap/dist/css/bootstrap.min.css">
         <!-- Font Awesome -->
         <link rel="stylesheet" href="Resource/bower_components/font-awesome/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="Resource/bower_components/select2/dist/css/select2.min.css">
         <!-- Ionicons -->
         <link rel="stylesheet" href="Resource/bower_components/Ionicons/css/ionicons.min.css">
         <!-- Theme style -->
@@ -38,6 +40,12 @@ session_start();
         <script src="Resource/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>        
         <!-- iCheck -->
         <script src="Resource/plugins/iCheck/icheck.min.js"></script>
+
+        <!-- Select2 -->
+        <script src="Resource/bower_components/select2/dist/js/select2.full.min.js"></script>
+        
+        <!-- TimePicker -->
+        <script src="Resource/plugins/timepicker/bootstrap-timepicker.min.js"></script>
 
         <!-- GENERAL JS -->
         <script defer type="text/javascript" src="Resource/Script/General/General.js"></script>

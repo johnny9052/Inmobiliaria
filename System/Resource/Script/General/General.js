@@ -11,6 +11,15 @@ $(document).ready(function () {
         autoclose: true
     });
 
+
+    //Timepicker
+    $('.timepicker').timepicker({
+        showInputs: false
+    });
+
+    // https://stackoverflow.com/questions/19639951/how-do-i-change-selected-value-of-select2-dropdown-with-jqgrid
+    //$('.select2').select2();// Para colocar el select con autocompletado. 
+
 });
 
 

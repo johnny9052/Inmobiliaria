@@ -109,12 +109,101 @@ and open the template in the editor.
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="txtName">Nombre</label>                                    
-                                    <input id="txtName" name="name" class="form-control" type="text" value="" autocomplete="off" required
-                                           placeholder="Nombre del rol">
+                                    <label for="txtPrice">Precio</label>                                    
+                                    <input id="txtPrice" name="precio" class="form-control" type="number" value="" autocomplete="off" required
+                                           placeholder="Precio del inmueble">
                                 </div>
                             </div>                       
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="txtAdministrationCost">Costo administracion</label>                                    
+                                    <input id="txtAdministrationCost" name="administrationCost" class="form-control" type="number" value="" autocomplete="off" required
+                                           placeholder="Costo de administracion">
+                                </div>
+                            </div>    
                         </div>
+
+
+
+
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="txtRoom">Habitaciones</label>                                    
+                                    <input id="txtRoom" name="room" class="form-control" type="number" value="" autocomplete="off" required
+                                           placeholder="Numero de habitaciones">
+                                </div>
+                            </div>                       
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="txtBath">Baños</label>                                    
+                                    <input id="txtBath" name="bath" class="form-control" type="number" value="" autocomplete="off" required
+                                           placeholder="Numero de baños">
+                                </div>
+                            </div>    
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="txtParking">Parqueaderos</label>                                    
+                                    <input id="txtParking" name="parking" class="form-control" type="number" value="" autocomplete="off" required
+                                           placeholder="Numero de parqueaderos">
+                                </div>
+                            </div>                       
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="txtTotalArea">Area total</label>                                    
+                                    <input id="txtTotalArea" name="totalArea" class="form-control" type="number" value="" autocomplete="off" required
+                                           placeholder="Area total (mts)2">
+                                </div>
+                            </div>    
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="txtAreasWithoutBalconies">Areas sin balcones</label>                                    
+                                    <input id="txtAreasWithoutBalconies" name="areasWithoutBalconies" class="form-control" type="number" value="" autocomplete="off" required
+                                           placeholder="Areas sin balcones">
+                                </div>
+                            </div>                       
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="txtBuildYear">Año de construccion</label>                                    
+                                    <input id="txtBuildYear" name="buildYear" class="form-control" type="number" value="" autocomplete="off" required
+                                           placeholder="Año de construccion" max="9999">
+                                </div>
+                            </div>    
+                        </div>
+
+
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="txtAreasWithoutBalconies">Numero piso</label>                                    
+                                    <input id="txtAreasWithoutBalconies" name="areasWithoutBalconies" class="form-control" type="number" value="" autocomplete="off" required
+                                           placeholder="Numero piso" max="999">
+                                </div>
+                            </div>                       
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="txtBuildYear">Año de construccion</label>                                    
+                                    <input id="txtBuildYear" name="buildYear" class="form-control" type="number" value="" autocomplete="off" required
+                                           placeholder="Año de construccion" max="9999">
+                                </div>
+                            </div>    
+                        </div>
+
 
                         <div class="row">
                             <div class="col-md-12">
