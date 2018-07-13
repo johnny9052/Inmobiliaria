@@ -169,9 +169,11 @@ and open the template in the editor.
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Rol</label>
-                                    <select id="selRol" name="rol" required class="form-control select2" style="width: 100%;">
-                                        <option value="-1" selected> -- SELECCIONE --</option>                            
-                                    </select>
+                                    <div>
+                                        <select id="selRol" name="rol" required class="form-control select2" style="width: 100%;">
+                                            <option value="-1" selected> -- SELECCIONE --</option>                            
+                                        </select>
+                                    </div>
                                 </div>
                             </div>     
                         </div>

@@ -501,20 +501,23 @@ function validateForm(form, modal) {
 
         /*Si es un select se valida que no sea -1*/
         if (elemento.type === "select-one") {
-            if (elemento.value === "-1" && $(elemento).prop('required')) { //es valido?   
-                $(elemento).parent().closest('div').addClass("has-error");
-                //$(elemento.id).addClass("invalid");
+            if (elemento.value === "-1" && $(elemento).prop('required')) { //es valido?                   
+                $(elemento).parent().siblings('label').addClass("colorCampoError");
                 status = false; // si no es valido retorne falso                               
             } else {
-                $(elemento).parent().closest('div').removeClass("has-error");
+                $(elemento).parent().siblings('label').removeClass("colorCampoError");
             }
         } else {
             /*Si es cualquier otro elementos diferente a select*/
-            if (!elemento.validity.valid) { //es valido?                                                             
-                $(elemento).parent().closest('div').addClass("has-error");
+            if (!elemento.validity.valid) { //es valido?                           
+                /*Es necesario el doble parent por el icono de las cajas de texto, 
+                 * si se van a quitar los iconos solo seria 1 .parent()*/
+                $(elemento).parent().siblings('label').addClass("colorCampoError");
                 status = false; // si no es valido retorne falso                               
             } else {
-                $(elemento).parent().closest('div').removeClass("has-error");
+                /*Es necesario el doble parent por el icono de las cajas de texto, 
+                 * si se van a quitar los iconos solo seria 1 .parent()*/
+                $(elemento).parent().siblings('label').removeClass("colorCampoError");
             }
         }
 
@@ -592,11 +595,6 @@ function cleanForm(form) {
                  #' + form + ' textarea';
 
 
-//    var campos = '#' + form + ' :input:text,\n\
-//                  #' + form + ' :input:password, \n\
-//                  #' + form + ' :input:email, \n\
-//                  #' + form + ' textarea';
-
     $(campos).each(function () {
         var elemento = this;
         if (elemento.id !== "txtFlag") {
@@ -604,9 +602,7 @@ function cleanForm(form) {
             if (elemento.value) {
                 /*Si es un select, coloca el -1*/
                 if (elemento.type === "select-one") {
-                    $("#" + elemento.id).val("-1");
-                    //$('#' + elemento.id).material_select('destroy');
-                    //$('#' + elemento.id).material_select();
+                    $("#" + elemento.id).val("-1");                    
                 } else {
                     /*Si es un checkbox, lo deselecciona*/
                     if (elemento.type === "checkbox") {
@@ -618,8 +614,7 @@ function cleanForm(form) {
             }
         }
         /*Si esta pintado como invalido se le quita*/
-        //$("#" + elemento.id).removeClass("invalid");
-        $(elemento).parent().closest('div').removeClass("has-error");
+        $(elemento).parent().siblings('label').removeClass("colorCampoError");
     });
 
     /*Etiquetas limpiables, la cuales suelen ser etiquetas de texto*/

@@ -106,17 +106,22 @@ and open the template in the editor.
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Tipo documento</label>
-                                    <select id="selDocumentType" name="documentType" required class="form-control select2" style="width: 100%;">
-                                        <option value="-1" selected> -- SELECCIONE --</option>                            
-                                    </select>
+                                    <div>
+                                        <select id="selDocumentType" name="documentType" required class="form-control select2" style="width: 100%;">
+                                            <option value="-1" selected> -- SELECCIONE --</option>                            
+                                        </select>
+                                    </div>
                                 </div>
                             </div>     
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="txtDocumentNumber">Cedula</label>                                    
-                                    <input id="txtDocumentNumber" name="documentNumber" class="form-control" type="number" value="" autocomplete="off" required
-                                           placeholder="Numero de cedula">
+                                    <label for="txtDocumentNumber">Cedula</label>    
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-id-card"></i></span>
+                                        <input id="txtDocumentNumber" name="documentNumber" class="form-control" type="number" value="" autocomplete="off" required
+                                               placeholder="Numero de cedula">
+                                    </div>
                                 </div>
                             </div>    
 
@@ -130,20 +135,24 @@ and open the template in the editor.
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Departamento de expedicion</label>
-                                    <select id="selStateExpedition" name="stateExpedition" 
-                                            class="form-control select2" style="width: 100%;"  
-                                            onchange="loadCity(this.value)">
-                                        <option value="-1" selected> -- SELECCIONE --</option>                            
-                                    </select>
+                                    <div>
+                                        <select id="selStateExpedition" name="stateExpedition" 
+                                                class="form-control select2" style="width: 100%;"  
+                                                onchange="loadCity(this.value)">
+                                            <option value="-1" selected> -- SELECCIONE --</option>                            
+                                        </select>
+                                    </div>
                                 </div>
                             </div>     
 
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Municipio de expedicion</label>
-                                    <select id="selCityExpedition" name="cityExpedition" required class="form-control select2" style="width: 100%;">
-                                        <option value="-1" selected> -- SELECCIONE --</option>                            
-                                    </select>
+                                    <div>
+                                        <select id="selCityExpedition" name="cityExpedition" required class="form-control select2" style="width: 100%;">
+                                            <option value="-1" selected> -- SELECCIONE --</option>                            
+                                        </select>
+                                    </div>
                                 </div>
                             </div>     
                         </div>
@@ -152,17 +161,23 @@ and open the template in the editor.
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="txtFirstName">Primer nombre</label>                                    
-                                    <input id="txtFirstName" name="firstName" class="form-control" type="text" value="" autocomplete="off" required
-                                           placeholder="Primer nombre">
+                                    <label for="txtFirstName">Primer nombre</label>   
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-info"></i></span>
+                                        <input id="txtFirstName" name="firstName" class="form-control" type="text" value="" autocomplete="off" required
+                                               placeholder="Primer nombre">
+                                    </div>
                                 </div>
                             </div>                       
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="txtName">Segundo nombre</label>                                    
-                                    <input id="txtSecondName" name="secondName" class="form-control" type="text" value="" autocomplete="off"
-                                           placeholder="Segundo nombre">
+                                    <label for="txtName">Segundo nombre</label>  
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-info"></i></span>
+                                        <input id="txtSecondName" name="secondName" class="form-control" type="text" value="" autocomplete="off"
+                                               placeholder="Segundo nombre">
+                                    </div>
                                 </div>
                             </div>     
                         </div>                                               
@@ -170,17 +185,23 @@ and open the template in the editor.
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="txtFirstLastName">Primer apellido</label>                                    
-                                    <input id="txtFirstLastName" name="firstLastName" class="form-control" type="text" value="" autocomplete="off" required
-                                           placeholder="Primer apellido">
+                                    <label for="txtFirstLastName">Primer apellido</label>  
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-info"></i></span>
+                                        <input id="txtFirstLastName" name="firstLastName" class="form-control" type="text" value="" autocomplete="off" required
+                                               placeholder="Primer apellido">
+                                    </div>
                                 </div>
                             </div>                       
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="txtName">Segundo apellido</label>                                    
-                                    <input id="txtSecondLastName" name="secondLastName" class="form-control" type="text" value="" autocomplete="off" 
-                                           placeholder="Segundo apellido">
+                                    <label for="txtName">Segundo apellido</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-info"></i></span>                                    
+                                        <input id="txtSecondLastName" name="secondLastName" class="form-control" type="text" value="" autocomplete="off" 
+                                               placeholder="Segundo apellido">
+                                    </div>
                                 </div>
                             </div>     
                         </div>
@@ -236,9 +257,12 @@ and open the template in the editor.
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="txtAddress">Direccion</label>                                    
-                                    <input id="txtAddress" name="address" class="form-control" type="text" value="" autocomplete="off" required
-                                           placeholder="Direccion de residencia">
+                                    <label for="txtAddress">Direccion</label> 
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-address-card"></i></span>          
+                                        <input id="txtAddress" name="address" class="form-control" type="text" value="" autocomplete="off" required
+                                               placeholder="Direccion de residencia">
+                                    </div>
                                 </div>
                             </div>                                                
                         </div>
@@ -248,17 +272,23 @@ and open the template in the editor.
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="txtHomePhone">Telefono fijo</label>                                    
-                                    <input id="txtHomePhone" name="homePhone" class="form-control" type="number" value="" autocomplete="off" required
-                                           max="9999999999" maxlength="10" placeholder="Telefono fijo (Max 10 digitos)">
+                                    <label for="txtHomePhone">Telefono fijo</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-phone"></i></span>                                              
+                                        <input id="txtHomePhone" name="homePhone" class="form-control" type="number" value="" autocomplete="off" required
+                                               max="9999999999" maxlength="10" placeholder="Telefono fijo (Max 10 digitos)">
+                                    </div>
                                 </div>
                             </div>     
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="txtMobilePhone">Telefono celular</label>                                    
-                                    <input id="txtMobilePhone" name="mobilePhone" class="form-control" type="number" value="" autocomplete="off" required
-                                           max="9999999999" maxlength="10" placeholder="Telefono celular (Max 10 digitos)">
+                                    <label for="txtMobilePhone">Telefono celular</label>          
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-mobile-phone"></i></span>          
+                                        <input id="txtMobilePhone" name="mobilePhone" class="form-control" type="number" value="" autocomplete="off" required
+                                               max="9999999999" maxlength="10" placeholder="Telefono celular (Max 10 digitos)">
+                                    </div>
                                 </div>
                             </div>     
                         </div>
@@ -268,9 +298,12 @@ and open the template in the editor.
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="txtEmail">Correo electronico</label>                                    
-                                    <input id="txtEmail" name="email" type="email" class="form-control"  value="" autocomplete="off" required
-                                           placeholder="Correo electronico">
+                                    <label for="txtEmail">Correo electronico</label>        
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-at"></i></span>          
+                                        <input id="txtEmail" name="email" type="email" class="form-control"  value="" autocomplete="off" required
+                                               placeholder="Correo electronico">
+                                    </div>
                                 </div>
                             </div>     
 
@@ -346,7 +379,7 @@ and open the template in the editor.
                                                             </select>
                                                         </div>
                                                     </div>    -->
-                        
+
 
                             <div class="col-md-12">
                                 <div class="form-group">
