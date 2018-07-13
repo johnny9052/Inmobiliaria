@@ -101,18 +101,22 @@ and open the template in the editor.
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Cliente</label>
-                                    <select id="selClient" name="client" required class="form-control select2" style="width: 100%;">
-                                        <option value="-1" selected> -- SELECCIONE --</option>                            
-                                    </select>
+                                    <div>
+                                        <select id="selClient" name="client" required class="form-control select2" style="width: 100%;">
+                                            <option value="-1" selected> -- SELECCIONE --</option>                            
+                                        </select>
+                                    </div>
                                 </div>
                             </div>     
 
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Tipo Evento</label>
-                                    <select id="selTypeEvent" name="typeEvent" required class="form-control select2" style="width: 100%;">
-                                        <option value="-1" selected> -- SELECCIONE --</option>                            
-                                    </select>
+                                    <div>
+                                        <select id="selTypeEvent" name="typeEvent" required class="form-control select2" style="width: 100%;">
+                                            <option value="-1" selected> -- SELECCIONE --</option>                            
+                                        </select>
+                                    </div>
                                 </div>
                             </div>    
                         </div>
@@ -133,9 +137,12 @@ and open the template in the editor.
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="txtFirstName">Lugar</label>                                    
-                                    <input id="txtPlace" name="place" class="form-control" type="text" value="" autocomplete="off" required
-                                           placeholder="Lugar">
+                                    <label for="txtFirstName">Lugar</label> 
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-info"></i></span>
+                                        <input id="txtPlace" name="place" class="form-control" type="text" value="" autocomplete="off" required
+                                               placeholder="Lugar">
+                                    </div>
                                 </div>
                             </div>
 
@@ -154,26 +161,14 @@ and open the template in the editor.
                             </div>    
                         </div>                                               
 
-                        <div class="row">
-                            <!--                            <div class="col-md-6">                                
-                                                            <div class="form-group">
-                                                                <label for="appt-time">Time:</label>
-                                                                <input rel="stylesheet" href="../../plugins/timepicker/bootstrap-timepicker.min.css" type="time" id="appt-time" name="timeEvent"
-                                                                       min="9:00" max="18:00" required class="form-control pull-right " id="txtTimeEvent" />
-                                                            </div>
-                                                        </div>-->
-
+                        <div class="row">                          
                             <div class="bootstrap-timepicker">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Hora evento</label>
-
                                         <div class="input-group">
-                                            <input type="text" class="form-control timepicker"  id="txtTimeEvent">
-
-                                            <div class="input-group-addon">
-                                                <i class="fa fa-clock-o"></i>
-                                            </div>
+                                            <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+                                            <input type="text" name="hora" class="form-control timepicker"  id="txtTimeEvent">                                            
                                         </div>
                                         <!-- /.input group -->
                                     </div>
@@ -186,9 +181,11 @@ and open the template in the editor.
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Empleado</label>
-                                    <select id="selEmployee" name="employee" required class="form-control select2" style="width: 100%;">
-                                        <option value="-1" selected> -- SELECCIONE --</option>                            
-                                    </select>
+                                    <div>
+                                        <select id="selEmployee" name="employee" required class="form-control select2" style="width: 100%;">
+                                            <option value="-1" selected> -- SELECCIONE --</option>                            
+                                        </select>
+                                    </div>
                                 </div>
                             </div>     
                         </div>

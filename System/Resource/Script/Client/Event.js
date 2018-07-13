@@ -45,7 +45,7 @@ function showData(info) {
     $("#txtTimeEvent").val(info[0].hora_evento);
     refreshSelect("selEmployee", info[0].id_empleado);
     $("#txtObservations").val(info[0].observaciones);
-    
+
     openWindow();
     showButton(false);
 }

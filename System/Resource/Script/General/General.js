@@ -251,13 +251,9 @@ function scanInfo(type, status, form, dataPlus) {
         var campos = '#' + form + ' :input,\n\
                  #' + form + ' select, \n\
                  #' + form + ' textarea';
-//        var campos = '#' + form + ' :input:text,\n\
-//                  #' + form + ' :input:password, \n\
-//                  #' + form + ' textarea, \n\
-//                  #' + form + ' select';
 
         $(campos).each(function () {
-            var elemento = this;
+            var elemento = this;            
             /*Si es un radio, retornamos 1 si esta checkeado, 0 si no*/
             if (elemento.type === "checkbox") {
                 arrayParameters.push(newArg(elemento.name, (elemento.checked) ? 1 : 0));
@@ -508,6 +504,9 @@ function validateForm(form, modal) {
                 $(elemento).parent().siblings('label').removeClass("colorCampoError");
             }
         } else {
+            
+            //alert(elemento.id);
+            
             /*Si es cualquier otro elementos diferente a select*/
             if (!elemento.validity.valid) { //es valido?                           
                 /*Es necesario el doble parent por el icono de las cajas de texto, 
@@ -602,7 +601,7 @@ function cleanForm(form) {
             if (elemento.value) {
                 /*Si es un select, coloca el -1*/
                 if (elemento.type === "select-one") {
-                    $("#" + elemento.id).val("-1");                    
+                    $("#" + elemento.id).val("-1");
                 } else {
                     /*Si es un checkbox, lo deselecciona*/
                     if (elemento.type === "checkbox") {
