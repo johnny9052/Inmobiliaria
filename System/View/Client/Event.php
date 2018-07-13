@@ -165,18 +165,21 @@ and open the template in the editor.
 
                             <div class="bootstrap-timepicker">
                                 <div class="col-md-6">
-                                    <label>Hora evento</label>
+                                    <div class="form-group">
+                                        <label>Hora evento</label>
 
-                                    <div class="input-group">
-                                        <input type="text" class="form-control timepicker"  id="txtTimeEvent">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control timepicker"  id="txtTimeEvent">
 
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-clock-o"></i>
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-clock-o"></i>
+                                            </div>
                                         </div>
+                                        <!-- /.input group -->
                                     </div>
-                                    <!-- /.input group -->
+                                    <!-- /.form group -->
                                 </div>
-                                <!-- /.form group -->
+                                <!-- /.col md-6-->
                             </div>
 
 

@@ -10,17 +10,20 @@ $action = getInfo('action');
 $id = getInfo('id');
 $dateEvent = getInfo('dateEvent');
 $timeEvent = getInfo('timeEvent');
-$placeEvent = getInfo('placeEvent');
+$placeEvent = getInfo('place');
 $latitude = getInfo('latitude');
 $length = getInfo('length');
 $employee = getInfo('employee');
 $client = getInfo('client');
-$eventType = getInfo('eventType');
+$eventType = getInfo('typeEvent');
+$observations = getInfo('observations');
+
 
 $dateEvent = date("Y-m-d", strtotime($dateEvent));
 
+
 /* DEFINICION DE OBJETOS */
-$obj = new EventDTO($id, $dateEvent, $timeEvent, $placeEvent, $latitude, $length, $employee, $client, $eventType);
+$obj = new EventDTO($id, $dateEvent, $timeEvent, $placeEvent, $latitude, $length, $employee, $client, $eventType, $observations);
 $dao = new EventDAO();
 
 /* CONTROL DE ACCIONES */

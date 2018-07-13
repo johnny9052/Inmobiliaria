@@ -24,10 +24,11 @@ class EventDAO {
      */
     public function Save(EventDTO $obj) {
         $query = $this->repository->buildQuerySimply("saveevent", array((int) $obj->getId(),
-            (string) $obj->getDateEvent, (string) $obj->getTimeEvent(),
+            (string) $obj->getDateEvent(), (string) $obj->getTimeEvent(),
             (string) $obj->getPlaceEvent(), (float) $obj->getLatitude(),
             (float) $obj->getLength(), (int) $obj->getEmployee(),
-            (int) $obj->getClient(), (int) $obj->getEventType()
+            (int) $obj->getClient(), (int) $obj->getEventType(),
+            (string) $obj->getObservations()
         ));
         $this->repository->ExecuteTransaction($query);
     }
@@ -68,7 +69,8 @@ class EventDAO {
             (string) $obj->getDateEvent, (string) $obj->getTimeEvent(),
             (string) $obj->getPlaceEvent(), (float) $obj->getLatitude(),
             (float) $obj->getLength(), (int) $obj->getEmployee(),
-            (int) $obj->getClient(), (int) $obj->getEventType()));
+            (int) $obj->getClient(), (int) $obj->getEventType(),
+            (string) $obj->getObservations()));
         $this->repository->ExecuteTransaction($query);
     }
 
