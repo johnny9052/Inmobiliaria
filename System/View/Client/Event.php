@@ -116,7 +116,7 @@ and open the template in the editor.
                                 </div>
                             </div>    
                         </div>
-                        
+
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">                                                                        
@@ -138,8 +138,8 @@ and open the template in the editor.
                                            placeholder="Lugar">
                                 </div>
                             </div>
-                            
-                            
+
+
 
                             <div class="col-md-6">                                
                                 <div class="form-group">
@@ -155,12 +155,28 @@ and open the template in the editor.
                         </div>                                               
 
                         <div class="row">
-                            <div class="col-md-6">                                
-                                <div class="form-group">
-                                    <label for="appt-time">Time:</label>
-                                    <input type="time" id="appt-time" name="timeEvent"
-                                           min="9:00" max="18:00" required class="form-control pull-right " id="txtTimeEvent" />
+                            <!--                            <div class="col-md-6">                                
+                                                            <div class="form-group">
+                                                                <label for="appt-time">Time:</label>
+                                                                <input rel="stylesheet" href="../../plugins/timepicker/bootstrap-timepicker.min.css" type="time" id="appt-time" name="timeEvent"
+                                                                       min="9:00" max="18:00" required class="form-control pull-right " id="txtTimeEvent" />
+                                                            </div>
+                                                        </div>-->
+
+                            <div class="bootstrap-timepicker">
+                                <div class="col-md-6">
+                                    <label>Hora evento</label>
+
+                                    <div class="input-group">
+                                        <input type="text" class="form-control timepicker"  id="txtTimeEvent">
+
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-clock-o"></i>
+                                        </div>
+                                    </div>
+                                    <!-- /.input group -->
                                 </div>
+                                <!-- /.form group -->
                             </div>
 
 

@@ -76,7 +76,7 @@ function search(id) {
 function showData(info) {
         
     $("#txtId").val(info[0].id);
-    refreshSelect("selTypeEmployee", info[0].id_tipo_empleado);
+    refreshSelect("selTypeEmployee", info[0].id_tipo_Empleado);
     $("#txtDocumentNumber").val(info[0].cedula);
     $("#txtFirstName").val(info[0].primer_nombre);
     $("#txtSecondName").val(info[0].segundo_nombre);
