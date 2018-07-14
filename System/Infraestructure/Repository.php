@@ -611,7 +611,7 @@ class Repository extends Internationalization {
         $checkboxes = '';
 
         /* Espacios en blanco puestos por estetica */
-        $espacioBlanco = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+        $espacioBlanco = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 
         if ($resultado->rowCount() > 0) {
             for ($cont = 0; $cont < sizeof($vec); $cont++) { //recorre registro por registro             

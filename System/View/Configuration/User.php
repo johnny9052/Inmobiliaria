@@ -168,6 +168,8 @@ and open the template in the editor.
 
                             <div class="col-md-6">
                                 <div class="form-group">
+                                    <label for="" class="fa fa-user-secret"></label>
+                                    &nbsp;&nbsp;
                                     <label>Rol</label>
                                     <div>
                                         <select id="selRol" name="rol" required class="form-control select2" style="width: 100%;">
@@ -209,6 +211,8 @@ and open the template in the editor.
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
+                                    <label for="" class="fa fa-info"></label>
+                                    &nbsp;&nbsp;
                                     <label>Descripcion</label>
                                     <textarea id="txtDescription" name="description" class="form-control" rows="3" placeholder="Descripcion"></textarea>
                                 </div>

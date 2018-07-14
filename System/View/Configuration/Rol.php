@@ -122,6 +122,8 @@ and open the template in the editor.
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
+                                    <label for="" class="fa fa-info"></label>
+                                    &nbsp;
                                     <label>Descripcion</label>
                                     <textarea id="txtDescription" name="description" class="form-control" rows="3" placeholder="Descripcion"></textarea>
                                 </div>

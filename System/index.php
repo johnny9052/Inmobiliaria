@@ -24,6 +24,8 @@ session_start();
         <link rel="stylesheet" href="Resource/plugins/timepicker/bootstrap-timepicker.min.css">
         <!-- Ionicons -->
         <link rel="stylesheet" href="Resource/bower_components/Ionicons/css/ionicons.min.css">
+        <!-- MATERIAL icons -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!-- Theme style -->
         <link rel="stylesheet" href="Resource/dist/css/AdminLTE.min.css">
 

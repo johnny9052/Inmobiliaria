@@ -105,6 +105,8 @@ and open the template in the editor.
 
                             <div class="col-md-6">
                                 <div class="form-group">
+                                    <label for="" class="fa fa-id-card"></label>
+                                    &nbsp;&nbsp;
                                     <label>Tipo documento</label>
                                     <div>
                                         <select id="selDocumentType" name="documentType" required class="form-control select2" style="width: 100%;">
@@ -134,6 +136,8 @@ and open the template in the editor.
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
+                                    <label for="" class="fa fa-map-marker"></label>
+                                    &nbsp;&nbsp;
                                     <label>Departamento de expedicion</label>
                                     <div>
                                         <select id="selStateExpedition" name="stateExpedition" 
@@ -147,6 +151,8 @@ and open the template in the editor.
 
                             <div class="col-md-6">
                                 <div class="form-group">
+                                    <label for="" class="fa fa-map-marker"></label>
+                                    &nbsp;&nbsp;
                                     <label>Municipio de expedicion</label>
                                     <div>
                                         <select id="selCityExpedition" name="cityExpedition" required class="form-control select2" style="width: 100%;">
@@ -242,6 +248,8 @@ and open the template in the editor.
 
                             <div class="col-md-6">
                                 <div class="form-group">
+                                    <label for="" class="fa fa-user"></label>
+                                    &nbsp;
                                     <label>Tipo de persona</label>
                                     <select id="selPersonType" name="personType" required class="form-control select2" style="width: 100%;">
                                         <option value="-1" selected> -- SELECCIONE --</option>                            
@@ -309,6 +317,8 @@ and open the template in the editor.
 
                             <div class="col-md-6">
                                 <div class="form-group">
+                                    <label for="" class="fa fa-intersex"></label>
+                                    &nbsp;&nbsp;
                                     <label>Genero</label>
                                     <select id="selGender" name="gender" required class="form-control select2" style="width: 100%;">
                                         <option value="-1" selected> -- SELECCIONE --</option>                            
@@ -323,6 +333,8 @@ and open the template in the editor.
 
                             <div class="col-md-6">
                                 <div class="form-group">
+                                    <label for="" class="fa fa-map-marker"></label>
+                                    &nbsp;&nbsp;
                                     <label>Departamento de residencia</label>
                                     <select id="selStateResidence" name="stateResidence"  
                                             class="form-control select2" style="width: 100%;" 
@@ -334,6 +346,8 @@ and open the template in the editor.
 
                             <div class="col-md-6">
                                 <div class="form-group">
+                                    <label for="" class="fa fa-map-marker"></label>
+                                    &nbsp;&nbsp;
                                     <label>Municipio de residencia</label>
                                     <select id="selCityResidence" name="cityResidence" required class="form-control select2" style="width: 100%;">
                                         <option value="-1" selected> -- SELECCIONE --</option>                            
@@ -349,6 +363,8 @@ and open the template in the editor.
 
                             <div class="col-md-6">
                                 <div class="form-group">
+                                    <label for="" class="fa fa fa-drivers-license"></label>
+                                    &nbsp;&nbsp;
                                     <label>Nivel de profesion</label>
                                     <select id="selProfessionNivel" name="professionNivel" 
                                             class="form-control select2" style="width: 100%;" 
@@ -360,6 +376,8 @@ and open the template in the editor.
 
                             <div class="col-md-6">
                                 <div class="form-group">
+                                    <label for="" class="fa fa-user-md"></label>
+                                    &nbsp;&nbsp;
                                     <label>Profesion</label>
                                     <select id="selProfession" name="profession" required class="form-control select2" style="width: 100%;">
                                         <option value="-1" selected> -- SELECCIONE --</option>                            
@@ -369,20 +387,12 @@ and open the template in the editor.
                         </div>
 
 
-                        <div class="row">
-
-                            <!--                            <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label>Tipo de cliente</label>
-                                                            <select id="selClientType" name="clientType" required class="form-control select2" style="width: 100%;">
-                                                                <option value="-1" selected> -- SELECCIONE --</option>                            
-                                                            </select>
-                                                        </div>
-                                                    </div>    -->
-
+                        <div class="row">                           
 
                             <div class="col-md-12">
                                 <div class="form-group">
+                                    <label for="" class="fa fa-user"></label>
+                                    &nbsp;&nbsp;
                                     <label>Tipo Cliente</label>
                                     <div id="FormContainerCheckboxClientType" class="containerPermission">
 

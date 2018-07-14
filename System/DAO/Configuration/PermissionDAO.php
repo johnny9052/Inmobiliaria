@@ -131,6 +131,7 @@ class PermissionDAO {
      */
     public function BuildPermission($padres) {
         $menu = '';
+        $espacios = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
         /* Se pinta el menu */
         foreach ($padres as $x) {
             //SI TIENE HIJOS PINTA EL PADRE Y SUS HIJOS
@@ -140,7 +141,7 @@ class PermissionDAO {
                 $hijos = json_decode(json_encode($x->hijos));
                 foreach ($hijos as $y) {
                     //SE AÑADE CADA HIJO POR CADA PADRE
-                    $menu .= '<input type="checkbox" id="' . $y->id . '" value="' . $y->id . '"/> <label for="' . $y->id . '">'
+                    $menu .= $espacios . '<input type="checkbox" id="' . $y->id . '" value="' . $y->id . '"/> <label for="' . $y->id . '">'
                             . $y->nombre . '</label> <br>';
                     //SE CIERRA EL HIJO
                 }
