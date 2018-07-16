@@ -57,15 +57,15 @@ function ExecuteActionLoad($action, $obj, $dao) {
         case "loadProfessionNivel":
             $dao->LoadSelect($obj, "loadprofessionnivel");
             break;
-        
+
         case "loadtypeevent":
             $dao->LoadSelect($obj, "loadtypeevent");
             break;
-        
+
         case "loadclient":
             $dao->LoadSelect($obj, "loadclient");
             break;
-        
+
         case "loademployee":
             $dao->LoadSelect($obj, "loademployee");
             break;
@@ -74,6 +74,67 @@ function ExecuteActionLoad($action, $obj, $dao) {
             $dao->LoadSelect($obj, "loadtypeemployee");
             break;
 
+
+        case "loadNeighborhood":
+            $dao->LoadSelect($obj, "loadneighborhood");
+            break;
+
+
+        case "loadStratum":
+            $dao->LoadSelect($obj, "loadstratum");
+            break;
+
+        case "loadPropertieType":
+            $dao->LoadSelect($obj, "loadpropertietype");
+            break;
+
+
+        case "loadOfferType":
+            $dao->LoadSelect($obj, "loadoffertype");
+            break;
+
+
+        case "loadCurtainType":
+            $dao->LoadSelect($obj, "loadcurtaintype");
+            break;
+
+        case "loadVigilanceType":
+            $dao->LoadSelect($obj, "loadvigilancetype");
+            break;
+
+
+        case "loadZone":
+            $dao->LoadSelect($obj, "loadzone");
+            break;
+
+
+        case "loadViewType":
+            $dao->LoadSelect($obj, "loadviewtype");
+            break;
+
+        case "loadStatus":
+            $dao->LoadSelect($obj, "loadstatus");
+            break;
+
+
+        case "loadKitchenType":
+            $dao->LoadSelect($obj, "loadkitchentype");
+            break;
+
+
+        case "loadKitchenStructure":
+            $dao->LoadSelect($obj, "loadkitchenstructure");
+            break;
+
+
+        case "loadFloorType":
+            $dao->LoadSelect($obj, "loadfloortype");
+            break;
+
+
+        case "loadOutstandingType":
+            $dao->LoadSelect($obj, "loadoutstandingtype");
+            break;
 
 
         /* End load selects */
