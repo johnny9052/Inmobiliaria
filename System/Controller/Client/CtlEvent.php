@@ -13,17 +13,17 @@ $timeEvent = getInfo('timeEvent');
 $placeEvent = getInfo('place');
 $latitude = getInfo('latitude');
 $length = getInfo('length');
-$employee = getInfo('employee');
 $client = getInfo('client');
 $eventType = getInfo('typeEvent');
 $observations = getInfo('observations');
+$EmployeesSelecteds = getInfo('employee');
 
 
 $dateEvent = date("Y-m-d", strtotime($dateEvent));
 
 
 /* DEFINICION DE OBJETOS */
-$obj = new EventDTO($id, $dateEvent, $timeEvent, $placeEvent, $latitude, $length, $employee, $client, $eventType, $observations);
+$obj = new EventDTO($id, $dateEvent, $timeEvent, $placeEvent, $latitude, $length, $employee, $eventType, $observations, $EmployeesSelecteds);
 $dao = new EventDAO();
 
 /* CONTROL DE ACCIONES */

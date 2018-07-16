@@ -4,7 +4,16 @@ $(window).on("load", function (e) {
     loadEmployee();
     loadClient();
     loadTypeEvent();
+    loadCheckboxEmployees();
 });
+
+function loadCheckboxEmployees() {
+    Execute(scanInfo('loadCheckboxEmployees', false),
+            'General/CtlGeneral',
+            '',
+            'BuildCheckbox(info,"FormContainerCheckboxEmployees", "EmployeesChk");');
+    /*BuildCheckbox("Info que llega","Id del contenedor", "Nombre de los checks");')*/
+}
 
 function loadTypeEvent() {
     Execute(scanInfo('loadtypeevent', false), 'General/CtlGeneral', '', 'buildSelect(info,"selTypeEvent");');

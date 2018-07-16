@@ -175,19 +175,20 @@ and open the template in the editor.
                                     <!-- /.form group -->
                                 </div>
                                 <!-- /.col md-6-->
-                            </div>
-
+                            </div>  
+                        </div>
+                        <div class="row">                           
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Empleado</label>
-                                    <div>
-                                        <select id="selEmployee" name="employee" required class="form-control select2" style="width: 100%;">
-                                            <option value="-1" selected> -- SELECCIONE --</option>                            
-                                        </select>
+                                    <label for="" class="fa fa-user"></label>
+                                    &nbsp;&nbsp;
+                                    <label>Empleados</label>
+                                    <div id="FormContainerCheckboxEmployees" class="containerPermission">
+
                                     </div>
                                 </div>
-                            </div>     
+                            </div>           
                         </div>
 
 

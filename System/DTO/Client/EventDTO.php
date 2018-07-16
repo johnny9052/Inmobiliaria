@@ -10,22 +10,22 @@ class EventDTO extends BaseDTO {
     private $placeEvent;
     private $latitude;
     private $length;
-    private $employee;
     private $client;
     private $eventType;
     private $observations;
-            
-    function __construct($id, $dateEvent, $timeEvent, $placeEvent, $latitude, $length, $employee, $client, $eventType, $observations) {
+    private $employeesSelecteds;
+    
+    function __construct($id, $dateEvent, $timeEvent, $placeEvent, $latitude, $length, $client, $eventType, $observations, $employeesSelecteds) {
         $this->id = $id;
         $this->dateEvent = $dateEvent;
         $this->timeEvent = $timeEvent;
         $this->placeEvent = $placeEvent;
         $this->latitude = $latitude;
-        $this->length = 4.55454	;
-        $this->employee = -75.65575;
+        $this->length = $length;
         $this->client = $client;
         $this->eventType = $eventType;
         $this->observations = $observations;
+        $this->employeesSelecteds = $employeesSelecteds;
     }
     
     function getId() {
@@ -52,10 +52,6 @@ class EventDTO extends BaseDTO {
         return $this->length;
     }
 
-    function getEmployee() {
-        return $this->employee;
-    }
-
     function getClient() {
         return $this->client;
     }
@@ -66,6 +62,10 @@ class EventDTO extends BaseDTO {
 
     function getObservations() {
         return $this->observations;
+    }
+
+    function getEmployeesSelecteds() {
+        return $this->employeesSelecteds;
     }
 
     function setId($id) {
@@ -92,10 +92,6 @@ class EventDTO extends BaseDTO {
         $this->length = $length;
     }
 
-    function setEmployee($employee) {
-        $this->employee = $employee;
-    }
-
     function setClient($client) {
         $this->client = $client;
     }
@@ -107,6 +103,11 @@ class EventDTO extends BaseDTO {
     function setObservations($observations) {
         $this->observations = $observations;
     }
+
+    function setEmployeesSelecteds($employeesSelecteds) {
+        $this->employeesSelecteds = $employeesSelecteds;
+    }
+
 
 
 

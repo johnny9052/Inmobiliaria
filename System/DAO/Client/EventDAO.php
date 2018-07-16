@@ -26,9 +26,9 @@ class EventDAO {
         $query = $this->repository->buildQuerySimply("saveevent", array((int) $obj->getId(),
             (string) $obj->getDateEvent(), (string) $obj->getTimeEvent(),
             (string) $obj->getPlaceEvent(), (float) $obj->getLatitude(),
-            (float) $obj->getLength(), (int) $obj->getEmployee(),
+            (float) $obj->getLength(),
             (int) $obj->getClient(), (int) $obj->getEventType(),
-            (string) $obj->getObservations()
+            (string) $obj->getObservations(), (string) $obj->getEmployeesSelecteds() . ","
         ));
         $this->repository->ExecuteTransaction($query);
     }
@@ -68,9 +68,9 @@ class EventDAO {
         $query = $this->repository->buildQuerySimply("updateevent", array((int) $obj->getId(),
             (string) $obj->getDateEvent, (string) $obj->getTimeEvent(),
             (string) $obj->getPlaceEvent(), (float) $obj->getLatitude(),
-            (float) $obj->getLength(), (int) $obj->getEmployee(),
-            (int) $obj->getClient(), (int) $obj->getEventType(),
-            (string) $obj->getObservations()));
+            (float) $obj->getLength(), (int) $obj->getClient(), (int) $obj->getEventType(),
+            (string) $obj->getObservations(), (string) $obj->getEmployeesSelecteds(). ","
+        ));
         $this->repository->ExecuteTransaction($query);
     }
 
