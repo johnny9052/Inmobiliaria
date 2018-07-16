@@ -9,7 +9,7 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <title></title>
 
-        <script defer type="text/javascript" src="Resource/Script/Configuration/Rol.js"></script>
+        <script defer type="text/javascript" src="Resource/Script/Propertie/Propertie.js"></script>
 
     </head>
     <body>
@@ -458,7 +458,8 @@ and open the template in the editor.
                                     &nbsp;&nbsp;
                                     <label>Municipio</label>
                                     <div>
-                                        <select id="selCity" name="city" required class="form-control select2" style="width: 100%;">
+                                        <select id="selCity" name="city" required class="form-control select2" style="width: 100%;" 
+                                                onchange="loadNeighborhood(this.value)">
                                             <option value="-1" selected> -- SELECCIONE --</option>                            
                                         </select>
                                     </div>
@@ -493,7 +494,7 @@ and open the template in the editor.
                                     &nbsp;&nbsp;
                                     <label>Estrato</label>
                                     <div>
-                                        <select id="selState" name="estrato" 
+                                        <select id="selStratum" name="estrato" 
                                                 class="form-control select2" style="width: 100%;" required>
                                             <option value="-1" selected> -- SELECCIONE --</option>                            
                                         </select>
@@ -605,7 +606,7 @@ and open the template in the editor.
                                     &nbsp;&nbsp;
                                     <label>Estado</label>
                                     <div>
-                                        <select id="selZone" name="zone" required class="form-control select2" style="width: 100%;">
+                                        <select id="selStatus" name="status" required class="form-control select2" style="width: 100%;">
                                             <option value="-1" selected> -- SELECCIONE --</option>                            
                                         </select>
                                     </div>
@@ -637,7 +638,7 @@ and open the template in the editor.
                                     &nbsp;&nbsp;
                                     <label>Estructura de la cocina</label>
                                     <div>
-                                        <select id="selKitchenStructura" name="kitchenStructure" 
+                                        <select id="selKitchenStructure" name="kitchenStructure" 
                                                 class="form-control select2" style="width: 100%;" required>
                                             <option value="-1" selected> -- SELECCIONE --</option>                            
                                         </select>

@@ -231,9 +231,11 @@ and open the template in the editor.
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Estado civil</label>
-                                    <select id="selMaritalStatus" name="maritalStatus" required class="form-control select2" style="width: 100%;">
-                                        <option value="-1" selected> -- SELECCIONE --</option>                            
-                                    </select>
+                                    <div>
+                                        <select id="selMaritalStatus" name="maritalStatus" required class="form-control select2" style="width: 100%;">
+                                            <option value="-1" selected> -- SELECCIONE --</option>                            
+                                        </select>
+                                    </div>
                                 </div>
                             </div>     
 
@@ -251,9 +253,11 @@ and open the template in the editor.
                                     <label for="" class="fa fa-user"></label>
                                     &nbsp;
                                     <label>Tipo de persona</label>
-                                    <select id="selPersonType" name="personType" required class="form-control select2" style="width: 100%;">
-                                        <option value="-1" selected> -- SELECCIONE --</option>                            
-                                    </select>
+                                    <div>
+                                        <select id="selPersonType" name="personType" required class="form-control select2" style="width: 100%;">
+                                            <option value="-1" selected> -- SELECCIONE --</option>                            
+                                        </select>
+                                    </div>
                                 </div>
                             </div>   
 
@@ -320,9 +324,11 @@ and open the template in the editor.
                                     <label for="" class="fa fa-intersex"></label>
                                     &nbsp;&nbsp;
                                     <label>Genero</label>
-                                    <select id="selGender" name="gender" required class="form-control select2" style="width: 100%;">
-                                        <option value="-1" selected> -- SELECCIONE --</option>                            
-                                    </select>
+                                    <div>
+                                        <select id="selGender" name="gender" required class="form-control select2" style="width: 100%;">
+                                            <option value="-1" selected> -- SELECCIONE --</option>                            
+                                        </select>
+                                    </div>
                                 </div>
                             </div>     
                         </div>
@@ -336,11 +342,13 @@ and open the template in the editor.
                                     <label for="" class="fa fa-map-marker"></label>
                                     &nbsp;&nbsp;
                                     <label>Departamento de residencia</label>
-                                    <select id="selStateResidence" name="stateResidence"  
-                                            class="form-control select2" style="width: 100%;" 
-                                            onchange="loadCityResidence(this.value);">
-                                        <option value="-1" selected> -- SELECCIONE --</option>                            
-                                    </select>
+                                    <div>                                        
+                                        <select id="selStateResidence" name="stateResidence"  
+                                                class="form-control select2" style="width: 100%;" 
+                                                onchange="loadCityResidence(this.value);">
+                                            <option value="-1" selected> -- SELECCIONE --</option>                            
+                                        </select>
+                                    </div>
                                 </div>
                             </div>     
 
@@ -349,9 +357,11 @@ and open the template in the editor.
                                     <label for="" class="fa fa-map-marker"></label>
                                     &nbsp;&nbsp;
                                     <label>Municipio de residencia</label>
-                                    <select id="selCityResidence" name="cityResidence" required class="form-control select2" style="width: 100%;">
-                                        <option value="-1" selected> -- SELECCIONE --</option>                            
-                                    </select>
+                                    <div>
+                                        <select id="selCityResidence" name="cityResidence" required class="form-control select2" style="width: 100%;">
+                                            <option value="-1" selected> -- SELECCIONE --</option>                            
+                                        </select>
+                                    </div>
                                 </div>
                             </div>     
                         </div>
@@ -366,11 +376,13 @@ and open the template in the editor.
                                     <label for="" class="fa fa fa-drivers-license"></label>
                                     &nbsp;&nbsp;
                                     <label>Nivel de profesion</label>
-                                    <select id="selProfessionNivel" name="professionNivel" 
-                                            class="form-control select2" style="width: 100%;" 
-                                            onchange="loadProfession(this.value);">
-                                        <option value="-1" selected> -- SELECCIONE --</option>                            
-                                    </select>
+                                    <div>
+                                        <select id="selProfessionNivel" name="professionNivel" 
+                                                class="form-control select2" style="width: 100%;" 
+                                                onchange="loadProfession(this.value);">
+                                            <option value="-1" selected> -- SELECCIONE --</option>                            
+                                        </select>
+                                    </div>
                                 </div>
                             </div>     
 
@@ -379,9 +391,11 @@ and open the template in the editor.
                                     <label for="" class="fa fa-user-md"></label>
                                     &nbsp;&nbsp;
                                     <label>Profesion</label>
-                                    <select id="selProfession" name="profession" required class="form-control select2" style="width: 100%;">
-                                        <option value="-1" selected> -- SELECCIONE --</option>                            
-                                    </select>
+                                    <div>
+                                        <select id="selProfession" name="profession" required class="form-control select2" style="width: 100%;">
+                                            <option value="-1" selected> -- SELECCIONE --</option>                            
+                                        </select>
+                                    </div>
                                 </div>
                             </div>     
                         </div>
