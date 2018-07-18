@@ -10,7 +10,7 @@ and open the template in the editor.
         <title></title>
 
         <script defer type="text/javascript" src="Resource/Script/Propertie/Propertie.js"></script>
-
+        <script src="Resource/Script/General/Map.js" type="text/javascript"></script>
     </head>
     <body>
 
@@ -842,6 +842,18 @@ and open the template in the editor.
                         </div>
 
 
+                        <div class="row">
+                            <div class="col-md-12">
+                                <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div id="googleMap" style="width:100%;height:400px;"></div>
+                            </div>                                                                                                                                     
+                        </div>
+
+
 
                         <div class="row">
                             <div class="col-md-12">
@@ -950,7 +962,47 @@ and open the template in the editor.
         <!-- /.modal -->
 
 
-        <!-- END MODAL PARA ADMINISTRACION DE REGISTROS-->
+        <!-- END MODAL PARA ADMINISTRACION DE BARRIOS-->
+
+
+
+        <!-- MODAL PARA ADMINISTRACION DE MAPAS-->
+        <div class="modal fade" id="ModalNewMap" >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">                       
+                        <h4 class="modal-title">Gestion registro barrios</h4>
+                    </div>
+
+                    <div class="modal-body" id="FormContainerDistrict"> 
+
+                        <div class="row">
+                            <div class="col-md-12">
+
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="modal-footer">
+
+                        <button onclick="closeWindow('', false);" type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
+
+                        <div class="newActionButton">                            
+                            <button id="btnSave" onclick="saveNewDistrict();" type ="button" class="btn btn-primary">Guardar</button>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+        <!-- END MODAL PARA ADMINISTRACION DE MAPAS-->
 
 
 
@@ -977,8 +1029,6 @@ and open the template in the editor.
 
 
         <!-- END MODAL DE CONFIRMACION-->
-
-
 
 
     </body>
