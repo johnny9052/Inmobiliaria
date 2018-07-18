@@ -101,18 +101,18 @@ function loadOutstandingType() {
 
 function save() {
     if (validateForm() === true) {
-        Execute(scanInfo('save', true), 'Configuration/CtlRol', '', 'closeWindow();list();');
+        Execute(scanInfo('save', true), 'Propertie/CtlPropertie', '', 'closeWindow();list();');
     }
 }
 
 function list() {
-    Execute(scanInfo('listfilter'), 'Configuration/CtlRol', '', 'buildPaginator(info);');
+    Execute(scanInfo('listfilter'), 'Propertie/CtlPropertie', '', 'buildPaginator(info);');
 }
 
 
 function search(id) {
     $("#txtId").val(id);
-    Execute(scanInfo('search', true), 'Configuration/CtlRol', '', 'showData(info);');
+    Execute(scanInfo('search', true), 'Propertie/CtlPropertie', '', 'showData(info);');
 }
 
 
@@ -127,13 +127,34 @@ function showData(info) {
 
 function update() {
     if (validateForm() === true) {
-        Execute(scanInfo('update', true), 'Configuration/CtlRol', '', 'closeWindow();list();');
+        Execute(scanInfo('update', true), 'Propertie/CtlPropertie', '', 'closeWindow();list();');
     }
 }
 
 
 function deleteInfo() {
-    if (validateForm() === true) {
-        Execute(scanInfo('delete', true), 'Configuration/CtlRol', '', 'closeWindow("ModalConfirm");list();cleanForm("ModalNew");');
+    Execute(scanInfo('delete', true), 'Propertie/CtlPropertie', '', 'closeWindow("ModalConfirm");list();cleanForm("ModalNew");');
+}
+
+
+
+function validarMunicipioSeleccionado() {
+    if ($('#selCity').val() === "-1") {
+        showToast("No ha seleccionado ningun municipio", 'error', 'ModalNew');
+    } else {
+        //$('#txtIdCityForDistrict').val($('#selCity').val());
+        goNavigation('ModalNew', 'ModalNewDistrict', true);
+    }
+}
+
+
+function saveNewDistrict() {
+    if (validateForm('FormContainerDistrict', 'ModalNewDistrict') === true) {
+        Execute(scanInfo('save', false, '', [{datos: ["city", $('#selCity').val()]},
+            {datos: ["nameDistrict", $('#txtNameDistrict').val()]}
+        ]),
+                'Parameterized/CtlDistrict',
+                '',
+                'loadNeighborhood(' + $('#selCity').val() + ');cleanForm("ModalNewDistrict");');
     }
 }

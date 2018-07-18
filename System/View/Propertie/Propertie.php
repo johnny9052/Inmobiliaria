@@ -214,10 +214,10 @@ and open the template in the editor.
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="txtAreasWithoutBalconies">Numero piso</label>   
+                                    <label for="txtNumeroPiso">Numero piso</label>   
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-building"></i></span>
-                                        <input id="txtAreasWithoutBalconies" name="areasWithoutBalconies" class="form-control" type="number" value="" autocomplete="off" required
+                                        <input id="txtNumeroPiso" name="numeroPiso" class="form-control" type="number" value="" autocomplete="off" required
                                                placeholder="Numero piso" max="999">
                                     </div>
                                 </div>
@@ -242,7 +242,7 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <input type="checkbox" id="chkEstudio" name="estudio"/>
                                     &nbsp;&nbsp;
-                                    <label for="chkChimenea" class="fa fa-cube"></label>                                    
+                                    <label for="chkEstudio" class="fa fa-cube"></label>                                    
                                     <label for="chkEstudio">Tiene estudio</label>
                                 </div>
                             </div>  
@@ -255,7 +255,7 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <input type="checkbox" id="chkDeposito"  name="deposito"/>
                                     &nbsp;&nbsp;
-                                    <label for="chkChimenea" class="fa fa-cube"></label>                                    
+                                    <label for="chkDeposito" class="fa fa-cube"></label>                                    
                                     <label for="chkDeposito">Tiene deposito</label>
                                 </div>
                             </div>   
@@ -265,7 +265,7 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <input type="checkbox" id="chkZonaRopas"  name="zonaRopas"/>
                                     &nbsp;&nbsp;
-                                    <label for="chkChimenea" class="fa fa-tint"></label>                                    
+                                    <label for="chkZonaRopas" class="fa fa-tint"></label>                                    
                                     <label for="chkZonaRopas">Tiene zona de ropas</label>
                                 </div>
                             </div>  
@@ -279,7 +279,7 @@ and open the template in the editor.
                                     <input type="checkbox" id="chkParqueaderoVisitante" name="parqueaderoVisitante"/>
                                     &nbsp;&nbsp;
                                     <!--<label class="material-icons">&#xe54f;</label>-->
-                                    <label for="chkChimenea" class="fa fa-car"></label>      
+                                    <label for="chkParqueaderoVisitante" class="fa fa-car"></label>      
                                     <label for="chkParqueaderoVisitante">Tiene parqueadero visitante</label>
                                 </div>
                             </div>   
@@ -289,7 +289,7 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <input type="checkbox" id="chkAscensor" name="ascensor"/>
                                     &nbsp;&nbsp;
-                                    <label for="chkChimenea" class="fa fa-caret-square-o-up"></label>                                    
+                                    <label for="chkAscensor" class="fa fa-caret-square-o-up"></label>                                    
                                     <label for="chkAscensor">Tiene ascensor</label>
                                 </div>
                             </div>  
@@ -301,7 +301,7 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <input type="checkbox" id="chkTerraza"  name="terraza"/>
                                     &nbsp;&nbsp;
-                                    <label for="chkChimenea" class="fa fa-cloud"></label>                                    
+                                    <label for="chkTerraza" class="fa fa-cloud"></label>                                    
                                     <label for="chkTerraza">Tiene terraza</label>
                                 </div>
                             </div>   
@@ -311,7 +311,7 @@ and open the template in the editor.
                                 <div class="form-group">                                    
                                     <input type="checkbox" id="chkTransportePublicoCercano" name="transportePublicoCercano"/>
                                     &nbsp;&nbsp;
-                                    <label for="chkChimenea" class="fa fa-bus"></label>                                    
+                                    <label for="chkTransportePublicoCercano" class="fa fa-bus"></label>                                    
                                     <label for="chkTransportePublicoCercano">Tiene transporte publico cercano</label>
                                 </div>
                             </div>  
@@ -327,7 +327,7 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <input type="checkbox" id="chkSalonComunal"  name="salonComunal"/>
                                     &nbsp;&nbsp;
-                                    <label for="chkChimenea" class="fa fa-comments"></label>                                    
+                                    <label for="chkSalonComunal" class="fa fa-comments"></label>                                    
                                     <label for="chkSalonComunal">Tiene salon comunal</label>
                                 </div>
                             </div>   
@@ -337,7 +337,7 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <input type="checkbox" id="chkSauna"  name="sauna"/>
                                     &nbsp;&nbsp;
-                                    <label for="chkChimenea" class="fa fa-tint"></label>                                    
+                                    <label for="chkSauna" class="fa fa-tint"></label>                                    
                                     <label for="chkSauna">Tiene sauna</label>
                                 </div>
                             </div>  
@@ -350,7 +350,7 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <input type="checkbox" id="chkTurco"  name="turco"/>
                                     &nbsp;&nbsp;
-                                    <label for="chkChimenea" class="fa fa-tint"></label>                                    
+                                    <label for="chkTurco" class="fa fa-tint"></label>                                    
                                     <label for="chkTurco">Tiene turco</label>
                                 </div>
                             </div>   
@@ -360,7 +360,7 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <input type="checkbox" id="chkJacuzzi" name="jacuzzi"/>
                                     &nbsp;&nbsp;
-                                    <label for="chkChimenea" class="fa fa-tint"></label>                                    
+                                    <label for="chkJacuzzi" class="fa fa-tint"></label>                                    
                                     <label for="chkJacuzzi">Tiene Jacuzzi</label>
                                 </div>
                             </div>  
@@ -373,7 +373,7 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <input type="checkbox" id="chkZonaInfantil"  name="zonaInfantil"/>
                                     &nbsp;&nbsp;
-                                    <label for="chkChimenea" class="fa fa-envira"></label>                                    
+                                    <label for="chkZonaInfantil" class="fa fa-envira"></label>                                    
                                     <label for="chkZonaInfantil">Tiene zonas infantiles</label>
                                 </div>
                             </div>   
@@ -383,7 +383,7 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <input type="checkbox" id="chkJardines" name="jardines"/>
                                     &nbsp;&nbsp;
-                                    <label for="chkChimenea" class="fa fa-child"></label>                                    
+                                    <label for="chkJardines" class="fa fa-child"></label>                                    
                                     <label for="chkJardines">Tiene jardines</label>
                                 </div>
                             </div>  
@@ -396,7 +396,7 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <input type="checkbox" id="chkDuplex"  name="duplex"/>
                                     &nbsp;&nbsp;
-                                    <label for="chkChimenea" class="fa fa-home"></label>                                    
+                                    <label for="chkDuplex" class="fa fa-home"></label>                                    
                                     <label for="chkDuplex">Es duplex</label>
                                 </div>
                             </div>   
@@ -418,7 +418,7 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <input type="checkbox" id="chkGimnasio"  name="gimnasio"/>
                                     &nbsp;&nbsp;
-                                    <label for="chkChimenea" class="fa fa-users"></label>                                    
+                                    <label for="chkGimnasio" class="fa fa-users"></label>                                    
                                     <label for="chkGimnasio">Tiene gimnasio</label>
                                 </div>
                             </div>   
@@ -427,8 +427,57 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <input type="checkbox" id="chkPrecioNegociable"  name="precioNegociable"/>
                                     &nbsp;&nbsp;
-                                    <label for="chkChimenea" class="fa fa-dollar"></label>                                    
+                                    <label for="chkPrecioNegociable" class="fa fa-dollar"></label>                                    
                                     <label for="chkPrecioNegociable">Precio negociable</label>
+                                </div>
+                            </div>   
+                        </div>
+
+
+
+
+
+
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="checkbox" id="chkPiscina"  name="piscina"/>
+                                    &nbsp;&nbsp;
+                                    <label for="chkPiscina" class="fa fa-tint"></label>                                    
+                                    <label for="chkPiscina">Tiene piscina</label>
+                                </div>
+                            </div>   
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="checkbox" id="chkZonaMascotas"  name="zonaMascotas"/>
+                                    &nbsp;&nbsp;
+                                    <label for="chkZonaMascotas" class="fa fa-github-alt"></label>
+                                    <label for="chkZonaMascotas">Tiene zona de mascotas</label>
+                                </div>
+                            </div>   
+                        </div>
+
+
+
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="checkbox" id="chkParqueaderoCubierto"  name="parqueaderoCubierto"/>
+                                    &nbsp;&nbsp;
+                                    <label for="chkParqueaderoCubierto" class="	fa fa-university"></label>                                    
+                                    <label for="chkParqueaderoCubierto">Tiene parqueadero cubierto</label>
+                                </div>
+                            </div>   
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="checkbox" id="chkAmoblado"  name="amoblado"/>
+                                    &nbsp;&nbsp;
+                                    <label for="chkAmoblado" class="fa fa-codepen"></label>
+                                    <label for="chkAmoblado">Es amoblado</label>
                                 </div>
                             </div>   
                         </div>
@@ -481,6 +530,19 @@ and open the template in the editor.
                                     </div>
                                 </div>
                             </div>     
+
+
+                            <div class="col-md-6">
+                                <div class="form-group seleccionable">
+                                    <br>
+                                    <label for="" class="fa fa-plus-square seleccionable"></label>
+                                    &nbsp;&nbsp;
+                                    <label class="seleccionable" id="lblNuevoBarrio" onclick="validarMunicipioSeleccionado();">
+                                        Agregar nuevo barrio al municipio
+                                    </label>   
+                                </div>
+                            </div>     
+
                         </div>
 
 
@@ -622,7 +684,7 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <label for="selKitchenType" class="fa fa-cutlery"></label>
                                     &nbsp;&nbsp;
-                                    <label id="lbl">Tipo de cocina</label>
+                                    <label>Tipo de cocina</label>
                                     <div>
                                         <select id="selKitchenType" name="kitchenType" 
                                                 class="form-control select2" style="width: 100%;" required>
@@ -810,6 +872,74 @@ and open the template in the editor.
                         </div>
 
 
+
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
+
+        <!-- END MODAL PARA ADMINISTRACION DE REGISTROS-->
+
+
+
+
+
+        <!-- MODAL PARA ADMINISTRACION DE NUEVOS BARRIOS-->
+        <div class="modal fade" id="ModalNewDistrict" >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">                       
+                        <h4 class="modal-title">Gestion registro barrios</h4>
+                    </div>
+
+                    <div class="modal-body" id="FormContainerDistrict"> 
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">                                                                        
+                                    <input id="txtIdCityForDistrict" name="idCity" class="form-control identificator"  type="hidden" value="">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="txtNameDistrict">Nombre</label>   
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-info"></i></span>
+                                        <input id="txtNameDistrict" name="nameDistrict" class="form-control" type="text" value="" autocomplete="off" required
+                                               placeholder="Nombre del barrio">
+                                    </div>
+                                </div>
+                            </div>                       
+                        </div>                       
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="progress progress-sm active">
+                                    <div class="progress-bar progress-bar-primary progress-bar-striped" role="progressbar" aria-valuenow="100" aria-valuemin="100" aria-valuemax="100" style="width: 100%">
+                                        <span class="sr-only">100% Complete</span>
+                                    </div>
+                                </div>
+                            </div>                       
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="modal-footer">
+
+                        <button onclick="closeWindow('', false);" type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
+
+                        <div class="newActionButton">                            
+                            <button id="btnSave" onclick="saveNewDistrict();" type ="button" class="btn btn-primary">Guardar</button>
+                        </div>
 
                     </div>
                 </div>
