@@ -1,79 +1,107 @@
 <?php
 
 /**
- * Definicion de acciones para la gestion de los roles
+ * Definicion de acciones para la gestion de los propertiees
  * @author Johnny Alexander Salazar
  * @version 0.1
  */
-class RolDAO {
+class PropertieDAO {
 
     private $repository;
 
-    function RolDAO() {
+    function PropertieDAO() {
         require_once '../../Infraestructure/Repository.php';
         $this->repository = new Repository();
     }
 
     /**
      * Ejecuta un guardar en la base de datos
-     * @param RolDTO $obj 
+     * @param PropertieDTO $obj 
      * @return void      
      * @author Johnny Alexander Salazar
      * @version 0.1
      */
-    public function Save(RolDTO $obj) {
-        $query = $this->repository->buildQuerySimply("saverol", array((int) $obj->getId(),
-            (string) $obj->getName(), (string) $obj->getDescription()));
+    public function Save(PropertieDTO $obj) {
+        $query = $this->repository->buildQuerySimply("savepropertie", array((int) $obj->getId(),
+            (float) $obj->getPrecio(), (float) $obj->getAdministrationCost(),
+            (int) $obj->getRoom(), (int) $obj->getBath(),
+            (int) $obj->getParking(), (float) $obj->getTotalArea(),
+            (float) $obj->getAreasWithoutBalconies(), (string) $obj->getBuildYear(),
+            (string) $obj->getNumeroPiso(), (int) $obj->getChimenea(),
+            (int) $obj->getEstudio(), (int) $obj->getDeposito(),
+            (int) $obj->getZonaRopas(), (int) $obj->getParqueaderoVisitante(),
+            (int) $obj->getAscensor(), (int) $obj->getTerraza(),
+            (int) $obj->getTransportePublicoCercano(), (int) $obj->getSalonComunal(),
+            (int) $obj->getSauna(), (int) $obj->getTurco(),
+            (int) $obj->getJacuzzi(), (int) $obj->getZonaInfantil(),
+            (int) $obj->getJardines(), (int) $obj->getDuplex(),
+            (int) $obj->getPuertaSeguridad(), (int) $obj->getGimnasio(),
+            (int) $obj->getPrecioNegociable(), (int) $obj->getPiscina(),
+            (int) $obj->getZonaMascotas(), (int) $obj->getParqueaderoCubierto(),
+            (int) $obj->getAmoblado(), (int) $obj->getCity(),
+            (int) $obj->getBarrio(), (int) $obj->getEstrato(),
+            (int) $obj->getPropertieType(), (int) $obj->getOfferType(),
+            (int) $obj->getCurtainType(), (int) $obj->getVigilanceType(),
+            (int) $obj->getZone(), (int) $obj->getViewType(),
+            (int) $obj->getStatus(), (int) $obj->getKitchenType(),
+            (int) $obj->getKitchenStructure(), (int) $obj->getFloorType(),
+            (int) $obj->getClient(), (string) $obj->getPublicationDate(),
+            (string) $obj->getReceptionDate(), (int) $obj->getOutstandingType(),
+            (string) $obj->getLinderos(), (string) $obj->getMatriculaInmobiliaria(),
+            (float) $obj->getAvaluoCatastral()
+        ));
+
+       
         $this->repository->ExecuteTransaction($query);
     }
 
     /**
      * Ejecuta un listar en la base de datos
-     * @param RolDTO $obj
-     * @param boolean $type indica si se quiere filtro o no 
+     * @param PropertieDTO $obj
+     * @param intean $type indica si se quiere filtro o no 
      * @return void      
      * @author Johnny Alexander Salazar
      * @version 0.1
      */
-    public function ListAll(RolDTO $obj, $type) {
-        $query = $this->repository->buildQuery("listrol", array((int) $obj->getIdUser()));
+    public function ListAll(PropertieDTO $obj, $type) {
+        $query = $this->repository->buildQuery("listpropertie", array((int) $obj->getIdUser()));
         $this->repository->BuildPaginatorDataTable($query, '');
     }
 
     /**
      * Ejecuta un buscar en la base de datos
-     * @param RolDTO $obj 
+     * @param PropertieDTO $obj 
      * @return void      
      * @author Johnny Alexander Salazar
      * @version 0.1
      */
-    public function Search(RolDTO $obj) {
-        $query = $this->repository->buildQuery("searchrol", array((int) $obj->getId()));
+    public function Search(PropertieDTO $obj) {
+        $query = $this->repository->buildQuery("searchpropertie", array((int) $obj->getId()));
         $this->repository->Execute($query);
     }
 
     /**
      * Ejecuta un actualizar en la base de datos
-     * @param RolDTO $obj 
+     * @param PropertieDTO $obj 
      * @return void      
      * @author Johnny Alexander Salazar
      * @version 0.1
      */
-    public function Update(RolDTO $obj) {
-        $query = $this->repository->buildQuerySimply("updaterol", array((int) $obj->getId(),
+    public function Update(PropertieDTO $obj) {
+        $query = $this->repository->buildQuerySimply("updatepropertie", array((int) $obj->getId(),
             (string) $obj->getName(), (string) $obj->getDescription()));
         $this->repository->ExecuteTransaction($query);
     }
 
     /**
      * Ejecuta un borrar en la base de datos
-     * @param RolDTO $obj 
+     * @param PropertieDTO $obj 
      * @return void      
      * @author Johnny Alexander Salazar
      * @version 0.1
      */
-    public function Delete(RolDTO $obj) {
-        $query = $this->repository->buildQuerySimply("deleterol", array((int) $obj->getId()));
+    public function Delete(PropertieDTO $obj) {
+        $query = $this->repository->buildQuerySimply("deletepropertie", array((int) $obj->getId()));
         $this->repository->ExecuteTransaction($query);
     }
 

@@ -1,6 +1,6 @@
 /* Funciones jQuery */
 $(window).on("load", function (e) {
-    list();    
+    list();
 });
 
 function save() {
@@ -37,7 +37,5 @@ function update() {
 
 
 function deleteInfo() {
-    if (validateForm() === true) {
-        Execute(scanInfo('delete', true), 'Configuration/CtlRol', '', 'closeWindow("ModalConfirm");list();cleanForm("ModalNew");');
-    }
+    Execute(scanInfo('delete', true), 'Configuration/CtlRol', '', 'closeWindow("ModalConfirm");list();cleanForm("ModalNew");');
 }

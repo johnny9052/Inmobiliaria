@@ -479,12 +479,14 @@ function refreshSelect(id, val) {
  * tomara el id, si no evaluara el form "fMain"), para determinar si son 
  * validos o no, si no son validos muestra un mensaje emergente con los campos
  * que se solicita que sean llenados
- * @param {String} form id del formulario
- * @param {String} modal id del modal
+ * @param {String} form id del formulario de lo que se quiere mapear, si no se manda 
+ *                 nada entonces se determinara el que es por defecto "FormContainerDistrict". 
+ * @param {String} modal id del modal al cual quiere regresar si muestra un mensaje de error, 
+ *                 si no se manda nada calculara el modal por defecto "ModalNew". 
  * @returns {boolean} true si es correctamente validado, false si tiene errores
  * en la validacion
  * @author Johnny Alexander Salazar
- * @version 0.4
+ * @version 0.5
  */
 function validateForm(form, modal) {
     var status = true;
@@ -711,19 +713,32 @@ function closeWindow(idModal, clean) {
  * Navega entre modales
  * @param {String} close id del modal a cerrar
  * @param {String} open id del modal a abrir
+ * @param {boolean} back indica si debe regresar al formulario cuando el que se 
+ * abre se cierra
  * @returns {void}
  * @author Johnny Alexander Salazar
- * @version 0.2
+ * @version 0.3
  */
-function goNavigation(close, open) {
-    $('#' + close).modal('hide');
+function goNavigation(close, open, back) {
+
+    closeWindow(close, false);
+
     setTimeout(function () {
-        $('#' + open).modal({
-            backdrop: false,
-            keyboard: false
-        });
+        openWindow(open);
     }, 400);
 
+    if (back) {
+        /*Se especifica que hacer cuando el modal del mensaje se ciere*/
+        $('#' + open).on('hide.bs.modal', function (e) {
+            setTimeout(function () {
+                /*Se abre el modal previo*/
+                openWindow(close);
+                /*Del modal que muestra el mensaje, se desasocia el evento 
+                 * que regresa a la ventana previa*/
+                $('#' + open).unbind();
+            }, 400);
+        });
+    }
 }
 
 
