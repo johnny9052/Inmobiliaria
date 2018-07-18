@@ -230,6 +230,8 @@ and open the template in the editor.
 
                             <div class="col-md-6">
                                 <div class="form-group">
+                                    <label for="" class="fa fa-gratipay"></label>
+                                    &nbsp;&nbsp;
                                     <label>Estado civil</label>
                                     <div>
                                         <select id="selMaritalStatus" name="maritalStatus" required class="form-control select2" style="width: 100%;">

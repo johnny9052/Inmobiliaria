@@ -150,6 +150,10 @@ function ExecuteActionLoad($action, $obj, $dao) {
             $dao->LoadSelect($obj, "loadclienttypeselected");
             break;
         
+        case "loadEmployeeSelected":
+            $dao->LoadSelect($obj, "loademployeeselected");
+            break;
+        
          case "loadCheckboxEmployees":
             $dao->LoadCheckbox($obj, "loademployee");
             break;
@@ -164,7 +168,9 @@ function ExecuteActionLoad($action, $obj, $dao) {
         
         
         /*END Load checkbox Selected*/
-
+        case "loadCheckboxEmployees":
+            $dao->LoadCheckbox($obj, "loademployee");
+            break;
 
         default :
             echo 'No action found';

@@ -2,7 +2,7 @@
 
 require_once ('../../DTO/BaseDTO.php');
 
-class EventDTO extends BaseDTO {
+class EventEmployeeDTO extends BaseDTO {
 
     private $id;
     private $dateEvent;
@@ -14,20 +14,22 @@ class EventDTO extends BaseDTO {
     private $eventType;
     private $observations;
     private $employeesSelecteds;
+    private $comments;
     
-    function __construct($id, $dateEvent, $timeEvent, $placeEvent, $latitude, $length, $client, $eventType, $observations, $employeesSelecteds) {
+    function __construct($id, $dateEvent, $timeEvent, $placeEvent, $latitude, $length, $client, $eventType, $observations, $employeesSelecteds, $comments) {
         $this->id = $id;
         $this->dateEvent = $dateEvent;
         $this->timeEvent = $timeEvent;
         $this->placeEvent = $placeEvent;
-        $this->latitude = 4.554263961623923;
-        $this->length = -75.65520020474804;
+        $this->latitude = $latitude;
+        $this->length = $length;
         $this->client = $client;
         $this->eventType = $eventType;
         $this->observations = $observations;
         $this->employeesSelecteds = $employeesSelecteds;
+        $this->comments = $comments;
     }
-    
+
     function getId() {
         return $this->id;
     }
@@ -66,6 +68,10 @@ class EventDTO extends BaseDTO {
 
     function getEmployeesSelecteds() {
         return $this->employeesSelecteds;
+    }
+
+    function getComments() {
+        return $this->comments;
     }
 
     function setId($id) {
@@ -107,6 +113,11 @@ class EventDTO extends BaseDTO {
     function setEmployeesSelecteds($employeesSelecteds) {
         $this->employeesSelecteds = $employeesSelecteds;
     }
+
+    function setComments($comments) {
+        $this->comments = $comments;
+    }
+
 
 
 

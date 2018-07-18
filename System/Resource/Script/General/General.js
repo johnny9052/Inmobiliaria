@@ -14,8 +14,11 @@ $(document).ready(function () {
 
     //Timepicker
     $('.timepicker').timepicker({
-        showInputs: false
+        showInputs: false,
+        showMeridian: false,         
     });
+
+
 
     // https://stackoverflow.com/questions/19639951/how-do-i-change-selected-value-of-select2-dropdown-with-jqgrid
     //$('.select2').select2();// Para colocar el select con autocompletado. 
@@ -253,7 +256,7 @@ function scanInfo(type, status, form, dataPlus) {
                  #' + form + ' textarea';
 
         $(campos).each(function () {
-            var elemento = this;            
+            var elemento = this;
             /*Si es un radio, retornamos 1 si esta checkeado, 0 si no*/
             if (elemento.type === "checkbox") {
                 arrayParameters.push(newArg(elemento.name, (elemento.checked) ? 1 : 0));
@@ -504,9 +507,9 @@ function validateForm(form, modal) {
                 $(elemento).parent().siblings('label').removeClass("colorCampoError");
             }
         } else {
-            
+
             //alert(elemento.id);
-            
+
             /*Si es cualquier otro elementos diferente a select*/
             if (!elemento.validity.valid) { //es valido?                           
                 /*Es necesario el doble parent por el icono de las cajas de texto, 
@@ -873,6 +876,8 @@ function CheckCheckboxChecked(type, name) {
  * @version 0.1
  */
 function CheckCheckboxCheckedBuild(info, name) {
+
+
     for (var x in info) {
         $("#" + name + info[x].id).prop('checked', true);
     }
@@ -883,10 +888,8 @@ function CheckCheckboxCheckedBuild(info, name) {
  * Escanea un conjunto de checkbox puestos previamente con nombre pre-definido
  * diferenciado por id, y retorna en un array solo los id de los elementos 
  * seleccionados
- * @param {string} nameData : Nombre que se le dara a los datos, esto estara en 
- * la primera posicion del array
- * @param {string} prefixCheckbox : Prefijo que tienen los checkbox que quiero 
- * escanear 
+ * @param {string} nameData : Nombre que se le dara a los datos, esto estara en la primera posicion del array
+ * @param {string} prefixCheckbox : Prefijo que tienen los checkbox que quiero escanear 
  * @author Johnny Alexander Salazar
  * @version 0.1
  */

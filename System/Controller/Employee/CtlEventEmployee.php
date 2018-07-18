@@ -1,8 +1,8 @@
 <?php
 
 /* IMPORTS */
-require '../../DTO/Client/EventDTO.php';
-require '../../DAO/Client/EventDAO.php';
+require '../../DTO/Employee/EventEmployeeDTO.php';
+require '../../DAO/Employee/EventEmployeeDAO.php';
 include '../../Helper/Action/Action.php';
 
 /* RECEPCION DE DATOS */
@@ -17,14 +17,15 @@ $client = getInfo('client');
 $eventType = getInfo('typeEvent');
 $observations = getInfo('observations');
 $employeesSelecteds = getInfo('employeesSelecteds');
+$comments = getInfo('comments');
 
 
 $dateEvent = date("Y-m-d", strtotime($dateEvent));
 
 
 /* DEFINICION DE OBJETOS */
-$obj = new EventDTO($id, $dateEvent, $timeEvent, $placeEvent, $latitude, $length, $client, $eventType, $observations, $employeesSelecteds);
-$dao = new EventDAO();
+$obj = new EventEmployeeDTO($id, $dateEvent, $timeEvent, $placeEvent, $latitude, $length, $client, $eventType, $observations, $employeesSelecteds, $comments);
+$dao = new EventEmployeeDAO();
 
 /* CONTROL DE ACCIONES */
 ExecuteAction($action, $obj, $dao);

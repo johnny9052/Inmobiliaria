@@ -1,9 +1,9 @@
 /* Funciones jQuery */
 $(window).on("load", function (e) {
     list();
-    loadEmployee();
-    loadClient();
-    loadTypeEvent();
+//    loadEmployee();
+//    loadClient();
+//    loadTypeEvent();
     loadCheckboxEmployees();
 });
 
@@ -30,7 +30,7 @@ function loadEmployee() {
 function save() {
     if (validateForm() === true) {
         Execute(scanInfo('save', true, '', [{datos: scanCheckboxDinamic("employeesSelecteds", "EmployeesChk")}]),
-                'Client/CtlEvent',
+                'Employee/CtlEventEmployee',
                 '',
                 'closeWindow();list();');
     }
@@ -38,28 +38,50 @@ function save() {
 }
 
 function list() {
-    Execute(scanInfo('list'), 'Client/CtlEvent', '', 'buildPaginator(info);');
+    Execute(scanInfo('list'), 'Employee/CtlEventEmployee', '', 'buildPaginator(info);');
 }
 
 
 function search(id) {
     $("#txtId").val(id);
     Execute(scanInfo('search', true),
-            'Client/CtlEvent',
+            'Employee/CtlEventEmployee',
             '',
-            'showData(info);CheckCheckboxChecked("loadEmployeeSelected","EmployeesChk");');
+            'showData(info);searchEmployeeNames();');
+}
+
+
+function searchEmployeeNames(){
+   
+    Execute(scanInfo('loadEmployeeSelected', true),
+            'General/CtlGeneral',
+            '',
+            'showEmployeeNames(info);'); 
+}
+
+
+function showEmployeeNames(info){
+    var constructor ='';
+    for($i=0;$i<info.length;$i++){
+        
+        constructor = constructor + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>" 
+                + info[$i].nombre + "</label><BR>";
+    }
+     
+    $("#ListEmpleados").html(constructor);
 }
 
 
 function showData(info) {
     $("#txtId").val(info[0].id); //.id es lo que se coloque en el procedimiento almacenado searcheevent
-    refreshSelect("selClient", info[0].cedula_cliente);
-    refreshSelect("selTypeEvent", info[0].id_tipo_evento);
+    $("#txtClient").val(info[0].nombreCliente);
+    $("#txtEventType").val(info[0].tipo_evento);
     $("#txtPlace").val(info[0].lugar_evento);
     $("#txtDateEvent").val(info[0].fecha_evento);
     $("#txtTimeEvent").val(info[0].hora_evento);
     refreshSelect("selEmployee", info[0].id_empleado);
     $("#txtObservations").val(info[0].observaciones);
+    $("#txtComments").val(info[0].comentarios);
 
     openWindow();
     showButton(false);
@@ -68,15 +90,12 @@ function showData(info) {
 
 function update() {
     if (validateForm() === true) {
-        Execute(scanInfo('update', true, '', [{datos: scanCheckboxDinamic("employeesSelecteds", "EmployeesChk")}]),
-                'Client/CtlEvent',
-                '',
-                'closeWindow();list();');
+        Execute(scanInfo('update', true), 'Employee/CtlEventEmployee', '', 'closeWindow();list();');
     }
 }
 
 
 function deleteInfo() {
-    Execute(scanInfo('delete', true), 'Client/CtlEvent', '', 'closeWindow("ModalConfirm");list();cleanForm("ModalNew");');
+    Execute(scanInfo('delete', true), 'Employee/CtlEventEmployee', '', 'closeWindow("ModalConfirm");list();cleanForm("ModalNew");');
 }
 

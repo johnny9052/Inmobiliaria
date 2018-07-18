@@ -9,18 +9,18 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <title></title>
 
-        <script defer type="text/javascript" src="Resource/Script/Client/Event.js"></script>
+        <script defer type="text/javascript" src="Resource/Script/Employee/EventEmployee.js"></script>
     </head>
     <body>
 
         <section class="content-header">
             <h1>
-                Eventos                    
+                Control Eventos                    
             </h1>
 
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-group"></i> Configuracion</a></li>
-                <li class="active">Eventos</li>
+                <li class="active">Control Eventos</li>
             </ol>
         </section>
 
@@ -40,10 +40,6 @@ and open the template in the editor.
                         <div class="box-body">
                             <form role="form">
                                 <div class="form-group">
-
-                                    <div class="col-md-2 col-xs-6">
-                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalNew" onclick="showButton(true);">Nuevo registro</button>                                                                
-                                    </div>
 
                                     <div class="col-md-9  col-xs-6">
                                         <div class="progress progress-sm active">
@@ -100,26 +96,22 @@ and open the template in the editor.
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="" class="fa fa-id-badge"></label>
-                                    &nbsp;&nbsp;
-                                    <label>Cliente</label>
-                                    <div>
-                                        <select id="selClient" name="client" required class="form-control select2" style="width: 100%;">
-                                            <option value="-1" selected> -- SELECCIONE --</option>                            
-                                        </select>
+                                    <label for="txtFirstName">Cliente</label> 
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-id-badge"></i></span>
+                                        <input id="txtClient" name="place" class="form-control" type="text" value="" autocomplete="off" required disabled="disabled"
+                                               placeholder="Lugar">
                                     </div>
                                 </div>
                             </div>     
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="" class="fa fa-leanpub"></label>
-                                    &nbsp;&nbsp;
-                                    <label>Tipo Evento</label>
-                                    <div>
-                                        <select id="selTypeEvent" name="typeEvent" required class="form-control select2" style="width: 100%;">
-                                            <option value="-1" selected> -- SELECCIONE --</option>                            
-                                        </select>
+                                    <label for="txtFirstName">Tipo Evento</label> 
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-leanpub"></i></span>
+                                        <input id="txtEventType" name="place" class="form-control" type="text" value="" autocomplete="off" required disabled="disabled"
+                                               placeholder="Lugar">
                                     </div>
                                 </div>
                             </div>    
@@ -143,23 +135,20 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <label for="txtFirstName">Lugar</label> 
                                     <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-info"></i></span>
-                                        <input id="txtPlace" name="place" class="form-control" type="text" value="" autocomplete="off" required
+                                        <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
+                                        <input id="txtPlace" name="place" class="form-control" type="text" value="" autocomplete="off" required disabled="disabled"
                                                placeholder="Lugar">
                                     </div>
                                 </div>
                             </div>
 
-
-
                             <div class="col-md-6">                                
                                 <div class="form-group">
-                                    <label>Fecha de evento</label>
-                                    <div class="input-group date">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-calendar"></i>
-                                        </div>
-                                        <input type="text" name="dateEvent" required class="form-control pull-right dateAction" id="txtDateEvent">
+                                    <label for="txtFirstName">Fecha evento</label> 
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                        <input id="txtDateEvent" name="place" class="form-control" type="text" value="" autocomplete="off" required disabled="disabled"
+                                               placeholder="Lugar">
                                     </div>
                                 </div>
                             </div>    
@@ -172,7 +161,7 @@ and open the template in the editor.
                                         <label>Hora evento</label>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
-                                            <input type="text" name="timeEvent" class="form-control timepicker"  id="txtTimeEvent">                                            
+                                            <input type="text" name="timeEvent" class="form-control timepicker"  id="txtTimeEvent" disabled="disabled">                                            
                                         </div>
                                         <!-- /.input group -->
                                     </div>
@@ -183,12 +172,12 @@ and open the template in the editor.
                         </div>
                         <div class="row">                           
 
-                            <div class="col-md-6">
+                            <div class="col-md-6" >
                                 <div class="form-group">
                                     <label for="" class="fa fa-user"></label>
                                     &nbsp;&nbsp;
                                     <label>Empleados</label>
-                                    <div id="FormContainerCheckboxEmployees" class="containerPermission">
+                                    <div id="ListEmpleados">
 
                                     </div>
                                 </div>
@@ -202,8 +191,21 @@ and open the template in the editor.
                                     <label for="txtFirstName">Observaciones</label>
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-eye"></i></span>                                    
-                                        <input id="txtObservations" name="observations" class="form-control" type="text" value="" autocomplete="off" required
+                                        <input id="txtObservations" name="observations" class="form-control" type="text" value="" autocomplete="off" required disabled="disabled"
                                                placeholder="Observaciones">
+                                    </div>
+                                </div>
+                            </div>  
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="txtComments">Comentarios evento</label>                                    
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-commenting-o"></i></span>                                    
+                                        <input id="txtComments" name="comments" class="form-control" type="text" value="" autocomplete="off" required disabled="disabled"
+                                               placeholder="Comentarios evento">
                                     </div>
                                 </div>
                             </div>  
@@ -220,6 +222,7 @@ and open the template in the editor.
                         </div>
 
 
+
                     </div>
 
 
@@ -229,12 +232,6 @@ and open the template in the editor.
 
                         <div class="newActionButton">                            
                             <button id="btnSave" onclick="save();" type ="button" class="btn btn-primary">Guardar</button>
-                        </div>
-
-                        <div class="updateActionButton">                            
-                            <button id="btnUpdate" onclick="update();" type="button" class="btn btn-warning">Editar</button>
-                            <button id="btnSave"   onclick="goNavigation('ModalNew', 'ModalConfirm');" 
-                                    type="button" class="btn btn-danger">Eliminar</button>
                         </div>
 
                     </div>
