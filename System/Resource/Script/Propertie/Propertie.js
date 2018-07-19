@@ -1,4 +1,6 @@
 /* Funciones jQuery */
+/* global markersListGlobal */
+
 $(window).on("load", function (e) {
     list();
     loadDepartment();
@@ -100,8 +102,19 @@ function loadOutstandingType() {
 
 
 function save() {
-    if (validateForm() === true) {
-        Execute(scanInfo('save', true), 'Propertie/CtlPropertie', '', 'closeWindow();list();');
+
+    if (markersListGlobal.length > 0) {
+        if (validateForm() === true) {
+
+            var lat = markersListGlobal[0].getPosition().lat();
+            var lng = markersListGlobal[0].getPosition().lat();
+
+            Execute(scanInfo('save', true, '', [{datos: ["lat", lat]},
+                {datos: ["lng", lng]}
+            ]), 'Propertie/CtlPropertie', '', 'closeWindow();list();deleteMarkers();');
+        }
+    } else {
+        showToast("Seleccione un punto en el mapa", "error");
     }
 }
 
@@ -157,4 +170,18 @@ function saveNewDistrict() {
                 '',
                 'loadNeighborhood(' + $('#selCity').val() + ');cleanForm("ModalNewDistrict");');
     }
+}
+
+
+
+function actualizarMucipioMapa() {
+
+    var nombreDepto = ($("#selState").val() === "-1") ? "" : $("#selState option:selected").text();
+    var nombreMunicipio = ($("#selCity").val() === "-1") ? "" : $("#selCity option:selected").text();
+
+    var nombreCompleto = nombreMunicipio + " " + nombreDepto;
+
+    $("#pac-input").val(nombreCompleto);
+
+
 }

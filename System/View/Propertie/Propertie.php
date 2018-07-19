@@ -11,6 +11,7 @@ and open the template in the editor.
 
         <script defer type="text/javascript" src="Resource/Script/Propertie/Propertie.js"></script>
         <script src="Resource/Script/General/Map.js" type="text/javascript"></script>
+        <link href="Resource/Style/mapSearch.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
 
@@ -494,7 +495,7 @@ and open the template in the editor.
                                     <div>
                                         <select id="selState" name="state" 
                                                 class="form-control select2" style="width: 100%;"  
-                                                onchange="loadCity(this.value)">
+                                                onchange="loadCity(this.value);actualizarMucipioMapa();">
                                             <option value="-1" selected> -- SELECCIONE --</option>                            
                                         </select>
                                     </div>
@@ -508,7 +509,7 @@ and open the template in the editor.
                                     <label>Municipio</label>
                                     <div>
                                         <select id="selCity" name="city" required class="form-control select2" style="width: 100%;" 
-                                                onchange="loadNeighborhood(this.value)">
+                                                onchange="loadNeighborhood(this.value);actualizarMucipioMapa();">
                                             <option value="-1" selected> -- SELECCIONE --</option>                            
                                         </select>
                                     </div>
@@ -1030,6 +1031,8 @@ and open the template in the editor.
 
         <!-- END MODAL DE CONFIRMACION-->
 
-
+        <!-- SCRIPT DE MAPAS, ACTIVACION MEDIANTE KEY -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmpRlSVVxIje1GdQb7jlW5QwG-WBfVEnw&libraries=places&callback=myMap"
+        async defer></script>
     </body>
 </html>

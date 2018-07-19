@@ -26,9 +26,6 @@ function myMap() {
             mapTypeIds: ['roadmap', 'terrain', 'satellite', 'hybrid']
         }});
 
-
-
-
     // Create the search box and link it to the UI element.
     var input = document.getElementById('pac-input');
     var searchBox = new google.maps.places.SearchBox(input);
@@ -42,10 +39,14 @@ function myMap() {
     var markers = [];
     // Listen for the event fired when the user selects a prediction and retrieve
     // more details for that place.
+
+ 
+
+
     searchBox.addListener('places_changed', function () {
         var places = searchBox.getPlaces();
 
-        if (places.length == 0) {
+        if (places.length === 0) {
             return;
         }
 
@@ -85,8 +86,11 @@ function myMap() {
                 bounds.extend(place.geometry.location);
             }
         });
+
+
         map.fitBounds(bounds);
     });
+
 
 
 //Se agrega el marcador al mapa
@@ -215,4 +219,8 @@ function deleteMarkers() {
     clearMarkers();
     markersListGlobal = [];
 }
+
+
+
+
 
