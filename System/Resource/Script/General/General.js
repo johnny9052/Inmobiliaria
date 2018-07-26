@@ -15,7 +15,7 @@ $(document).ready(function () {
     //Timepicker
     $('.timepicker').timepicker({
         showInputs: false,
-        showMeridian: false,         
+        showMeridian: false,
     });
 
 
@@ -324,14 +324,13 @@ function base64(file, callback) {
     var reader = new FileReader();
     reader.onload = readerOnload;
 
-    var file = file[0].files[0];
-
     coolFile.filetype = file.type;
     coolFile.size = file.size;
     coolFile.filename = file.name;
     reader.readAsBinaryString(file);
 
 }
+
 
 
 

@@ -55,10 +55,14 @@ class PropertieDTO extends BaseDTO {
     private $outstandingType;
     private $linderos;
     private $matriculaInmobiliaria;
-    private $avaluoCatastral;
-
+    private $avaluoCatastral;    
+    private $latitude;
+    private $longitude;    
+    private $images;
     
-    function __construct($id, $precio, $administrationCost, $room, $bath, $parking, $totalArea, $areasWithoutBalconies, $buildYear, $numeroPiso, $chimenea, $estudio, $deposito, $zonaRopas, $parqueaderoVisitante, $ascensor, $terraza, $transportePublicoCercano, $salonComunal, $sauna, $turco, $jacuzzi, $zonaInfantil, $jardines, $duplex, $puertaSeguridad, $gimnasio, $precioNegociable, $piscina, $zonaMascotas, $parqueaderoCubierto, $amoblado, $city, $barrio, $estrato, $propertieType, $offerType, $curtainType, $vigilanceType, $zone, $viewType, $status, $kitchenType, $kitchenStructure, $floorType, $client, $publicationDate, $receptionDate, $outstandingType, $linderos, $matriculaInmobiliaria, $avaluoCatastral) {
+    
+    
+    function __construct($id, $precio, $administrationCost, $room, $bath, $parking, $totalArea, $areasWithoutBalconies, $buildYear, $numeroPiso, $chimenea, $estudio, $deposito, $zonaRopas, $parqueaderoVisitante, $ascensor, $terraza, $transportePublicoCercano, $salonComunal, $sauna, $turco, $jacuzzi, $zonaInfantil, $jardines, $duplex, $puertaSeguridad, $gimnasio, $precioNegociable, $piscina, $zonaMascotas, $parqueaderoCubierto, $amoblado, $city, $barrio, $estrato, $propertieType, $offerType, $curtainType, $vigilanceType, $zone, $viewType, $status, $kitchenType, $kitchenStructure, $floorType, $client, $publicationDate, $receptionDate, $outstandingType, $linderos, $matriculaInmobiliaria, $avaluoCatastral, $latitude, $longitude, $images) {
         $this->id = $id;
         $this->precio = $precio;
         $this->administrationCost = $administrationCost;
@@ -111,6 +115,9 @@ class PropertieDTO extends BaseDTO {
         $this->linderos = $linderos;
         $this->matriculaInmobiliaria = $matriculaInmobiliaria;
         $this->avaluoCatastral = $avaluoCatastral;
+        $this->latitude = $latitude;
+        $this->longitude = $longitude;
+        $this->images = $images;
     }
     
     
@@ -322,6 +329,18 @@ class PropertieDTO extends BaseDTO {
         return $this->avaluoCatastral;
     }
 
+    function getLatitude() {
+        return $this->latitude;
+    }
+
+    function getLongitude() {
+        return $this->longitude;
+    }
+
+    function getImages() {
+        return $this->images;
+    }
+
     function setId($id) {
         $this->id = $id;
     }
@@ -530,6 +549,19 @@ class PropertieDTO extends BaseDTO {
         $this->avaluoCatastral = $avaluoCatastral;
     }
 
+    function setLatitude($latitude) {
+        $this->latitude = $latitude;
+    }
+
+    function setLongitude($longitude) {
+        $this->longitude = $longitude;
+    }
+
+    function setImages($images) {
+        $this->images = $images;
+    }
 
 
+
+    
 }

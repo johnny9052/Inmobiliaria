@@ -1,3 +1,10 @@
+var plusImagen = new Array();
+var plusImagenName = new Array();
+
+
+var plusVideo = new Array();
+
+
 /* Funciones jQuery */
 /* global markersListGlobal */
 
@@ -102,21 +109,28 @@ function loadOutstandingType() {
 
 
 function save() {
-
     if (markersListGlobal.length > 0) {
         if (validateForm() === true) {
 
             var lat = markersListGlobal[0].getPosition().lat();
             var lng = markersListGlobal[0].getPosition().lat();
 
-            Execute(scanInfo('save', true, '', [{datos: ["lat", lat]},
-                {datos: ["lng", lng]}
-            ]), 'Propertie/CtlPropertie', '', 'closeWindow();list();deleteMarkers();');
+            var temp = new Array();
+
+            for (var x = 0; x < plusImagen.length; x++) {
+
+                temp.push({datos: ["nameFile" + x, plusImagenName[x]]});
+                temp.push({datos: ["base64File" + x, plusImagen[x]]});
+            }
+
+
+            Execute(scanInfo('save', true, '', temp), 'Propertie/CtlPropertie', '', ' closeWindow();list();deleteMarkers();');
         }
     } else {
         showToast("Seleccione un punto en el mapa", "error");
     }
 }
+
 
 function list() {
     Execute(scanInfo('listfilter'), 'Propertie/CtlPropertie', '', 'buildPaginator(info);');
@@ -184,4 +198,105 @@ function actualizarMucipioMapa() {
     $("#pac-input").val(nombreCompleto);
 
 
+}
+
+
+
+
+function procesarImagenes() {
+
+    plusImagen = new Array();
+
+    var lblImagenes = "";
+
+    // assuming there is a file input with the ID `my-input`...
+    var files = $("#fileImagen")[0].files;
+
+    for (var i = 0; i < files.length; i++)
+    {
+        var file = files[i];
+
+        //console.log(file.name);
+        lblImagenes = lblImagenes + "<label class='seleccionable' id='" + limpiarNombre(file.name) + "' onclick='eliminarImagen(" + '"' + limpiarNombre(file.name) + '"' + ");'>(X)    " + file.name + "</label><br>";
+
+        /*Si existen campos de fecha con archivos cargados*/
+        if (file !== undefined) {
+            plusImagenName.push(limpiarNombre(file.name));
+            /*Convierte la imagen seleccionada a BASE64*/
+            base64(file, function (data) {
+                /*Se añade la imagen como campo adicional*/
+                plusImagen.push((data.base64 !== undefined) ? data.base64 : ""); // prints the base64 string                                
+            });
+        }
+    }
+
+    $("#lstImagenesAgregadas").html("");
+    $("#lstImagenesAgregadas").html(lblImagenes);
+
+    console.log(plusImagen);
+}
+
+
+
+
+
+
+function agregarVideo() {
+
+    var lblVideos = "";
+
+    var videoFileURL = $("#txtUrlVideo").val();
+
+    if (videoFileURL !== "" && videoFileURL !== null) {
+        plusVideo.push(videoFileURL);
+        $("#lstVideosAgregados").html("");
+
+        for (var y = 0; y < plusVideo.length; y++) {
+            lblVideos = lblVideos + "<label class='seleccionable' id='Video" + y + "' onclick='eliminarVideo(" + '"Video' + y + '"' + ");'>(X)    " + plusVideo[y] + "</label><br>";
+        }
+
+        $("#lstVideosAgregados").html(lblVideos);
+        $("#txtUrlVideo").val("");
+        console.log(plusVideo);
+    } else {
+
+    }
+}
+
+
+
+
+function eliminarVideo(pos) {
+
+    if (pos !== -1) {
+        plusImagen.splice(pos, 1);
+        plusImagenName.splice(pos, 1);
+    }
+
+    $("#Video" + pos).html("");
+}
+
+
+
+
+
+
+
+
+function eliminarImagen(id) {
+
+    var pos = plusImagenName.indexOf(id);
+
+    if (pos !== -1) {
+        plusImagen.splice(pos, 1);
+        plusImagenName.splice(pos, 1);
+    }
+
+    id = limpiarNombre(id);
+    $("#" + id).html("");
+}
+
+
+function limpiarNombre(nombre) {
+    return ((nombre).replace(/\./g, "_")).replace(/\s/g, "");
 }
