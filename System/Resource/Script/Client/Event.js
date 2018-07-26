@@ -16,15 +16,15 @@ function loadCheckboxEmployees() {
 }
 
 function loadTypeEvent() {
-    Execute(scanInfo('loadtypeevent', false), 'General/CtlGeneral', '', 'buildSelect(info,"selTypeEvent");');
+    Execute(scanInfo('loadTypeEvent', false), 'General/CtlGeneral', '', 'buildSelect(info,"selTypeEvent");');
 }
 
 function loadClient() {
-    Execute(scanInfo('loadclient', false), 'General/CtlGeneral', '', 'buildSelect(info,"selClient");');
+    Execute(scanInfo('loadClient', false), 'General/CtlGeneral', '', 'buildSelect(info,"selClient");');
 }
 
 function loadEmployee() {
-    Execute(scanInfo('loademployee', false), 'General/CtlGeneral', '', 'buildSelect(info,"selEmployee");');
+    Execute(scanInfo('loadEmployee', false), 'General/CtlGeneral', '', 'buildSelect(info,"selEmployee");');
 }
 
 function save() {

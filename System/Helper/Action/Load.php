@@ -32,10 +32,18 @@ function ExecuteActionLoad($action, $obj, $dao) {
         case "loadGender":
             $dao->LoadSelect($obj, "loadgender");
             break;
-
-
+        
         case "loadClientType":
             $dao->LoadSelect($obj, "loadclientType");
+            break;
+
+
+        case "loadActivityEconomic":
+            $dao->LoadSelect($obj, "loadactivityeconomic");
+            break;
+        
+        case "loadPosition":
+            $dao->LoadSelect($obj, "loadposition");
             break;
 
         case "loadProfessionNivel":
@@ -58,15 +66,15 @@ function ExecuteActionLoad($action, $obj, $dao) {
             $dao->LoadSelect($obj, "loadprofessionnivel");
             break;
 
-        case "loadtypeevent":
+        case "loadTypeEvent":
             $dao->LoadSelect($obj, "loadtypeevent");
             break;
 
-        case "loadclient":
+        case "loadClient":
             $dao->LoadSelect($obj, "loadclient");
             break;
 
-        case "loademployee":
+        case "loadEmployee":
             $dao->LoadSelect($obj, "loademployee");
             break;
 

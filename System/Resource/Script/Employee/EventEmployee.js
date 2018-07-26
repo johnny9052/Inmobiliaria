@@ -1,9 +1,6 @@
 /* Funciones jQuery */
 $(window).on("load", function (e) {
     list();
-//    loadEmployee();
-//    loadClient();
-//    loadTypeEvent();
     loadCheckboxEmployees();
 });
 
