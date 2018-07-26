@@ -48,10 +48,11 @@ class PropertieDAO {
             (int) $obj->getClient(), (string) $obj->getPublicationDate(),
             (string) $obj->getReceptionDate(), (int) $obj->getOutstandingType(),
             (string) $obj->getLinderos(), (string) $obj->getMatriculaInmobiliaria(),
-            (float) $obj->getAvaluoCatastral()
+            (float) $obj->getAvaluoCatastral(), (string) $obj->getLatitude(),
+            (string) $obj->getLongitude(), (string) implode(",", $obj->getImages()) . ','
         ));
 
-       
+
         $this->repository->ExecuteTransaction($query);
     }
 

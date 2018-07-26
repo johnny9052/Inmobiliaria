@@ -11,6 +11,7 @@ and open the template in the editor.
 
         <script defer type="text/javascript" src="Resource/Script/Propertie/Propertie.js"></script>
         <script src="Resource/Script/General/Map.js" type="text/javascript"></script>
+        <link href="Resource/Style/mapSearch.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
 
@@ -25,7 +26,6 @@ and open the template in the editor.
                 <li class="active">Inmuebles</li>
             </ol>
         </section>
-
 
         <!-- ***************CONTENIDO**************** -->
 
@@ -494,7 +494,7 @@ and open the template in the editor.
                                     <div>
                                         <select id="selState" name="state" 
                                                 class="form-control select2" style="width: 100%;"  
-                                                onchange="loadCity(this.value)">
+                                                onchange="loadCity(this.value);actualizarMucipioMapa();">
                                             <option value="-1" selected> -- SELECCIONE --</option>                            
                                         </select>
                                     </div>
@@ -508,7 +508,7 @@ and open the template in the editor.
                                     <label>Municipio</label>
                                     <div>
                                         <select id="selCity" name="city" required class="form-control select2" style="width: 100%;" 
-                                                onchange="loadNeighborhood(this.value)">
+                                                onchange="loadNeighborhood(this.value);actualizarMucipioMapa();">
                                             <option value="-1" selected> -- SELECCIONE --</option>                            
                                         </select>
                                     </div>
@@ -853,6 +853,39 @@ and open the template in the editor.
                             </div>                                                                                                                                     
                         </div>
 
+                        <div class="row">
+                            <br>
+                            <div class="col-md-6">
+                                <label for="fileImagen">Imagenes del inmueble</label>
+                                <input type="file" accept=".JPEG,.PNG,.jpg"  id="fileImagen" name="urlImage" multiple 
+                                       onchange="procesarImagenes();"><br>                            
+                            </div>
+
+                            <div class="col-md-6" id="lstImagenesAgregadas">
+
+                            </div>
+                        </div>
+
+
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="txtUrlVideo">URL Video</label>   
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-video-camera"></i></span>
+                                        <input id="txtUrlVideo" name="urlvideo" class="form-control" type="text" value="" autocomplete="off" required
+                                               placeholder="URL del video">
+                                    </div>
+                                    <br>
+                                    <button id="btnAddVideo" onclick="agregarVideo();" type ="button" class="btn btn-primary">Agregar video</button>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6" id="lstVideosAgregados">
+
+                            </div>
+                        </div>
 
 
                         <div class="row">
@@ -966,46 +999,6 @@ and open the template in the editor.
 
 
 
-        <!-- MODAL PARA ADMINISTRACION DE MAPAS-->
-        <div class="modal fade" id="ModalNewMap" >
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">                       
-                        <h4 class="modal-title">Gestion registro barrios</h4>
-                    </div>
-
-                    <div class="modal-body" id="FormContainerDistrict"> 
-
-                        <div class="row">
-                            <div class="col-md-12">
-
-
-                            </div>
-                        </div>
-
-
-                    </div>
-
-
-                    <div class="modal-footer">
-
-                        <button onclick="closeWindow('', false);" type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
-
-                        <div class="newActionButton">                            
-                            <button id="btnSave" onclick="saveNewDistrict();" type ="button" class="btn btn-primary">Guardar</button>
-                        </div>
-
-                    </div>
-                </div>
-                <!-- /.modal-content -->
-            </div>
-            <!-- /.modal-dialog -->
-        </div>
-        <!-- /.modal -->
-        <!-- END MODAL PARA ADMINISTRACION DE MAPAS-->
-
-
-
         <!-- MODAL DE CONFIRMACION-->
         <div class="modal modal-warning fade" id="ModalConfirm">
             <div class="modal-dialog">
@@ -1030,6 +1023,8 @@ and open the template in the editor.
 
         <!-- END MODAL DE CONFIRMACION-->
 
-
+        <!-- SCRIPT DE MAPAS, ACTIVACION MEDIANTE KEY -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmpRlSVVxIje1GdQb7jlW5QwG-WBfVEnw&libraries=places&callback=myMap"
+        async defer></script>
     </body>
 </html>

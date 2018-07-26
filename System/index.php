@@ -93,8 +93,6 @@ session_start();
         </div>
         <!--END MODAL GENERICO PARA MOSTRAR MENSAJES -->
 
-        <!-- SCRIPT DE MAPAS, ACTIVACION MEDIANTE KEY -->
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmpRlSVVxIje1GdQb7jlW5QwG-WBfVEnw&libraries=places&callback=myMap"
-         async defer></script>
+
     </body>
 </html>
