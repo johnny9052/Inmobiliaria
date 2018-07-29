@@ -49,7 +49,8 @@ class PropertieDAO {
             (string) $obj->getReceptionDate(), (int) $obj->getOutstandingType(),
             (string) $obj->getLinderos(), (string) $obj->getMatriculaInmobiliaria(),
             (float) $obj->getAvaluoCatastral(), (string) $obj->getLatitude(),
-            (string) $obj->getLongitude(), (string) implode(",", $obj->getImages()) . ','
+            (string) $obj->getLongitude(), (string) implode(",", $obj->getImages()) . ',',
+            (string) $obj->getUrlVideos() . ','
         ));
 
 
