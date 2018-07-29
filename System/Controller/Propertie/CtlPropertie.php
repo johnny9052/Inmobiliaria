@@ -49,7 +49,8 @@ $curtainType = getInfo('curtainType');
 $vigilanceType = getInfo('vigilanceType');
 $zone = getInfo('zone');
 $viewType = getInfo('viewType');
-$status = 9;
+/*VALIDAR ESTO EN LA BASE DE DATOS, EL ID DE REGISTRADO*/
+$status = 13;
 $kitchenType = getInfo('kitchenType');
 $kitchenStructure = getInfo('kitchenStructure');
 $floorType = getInfo('floorType');
