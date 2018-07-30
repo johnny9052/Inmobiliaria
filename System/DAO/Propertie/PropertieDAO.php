@@ -107,4 +107,30 @@ class PropertieDAO {
         $this->repository->ExecuteTransaction($query);
     }
 
+    /**
+     * Ejecuta un buscar en la base de datos, enfocado a la busqueda de los videos 
+     * asociados
+     * @param PropertieDTO $obj 
+     * @return void      
+     * @author Johnny Alexander Salazar
+     * @version 0.1
+     */
+    public function LoadVideo(PropertieDTO $obj) {
+        $query = $this->repository->buildQuery("listvideopropertie", array((int) $obj->getId()));
+        $this->repository->Execute($query);
+    }
+
+    /**
+     * Ejecuta un buscar en la base de datos, enfocado a la busqueda de las imagenes 
+     * asociados
+     * @param PropertieDTO $obj 
+     * @return void      
+     * @author Johnny Alexander Salazar
+     * @version 0.1
+     */
+    public function LoadImage(PropertieDTO $obj) {
+        $query = $this->repository->buildQuery("listimagepropertie", array((int) $obj->getId()));
+        $this->repository->Execute($query);
+    }
+
 }

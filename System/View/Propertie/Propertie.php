@@ -904,7 +904,7 @@ and open the template in the editor.
 
                     <div class="modal-footer">
 
-                        <button onclick="closeWindow();limpiarMultimedia();" type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
+                        <button onclick="closeWindow();limpiarMultimedia();deleteMarkers();" type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
 
                         <div class="newActionButton">                            
                             <button id="btnSave" onclick="save();" type ="button" class="btn btn-primary">Guardar</button>
@@ -942,7 +942,7 @@ and open the template in the editor.
                     </div>
 
                     <div class="modal-body" id="FormContainerDistrict"> 
-                        
+
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">

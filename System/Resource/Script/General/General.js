@@ -458,7 +458,7 @@ function buildSelect(info, idSelect) {
 
 
 /**
- * Refresca un select
+ * Cambia el valor de un select
  * @param {string} id : id del select a refrescar
  * @param {string} val : valor por defecto que sera seleccionado
  * @author Johnny Alexander Salazar
@@ -468,6 +468,20 @@ function refreshSelect(id, val) {
     $("#" + id).val(val);
     //$('#' + id).material_select('destroy');
     //$('#' + id).material_select();
+}
+
+
+
+/**
+ * Checkea o no un checkbox segun el valor indicado
+ * @param {string} id : id del checkbox a refrescar
+ * @param {string} data : valor a ser evaluado para que el checkbox sea seleccionado 
+ * o no (este puede ser 1 o 0)
+ * @author Johnny Alexander Salazar
+ * @version 0.1
+ */
+function refreshCheckbox(id, data) {
+    $("#" + id).prop('checked', (data === "1") ? true : false);
 }
 
 
