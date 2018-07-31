@@ -313,7 +313,7 @@ function listImages(info) {
 
         /*Se arma la cadena,tomando como referencias el nombre del archivo sin 
          * espacios ni caracteres especiales*/
-        lblImagenes = lblImagenes + "<label class='seleccionable' id='" + info[x].ruta_imagen + "' onclick='eliminarImagen(" + '"' + info[x].ruta_imagen + '"' + ");'>(X)    " + ((info[x].ruta_imagen).split($("#txtMatriculaInmobiliaria").val()))[1] + "</label><br>";
+        lblImagenes = lblImagenes + "<label class='seleccionable' id='" + info[x].ruta_imagen + "' onclick='eliminarImagen(" + '"' + info[x].ruta_imagen + '"' + ");'>(X)    " + setSpacesInText(((info[x].ruta_imagen).split("/"))[4]) + "</label><br>";
     }
 
     /*Se añade la nueva imagen a la lista de imagenes disponibles*/
@@ -346,13 +346,13 @@ function procesarImagenes() {
 
         /*Si se pudo obtener algun archivo*/
         if (file !== undefined) {
-
+            var nombreArchivo = ((file.name).split("."))[0].substring(0, 5);
             /*Se arma la cadena,tomando como referencias el nombre del archivo sin 
              * espacios ni caracteres especiales*/
-            lblImagenes = lblImagenes + "<label class='seleccionable' id='" + cleanNameFile(file.name) + "' onclick='eliminarImagen(" + '"' + cleanNameFile(file.name) + '"' + ");'>(X)    " + file.name + "</label><br>";
+            lblImagenes = lblImagenes + "<label class='seleccionable' id='" + cleanNameFile(nombreArchivo) + "' onclick='eliminarImagen(" + '"' + cleanNameFile(nombreArchivo) + '"' + ");'>(X)    " + setSpacesInText(nombreArchivo) + "</label><br>";
 
             /*Se agrega a la lista de nombres el nombre del archivo*/
-            listImagenName.push(cleanNameFile(file.name));
+            listImagenName.push(cleanNameFile(nombreArchivo));
             /*Se convierte la imagen seleccionada a BASE64 y se añade la codificacion 
              * a la lista correspondiente*/
             base64(file, function (data) {
@@ -466,6 +466,8 @@ function eliminarVideo(pos) {
 function eliminarImagen(id) {
     /*Se obtiene la posicion de la imagen en la lista a partir de su nombre*/
     var pos = listImagenName.indexOf(id);
+
+    alert(pos);
 
     /*Si la encuentra*/
     if (pos !== -1) {

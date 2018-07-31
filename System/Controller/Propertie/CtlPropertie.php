@@ -49,7 +49,7 @@ $curtainType = getInfo('curtainType');
 $vigilanceType = getInfo('vigilanceType');
 $zone = getInfo('zone');
 $viewType = getInfo('viewType');
-/*VALIDAR ESTO EN LA BASE DE DATOS, EL ID DE REGISTRADO*/
+/* VALIDAR ESTO EN LA BASE DE DATOS, EL ID DE REGISTRADO */
 $status = 13;
 $kitchenType = getInfo('kitchenType');
 $kitchenStructure = getInfo('kitchenStructure');
@@ -85,8 +85,8 @@ for ($x = 0; $x < 20; $x++) {
 
     if ($filePath != null && $filePath != "") {
         $cleaner = new Cleaner();
-        $filePath = $route . $cleaner->cleanValueFileName($matriculaInmobiliaria . '_' . $filePath) . $cleaner->cleanValueDate(date('Y-m-d H:i:s')) . '.jpg';
-        $filePathDB = $routeDB . $cleaner->cleanValueFileName($matriculaInmobiliaria . '_' . $filePath) . $cleaner->cleanValueDate(date('Y-m-d H:i:s')) . '.jpg';
+        $filePathDB = $routeDB . $cleaner->cleanValueFileName($matriculaInmobiliaria . '_' . $filePath) . '_' . $cleaner->cleanValueDate(date('Y-m-d H:i:s')) . '.jpg';
+        $filePath = $route . $cleaner->cleanValueFileName($matriculaInmobiliaria . '_' . $filePath) . '_' . $cleaner->cleanValueDate(date('Y-m-d H:i:s')) . '.jpg';
         base64_to_jpeg($base64Code, $filePath);
         $images[] = $filePathDB;
     } else {

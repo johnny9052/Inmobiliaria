@@ -866,7 +866,7 @@ and open the template in the editor.
                             </div>
                         </div>
 
-
+                        <hr />
 
                         <div class="row">
                             <div class="col-md-6">

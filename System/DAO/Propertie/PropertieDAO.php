@@ -53,6 +53,7 @@ class PropertieDAO {
             (string) $obj->getUrlVideos() . ','
         ));
 
+        //echo $query;
 
         $this->repository->ExecuteTransaction($query);
     }

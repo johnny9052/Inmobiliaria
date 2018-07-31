@@ -19,8 +19,7 @@ $(document).ready(function () {
 
 
     // https://stackoverflow.com/questions/19639951/how-do-i-change-selected-value-of-select2-dropdown-with-jqgrid
-    //$('.select2').select2();// Para colocar el select con autocompletado. 
-
+    //$('.select2').select2();// Para colocar el select con autocompletado.     
 });
 
 
@@ -950,4 +949,19 @@ function cleanText(textToClean) {
 function cleanNameFile(nombre) {
     nombre = ((nombre).replace(/\./g, "_")).replace(/\s/g, "");
     return nombre.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
+}
+
+
+
+
+/**
+ * Reemplaza los guiones bajos por espacios
+ * @param {string} nombre : Nombre del archivo a limpiar
+ * @return {String} Cadena sin los caracteres especiales
+ * @author Johnny Alexander Salazar
+ * @version 0.1
+ */
+function setSpacesInText(nombre) {    
+    nombre = (nombre).replace(/_/g, " ");
+    return nombre;
 }
