@@ -42,7 +42,7 @@ and open the template in the editor.
                                 <div class="form-group">
 
                                     <div class="col-md-2 col-xs-6">
-                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalNew" onclick="showButton(true);">Nuevo registro</button>                                                                
+                                        
                                     </div>
 
                                     <div class="col-md-9  col-xs-6">

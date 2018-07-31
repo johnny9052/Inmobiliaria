@@ -114,16 +114,70 @@ and open the template in the editor.
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="txtDocumentNumber">Cedula</label>                                    
+                                    <label for="txtDocumentNumber">Cédula</label>                                    
                                     <input id="txtDocumentNumber" name="documentNumber" class="form-control" type="number" value="" autocomplete="off" required
                                            placeholder="Numero de cedula">
                                 </div>
                             </div>    
-
-
                         </div>
+                        
+                        <div class="row">
 
-                       
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Departamento de expedición</label>
+                                    <select id="selStateExpedition" name="stateExpedition"  
+                                            class="form-control select2" style="width: 100%;" 
+                                            onchange="loadCity(this.value);">
+                                        <option value="-1" selected> -- SELECCIONE --</option>                            
+                                    </select>
+                                </div>
+                            </div>     
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Municipio de expedición</label>
+                                    <select id="selCityExpedition" name="cityExpedition" required class="form-control select2" style="width: 100%;">
+                                        <option value="-1" selected> -- SELECCIONE --</option>                            
+                                    </select>
+                                </div>
+                            </div>     
+                        </div>
+                        
+                        <div class="row">
+                            <br>
+                            <div class="col-md-6">
+                                <label for="fileIdentification">Archivo Cédula</label>
+                                <input type="file" accept=".PDF,.pdf"  id="fileIdentification" name="urlFileIdentification" multiple 
+                                       onchange="procesarArchivo();"><br>                            
+                            </div>
+                            <div class="col-md-6" id="lstArchivoAgregado">
+
+                            </div>
+                        </div>
+                        
+                         <div class="row">
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Departamento de nacimiento</label>
+                                    <select id="selStateBirth" name="stateBirth"  
+                                            class="form-control select2" style="width: 100%;" 
+                                            onchange="loadCity(this.value);">
+                                        <option value="-1" selected> -- SELECCIONE --</option>                            
+                                    </select>
+                                </div>
+                            </div>     
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Municipio de nacimiento</label>
+                                    <select id="selCityBirth" name="cityBirth" required class="form-control select2" style="width: 100%;">
+                                        <option value="-1" selected> -- SELECCIONE --</option>                            
+                                    </select>
+                                </div>
+                            </div>     
+                        </div>
+                                               
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -132,7 +186,6 @@ and open the template in the editor.
                                            placeholder="Primer nombre">
                                 </div>
                             </div>                       
-
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="txtName">Segundo nombre</label>                                    
@@ -162,7 +215,6 @@ and open the template in the editor.
 
 
                         <div class="row">
-
                             <div class="col-md-6">                                
                                 <div class="form-group">
                                     <label>Fecha de nacimiento</label>
@@ -174,7 +226,7 @@ and open the template in the editor.
                                     </div>
                                 </div>
                             </div>
-
+                            
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Estado civil</label>
@@ -183,9 +235,37 @@ and open the template in the editor.
                                     </select>
                                 </div>
                             </div>     
-
                         </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="txtMilitaryCard">Libreta Militar</label>                                    
+                                    <input id="txtMilitaryCard" name="militaryCard" class="form-control" type="text" value="" autocomplete="off" required
+                                           placeholder="Número Libreta Militar">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Tipo de sangre</label>
+                                    <select id="selBloodType" name="bloodType" required class="form-control select2" style="width: 100%;">
+                                        <option value="-1" selected> -- SELECCIONE --</option>                            
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <br>
+                            <div class="col-md-6">
+                                <label for="fileMilitaryCard">Archivo libreta militar</label>
+                                <input type="file" accept=".PDF,.pdf"  id="fileMilitaryCard" name="urlFileMilitaryCard" multiple 
+                                       onchange="procesarArchivo();"><br>                            
+                            </div>
+                            <div class="col-md-6" id="lstArchivoAgregado">
 
+                            </div>
+                        </div>
+                        
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
@@ -196,8 +276,6 @@ and open the template in the editor.
                             </div>                                                
                         </div>
 
-
-
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -205,28 +283,25 @@ and open the template in the editor.
                                     <input id="txtHomePhone" name="homePhone" class="form-control" type="number" value="" autocomplete="off" required
                                            placeholder="Telefono fijo">
                                 </div>
-                            </div>     
-
+                            </div> 
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="txtMobilePhone">Telefono celular</label>                                    
                                     <input id="txtMobilePhone" name="mobilePhone" class="form-control" type="number" value="" autocomplete="off" required
                                            placeholder="Telefono celular">
                                 </div>
-                            </div>     
+                            </div>
                         </div>
 
 
                         <div class="row">
-
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="txtEmail">Correo electronico</label>                                    
                                     <input id="txtEmail" name="email" type="email" class="form-control"  value="" autocomplete="off" required
                                            placeholder="Correo electronico">
                                 </div>
-                            </div>     
-
+                            </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Genero</label>
@@ -237,10 +312,7 @@ and open the template in the editor.
                             </div>     
                         </div>
 
-
-
                         <div class="row">
-
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Departamento de residencia</label>
@@ -262,11 +334,7 @@ and open the template in the editor.
                             </div>     
                         </div>
 
-
-
-
                         <div class="row">
-
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Nivel de profesion</label>
@@ -286,6 +354,64 @@ and open the template in the editor.
                                     </select>
                                 </div>
                             </div>     
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Fondo de pensiones</label>
+                                    <select id="selPensionFund" name="pensionFund" required class="form-control select2" style="width: 100%;">
+                                        <option value="-1" selected> -- SELECCIONE --</option>                            
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Fondo de cesantias</label>
+                                    <select id="selSeveranceFund" name="severanceFund" required class="form-control select2" style="width: 100%;">
+                                        <option value="-1" selected> -- SELECCIONE --</option>                            
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>ARL</label>
+                                    <select id="selArl" name="arl" required class="form-control select2" style="width: 100%;">
+                                        <option value="-1" selected> -- SELECCIONE --</option>                            
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>EPS</label>
+                                    <select id="selEps" name="eps" required class="form-control select2" style="width: 100%;">
+                                        <option value="-1" selected> -- SELECCIONE --</option>                            
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Caja de compensación</label>
+                                    <select id="selCompensationBox" name="compensationBox" required class="form-control select2" style="width: 100%;">
+                                        <option value="-1" selected> -- SELECCIONE --</option>                            
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="checkbox" id="chkDisability" name="disability"/>
+                                    &nbsp;&nbsp;
+                                    <label for="chkDisability" class="fa fa-wheelchair-alt"></label>                                    
+                                    <label for="chkDisability">Discapacidad</label>
+                                </div>
+                            </div>
                         </div>
 
 

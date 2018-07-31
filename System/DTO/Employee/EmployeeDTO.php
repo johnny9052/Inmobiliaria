@@ -20,9 +20,20 @@ class EmployeeDTO extends BaseDTO {
     private $cityResidence;
     private $profession;
     private $maritalStatus;
-   
-
-    function __construct($id, $firstName, $secondName, $firstLastName, $secondLastName, $documentNumber, $birthdate, $address, $homePhone, $mobilePhone, $email, $gender, $typeEmployee, $cityResidence, $profession, $maritalStatus) {
+    private $cityExpedition;
+    private $fileIdentification;
+    private $cityBirth;
+    private $militaryCard;
+    private $bloodType;
+    private $fileMilitaryCard;
+    private $pensionFund;
+    private $severanceFund;
+    private $arl;
+    private $eps;
+    private $compensationBox;
+    private $disability;
+    
+    function __construct($id, $firstName, $secondName, $firstLastName, $secondLastName, $documentNumber, $birthdate, $address, $homePhone, $mobilePhone, $email, $gender, $typeEmployee, $cityResidence, $profession, $maritalStatus, $cityExpedition, $fileIdentification, $cityBirth, $militaryCard, $bloodType, $fileMilitaryCard, $pensionFund, $severanceFund, $arl, $eps, $compensationBox, $disability) {
         $this->id = $id;
         $this->firstName = $firstName;
         $this->secondName = $secondName;
@@ -39,135 +50,20 @@ class EmployeeDTO extends BaseDTO {
         $this->cityResidence = $cityResidence;
         $this->profession = $profession;
         $this->maritalStatus = $maritalStatus;
+        $this->cityExpedition = $cityExpedition;
+        $this->fileIdentification = $fileIdentification;
+        $this->cityBirth = $cityBirth;
+        $this->militaryCard = $militaryCard;
+        $this->bloodType = $bloodType;
+        $this->fileMilitaryCard = $fileMilitaryCard;
+        $this->pensionFund = $pensionFund;
+        $this->severanceFund = $severanceFund;
+        $this->arl = $arl;
+        $this->eps = $eps;
+        $this->compensationBox = $compensationBox;
+        $this->disability = $disability;
     }
-    function getId() {
-        return $this->id;
-    }
-
-    function getFirstName() {
-        return $this->firstName;
-    }
-
-    function getSecondName() {
-        return $this->secondName;
-    }
-
-    function getFirstLastName() {
-        return $this->firstLastName;
-    }
-
-    function getSecondLastName() {
-        return $this->secondLastName;
-    }
-
-    function getDocumentNumber() {
-        return $this->documentNumber;
-    }
-
-    function getBirthdate() {
-        return $this->birthdate;
-    }
-
-    function getAddress() {
-        return $this->address;
-    }
-
-    function getHomePhone() {
-        return $this->homePhone;
-    }
-
-    function getMobilePhone() {
-        return $this->mobilePhone;
-    }
-
-    function getEmail() {
-        return $this->email;
-    }
-
-    function getGender() {
-        return $this->gender;
-    }
-
-    function getTypeEmployee() {
-        return $this->typeEmployee;
-    }
-
-    function getCityResidence() {
-        return $this->cityResidence;
-    }
-
-    function getProfession() {
-        return $this->profession;
-    }
-
-    function getMaritalStatus() {
-        return $this->maritalStatus;
-    }
-
-    function setId($id) {
-        $this->id = $id;
-    }
-
-    function setFirstName($firstName) {
-        $this->firstName = $firstName;
-    }
-
-    function setSecondName($secondName) {
-        $this->secondName = $secondName;
-    }
-
-    function setFirstLastName($firstLastName) {
-        $this->firstLastName = $firstLastName;
-    }
-
-    function setSecondLastName($secondLastName) {
-        $this->secondLastName = $secondLastName;
-    }
-
-    function setDocumentNumber($documentNumber) {
-        $this->documentNumber = $documentNumber;
-    }
-
-    function setBirthdate($birthdate) {
-        $this->birthdate = $birthdate;
-    }
-
-    function setAddress($address) {
-        $this->address = $address;
-    }
-
-    function setHomePhone($homePhone) {
-        $this->homePhone = $homePhone;
-    }
-
-    function setMobilePhone($mobilePhone) {
-        $this->mobilePhone = $mobilePhone;
-    }
-
-    function setEmail($email) {
-        $this->email = $email;
-    }
-
-    function setGender($gender) {
-        $this->gender = $gender;
-    }
-
-    function setTypeEmployee($typeEmployee) {
-        $this->typeEmployee = $typeEmployee;
-    }
-
-    function setCityResidence($cityResidence) {
-        $this->cityResidence = $cityResidence;
-    }
-
-    function setProfession($profession) {
-        $this->profession = $profession;
-    }
-
-    function setMaritalStatus($maritalStatus) {
-        $this->maritalStatus = $maritalStatus;
-    }
-
+    
 
 
 }
