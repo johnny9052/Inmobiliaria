@@ -11,18 +11,15 @@ $(document).ready(function () {
         autoclose: true
     });
 
-
-    //Timepicker
+    //Se inicializa los campos de tipo hora Timepicker
     $('.timepicker').timepicker({
         showInputs: false,
         showMeridian: false,
     });
 
 
-
     // https://stackoverflow.com/questions/19639951/how-do-i-change-selected-value-of-select2-dropdown-with-jqgrid
-    //$('.select2').select2();// Para colocar el select con autocompletado. 
-
+    //$('.select2').select2();// Para colocar el select con autocompletado.     
 });
 
 
@@ -38,7 +35,7 @@ $(document).ready(function () {
  *                 va a abrir, regrese al modal definido.
  * @returns {void} 
  * @author Johnny Alexander Salazar
- * @version 0.3
+ * @version 0.4
  */
 function showToast(message, type, idModalBefore) {
 
@@ -103,8 +100,6 @@ function showToast(message, type, idModalBefore) {
 }
 
 
-
-
 /**
  * Muestra u oculta una barra de progreso
  * @param {boolena} status Se indica con true y false si se muestra o no la barra de progreso
@@ -128,11 +123,13 @@ function showLoadBar(status) {
  * @param {String} url Paquete y nombre del controlador a ejecutar
  * @param {String} before Codigo javascript que se quiere ejecutar antes de enviar la informacion
  * @param {String} success Codigo javascript que se quiere ejecutar cuando se recibe una respuesta
+ * @param {String} idModalByError Si es una ventana emergente, que se abrio desde otra emergente, 
+ * se debe especificar su ID, por si sucede un error en esta, no regrese a la ventana original
  * @returns {void} 
  * @author Johnny Alexander Salazar
- * @version 0.2
+ * @version 0.4
  */
-function Execute(dataSend, url, before, success) {
+function Execute(dataSend, url, before, success, idModalByError) {
 
     console.log("INFO QUE SE ENVIA");
     console.log(dataSend);
@@ -187,7 +184,7 @@ function Execute(dataSend, url, before, success) {
                     /*Cierra cualquier modal que se tenga previamente*/
                     $('.modal').modal('hide');
                     /*Muestra un modal de error*/
-                    showToast(msg, "error");
+                    showToast(msg, "error", idModalByError);
                     break;
                 case undefined:
                 default :
@@ -460,7 +457,7 @@ function buildSelect(info, idSelect) {
 
 
 /**
- * Refresca un select
+ * Cambia el valor de un select
  * @param {string} id : id del select a refrescar
  * @param {string} val : valor por defecto que sera seleccionado
  * @author Johnny Alexander Salazar
@@ -470,6 +467,20 @@ function refreshSelect(id, val) {
     $("#" + id).val(val);
     //$('#' + id).material_select('destroy');
     //$('#' + id).material_select();
+}
+
+
+
+/**
+ * Checkea o no un checkbox segun el valor indicado
+ * @param {string} id : id del checkbox a refrescar
+ * @param {string} data : valor a ser evaluado para que el checkbox sea seleccionado 
+ * o no (este puede ser 1 o 0)
+ * @author Johnny Alexander Salazar
+ * @version 0.1
+ */
+function refreshCheckbox(id, data) {
+    $("#" + id).prop('checked', (data === "1") ? true : false);
 }
 
 
@@ -490,7 +501,7 @@ function refreshSelect(id, val) {
 function validateForm(form, modal) {
     var status = true;
     form = defualtForm(form);
-    modal = DefaultModal();
+    modal = DefaultModal(modal);
 
     var campos = '#' + form + ' :input,\n\
                  #' + form + ' select, \n\
@@ -694,16 +705,26 @@ function BuildMenu(data) {
  *                  se desea limpiar el formulario mandar false, si se manda true 
  *                  o no se manda nada, se entendera que SI se quiere limpiar el
  *                  formulario.
+ * @param {String} idModalOpen id del modal a abrir despues de cerrar el indicado
  * @returns {void}
  * @author Johnny Alexander Salazar
- * @version 0.2
+ * @version 0.3
  */
-function closeWindow(idModal, clean) {
+function closeWindow(idModal, clean, idModalOpen) {
     idModal = DefaultModal(idModal);
     $('#' + idModal).modal('hide');
 
+    /*Si se desea limpiar el formulario a cerrar*/
     if (typeof clean === "undefined" || clean === true) {
         cleanForm(idModal);
+    }
+
+    /*Si se cierra el modal y se desea abrir uno nuevo*/
+    if (typeof idModalOpen !== "undefined" && idModalOpen !== null) {
+        setTimeout(function () {
+            /*Se abre el modal*/
+            openWindow(idModalOpen);
+        }, 400);
     }
 }
 
@@ -712,32 +733,15 @@ function closeWindow(idModal, clean) {
  * Navega entre modales
  * @param {String} close id del modal a cerrar
  * @param {String} open id del modal a abrir
- * @param {boolean} back indica si debe regresar al formulario cuando el que se 
- * abre se cierra
  * @returns {void}
  * @author Johnny Alexander Salazar
- * @version 0.3
+ * @version 0.4
  */
-function goNavigation(close, open, back) {
-
+function goNavigation(close, open) {
     closeWindow(close, false);
-
     setTimeout(function () {
         openWindow(open);
     }, 400);
-
-    if (back) {
-        /*Se especifica que hacer cuando el modal del mensaje se ciere*/
-        $('#' + open).on('hide.bs.modal', function (e) {
-            setTimeout(function () {
-                /*Se abre el modal previo*/
-                openWindow(close);
-                /*Del modal que muestra el mensaje, se desasocia el evento 
-                 * que regresa a la ventana previa*/
-                $('#' + open).unbind();
-            }, 400);
-        });
-    }
 }
 
 
@@ -919,4 +923,45 @@ function scanCheckboxDinamic(nameData, prefixCheckbox) {
     });
 
     return temp;
+}
+
+
+/**
+ * Limpia una cadena de texto de todos los caracteres especiales
+ * @param {string} textToClean : Cadena a limpiar 
+ * @return {String} Cadena sin los caracteres especiales
+ * @author Johnny Alexander Salazar
+ * @version 0.1
+ */
+function cleanText(textToClean) {
+    textToClean = textToClean.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
+}
+
+
+/**
+ * Limpia el nombre de un archivo de cualquier caracter que represente un problema 
+ * al ser tratado (incluyendo puntos y espacios)
+ * @param {string} nombre : Nombre del archivo a limpiar
+ * @return {String} Cadena sin los caracteres especiales
+ * @author Johnny Alexander Salazar
+ * @version 0.1
+ */
+function cleanNameFile(nombre) {
+    nombre = ((nombre).replace(/\./g, "_")).replace(/\s/g, "");
+    return nombre.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
+}
+
+
+
+
+/**
+ * Reemplaza los guiones bajos por espacios
+ * @param {string} nombre : Nombre del archivo a limpiar
+ * @return {String} Cadena sin los caracteres especiales
+ * @author Johnny Alexander Salazar
+ * @version 0.1
+ */
+function setSpacesInText(nombre) {    
+    nombre = (nombre).replace(/_/g, " ");
+    return nombre;
 }

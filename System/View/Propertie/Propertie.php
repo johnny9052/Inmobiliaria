@@ -662,18 +662,18 @@ and open the template in the editor.
                                 </div>
                             </div>  
 
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="" class="fa fa-circle"></label>
-                                    &nbsp;&nbsp;
-                                    <label>Estado</label>
-                                    <div>
-                                        <select id="selStatus" name="status" required class="form-control select2" style="width: 100%;">
-                                            <option value="-1" selected> -- SELECCIONE --</option>                            
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>     
+                            <!--                            <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="" class="fa fa-circle"></label>
+                                                                &nbsp;&nbsp;
+                                                                <label>Estado</label>
+                                                                <div>
+                                                                    <select id="selStatus" name="status" required class="form-control select2" style="width: 100%;">
+                                                                        <option value="-1" selected> -- SELECCIONE --</option>                            
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>     -->
                         </div>
 
 
@@ -866,7 +866,7 @@ and open the template in the editor.
                             </div>
                         </div>
 
-
+                        <hr />
 
                         <div class="row">
                             <div class="col-md-6">
@@ -874,7 +874,7 @@ and open the template in the editor.
                                     <label for="txtUrlVideo">URL Video</label>   
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-video-camera"></i></span>
-                                        <input id="txtUrlVideo" name="urlvideo" class="form-control" type="text" value="" autocomplete="off" required
+                                        <input id="txtUrlVideo" name="urlvideo" class="form-control" type="text" value="" autocomplete="off"
                                                placeholder="URL del video">
                                     </div>
                                     <br>
@@ -904,7 +904,7 @@ and open the template in the editor.
 
                     <div class="modal-footer">
 
-                        <button onclick="closeWindow();" type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
+                        <button onclick="closeWindow();limpiarMultimedia();deleteMarkers();" type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
 
                         <div class="newActionButton">                            
                             <button id="btnSave" onclick="save();" type ="button" class="btn btn-primary">Guardar</button>
@@ -945,14 +945,6 @@ and open the template in the editor.
 
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="form-group">                                                                        
-                                    <input id="txtIdCityForDistrict" name="idCity" class="form-control identificator"  type="hidden" value="">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="txtNameDistrict">Nombre</label>   
                                     <div class="input-group">
@@ -980,7 +972,7 @@ and open the template in the editor.
 
                     <div class="modal-footer">
 
-                        <button onclick="closeWindow('', false);" type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
+                        <button onclick="closeWindow('ModalNewDistrict', false, 'ModalNew');" type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
 
                         <div class="newActionButton">                            
                             <button id="btnSave" onclick="saveNewDistrict();" type ="button" class="btn btn-primary">Guardar</button>

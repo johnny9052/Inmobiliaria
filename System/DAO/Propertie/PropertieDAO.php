@@ -49,9 +49,11 @@ class PropertieDAO {
             (string) $obj->getReceptionDate(), (int) $obj->getOutstandingType(),
             (string) $obj->getLinderos(), (string) $obj->getMatriculaInmobiliaria(),
             (float) $obj->getAvaluoCatastral(), (string) $obj->getLatitude(),
-            (string) $obj->getLongitude(), (string) implode(",", $obj->getImages()) . ','
+            (string) $obj->getLongitude(), (string) implode(",", $obj->getImages()) . ',',
+            (string) $obj->getUrlVideos() . ','
         ));
 
+        //echo $query;
 
         $this->repository->ExecuteTransaction($query);
     }
@@ -104,6 +106,32 @@ class PropertieDAO {
     public function Delete(PropertieDTO $obj) {
         $query = $this->repository->buildQuerySimply("deletepropertie", array((int) $obj->getId()));
         $this->repository->ExecuteTransaction($query);
+    }
+
+    /**
+     * Ejecuta un buscar en la base de datos, enfocado a la busqueda de los videos 
+     * asociados
+     * @param PropertieDTO $obj 
+     * @return void      
+     * @author Johnny Alexander Salazar
+     * @version 0.1
+     */
+    public function LoadVideo(PropertieDTO $obj) {
+        $query = $this->repository->buildQuery("listvideopropertie", array((int) $obj->getId()));
+        $this->repository->Execute($query);
+    }
+
+    /**
+     * Ejecuta un buscar en la base de datos, enfocado a la busqueda de las imagenes 
+     * asociados
+     * @param PropertieDTO $obj 
+     * @return void      
+     * @author Johnny Alexander Salazar
+     * @version 0.1
+     */
+    public function LoadImage(PropertieDTO $obj) {
+        $query = $this->repository->buildQuery("listimagepropertie", array((int) $obj->getId()));
+        $this->repository->Execute($query);
     }
 
 }

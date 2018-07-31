@@ -55,14 +55,13 @@ class PropertieDTO extends BaseDTO {
     private $outstandingType;
     private $linderos;
     private $matriculaInmobiliaria;
-    private $avaluoCatastral;    
+    private $avaluoCatastral;
     private $latitude;
-    private $longitude;    
+    private $longitude;
     private $images;
+    private $urlVideos;
     
-    
-    
-    function __construct($id, $precio, $administrationCost, $room, $bath, $parking, $totalArea, $areasWithoutBalconies, $buildYear, $numeroPiso, $chimenea, $estudio, $deposito, $zonaRopas, $parqueaderoVisitante, $ascensor, $terraza, $transportePublicoCercano, $salonComunal, $sauna, $turco, $jacuzzi, $zonaInfantil, $jardines, $duplex, $puertaSeguridad, $gimnasio, $precioNegociable, $piscina, $zonaMascotas, $parqueaderoCubierto, $amoblado, $city, $barrio, $estrato, $propertieType, $offerType, $curtainType, $vigilanceType, $zone, $viewType, $status, $kitchenType, $kitchenStructure, $floorType, $client, $publicationDate, $receptionDate, $outstandingType, $linderos, $matriculaInmobiliaria, $avaluoCatastral, $latitude, $longitude, $images) {
+    function __construct($id, $precio, $administrationCost, $room, $bath, $parking, $totalArea, $areasWithoutBalconies, $buildYear, $numeroPiso, $chimenea, $estudio, $deposito, $zonaRopas, $parqueaderoVisitante, $ascensor, $terraza, $transportePublicoCercano, $salonComunal, $sauna, $turco, $jacuzzi, $zonaInfantil, $jardines, $duplex, $puertaSeguridad, $gimnasio, $precioNegociable, $piscina, $zonaMascotas, $parqueaderoCubierto, $amoblado, $city, $barrio, $estrato, $propertieType, $offerType, $curtainType, $vigilanceType, $zone, $viewType, $status, $kitchenType, $kitchenStructure, $floorType, $client, $publicationDate, $receptionDate, $outstandingType, $linderos, $matriculaInmobiliaria, $avaluoCatastral, $latitude, $longitude, $images, $urlVideos) {
         $this->id = $id;
         $this->precio = $precio;
         $this->administrationCost = $administrationCost;
@@ -118,6 +117,7 @@ class PropertieDTO extends BaseDTO {
         $this->latitude = $latitude;
         $this->longitude = $longitude;
         $this->images = $images;
+        $this->urlVideos = $urlVideos;
     }
     
     
@@ -341,6 +341,10 @@ class PropertieDTO extends BaseDTO {
         return $this->images;
     }
 
+    function getUrlVideos() {
+        return $this->urlVideos;
+    }
+
     function setId($id) {
         $this->id = $id;
     }
@@ -561,7 +565,11 @@ class PropertieDTO extends BaseDTO {
         $this->images = $images;
     }
 
+    function setUrlVideos($urlVideos) {
+        $this->urlVideos = $urlVideos;
+    }
 
 
-    
+
+
 }

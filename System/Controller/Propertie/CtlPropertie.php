@@ -49,7 +49,8 @@ $curtainType = getInfo('curtainType');
 $vigilanceType = getInfo('vigilanceType');
 $zone = getInfo('zone');
 $viewType = getInfo('viewType');
-$status = getInfo('status');
+/* VALIDAR ESTO EN LA BASE DE DATOS, EL ID DE REGISTRADO */
+$status = 13;
 $kitchenType = getInfo('kitchenType');
 $kitchenStructure = getInfo('kitchenStructure');
 $floorType = getInfo('floorType');
@@ -66,7 +67,7 @@ $longitude = getInfo('lng');
 $publicationDate = date("Y-m-d", strtotime($publicationDate));
 $receptionDate = date("Y-m-d", strtotime($receptionDate));
 
-
+$urlVideos = getInfo('urlVideos');
 
 
 /* Recepcion de imagenes */
@@ -84,8 +85,8 @@ for ($x = 0; $x < 20; $x++) {
 
     if ($filePath != null && $filePath != "") {
         $cleaner = new Cleaner();
-        $filePath = $route . $cleaner->cleanValueFileName($matriculaInmobiliaria.'_'.$filePath) . $cleaner->cleanValueDate(date('Y-m-d H:i:s')) . '.jpg';
-        $filePathDB = $routeDB . $cleaner->cleanValueFileName($matriculaInmobiliaria.'_'.$filePath) . $cleaner->cleanValueDate(date('Y-m-d H:i:s')) . '.jpg';
+        $filePathDB = $routeDB . $cleaner->cleanValueFileName($matriculaInmobiliaria . '_' . $filePath) . '_' . $cleaner->cleanValueDate(date('Y-m-d H:i:s')) . '.jpg';
+        $filePath = $route . $cleaner->cleanValueFileName($matriculaInmobiliaria . '_' . $filePath) . '_' . $cleaner->cleanValueDate(date('Y-m-d H:i:s')) . '.jpg';
         base64_to_jpeg($base64Code, $filePath);
         $images[] = $filePathDB;
     } else {
@@ -99,7 +100,7 @@ for ($x = 0; $x < 20; $x++) {
 
 
 /* DEFINICION DE OBJETOS */
-$obj = new PropertieDTO($id, $precio, $administrationCost, $room, $bath, $parking, $totalArea, $areasWithoutBalconies, $buildYear, $numeroPiso, $chimenea, $estudio, $deposito, $zonaRopas, $parqueaderoVisitante, $ascensor, $terraza, $transportePublicoCercano, $salonComunal, $sauna, $turco, $jacuzzi, $zonaInfantil, $jardines, $duplex, $puertaSeguridad, $gimnasio, $precioNegociable, $piscina, $zonaMascotas, $parqueaderoCubierto, $amoblado, $city, $barrio, $estrato, $propertieType, $offerType, $curtainType, $vigilanceType, $zone, $viewType, $status, $kitchenType, $kitchenStructure, $floorType, $client, $publicationDate, $receptionDate, $outstandingType, $linderos, $matriculaInmobiliaria, $avaluoCatastral, $latitude, $longitude, $images);
+$obj = new PropertieDTO($id, $precio, $administrationCost, $room, $bath, $parking, $totalArea, $areasWithoutBalconies, $buildYear, $numeroPiso, $chimenea, $estudio, $deposito, $zonaRopas, $parqueaderoVisitante, $ascensor, $terraza, $transportePublicoCercano, $salonComunal, $sauna, $turco, $jacuzzi, $zonaInfantil, $jardines, $duplex, $puertaSeguridad, $gimnasio, $precioNegociable, $piscina, $zonaMascotas, $parqueaderoCubierto, $amoblado, $city, $barrio, $estrato, $propertieType, $offerType, $curtainType, $vigilanceType, $zone, $viewType, $status, $kitchenType, $kitchenStructure, $floorType, $client, $publicationDate, $receptionDate, $outstandingType, $linderos, $matriculaInmobiliaria, $avaluoCatastral, $latitude, $longitude, $images, $urlVideos);
 $dao = new PropertieDAO();
 
 /* CONTROL DE ACCIONES */

@@ -5,7 +5,7 @@ var map;
 /*Array con los marcadores puestos*/
 var markersListGlobal = [];
 var infoWindow;
-
+var geocoder;
 
 /*Funcion de configuracion del mapa*/
 function myMap() {
@@ -40,7 +40,7 @@ function myMap() {
     // Listen for the event fired when the user selects a prediction and retrieve
     // more details for that place.
 
- 
+
 
 
     searchBox.addListener('places_changed', function () {
@@ -105,7 +105,7 @@ function myMap() {
     /*Variable para el control de mensajes*/
     infoWindow = new google.maps.InfoWindow;
 
-    var geocoder = new google.maps.Geocoder;
+    geocoder = new google.maps.Geocoder;
 
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
@@ -141,49 +141,53 @@ function myMap() {
     });
 
 
-    function addMarker(location) {
-
-        /*Imagen del marcador*/
-        //var image = 'System/Resource/Images/map/marker.png';
-        var image = 'Resource/Images/map/marker.png';
-        /*Titulo del marcador*/
-        var mensaje = 'informacion marker';
-        /*Se instancia el marcador*/
-        var marker = new google.maps.Marker({
-            position: location,
-            map: map,
-            title: mensaje,
-            icon: image,
-            animation: google.maps.Animation.DROP
-        });
 
 
-        geocoder.geocode({'location': location}, function (results, status) {
-            if (status === 'OK') {
-                if (results[0]) {
-                    infoWindow.setContent(results[0].formatted_address);
-                    infoWindow.open(map, marker);
-                } else {
-                    //window.alert('No results found');
-                }
+}
+
+
+
+function addMarker(location) {
+
+    /*Imagen del marcador*/
+    //var image = 'System/Resource/Images/map/marker.png';
+    var image = 'Resource/Images/map/marker.png';
+    /*Titulo del marcador*/
+    var mensaje = 'informacion marker';
+    /*Se instancia el marcador*/
+    var marker = new google.maps.Marker({
+        position: location,
+        map: map,
+        title: mensaje,
+        icon: image,
+        animation: google.maps.Animation.DROP
+    });
+
+
+    geocoder.geocode({'location': location}, function (results, status) {
+        if (status === 'OK') {
+            if (results[0]) {
+                infoWindow.setContent(results[0].formatted_address);
+                infoWindow.open(map, marker);
             } else {
-                //window.alert('Geocoder failed due to: ' + status);
+                //window.alert('No results found');
             }
-        });
+        } else {
+            //window.alert('Geocoder failed due to: ' + status);
+        }
+    });
 
-        deleteMarkers();
+    deleteMarkers();
 
-        /*Se añade el marcador a la lista de marcadores*/
-        markersListGlobal.push(marker);
-        /*Se añade un evento cuando se preciona el marcador*/
-        marker.addListener('click', toggleBounce);
-    }
+    /*Se añade el marcador a la lista de marcadores*/
+    markersListGlobal.push(marker);
+    /*Se añade un evento cuando se preciona el marcador*/
+    marker.addListener('click', toggleBounce);
+}
 
 
-    function toggleBounce() {
-        //alert('me seleccionaste');
-    }
-
+function toggleBounce() {
+    //alert('me seleccionaste');
 }
 
 

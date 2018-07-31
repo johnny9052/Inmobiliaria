@@ -52,7 +52,6 @@ function ExecuteAction($action, $obj, $dao) {
             $dao->ReportCSV($obj);
             break;
 
-
         case "register":
             $dao->Register($obj);
             break;
@@ -62,11 +61,22 @@ function ExecuteAction($action, $obj, $dao) {
             break;
 
 
-        /* Other transactions */
         case "updatestate":
             $dao->UpdateState($obj);
             break;
 
+
+        case "loadVideo":
+            $dao->LoadVideo($obj);
+            break;
+
+
+        case "loadImage":
+            $dao->LoadImage($obj);
+            break;
+
+
+        /* Other transactions */
 
         default :
             echo 'No action found';
