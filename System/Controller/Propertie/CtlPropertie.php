@@ -71,10 +71,7 @@ $urlVideos = getInfo('urlVideos');
 
 
 /* Recepcion de imagenes */
-
-
-//DEFINIR ARRAY DE NOMBRES PARA ALMACENARLOS
-$images = generateFiles('../../', 'System/', 'Resource/Images/Properties/', 100, 'nameFileUpdate', 'nameFile', 'base64File', $matriculaInmobiliaria, '.jpg', false);
+$images = generateFiles('../../', 'System/', 'Resource/Images/Properties/', 100, 'nameFileDelete', 'nameFile', 'base64File', $matriculaInmobiliaria, '.jpg', false);
 
 
 /* DEFINICION DE OBJETOS */

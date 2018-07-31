@@ -1,7 +1,7 @@
 var listImagen = new Array();
 var listImagenName = new Array();
 
-var listImagenNameUpdate = new Array();
+var listImagenNameDeleted = new Array();
 
 
 var listVideo = new Array();
@@ -249,8 +249,8 @@ function update() {
             }
 
 
-            for (var x = 0; x < listImagenNameUpdate.length; x++) {
-                temp.push({datos: ["nameFileUpdate" + x, listImagenNameUpdate[x]]});
+            for (var x = 0; x < listImagenNameDeleted.length; x++) {
+                temp.push({datos: ["nameFileDelete" + x, listImagenNameDeleted[x]]});
             }
 
             var tempVideo = new Array();
@@ -401,11 +401,11 @@ function procesarImagenes() {
 
 
 
-            var posDeleted = listImagenNameUpdate.indexOf(nombreArchivo);
+            var posDeleted = listImagenNameDeleted.indexOf(nombreArchivo);
 
             /*Si se elimino previamente pero se vuelve a agregar*/
             if (posDeleted !== -1) {
-                listImagenNameUpdate.splice(posDeleted, 1);
+                listImagenNameDeleted.splice(posDeleted, 1);
                 /*Se limpia el nombre para poder eliminarlo del listado visual*/
             }
 
@@ -523,7 +523,7 @@ function eliminarImagen(id) {
     var pos = listImagenName.indexOf(id);
 
     /*Se agrega a la lista de nombres el nombre del archivo*/
-    listImagenNameUpdate.push(id);
+    listImagenNameDeleted.push(id);
 
     /*Si la encuentra*/
     if (pos !== -1) {
