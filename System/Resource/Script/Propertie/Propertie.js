@@ -1,6 +1,8 @@
 var listImagen = new Array();
 var listImagenName = new Array();
 
+var listImagenNameUpdate = new Array();
+
 
 var listVideo = new Array();
 
@@ -20,7 +22,7 @@ $(window).on("load", function (e) {
     loadVigilanceType();
     loadZone();
     loadViewType();
-    //loadStatus();
+
     loadKitchenType();
     loadKitchenStructure();
     loadFloorType();
@@ -96,7 +98,7 @@ function loadFloorType() {
 }
 
 function loadClient() {
-    Execute(scanInfo('loadclient', false), 'General/CtlGeneral', '', 'buildSelect(info,"selClient");');
+    Execute(scanInfo('loadClient', false), 'General/CtlGeneral', '', 'buildSelect(info,"selClient");');
 }
 
 
@@ -226,8 +228,46 @@ function showData(info) {
 
 
 function update() {
-    if (validateForm() === true) {
-        Execute(scanInfo('update', true), 'Propertie/CtlPropertie', '', 'closeWindow();list();');
+
+    if (markersListGlobal.length > 0) {
+        if (validateForm() === true) {
+
+            var temp = new Array();
+
+            var lat = markersListGlobal[0].getPosition().lat();
+            var lng = markersListGlobal[0].getPosition().lng();
+
+            temp.push({datos: ["lat", lat]});
+            temp.push({datos: ["lng", lng]});
+
+
+
+            for (var x = 0; x < listImagen.length; x++) {
+
+                temp.push({datos: ["nameFile" + x, listImagenName[x]]});
+                temp.push({datos: ["base64File" + x, listImagen[x]]});
+            }
+
+
+            for (var x = 0; x < listImagenNameUpdate.length; x++) {
+                temp.push({datos: ["nameFileUpdate" + x, listImagenNameUpdate[x]]});
+            }
+
+            var tempVideo = new Array();
+
+            tempVideo.push("urlVideos");
+
+            for (var y = 0; y < listVideo.length; y++) {
+                tempVideo.push(listVideo[y]);
+            }
+
+            temp.push({datos: tempVideo});
+
+            Execute(scanInfo('update', true, '', temp), 'Propertie/CtlPropertie', '', ' closeWindow();list();deleteMarkers();limpiarMultimedia();');
+
+        }
+    } else {
+        showToast("Seleccione un punto en el mapa", "error");
     }
 }
 
@@ -306,18 +346,21 @@ function listImages(info) {
 
     var lblImagenes = "";
 
-    for (var x = 0; x < info.length; x++) {
-        /*Se agrega a la lista de nombres el nombre del archivo*/
-        listImagenName.push(info[x].ruta_imagen);
-        listImagen.push('Not base64');
+    if (info !== undefined) {
+        for (var x = 0; x < info.length; x++) {
+            listImagenName.push(info[x].ruta_imagen);
+            listImagen.push('Not base64');
+        }
+    }
 
+    for (var y = 0; y < listImagenName.length; y++) {
         /*Se arma la cadena,tomando como referencias el nombre del archivo sin 
          * espacios ni caracteres especiales*/
-        lblImagenes = lblImagenes + "<label class='seleccionable' id='" + info[x].ruta_imagen + "' onclick='eliminarImagen(" + '"' + info[x].ruta_imagen + '"' + ");'>(X)    " + setSpacesInText(((info[x].ruta_imagen).split("/"))[4]) + "</label><br>";
+        lblImagenes = lblImagenes + "<label class='seleccionable' id='" + listImagenName[y] + "' onclick='eliminarImagen(" + '"' + listImagenName[y] + '"' + ");'>(X)    " + setSpacesInText(((listImagenName[y]).split("/"))[4]) + "</label><br>";
     }
 
     /*Se añade la nueva imagen a la lista de imagenes disponibles*/
-    $("#lstImagenesAgregadas").html($("#lstImagenesAgregadas").html() + lblImagenes);
+    $("#lstImagenesAgregadas").html(lblImagenes);
 
 }
 
@@ -346,13 +389,26 @@ function procesarImagenes() {
 
         /*Si se pudo obtener algun archivo*/
         if (file !== undefined) {
-            var nombreArchivo = ((file.name).split("."))[0].substring(0, 5);
+
+            var nombreArchivo = ((file.name).split("."))[0].substring(0, 8);
+
             /*Se arma la cadena,tomando como referencias el nombre del archivo sin 
              * espacios ni caracteres especiales*/
             lblImagenes = lblImagenes + "<label class='seleccionable' id='" + cleanNameFile(nombreArchivo) + "' onclick='eliminarImagen(" + '"' + cleanNameFile(nombreArchivo) + '"' + ");'>(X)    " + setSpacesInText(nombreArchivo) + "</label><br>";
 
             /*Se agrega a la lista de nombres el nombre del archivo*/
             listImagenName.push(cleanNameFile(nombreArchivo));
+
+
+
+            var posDeleted = listImagenNameUpdate.indexOf(nombreArchivo);
+
+            /*Si se elimino previamente pero se vuelve a agregar*/
+            if (posDeleted !== -1) {
+                listImagenNameUpdate.splice(posDeleted, 1);
+                /*Se limpia el nombre para poder eliminarlo del listado visual*/
+            }
+
             /*Se convierte la imagen seleccionada a BASE64 y se añade la codificacion 
              * a la lista correspondiente*/
             base64(file, function (data) {
@@ -363,7 +419,6 @@ function procesarImagenes() {
 
     /*Se añade la nueva imagen a la lista de imagenes disponibles*/
     $("#lstImagenesAgregadas").html($("#lstImagenesAgregadas").html() + lblImagenes);
-
     console.log(listImagen);
 }
 
@@ -467,7 +522,8 @@ function eliminarImagen(id) {
     /*Se obtiene la posicion de la imagen en la lista a partir de su nombre*/
     var pos = listImagenName.indexOf(id);
 
-    alert(pos);
+    /*Se agrega a la lista de nombres el nombre del archivo*/
+    listImagenNameUpdate.push(id);
 
     /*Si la encuentra*/
     if (pos !== -1) {
@@ -475,9 +531,13 @@ function eliminarImagen(id) {
         listImagen.splice(pos, 1);
         listImagenName.splice(pos, 1);
         /*Se limpia el nombre para poder eliminarlo del listado visual*/
-        id = cleanNameFile(id);
-        $("#" + id).html("");
+
     }
+
+
+    ;
+
+    listImages();
 }
 
 

@@ -72,31 +72,9 @@ $urlVideos = getInfo('urlVideos');
 
 /* Recepcion de imagenes */
 
+
 //DEFINIR ARRAY DE NOMBRES PARA ALMACENARLOS
-$images = array();
-
-$route = '../../Resource/Images/Properties/';
-$routeDB = 'System/Resource/Images/Propierties/';
-
-for ($x = 0; $x < 20; $x++) {
-
-    $base64Code = getInfo('base64File' . $x);
-    $filePath = getInfo('nameFile' . $x);
-
-    if ($filePath != null && $filePath != "") {
-        $cleaner = new Cleaner();
-        $filePathDB = $routeDB . $cleaner->cleanValueFileName($matriculaInmobiliaria . '_' . $filePath) . '_' . $cleaner->cleanValueDate(date('Y-m-d H:i:s')) . '.jpg';
-        $filePath = $route . $cleaner->cleanValueFileName($matriculaInmobiliaria . '_' . $filePath) . '_' . $cleaner->cleanValueDate(date('Y-m-d H:i:s')) . '.jpg';
-        base64_to_jpeg($base64Code, $filePath);
-        $images[] = $filePathDB;
-    } else {
-        break;
-    }
-}
-
-
-
-
+$images = generateFiles('../../', 'System/', 'Resource/Images/Properties/', 100, 'nameFileUpdate', 'nameFile', 'base64File', $matriculaInmobiliaria, '.jpg', false);
 
 
 /* DEFINICION DE OBJETOS */
