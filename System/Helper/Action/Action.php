@@ -197,3 +197,29 @@ function generateFiles($routePrefix, $routeDBPrefix, $routeReal, $maxFiles, $nam
         return $arrayFiles;
     }
 }
+
+function deleteFiles($nameDataToDelete, $routePrefix, $routeDBPrefix, $routeReal, $maxFiles, $prefixNameFile, $statusDate, $extensionsFiles) {
+    /* Objeto que permite quitar caracteres extraños al nombre del archivo */
+    $cleaner = new Cleaner();
+    /* Primero se recorren todos los archivos que se han eliminado desde la 
+      interfaz, por si estos ya existen en el server, puedan ser eliminados */
+    for ($y = 0; $y <= $maxFiles; $y++) {
+        /* Se preguntan por los datos que tienen el nombre-prefijo indicado */
+        $filePathDeleted = getInfo($nameDataToDelete . $y);
+        /* Si se pudo obtener algun dato para validarlo */
+        if ($filePathDeleted != null && $filePathDeleted != "") {
+            /* Se contruye la ruta */
+            $filePathDeleted = $routePrefix . $routeReal . $cleaner->cleanValueFileName($prefixNameFile . '_' . $filePathDeleted) . (($statusDate) ? '_' . $cleaner->cleanValueDate(date('Y-m-d H:i:s')) : '') . $extensionsFiles;
+                                    
+            /* Se valida si existe el archivo eliminado */
+            if (file_exists($filePathDeleted)) {
+                /* Si existe, se elimina el archivo */
+                unlink($filePathDeleted);
+            }
+        } else {
+            /* Si no se pudo obtener dato, es porque no existen mas datos a 
+              eliminar */
+            break;
+        }
+    }
+}

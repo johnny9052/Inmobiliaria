@@ -22,7 +22,6 @@ $(window).on("load", function (e) {
     loadVigilanceType();
     loadZone();
     loadViewType();
-
     loadKitchenType();
     loadKitchenStructure();
     loadFloorType();
@@ -111,35 +110,38 @@ function loadOutstandingType() {
 
 
 function save() {
+    /*Se valida el marcador seleccionado del gps*/
     if (markersListGlobal.length > 0) {
         if (validateForm() === true) {
 
+            /*Array para datos adicionales*/
             var temp = new Array();
 
+            /*Se obteien los datos de latitud - longitud*/
             var lat = markersListGlobal[0].getPosition().lat();
             var lng = markersListGlobal[0].getPosition().lng();
-
+            /*Se añaden como datos adicionales*/
             temp.push({datos: ["lat", lat]});
             temp.push({datos: ["lng", lng]});
 
 
-
+            /*Se recorre la lista de imagenes seleccionadas*/
             for (var x = 0; x < listImagen.length; x++) {
-
+                /*Por cada una se obtiene su nombre y codificacion*/
                 temp.push({datos: ["nameFile" + x, listImagenName[x]]});
                 temp.push({datos: ["base64File" + x, listImagen[x]]});
             }
 
+            /*Array de videos*/
             var tempVideo = new Array();
-
+            /*Nombre de la variable que llegara al server*/
             tempVideo.push("urlVideos");
-
+            /*Por cada video agregado, se asocia al array*/
             for (var y = 0; y < listVideo.length; y++) {
                 tempVideo.push(listVideo[y]);
             }
-
+            /*Se añade como dato adicional*/
             temp.push({datos: tempVideo});
-
 
             Execute(scanInfo('save', true, '', temp), 'Propertie/CtlPropertie', '', ' closeWindow();list();deleteMarkers();limpiarMultimedia();');
         }
@@ -213,9 +215,9 @@ function showData(info) {
     $("#txtLinderos").val(info[0].linderos_inmbueble);
     $("#txtMatriculaInmobiliaria").val(info[0].matricula_inmobiliaria);
     $("#txtAvaluoCatastral").val(info[0].avaluo_catastral);
+    /*Se añade el punto del gps*/
     addMarker(new google.maps.LatLng(info[0].latitud, info[0].longitud));
-
-
+    /*Se cargan las imagenes y videos*/
     loadVideosPropertie(info[0].id);
     loadImagesPropertie(info[0].id);
 
@@ -228,39 +230,40 @@ function showData(info) {
 
 
 function update() {
-
+    /*Se valida si se ha seleccionado un punto en el gps*/
     if (markersListGlobal.length > 0) {
         if (validateForm() === true) {
-
+            /*Array para datos adicionales*/
             var temp = new Array();
-
+            /*Se obtiene la latitud y longitud*/
             var lat = markersListGlobal[0].getPosition().lat();
             var lng = markersListGlobal[0].getPosition().lng();
-
+            /*Se añaden*/
             temp.push({datos: ["lat", lat]});
             temp.push({datos: ["lng", lng]});
 
 
-
+            /*Se validan las imagenes agregadas y se agregan*/
             for (var x = 0; x < listImagen.length; x++) {
-
                 temp.push({datos: ["nameFile" + x, listImagenName[x]]});
                 temp.push({datos: ["base64File" + x, listImagen[x]]});
             }
 
-
+            /*Se validan las imagenes eliminadas y se agregan para eliminarlas 
+             * en el servidor*/
             for (var x = 0; x < listImagenNameDeleted.length; x++) {
                 temp.push({datos: ["nameFileDelete" + x, listImagenNameDeleted[x]]});
             }
 
+            /*Se define un array para mandar todos los videos concatenados*/
             var tempVideo = new Array();
-
+            /*Se añade el nombre de la variable*/
             tempVideo.push("urlVideos");
-
+            /*Se añaden los videos*/
             for (var y = 0; y < listVideo.length; y++) {
                 tempVideo.push(listVideo[y]);
             }
-
+            /*Se agrega como dato adicional*/
             temp.push({datos: tempVideo});
 
             Execute(scanInfo('update', true, '', temp), 'Propertie/CtlPropertie', '', ' closeWindow();list();deleteMarkers();limpiarMultimedia();');
@@ -273,7 +276,19 @@ function update() {
 
 
 function deleteInfo() {
-    Execute(scanInfo('delete', true), 'Propertie/CtlPropertie', '', 'closeWindow("ModalConfirm");list();cleanForm("ModalNew");');
+    /*Se pasan todas las imagenes que se tengan cargadas y eliminadas como datos a
+     * eliminar*/
+    var temp = new Array();
+
+    for (var y = 0; y < listImagenNameDeleted.length; y++) {
+        listImagenName.push(listImagenNameDeleted[y]);
+    }
+
+    for (var x = 0; x < listImagenName.length; x++) {
+        temp.push({datos: ["nameFileDelete" + x, listImagenName[x]]});
+    }
+
+    Execute(scanInfo('delete', true, '', temp), 'Propertie/CtlPropertie', '', 'closeWindow("ModalConfirm");list();cleanForm("ModalNew");deleteMarkers();limpiarMultimedia();');
 }
 
 
@@ -348,7 +363,15 @@ function listImages(info) {
 
     if (info !== undefined) {
         for (var x = 0; x < info.length; x++) {
-            listImagenName.push(info[x].ruta_imagen);
+            /*Se deja limpio el nombre, sin path ni nada*/
+            var nombreLimpio = (info[x].ruta_imagen).split("/");
+            nombreLimpio = nombreLimpio[nombreLimpio.length - 1];
+            nombreLimpio = (nombreLimpio.split("."))[0];
+            nombreLimpio = nombreLimpio.split("_");
+            nombreLimpio = nombreLimpio[nombreLimpio.length - 1];
+            nombreLimpio = setSpacesInText(nombreLimpio);
+            /*Se agregan a la lista de imagenes*/
+            listImagenName.push(nombreLimpio);
             listImagen.push('Not base64');
         }
     }
@@ -356,12 +379,11 @@ function listImages(info) {
     for (var y = 0; y < listImagenName.length; y++) {
         /*Se arma la cadena,tomando como referencias el nombre del archivo sin 
          * espacios ni caracteres especiales*/
-        lblImagenes = lblImagenes + "<label class='seleccionable' id='" + listImagenName[y] + "' onclick='eliminarImagen(" + '"' + listImagenName[y] + '"' + ");'>(X)    " + setSpacesInText(((listImagenName[y]).split("/"))[4]) + "</label><br>";
+        lblImagenes = lblImagenes + "<label class='seleccionable' id='" + listImagenName[y] + "' onclick='eliminarImagen(" + '"' + listImagenName[y] + '"' + ");'>(X)    " + listImagenName[y] + "</label><br>";
     }
 
     /*Se añade la nueva imagen a la lista de imagenes disponibles*/
     $("#lstImagenesAgregadas").html(lblImagenes);
-
 }
 
 
@@ -390,7 +412,7 @@ function procesarImagenes() {
         /*Si se pudo obtener algun archivo*/
         if (file !== undefined) {
 
-            var nombreArchivo = ((file.name).split("."))[0].substring(0, 8);
+            var nombreArchivo = ((file.name).split("."))[0];
 
             /*Se arma la cadena,tomando como referencias el nombre del archivo sin 
              * espacios ni caracteres especiales*/
@@ -399,8 +421,8 @@ function procesarImagenes() {
             /*Se agrega a la lista de nombres el nombre del archivo*/
             listImagenName.push(cleanNameFile(nombreArchivo));
 
-
-
+            /*Si la imagen que se agrego, es una que previamente se habia eliminado, 
+             * se elimina de la lista de imagenes a eliminar*/
             var posDeleted = listImagenNameDeleted.indexOf(nombreArchivo);
 
             /*Si se elimino previamente pero se vuelve a agregar*/
@@ -431,7 +453,7 @@ function loadVideosPropertie(id) {
 
 
 function listVideos(info) {
-
+    /*Se agregan todos los videos a la lista, y se pintan*/
     for (var x = 0; x < info.length; x++) {
         listVideo.push(info[x].ruta_video);
     }
