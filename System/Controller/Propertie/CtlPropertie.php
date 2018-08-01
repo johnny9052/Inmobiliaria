@@ -69,35 +69,10 @@ $receptionDate = date("Y-m-d", strtotime($receptionDate));
 
 $urlVideos = getInfo('urlVideos');
 
-
-/* Recepcion de imagenes */
-
-//DEFINIR ARRAY DE NOMBRES PARA ALMACENARLOS
-$images = array();
-
-$route = '../../Resource/Images/Properties/';
-$routeDB = 'System/Resource/Images/Propierties/';
-
-for ($x = 0; $x < 20; $x++) {
-
-    $base64Code = getInfo('base64File' . $x);
-    $filePath = getInfo('nameFile' . $x);
-
-    if ($filePath != null && $filePath != "") {
-        $cleaner = new Cleaner();
-        $filePathDB = $routeDB . $cleaner->cleanValueFileName($matriculaInmobiliaria . '_' . $filePath) . '_' . $cleaner->cleanValueDate(date('Y-m-d H:i:s')) . '.jpg';
-        $filePath = $route . $cleaner->cleanValueFileName($matriculaInmobiliaria . '_' . $filePath) . '_' . $cleaner->cleanValueDate(date('Y-m-d H:i:s')) . '.jpg';
-        base64_to_jpeg($base64Code, $filePath);
-        $images[] = $filePathDB;
-    } else {
-        break;
-    }
-}
-
-
-
-
-
+/* Se borran todas las imagenes que se tengan que eliminar */
+deleteFiles('nameFileDelete', '../../', 'System/', 'Resource/Images/Properties/', 100, $matriculaInmobiliaria, false, '.jpg');
+/* Se crean las imagenes que se tengan que crear */
+$images = generateFiles('../../', 'System/', 'Resource/Images/Properties/', 100, 'nameFileDelete', 'nameFile', 'base64File', $matriculaInmobiliaria, '.jpg', false);
 
 /* DEFINICION DE OBJETOS */
 $obj = new PropertieDTO($id, $precio, $administrationCost, $room, $bath, $parking, $totalArea, $areasWithoutBalconies, $buildYear, $numeroPiso, $chimenea, $estudio, $deposito, $zonaRopas, $parqueaderoVisitante, $ascensor, $terraza, $transportePublicoCercano, $salonComunal, $sauna, $turco, $jacuzzi, $zonaInfantil, $jardines, $duplex, $puertaSeguridad, $gimnasio, $precioNegociable, $piscina, $zonaMascotas, $parqueaderoCubierto, $amoblado, $city, $barrio, $estrato, $propertieType, $offerType, $curtainType, $vigilanceType, $zone, $viewType, $status, $kitchenType, $kitchenStructure, $floorType, $client, $publicationDate, $receptionDate, $outstandingType, $linderos, $matriculaInmobiliaria, $avaluoCatastral, $latitude, $longitude, $images, $urlVideos);
