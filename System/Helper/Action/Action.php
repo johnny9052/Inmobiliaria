@@ -97,6 +97,20 @@ function base64_to_jpeg($base64_string, $output_file) {
     return $output_file;
 }
 
+
+/**
+ * Contiene el control de las acciones basicas del sistema
+ * @author Johnny Alexander Salazar
+ * @version 0.1
+ */
+function base64_to_file($base64_string, $output_file) {
+    $ifp = fopen($output_file, "wb");
+    $data = explode(',', $base64_string);
+    fwrite($ifp, base64_decode($data[0]));
+    fclose($ifp);
+    return $output_file;
+}
+
 /**
  * Obtiene una variable por get o post, especificandole el nombre
  * @author Johnny Alexander Salazar
