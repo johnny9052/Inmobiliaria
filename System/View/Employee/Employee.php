@@ -152,7 +152,7 @@ and open the template in the editor.
                                         <div class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </div>
-                                        <input type="text" name="expeditionDate" required class="form-control pull-right dateAction" id="txtBirthdate">
+                                        <input type="text" name="expeditionDate" required class="form-control pull-right dateAction" id="txtExpeditionDate">
                                     </div>
                                 </div>
                             </div>     
@@ -162,8 +162,7 @@ and open the template in the editor.
                             <br>
                             <div class="col-md-6">
                                 <label for="fileIdentification">Archivo Cédula</label>
-                                <input type="file" accept=".PDF,.pdf"  id="fileIdentification" name="urlFileIdentification" multiple 
-                                       onchange="procesarArchivo();"><br>                            
+                                <input type="file" accept=".PDF,.pdf"  id="fileIdentification" name="urlFileIdentification" multiple><br> //onchange="procesarArchivo();"                            
                             </div>
                             <div class="col-md-6" id="lstArchivoAgregado">
 
@@ -272,8 +271,7 @@ and open the template in the editor.
                             <br>
                             <div class="col-md-6">
                                 <label for="fileMilitaryCard">Archivo libreta militar</label>
-                                <input type="file" accept=".PDF,.pdf"  id="fileMilitaryCard" name="urlFileMilitaryCard" multiple 
-                                       onchange="procesarArchivo();"><br>                            
+                                <input type="file" accept=".PDF,.pdf"  id="fileMilitaryCard" name="urlFileMilitaryCard" multiple><br>  //onchange="procesarArchivo();"                            
                             </div>
                             <div class="col-md-6" id="lstArchivoAgregado">
 
@@ -431,8 +429,7 @@ and open the template in the editor.
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="imageEmployee">Foto empleado</label>
-                                <input type="file" accept=".JPEG,.PNG,.jpg"  id="imageEmployee" name="urlImage" multiple 
-                                       onchange="procesarImagenes();"><br>                            
+                                <input type="file" accept=".JPEG,.PNG,.jpg"  id="imageEmployee" name="urlImage" multiple><br> //onchange="procesarImagenes();"                            
                             </div>
                             <div class="col-md-6" id="lstImagenesAgregadas">
 

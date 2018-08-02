@@ -114,13 +114,13 @@ function loadPersonType() {
 function save() {
     if (validateForm() === true) {
 
-        var temp = new Array();
-
-        for (var x = 0; x < listImagen.length; x++) {
-
-            temp.push({datos: ["nameFile" + x, listFileName[x]]});
-            temp.push({datos: ["base64File" + x, listFile[x]]});
-        }
+//        var temp = new Array();
+//
+//        for (var x = 0; x < listImagen.length; x++) {
+//
+//            temp.push({datos: ["nameFile" + x, listFileName[x]]});
+//            temp.push({datos: ["base64File" + x, listFile[x]]});
+//        }
 
 
         Execute(scanInfo('save', true,'',temp), 'Employee/CtlEmployee', '', 'closeWindow();list();');
@@ -143,6 +143,8 @@ function showData(info) {
 
     $("#txtId").val(info[0].id);
     refreshSelect("selTypeEmployee", info[0].id_tipo_Empleado);
+    refreshSelect("selCityExpedition", info[0].id_Ciudad_Expedicion);
+    refreshSelect("selCityBirth", info[0].id_Ciudad_Nacimiento);
     $("#txtDocumentNumber").val(info[0].cedula);
     $("#txtFirstName").val(info[0].primer_nombre);
     $("#txtSecondName").val(info[0].segundo_nombre);
@@ -152,13 +154,30 @@ function showData(info) {
     $("#txtHomePhone").val(info[0].telefono);
     $("#txtMobilePhone").val(info[0].celular);
     $("#txtEmail").val(info[0].email);
+    $("#txtBirthdate").val(info[0].fecha);
+    $("#txtExpeditionDate").val(info[0].fecha_Expedicion);
     refreshSelect("selGender", info[0].genero);
     $("#txtBirthdate").val(info[0].fecha);
     refreshSelect("selCity", info[0].id_ciudad_residencia);
     refreshSelect("selMaritalStatus", info[0].estado_civil);
     refreshSelect("selProfession", info[0].id_profesion);
     refreshSelect("selStateResidence", info[0].id_departamento);
+    refreshSelect("selStateExpedition", info[0].id_Departamento_Expedicion);
+    refreshSelect("selStateBirth", info[0].id_Departamento_Nacimiento);
     refreshSelect("selProfessionNivel", info[0].id_nivel);
+    $("#txtMilitaryCard").val(info[0].numero_Libreta_Militar);
+    refreshSelect("selBloodType", info[0].id_Tipo_Sangre);
+    $("#fileMilitaryCard").val(info[0].archivo_Libreta_Militar);
+    refreshSelect("selPensionFund", info[0].id_Fondo_Pensiones);
+    refreshSelect("selSeveranceFund", info[0].id_Fondo_Cesantias);
+    refreshSelect("selArl", info[0].id_Arl);
+    refreshSelect("selEps", info[0].id_Eps);
+    refreshSelect("selCompensationBox", info[0].id_Caja_Compensacion);
+    $("#txtContacName").val(info[0].nombre_Contacto);
+    $("#txtContactPhone").val(info[0].telefono_Contacto);
+    $("#txtContactEmail").val(info[0].correo_Contacto);
+    
+    
     openWindow();
     showButton(false);
 }
