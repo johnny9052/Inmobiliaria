@@ -308,13 +308,13 @@ function scanInfo(type, status, form, dataPlus) {
  * @author Johnny Alexander Salazar
  * @version 0.2
  */
-function base64(file, callback) {
+function base64(file, callback, fileName, urlFile) {
 
     var coolFile = {};
     function readerOnload(e) {
         var base64 = btoa(e.target.result);
         coolFile.base64 = base64;
-        callback(coolFile);
+        callback(coolFile, fileName, urlFile);
     }
     ;
 
@@ -961,7 +961,7 @@ function cleanNameFile(nombre) {
  * @author Johnny Alexander Salazar
  * @version 0.1
  */
-function setSpacesInText(nombre) {    
+function setSpacesInText(nombre) {
     nombre = (nombre).replace(/_/g, " ");
     return nombre;
 }
