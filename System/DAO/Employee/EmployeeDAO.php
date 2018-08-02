@@ -26,12 +26,20 @@ class EmployeeDAO {
         $query = $this->repository->buildQuerySimply("saveemployee", array((int) $obj->getId(),
             (string) $obj->getFirstName(), (string) $obj->getSecondName(),
             (string) $obj->getFirstLastName(), (string) $obj->getSecondLastName(),
-            (string) $obj->getDocumentNumber(),(string) $obj->getBirthdate(),
-            (int) $obj->getTypeEmployee(), (string) $obj->getAddress(),
+            (string) $obj->getDocumentNumber(), (string) $obj->getExpeditionDate(),
+            (string) $obj->getBirthdate(),(string) $obj->getAddress(),
             (string) $obj->getHomePhone(), (string) $obj->getMobilePhone(),
             (string) $obj->getEmail(), (int) $obj->getGender(),
-            (int) $obj->getCityResidence(), (int) $obj->getProfession(),
-            (int) $obj->getMaritalStatus()
+            (int) $obj->getTypeEmployee(),(int) $obj->getCityResidence(),
+            (int) $obj->getProfession(), (int) $obj->getMaritalStatus(),
+            (int) $obj->getCityExpedition(), (string) $obj->getFileIdentification(),
+            (int) $obj->getCityBirth(), (string) $obj->getMilitaryCard(),
+            (int) $obj->getBloodType(), (string) $obj->getFileMilitaryCard(),
+            (int) $obj->getPensionFund(), (int) $obj->getSeveranceFund(),
+            (int) $obj->getArl(), (int) $obj->getEps(),
+            (int) $obj->getCompensationBox(), (int) $obj->getDisability(),
+            (string) implode(",", $obj->getImageEmployee()) . ',', (string) $obj->getContacName(),
+            (string) $obj->getContactPhone(), (string) $obj->getContactEmail()  
         ));
         $this->repository->ExecuteTransaction($query);
     }
@@ -71,12 +79,20 @@ class EmployeeDAO {
         $query = $this->repository->buildQuerySimply("updateemployee", array((int) $obj->getId(),
             (string) $obj->getFirstName(), (string) $obj->getSecondName(),
             (string) $obj->getFirstLastName(), (string) $obj->getSecondLastName(),
-            (string) $obj->getDocumentNumber(),(string) $obj->getBirthdate(),
-            (int) $obj->getTypeEmployee(), (string) $obj->getAddress(),
+            (string) $obj->getDocumentNumber(), (string) $obj->getExpeditionDate(),
+            (string) $obj->getBirthdate(),(string) $obj->getAddress(),
             (string) $obj->getHomePhone(), (string) $obj->getMobilePhone(),
             (string) $obj->getEmail(), (int) $obj->getGender(),
-            (int) $obj->getCityResidence(), (int) $obj->getProfession(),
-            (int) $obj->getMaritalStatus()));
+            (int) $obj->getTypeEmployee(),(int) $obj->getCityResidence(),
+            (int) $obj->getProfession(), (int) $obj->getMaritalStatus(),
+            (int) $obj->getCityExpedition(), (string) $obj->getFileIdentification(),
+            (int) $obj->getCityBirth(), (string) $obj->getMilitaryCard(),
+            (int) $obj->getBloodType(), (string) $obj->getFileMilitaryCard(),
+            (int) $obj->getPensionFund(), (int) $obj->getSeveranceFund(),
+            (int) $obj->getArl(), (int) $obj->getEps(),
+            (int) $obj->getCompensationBox(), (int) $obj->getDisability(),
+            (string) implode(",", $obj->getImageEmployee()) . ',', (string) $obj->getContacName(),
+            (string) $obj->getContactPhone(), (string) $obj->getContactEmail()));
         $this->repository->ExecuteTransaction($query);
     }
 

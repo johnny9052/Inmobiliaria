@@ -14,7 +14,30 @@ function ExecuteActionLoad($action, $obj, $dao) {
         case "loadRol":
             $dao->LoadSelect($obj, "loadrol");
             break;
-
+        
+        case "loadBloodType":
+            $dao->LoadSelect($obj, "loadbloodtype");
+            break;
+        
+        case "loadPensionFund":
+            $dao->LoadSelect($obj, "loadpensionfund");
+            break;
+        
+        case "loadSeveranceFund":
+            $dao->LoadSelect($obj, "loadseverancefund");
+            break;
+        
+        case "loadArl":
+            $dao->LoadSelect($obj, "loadarl");
+            break;
+        
+        case "loadEps":
+            $dao->LoadSelect($obj, "loadeps");
+            break;
+        
+        case "loadCompensationBox":
+            $dao->LoadSelect($obj, "loadcompensationbox");
+            break;
 
         case "loadTipoIdentificacion":
             $dao->LoadSelect($obj, "loadtipoidentificacion");

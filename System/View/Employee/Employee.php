@@ -128,7 +128,7 @@ and open the template in the editor.
                                     <label>Departamento de expedición</label>
                                     <select id="selStateExpedition" name="stateExpedition"  
                                             class="form-control select2" style="width: 100%;" 
-                                            onchange="loadCity(this.value);">
+                                            onchange="loadCityExpedition(this.value);">
                                         <option value="-1" selected> -- SELECCIONE --</option>                            
                                     </select>
                                 </div>
@@ -140,6 +140,20 @@ and open the template in the editor.
                                     <select id="selCityExpedition" name="cityExpedition" required class="form-control select2" style="width: 100%;">
                                         <option value="-1" selected> -- SELECCIONE --</option>                            
                                     </select>
+                                </div>
+                            </div>     
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">                                
+                                <div class="form-group">
+                                    <label>Fecha de expedición</label>
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" name="expeditionDate" required class="form-control pull-right dateAction" id="txtBirthdate">
+                                    </div>
                                 </div>
                             </div>     
                         </div>
@@ -163,7 +177,7 @@ and open the template in the editor.
                                     <label>Departamento de nacimiento</label>
                                     <select id="selStateBirth" name="stateBirth"  
                                             class="form-control select2" style="width: 100%;" 
-                                            onchange="loadCity(this.value);">
+                                            onchange="loadCityBirth(this.value);">
                                         <option value="-1" selected> -- SELECCIONE --</option>                            
                                     </select>
                                 </div>
@@ -318,7 +332,7 @@ and open the template in the editor.
                                     <label>Departamento de residencia</label>
                                     <select id="selStateResidence" name="stateResidence"  
                                             class="form-control select2" style="width: 100%;" 
-                                            onchange="loadCity(this.value);">
+                                            onchange="loadCityResidence(this.value);">
                                         <option value="-1" selected> -- SELECCIONE --</option>                            
                                     </select>
                                 </div>
@@ -410,6 +424,44 @@ and open the template in the editor.
                                     &nbsp;&nbsp;
                                     <label for="chkDisability" class="fa fa-wheelchair-alt"></label>                                    
                                     <label for="chkDisability">Discapacidad</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="imageEmployee">Foto empleado</label>
+                                <input type="file" accept=".JPEG,.PNG,.jpg"  id="imageEmployee" name="urlImage" multiple 
+                                       onchange="procesarImagenes();"><br>                            
+                            </div>
+                            <div class="col-md-6" id="lstImagenesAgregadas">
+
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="txtContacName">Nombre contacto</label>                                    
+                                    <input id="txtContacName" name="contacName" class="form-control" type="text" value="" autocomplete="off" required
+                                           placeholder="Primer nombre">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="txtContactPhone">Telefono contacto</label>                                    
+                                    <input id="txtContactPhone" name="contactPhone" class="form-control" type="number" value="" autocomplete="off" required
+                                           placeholder="Telefono fijo">
+                                </div>
+                            </div> 
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="txtContactEmail">Correo contacto</label>                                    
+                                    <input id="txtContactEmail" name="contactEmail" type="email" class="form-control"  value="" autocomplete="off" required
+                                           placeholder="Correo electronico">
                                 </div>
                             </div>
                         </div>
