@@ -1,5 +1,6 @@
 var listImagen = new Array();
 var listImagenName = new Array();
+var listImagenURL = new Array();
 
 var listImagenNameDeleted = new Array();
 
@@ -8,7 +9,7 @@ var listVideo = new Array();
 
 
 /* Funciones jQuery */
-/* global markersListGlobal, google */
+/* global markersListGlobal, google, URL */
 
 $(window).on("load", function (e) {
     list();
@@ -373,6 +374,7 @@ function listImages(info) {
             /*Se agregan a la lista de imagenes*/
             listImagenName.push(nombreLimpio);
             listImagen.push('Not base64');
+            listImagenURL.push(((info[x].ruta_imagen).split("System/"))[1]);
         }
     }
 
@@ -380,10 +382,12 @@ function listImages(info) {
         /*Se arma la cadena,tomando como referencias el nombre del archivo sin 
          * espacios ni caracteres especiales*/
         lblImagenes = lblImagenes + "<label class='seleccionable' id='" + listImagenName[y] + "' onclick='eliminarImagen(" + '"' + listImagenName[y] + '"' + ");'>(X)    " + listImagenName[y] + "</label><br>";
+        lblImagenes = lblImagenes + "<img  id='output_" + cleanNameFile(listImagenName[y]) + "' height='60' width='50'/><br>";
     }
 
     /*Se añade la nueva imagen a la lista de imagenes disponibles*/
     $("#lstImagenesAgregadas").html(lblImagenes);
+    cargarMiniaturas();
 }
 
 
@@ -417,9 +421,10 @@ function procesarImagenes() {
             /*Se arma la cadena,tomando como referencias el nombre del archivo sin 
              * espacios ni caracteres especiales*/
             lblImagenes = lblImagenes + "<label class='seleccionable' id='" + cleanNameFile(nombreArchivo) + "' onclick='eliminarImagen(" + '"' + cleanNameFile(nombreArchivo) + '"' + ");'>(X)    " + setSpacesInText(nombreArchivo) + "</label><br>";
-
+            lblImagenes = lblImagenes + "<img  id='output_" + cleanNameFile(nombreArchivo) + "' height='60' width='50'/><br>";
             /*Se agrega a la lista de nombres el nombre del archivo*/
-            listImagenName.push(cleanNameFile(nombreArchivo));
+
+
 
             /*Si la imagen que se agrego, es una que previamente se habia eliminado, 
              * se elimina de la lista de imagenes a eliminar*/
@@ -433,15 +438,33 @@ function procesarImagenes() {
 
             /*Se convierte la imagen seleccionada a BASE64 y se añade la codificacion 
              * a la lista correspondiente*/
-            base64(file, function (data) {
-                listImagen.push((data.base64 !== undefined) ? data.base64 : ""); // prints the base64 string                                
-            });
+
+            base64(file, function (data, fileName, urlImage) {
+                listImagen.push((data.base64 !== undefined) ? data.base64 : ""); // prints the base64 string                                                
+                listImagenName.push(fileName);
+                listImagenURL.push(urlImage);
+                cargarMiniaturas();
+            }, cleanNameFile(nombreArchivo), window.URL.createObjectURL(file));
         }
     }
 
     /*Se añade la nueva imagen a la lista de imagenes disponibles*/
     $("#lstImagenesAgregadas").html($("#lstImagenesAgregadas").html() + lblImagenes);
     console.log(listImagen);
+
+}
+
+
+function cargarMiniaturas() {
+
+    for (var i = 0; i < listImagenURL.length; i++) {
+        /*Se obtiene el archivo*/
+        var url = listImagenURL[i];
+        if (url !== undefined && url !== "") {
+            var output = document.getElementById('output_' + listImagenName[i]);
+            output.src = url;
+        }
+    }
 }
 
 
@@ -552,6 +575,7 @@ function eliminarImagen(id) {
         /*La elimina de las listas de los nombre sy las codificaciones*/
         listImagen.splice(pos, 1);
         listImagenName.splice(pos, 1);
+        listImagenURL.splice(pos, 1);
         /*Se limpia el nombre para poder eliminarlo del listado visual*/
 
     }
@@ -572,6 +596,7 @@ function eliminarImagen(id) {
 function limpiarMultimedia() {
     listImagen = new Array();
     listImagenName = new Array();
+    listImagenURL = new Array();
     listVideo = new Array();
     $("#lstVideosAgregados").html("");
     $("#lstImagenesAgregadas").html("");
