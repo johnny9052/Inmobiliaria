@@ -144,7 +144,7 @@ function save() {
             /*Se añade como dato adicional*/
             temp.push({datos: tempVideo});
 
-            Execute(scanInfo('save', true, '', temp), 'Propertie/CtlPropertie', '', ' closeWindow();list();deleteMarkers();limpiarMultimedia();');
+            Execute(scanInfo('save', true, '', temp), 'Propertie/CtlPropertie', '', ' closeWindow();list();deleteMarkers();limpiarMultimedia();', '', 'Ha superado el tamaño maximo de las imagenes');
         }
     } else {
         showToast("Seleccione un punto en el mapa", "error");
@@ -361,32 +361,42 @@ function loadImagesPropertie(id) {
 function listImages(info) {
 
     var lblImagenes = "";
+    var lblImagenes2 = "";
 
     if (info !== undefined) {
         for (var x = 0; x < info.length; x++) {
+
             /*Se deja limpio el nombre, sin path ni nada*/
             var nombreLimpio = (info[x].ruta_imagen).split("/");
             nombreLimpio = nombreLimpio[nombreLimpio.length - 1];
             nombreLimpio = (nombreLimpio.split("."))[0];
             nombreLimpio = nombreLimpio.split("_");
             nombreLimpio = nombreLimpio[nombreLimpio.length - 1];
-            nombreLimpio = setSpacesInText(nombreLimpio);
-            /*Se agregan a la lista de imagenes*/
-            listImagenName.push(nombreLimpio);
-            listImagen.push('Not base64');
-            listImagenURL.push(((info[x].ruta_imagen).split("System/"))[1]);
+            //nombreLimpio = setSpacesInText(nombreLimpio);
+            if (nombreLimpio !== "") {
+                /*Se agregan a la lista de imagenes*/
+                listImagenName.push(nombreLimpio);
+                listImagen.push('NotBase64');
+                listImagenURL.push(((info[x].ruta_imagen).split("System/"))[1]);
+            }
         }
     }
 
     for (var y = 0; y < listImagenName.length; y++) {
         /*Se arma la cadena,tomando como referencias el nombre del archivo sin 
          * espacios ni caracteres especiales*/
-        lblImagenes = lblImagenes + "<label class='seleccionable' id='" + listImagenName[y] + "' onclick='eliminarImagen(" + '"' + listImagenName[y] + '"' + ");'>(X)    " + listImagenName[y] + "</label><br>";
-        lblImagenes = lblImagenes + "<img  id='output_" + cleanNameFile(listImagenName[y]) + "' height='60' width='50'/><br>";
+        if (y % 2 === 0) {
+            lblImagenes = lblImagenes + "<img  id='output_" + cleanNameFile(listImagenName[y]) + "' height='60' width='50'/><br>";
+            lblImagenes = lblImagenes + "<label class='seleccionable panel panel-default' id='" + listImagenName[y] + "' onclick='eliminarImagen(" + '"' + listImagenName[y] + '"' + ");'>(X)    " + listImagenName[y] + "</label><br>";
+        } else {
+            lblImagenes2 = lblImagenes2 + "<img  id='output_" + cleanNameFile(listImagenName[y]) + "' height='60' width='50'/><br>";
+            lblImagenes2 = lblImagenes2 + "<label class='seleccionable panel panel-default' id='" + listImagenName[y] + "' onclick='eliminarImagen(" + '"' + listImagenName[y] + '"' + ");'>(X)    " + listImagenName[y] + "</label><br>";
+        }
     }
 
     /*Se añade la nueva imagen a la lista de imagenes disponibles*/
     $("#lstImagenesAgregadas").html(lblImagenes);
+    $("#lstImagenesAgregadas2").html(lblImagenes2);
     cargarMiniaturas();
 }
 
@@ -402,6 +412,7 @@ function procesarImagenes() {
 
     /*Cadena donde se almacenara las imagenes que se listen*/
     var lblImagenes = "";
+    var lblImagenes2 = "";
 
     /*Se capturan todas las imagenes seleccionadas*/
     var files = $("#fileImagen")[0].files;
@@ -418,12 +429,18 @@ function procesarImagenes() {
 
             var nombreArchivo = ((file.name).split("."))[0];
 
-            /*Se arma la cadena,tomando como referencias el nombre del archivo sin 
-             * espacios ni caracteres especiales*/
-            lblImagenes = lblImagenes + "<label class='seleccionable' id='" + cleanNameFile(nombreArchivo) + "' onclick='eliminarImagen(" + '"' + cleanNameFile(nombreArchivo) + '"' + ");'>(X)    " + setSpacesInText(nombreArchivo) + "</label><br>";
-            lblImagenes = lblImagenes + "<img  id='output_" + cleanNameFile(nombreArchivo) + "' height='60' width='50'/><br>";
-            /*Se agrega a la lista de nombres el nombre del archivo*/
+            if (i % 2 === 0) {
+                /*Se arma la cadena,tomando como referencias el nombre del archivo sin 
+                 * espacios ni caracteres especiales*/
+                lblImagenes = lblImagenes + "<img  id='output_" + cleanNameFile(nombreArchivo) + "' height='60' width='50'/><br>";
+                lblImagenes = lblImagenes + "<label class='seleccionable panel panel-default' id='" + cleanNameFile(nombreArchivo) + "' onclick='eliminarImagen(" + '"' + cleanNameFile(nombreArchivo) + '"' + ");'>(X)    " + setSpacesInText(nombreArchivo) + "</label><br>";
 
+                /*Se agrega a la lista de nombres el nombre del archivo*/
+            } else {
+                lblImagenes2 = lblImagenes2 + "<img  id='output_" + cleanNameFile(nombreArchivo) + "' height='60' width='50'/><br>";
+                lblImagenes2 = lblImagenes2 + "<label class='seleccionable panel panel-default' id='" + cleanNameFile(nombreArchivo) + "' onclick='eliminarImagen(" + '"' + cleanNameFile(nombreArchivo) + '"' + ");'>(X)    " + setSpacesInText(nombreArchivo) + "</label><br>";
+
+            }
 
 
             /*Si la imagen que se agrego, es una que previamente se habia eliminado, 
@@ -450,6 +467,7 @@ function procesarImagenes() {
 
     /*Se añade la nueva imagen a la lista de imagenes disponibles*/
     $("#lstImagenesAgregadas").html($("#lstImagenesAgregadas").html() + lblImagenes);
+    $("#lstImagenesAgregadas2").html($("#lstImagenesAgregadas2").html() + lblImagenes2);
     console.log(listImagen);
 
 }
@@ -600,6 +618,7 @@ function limpiarMultimedia() {
     listVideo = new Array();
     $("#lstVideosAgregados").html("");
     $("#lstImagenesAgregadas").html("");
+    $("#lstImagenesAgregadas2").html("");
     $("#fileImagen").val('');
 }
 

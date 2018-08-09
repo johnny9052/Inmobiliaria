@@ -855,21 +855,36 @@ and open the template in the editor.
 
                         <div class="row">
                             <br>
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <label for="fileImagen">Imagenes del inmueble</label>
                                 <input type="file" accept=".JPEG,.PNG,.jpg"  id="fileImagen" name="urlImage" multiple 
                                        onchange="procesarImagenes();"><br>                            
                             </div>
+                        </div>
 
-                            <div class="col-md-6" id="lstImagenesAgregadas">
 
-                            </div>
+                        <div class="row panel panel-default" style="text-align: center; margin: 10px; padding: 10px;">
+                            <br>
+                            <div class="col-md-1" >
+
+                            </div>                           
+                            <div class="col-md-5" id="lstImagenesAgregadas">
+
+                            </div>                           
+
+                            <div class="col-md-5" id="lstImagenesAgregadas2">
+
+                            </div>                           
+                            <div class="col-md-1" >
+
+                            </div>                           
+
                         </div>
 
                         <hr />
 
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <div class="form-group">
                                     <label for="txtUrlVideo">URL Video</label>   
                                     <div class="input-group">
@@ -878,13 +893,22 @@ and open the template in the editor.
                                                placeholder="URL del video">
                                     </div>
                                     <br>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <br>
                                     <button id="btnAddVideo" onclick="agregarVideo();" type ="button" class="btn btn-primary">Agregar video</button>
                                 </div>
                             </div>
 
-                            <div class="col-md-6" id="lstVideosAgregados">
+                        </div>
 
-                            </div>
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-10 panel panel-default" id="lstVideosAgregados" style="text-align: center; margin: 10px; padding: 10px;">
+                            </div>                            
+                            <div class="col-md-1"></div>
                         </div>
 
 

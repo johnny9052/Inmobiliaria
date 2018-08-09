@@ -124,12 +124,13 @@ function showLoadBar(status) {
  * @param {String} before Codigo javascript que se quiere ejecutar antes de enviar la informacion
  * @param {String} success Codigo javascript que se quiere ejecutar cuando se recibe una respuesta
  * @param {String} idModalByError Si es una ventana emergente, que se abrio desde otra emergente, 
+ * @param {String} msgNoAction Si es una ventana emergente, que se abrio desde otra emergente, 
  * se debe especificar su ID, por si sucede un error en esta, no regrese a la ventana original
  * @returns {void} 
  * @author Johnny Alexander Salazar
  * @version 0.4
  */
-function Execute(dataSend, url, before, success, idModalByError) {
+function Execute(dataSend, url, before, success, idModalByError, msgNoAction) {
 
     console.log("INFO QUE SE ENVIA");
     console.log(dataSend);
@@ -185,6 +186,10 @@ function Execute(dataSend, url, before, success, idModalByError) {
                     $('.modal').modal('hide');
                     /*Muestra un modal de error*/
                     showToast(msg, "error", idModalByError);
+                    break;
+
+                case "NoActionFound":
+                    showToast(msgNoAction, "error", idModalByError);
                     break;
                 case undefined:
                 default :

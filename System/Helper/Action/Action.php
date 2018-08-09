@@ -78,8 +78,8 @@ function ExecuteAction($action, $obj, $dao) {
 
         /* Other transactions */
 
-        default :
-            echo 'No action found';
+        default :            
+            echo '{"res" : "NoActionFound", "msg" :"No action found" }';
             break;
     }
 }
@@ -96,7 +96,6 @@ function base64ToFile($base64_string, $output_file) {
     fclose($ifp);
     return $output_file;
 }
-
 
 /**
  * Contiene el control de las acciones basicas del sistema
@@ -157,22 +156,22 @@ function generateFiles($routePrefix, $routeDBPrefix, $routeReal, $maxFiles, $nam
 
     /* Primero se recorren todos los archivos que se han eliminado desde la 
       interfaz, por si estos ya existen en el server, puedan ser eliminados */
-    for ($y = 0; $y <= $maxFiles; $y++) {
-        /* Se preguntan por los datos que tienen el nombre-prefijo indicado */
-        $filePathDeleted = getInfo($nameDataToDelete . $y);
-        /* Si se pudo obtener algun dato para validarlo */
-        if ($filePathDeleted != null && $filePathDeleted != "") {
-            /* Se valida si existe el archivo eliminado */
-            if (file_exists(str_replace($routeDBPrefix, $routePrefix, $filePathDeleted))) {
-                /* Si existe, se elimina el archivo */
-                unlink(str_replace($routeDBPrefix, $routePrefix, $filePathDeleted));
-            }
-        } else {
-            /* Si no se pudo obtener dato, es porque no existen mas datos a 
-              eliminar */
-            break;
-        }
-    }
+//    for ($y = 0; $y <= $maxFiles; $y++) {
+//        /* Se preguntan por los datos que tienen el nombre-prefijo indicado */
+//        $filePathDeleted = getInfo($nameDataToDelete . $y);
+//        /* Si se pudo obtener algun dato para validarlo */
+//        if ($filePathDeleted != null && $filePathDeleted != "") {
+//            /* Se valida si existe el archivo eliminado */
+//            if (file_exists(str_replace($routeDBPrefix, $routePrefix, $filePathDeleted))) {
+//                /* Si existe, se elimina el archivo */
+//                unlink(str_replace($routeDBPrefix, $routePrefix, $filePathDeleted));
+//            }
+//        } else {
+//            /* Si no se pudo obtener dato, es porque no existen mas datos a 
+//              eliminar */
+//            break;
+//        }
+//    }
 
     /* Ahora se pasan a crear los archivos */
     for ($x = 0; $x <= $maxFiles; $x++) {
@@ -193,8 +192,10 @@ function generateFiles($routePrefix, $routeDBPrefix, $routeReal, $maxFiles, $nam
             $filePath = $routePrefix . $routeReal . $cleaner->cleanValueFileName($prefixNameFile . '_' . $filePath) . (($dateStatus) ? '_' . $cleaner->cleanValueDate(date('Y-m-d H:i:s')) : '') . $extensionsFiles;
             /* Si no existe el archivo que se va a crear */
             if (!file_exists(str_replace($routeDBPrefix, $routePrefix, $filePathOriginal))) {
-                /* Se crea el archivo */
-                base64ToFile($base64Code, $filePath);
+                if ($base64Code !== 'NotBase64') {
+                    /* Se crea el archivo */
+                    base64ToFile($base64Code, $filePath);
+                }
             }
             /* Se añade a la lista de los archivos creados o que ya existian previamente */
             $arrayFiles[] = $filePathDB;
@@ -224,7 +225,7 @@ function deleteFiles($nameDataToDelete, $routePrefix, $routeDBPrefix, $routeReal
         if ($filePathDeleted != null && $filePathDeleted != "") {
             /* Se contruye la ruta */
             $filePathDeleted = $routePrefix . $routeReal . $cleaner->cleanValueFileName($prefixNameFile . '_' . $filePathDeleted) . (($statusDate) ? '_' . $cleaner->cleanValueDate(date('Y-m-d H:i:s')) : '') . $extensionsFiles;
-                                    
+
             /* Se valida si existe el archivo eliminado */
             if (file_exists($filePathDeleted)) {
                 /* Si existe, se elimina el archivo */
