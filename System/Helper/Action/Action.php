@@ -97,7 +97,6 @@ function base64ToFile($base64_string, $output_file) {
     return $output_file;
 }
 
-
 /**
  * Contiene el control de las acciones basicas del sistema
  * @author Johnny Alexander Salazar
@@ -205,7 +204,11 @@ function generateFiles($routePrefix, $routeDBPrefix, $routeReal, $maxFiles, $nam
     }
     /* Si el numero maximo de archivos es 0 solo se retorna la ruta del unico archivo creado */
     if ($maxFiles <= 1) {
-        return $arrayFiles[0];
+        if (count($arrayFiles) > 1) {
+            return $arrayFiles[0];
+        } else {
+            return '';
+        }
     } else {
         /* Si es mas de un archivo, se retorna el array con todos los datos */
         return $arrayFiles;
@@ -224,7 +227,7 @@ function deleteFiles($nameDataToDelete, $routePrefix, $routeDBPrefix, $routeReal
         if ($filePathDeleted != null && $filePathDeleted != "") {
             /* Se contruye la ruta */
             $filePathDeleted = $routePrefix . $routeReal . $cleaner->cleanValueFileName($prefixNameFile . '_' . $filePathDeleted) . (($statusDate) ? '_' . $cleaner->cleanValueDate(date('Y-m-d H:i:s')) : '') . $extensionsFiles;
-                                    
+
             /* Se valida si existe el archivo eliminado */
             if (file_exists($filePathDeleted)) {
                 /* Si existe, se elimina el archivo */

@@ -162,7 +162,8 @@ and open the template in the editor.
                             <br>
                             <div class="col-md-6">
                                 <label for="fileIdentification">Archivo Cédula</label>
-                                <input type="file" accept=".PDF,.pdf"  id="fileIdentification" name="urlFileIdentification" multiple><br> //onchange="procesarArchivo();"                            
+                                <input type="file" accept=".PDF,.pdf"  id="fileIdentification" name="urlFileIdentification" multiple 
+                                       onchange="procesarArchivo();"><br>                            
                             </div>
                             <div class="col-md-6" id="lstArchivoAgregado">
 
@@ -254,7 +255,7 @@ and open the template in the editor.
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="txtMilitaryCard">Libreta Militar</label>                                    
-                                    <input id="txtMilitaryCard" name="militaryCard" class="form-control" type="text" value="" autocomplete="off" required
+                                    <input id="txtMilitaryCard" name="militaryCard" class="form-control" type="text" value="" autocomplete="off"
                                            placeholder="Número Libreta Militar">
                                 </div>
                             </div>
@@ -292,7 +293,7 @@ and open the template in the editor.
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="txtHomePhone">Telefono fijo</label>                                    
-                                    <input id="txtHomePhone" name="homePhone" class="form-control" type="number" value="" autocomplete="off" required
+                                    <input id="txtHomePhone" name="homePhone" class="form-control" type="number" value="" autocomplete="off"
                                            placeholder="Telefono fijo">
                                 </div>
                             </div> 

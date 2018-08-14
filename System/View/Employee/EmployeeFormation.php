@@ -9,18 +9,18 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <title></title>
 
-        <script defer type="text/javascript" src="Resource/Script/Employee/EmployeeExperience.js"></script>
+        <script defer type="text/javascript" src="Resource/Script/Employee/EmployeeFormation.js"></script>
     </head>
     <body>
 
         <section class="content-header">
             <h1>
-                Experiencia empleado
+                Formación empleado
             </h1>
 
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-group"></i> Configuracion</a></li>
-                <li class="active">Experiencia empleado</li>
+                <li class="active">Formación empleado</li>
             </ol>
         </section>
 
@@ -84,7 +84,7 @@ and open the template in the editor.
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">                       
-                        <h4 class="modal-title">Gestión información cliente dependiente</h4>
+                        <h4 class="modal-title">Gestión de formación del empleado</h4>
                     </div>
 
                     <div class="modal-body" id="FormContainer">
@@ -109,47 +109,31 @@ and open the template in the editor.
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="txtCompanyName">Empresa</label>    
+                                    <label for="txtCompanyName">Institución de educación</label>    
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-building"></i></span>
-                                        <input id="txtCompanyName" name="companyName" class="form-control" type="text" value="" autocomplete="off" required
-                                               placeholder="Empresa">
+                                        <input id="txtEducationInstitute" name="educationInstitute" class="form-control" type="text" value="" autocomplete="off" required
+                                               placeholder="Institucion">
                                     </div>
                                 </div>
                             </div>  
                         </div>
 
                         <div class="row">
-                            <div class="col-md-6">                                
-                                <div class="form-group">
-                                    <label>Fecha de ingreso</label>
-                                    <div class="input-group date">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-calendar"></i>
-                                        </div>
-                                        <input type="text" name="admissionDate" required class="form-control pull-right dateAction" id="txtAdmissionDate">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">                                
-                                <div class="form-group">
-                                    <label>Fecha de salida</label>
-                                    <div class="input-group date">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-calendar"></i>
-                                        </div>
-                                        <input type="text" name="departureDate" required class="form-control pull-right dateAction" id="txtDepartureDate">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Cargo</label>
-                                    <select id="selPosition" name="position" required class="form-control select2" style="width: 100%;">
+                                    <label>Nivel educativo</label>
+                                    <select id="selProfessionNivel" name="professionNivel" 
+                                            class="form-control select2" style="width: 100%;" 
+                                            onchange="loadProfession(this.value);">
+                                        <option value="-1" selected> -- SELECCIONE --</option>                            
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Título</label>
+                                    <select id="selProfession" name="profession" required class="form-control select2" style="width: 100%;">
                                         <option value="-1" selected> -- SELECCIONE --</option>                            
                                     </select>
                                 </div>
@@ -157,16 +141,46 @@ and open the template in the editor.
                         </div>
 
                         <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Periodicidad</label>
+                                    <select id="selPeriodicity" name="periodicity" required class="form-control select2" style="width: 100%;">
+                                        <option value="-1" selected> -- SELECCIONE --</option>                            
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="checkbox" id="chkGraduate" name="graduate"/>
+                                    &nbsp;&nbsp;
+                                    <label for="chkGraduate" class="fa fa-wheelchair-alt"></label>                                    
+                                    <label for="chkGraduate">Graduado</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="txtLevel">Nivel alcanzado</label>                                    
+                                    <input id="txtLevel" name="level" class="form-control" type="number" value="" autocomplete="off"
+                                           placeholder="Nivel alcanzado">
+                                </div>
+                            </div>  
+                        </div>
+
+                        <div class="row">
                             <br>
                             <div class="col-md-6">
-                                <label for="fileIdentification">Certificado Laboral</label>
-                                <input type="file" accept=".PDF,.pdf"  id="fileWorkCertificate" name="urlWorkCertificate" multiple 
+                                <label for="fileIdentification">Diploma, Acta o Certificado</label>
+                                <input type="file" accept=".PDF,.pdf"  id="fileEducationCertificate" name="urlEducationCertificate" multiple 
                                        onchange="procesarArchivo();"><br>                            
                             </div>
                             <div class="col-md-6" id="lstArchivoAgregado">
 
                             </div>
-                        </div>                                              
+                        </div>
+
 
                         <div class="row">
                             <div class="col-md-12">

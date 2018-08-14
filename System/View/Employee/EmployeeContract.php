@@ -9,18 +9,18 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <title></title>
 
-        <script defer type="text/javascript" src="Resource/Script/Employee/EmployeeExperience.js"></script>
+        <script defer type="text/javascript" src="Resource/Script/Employee/EmployeeContract.js"></script>
     </head>
     <body>
 
         <section class="content-header">
             <h1>
-                Experiencia empleado
+                Contrato empleado
             </h1>
 
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-group"></i> Configuracion</a></li>
-                <li class="active">Experiencia empleado</li>
+                <li class="active">Contrato empleado</li>
             </ol>
         </section>
 
@@ -84,7 +84,7 @@ and open the template in the editor.
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">                       
-                        <h4 class="modal-title">Gestión información cliente dependiente</h4>
+                        <h4 class="modal-title">Gestión contrato empleado</h4>
                     </div>
 
                     <div class="modal-body" id="FormContainer">
@@ -109,43 +109,49 @@ and open the template in the editor.
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="txtCompanyName">Empresa</label>    
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-building"></i></span>
-                                        <input id="txtCompanyName" name="companyName" class="form-control" type="text" value="" autocomplete="off" required
-                                               placeholder="Empresa">
-                                    </div>
+                                    <label>Área</label>
+                                    <select id="selArea" name="area" required class="form-control select2" style="width: 100%;">
+                                        <option value="-1" selected> -- SELECCIONE --</option>                            
+                                    </select>
                                 </div>
-                            </div>  
+                            </div> 
                         </div>
 
                         <div class="row">
                             <div class="col-md-6">                                
                                 <div class="form-group">
-                                    <label>Fecha de ingreso</label>
+                                    <label>Fecha de inicio</label>
                                     <div class="input-group date">
                                         <div class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </div>
-                                        <input type="text" name="admissionDate" required class="form-control pull-right dateAction" id="txtAdmissionDate">
+                                        <input type="text" name="startDate" required class="form-control pull-right dateAction" id="txtStartDate">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-md-6">                                
                                 <div class="form-group">
-                                    <label>Fecha de salida</label>
+                                    <label>Fecha de terminación</label>
                                     <div class="input-group date">
                                         <div class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </div>
-                                        <input type="text" name="departureDate" required class="form-control pull-right dateAction" id="txtDepartureDate">
+                                        <input type="text" name="endDate" class="form-control pull-right dateAction" id="txtEndDate">
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Tipo contrato</label>
+                                    <select id="selContractType" name="contractType" required class="form-control select2" style="width: 100%;">
+                                        <option value="-1" selected> -- SELECCIONE --</option>                            
+                                    </select>
+                                </div>
+                            </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Cargo</label>
@@ -153,14 +159,27 @@ and open the template in the editor.
                                         <option value="-1" selected> -- SELECCIONE --</option>                            
                                     </select>
                                 </div>
+                            </div> 
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="txtSalary">Salario</label>   
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-money"></i></span>
+                                        <input id="txtSalary" name="salary" class="form-control" type="number" value="" autocomplete="off" required
+                                               placeholder="Salario">
+                                    </div>
+                                </div>
                             </div>  
                         </div>
 
                         <div class="row">
                             <br>
                             <div class="col-md-6">
-                                <label for="fileIdentification">Certificado Laboral</label>
-                                <input type="file" accept=".PDF,.pdf"  id="fileWorkCertificate" name="urlWorkCertificate" multiple 
+                                <label for="fileContract">Archivo contrato</label>
+                                <input type="file" accept=".PDF,.pdf"  id="fileContract" name="urlContract" multiple 
                                        onchange="procesarArchivo();"><br>                            
                             </div>
                             <div class="col-md-6" id="lstArchivoAgregado">
