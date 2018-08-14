@@ -15,6 +15,14 @@ function ExecuteActionLoad($action, $obj, $dao) {
             $dao->LoadSelect($obj, "loadrol");
             break;
         
+        case "loadArea":
+            $dao->LoadSelect($obj, "loadarea");
+            break;
+        
+        case "loadContractType":
+            $dao->LoadSelect($obj, "loadcontracttype");
+            break;
+        
         case "loadBloodType":
             $dao->LoadSelect($obj, "loadbloodtype");
             break;
@@ -185,7 +193,11 @@ function ExecuteActionLoad($action, $obj, $dao) {
             $dao->LoadSelect($obj, "loademployeeselected");
             break;
         
-         case "loadCheckboxEmployees":
+        case "loadPeriodicity":
+            $dao->LoadSelect($obj, "loadperiodicity");
+            break;
+        
+        case "loadCheckboxEmployees":
             $dao->LoadCheckbox($obj, "loademployee");
             break;
 

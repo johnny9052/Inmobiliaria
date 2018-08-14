@@ -27,19 +27,18 @@ $profession = getInfo('profession');
 $maritalStatus = getInfo('maritalStatus');
 $cityExpedition = getInfo('cityExpedition');
 $expeditionDate = getInfo('expeditionDate');
-$fileIdentification = getInfo('urlFileIdentification');
 $cityBirth = getInfo('cityBirth');
 $militaryCard = getInfo('militaryCard');
 $bloodType = getInfo('bloodType');
 $fileMilitaryCard = getInfo('urlFileMilitaryCard');
-$pensionFund = getimagesize('pensionFund');
+$pensionFund = getInfo('pensionFund');
 $severanceFund = getInfo('severanceFund');
 $arl = getInfo('arl');
 $eps = getInfo('eps');
 $compensationBox = getInfo('compensationBox');
 $disability = getInfo('disability');
 $imageEmployee = getInfo('urlImage');
-$contactName = getInfo('contacName');
+$contactName = getInfo('contactName');
 $contactPhone = getInfo('contactPhone');
 $contactEmail = getInfo('contactEmail');
 
@@ -47,28 +46,17 @@ $contactEmail = getInfo('contactEmail');
 $birthdate = date("Y-m-d", strtotime($birthdate));
 
 
+/* Se borran todas las imagenes que se tengan que eliminar */
+//deleteFiles('nameFileDelete', '../../', 'System/', 'Resource/Images/Properties/', 100, $matriculaInmobiliaria, false, '.jpg');
 
-$route = '../../Resource/Files/Employees/';
-$routeDB = 'System/Resource/Files/Employees/';
 
-for ($x = 0; $x < 20; $x++) {
+/* Se crean las imagenes que se tengan que crear */
+$fileIdentification = generateFiles('../../', 'System/', 'Resource/Files/Employees/', 1, 'nameFileDelete', 'nameFile', 'base64File', $documentNumber, '.pdf', false);
 
-    $base64Code = getInfo('base64File' . $x);
-    $filePath = getInfo('nameFile' . $x);
 
-    if ($filePath != null && $filePath != "") {
-        $cleaner = new Cleaner();
-        $filePathDB = $routeDB . $cleaner->cleanValueFileName($documentNumber . '_' . $filePath) . '_' . $cleaner->cleanValueDate(date('Y-m-d H:i:s')) . '.pdf';
-        $filePath = $route . $cleaner->cleanValueFileName($documentNumber . '_' . $filePath) . '_' . $cleaner->cleanValueDate(date('Y-m-d H:i:s')) . '.pdf';
-        base64_to_file($base64Code, $filePath);
-        $file = $filePathDB;
-    } else {
-        break;
-    }
-}
 
 /* DEFINICION DE OBJETOS */
-$obj = new EmployeeDTO($id, $firstName, $secondName, $firstLastName, $secondLastName, $documentNumber, $expeditionDate, $birthdate, $address, $homePhone, $mobilePhone, $email, $gender, $typeEmployee, $cityResidence, $profession, $maritalStatus, $cityExpedition, $fileIdentification, $cityBirth, $militaryCard, $bloodType, $fileMilitaryCard, $pensionFund, $severanceFund, $arl, $eps, $compensationBox, $disability, $imageEmployee, $contacName, $contactPhone, $contactEmail);
+$obj = new EmployeeDTO($id, $firstName, $secondName, $firstLastName, $secondLastName, $documentNumber, $expeditionDate, $birthdate, $address, $homePhone, $mobilePhone, $email, $gender, $typeEmployee, $cityResidence, $profession, $maritalStatus, $cityExpedition, $fileIdentification, $cityBirth, $militaryCard, $bloodType, $fileMilitaryCard, $pensionFund, $severanceFund, $arl, $eps, $compensationBox, $disability, $imageEmployee, $contactName, $contactPhone, $contactEmail);
 $dao = new EmployeeDAO();
 
 /* CONTROL DE ACCIONES */

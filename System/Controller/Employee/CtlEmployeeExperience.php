@@ -22,7 +22,7 @@ $departureDate = date("Y-m-d", strtotime($departureDate));
 
 
 /* DEFINICION DE OBJETOS */
-$obj = new EmployeeExperienceDTO($id, $employee, $companyName, $admissionDate, $departureDate, $urlWorkCertificate, $position);
+$obj = new EmployeeExperienceDTO($id, $employee, $companyName, $admissionDate, $departureDate, "$urlWorkCertificate", $position);
 $dao = new EmployeeExperienceDAO();
 
 /* CONTROL DE ACCIONES */

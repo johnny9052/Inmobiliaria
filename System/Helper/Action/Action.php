@@ -206,7 +206,11 @@ function generateFiles($routePrefix, $routeDBPrefix, $routeReal, $maxFiles, $nam
     }
     /* Si el numero maximo de archivos es 0 solo se retorna la ruta del unico archivo creado */
     if ($maxFiles <= 1) {
-        return $arrayFiles[0];
+        if (count($arrayFiles) > 1) {
+            return $arrayFiles[0];
+        } else {
+            return '';
+        }
     } else {
         /* Si es mas de un archivo, se retorna el array con todos los datos */
         return $arrayFiles;
