@@ -121,6 +121,8 @@ function getInfo($name) {
 
 /**
  * Crea todos los archivos que se le especifique
+ * @param String $prefixFile Prefijo de las variables que contienen la informacion 
+ * de los archivos
  * @param String $routePrefix Prefijo de navegacion desde donde se llama a la
  * carpeta donde se crearan los archivos
  * @param String $routeDBPrefix Prefijo de navegacion desde la intefaz grafica 
@@ -129,13 +131,7 @@ function getInfo($name) {
  * @param String $routeReal Ruta de navegacion sin los prefijos
  * @param Int $maxFiles Cantidad maxima de archivos a leer, si es solo 1 se manda 
  * cero (0) o 1, por parametro
- * @param String $nameDataToDelete Nombre de las variables GET-POST que contienen
- * los archivos a eliminar
- * @param String $nameFiles  Nombre de las variables GET-POST que contienen
- * los archivos
- * @param String $nameBase64Files Nombre de las variables GET-POST que contienen
- * la codificacion de los archivos
- * @param String $prefixNameFile Prefijo que se le quiera dar al nombre de los 
+ * @param String $indicatorNameFile Prefijo que se le quiera dar al nombre de los 
  * archivos cuando estos sean creados
  * @param String $extensionsFiles Extension de los archivos que seran creados 
  * @param Boolean $dateStatus True si se desea agregar la fecha y hora de creacion 
@@ -144,34 +140,18 @@ function getInfo($name) {
  * un String con la ruta del archivo creado, sino retorna un array con todas las 
  * rutas de los archivos creados
  * @author Johnny Alexander Salazar
- * @version 0.3
+ * @version 0.4
  */
-function generateFiles($routePrefix, $routeDBPrefix, $routeReal, $maxFiles, $nameDataToDelete, $nameFiles, $nameBase64Files, $prefixNameFile, $extensionsFiles, $dateStatus) {
+function generateFiles($prefixFile, $routePrefix, $routeDBPrefix, $routeReal, $maxFiles, $indicatorNameFile, $extensionsFiles, $dateStatus) {
+
+    $nameFiles = 'nameFile' . $prefixFile;
+    $nameBase64Files = 'base64FileExperience' . $prefixFile;
 
     /* Objeto que permite quitar caracteres extraños al nombre del archivo */
     $cleaner = new Cleaner();
 
     /* Array donde se almacenan las rutas de los archivos creados */
     $arrayFiles = array();
-
-    /* Primero se recorren todos los archivos que se han eliminado desde la 
-      interfaz, por si estos ya existen en el server, puedan ser eliminados */
-//    for ($y = 0; $y <= $maxFiles; $y++) {
-//        /* Se preguntan por los datos que tienen el nombre-prefijo indicado */
-//        $filePathDeleted = getInfo($nameDataToDelete . $y);
-//        /* Si se pudo obtener algun dato para validarlo */
-//        if ($filePathDeleted != null && $filePathDeleted != "") {
-//            /* Se valida si existe el archivo eliminado */
-//            if (file_exists(str_replace($routeDBPrefix, $routePrefix, $filePathDeleted))) {
-//                /* Si existe, se elimina el archivo */
-//                unlink(str_replace($routeDBPrefix, $routePrefix, $filePathDeleted));
-//            }
-//        } else {
-//            /* Si no se pudo obtener dato, es porque no existen mas datos a 
-//              eliminar */
-//            break;
-//        }
-//    }
 
     /* Ahora se pasan a crear los archivos */
     for ($x = 0; $x <= ($maxFiles - 1); $x++) {
@@ -188,16 +168,14 @@ function generateFiles($routePrefix, $routeDBPrefix, $routeReal, $maxFiles, $nam
         if ($filePath != null && $filePath != "") {
             /* Se construye la ruta donde quedara el archivo, pero con el prefijo 
               designado para quedar en base de datos */
-            $filePathDB = $routeDBPrefix . $routeReal . $cleaner->cleanValueFileName($prefixNameFile . '_' . $filePath) . (($dateStatus) ? '_' . $cleaner->cleanValueDate(date('Y-m-d H:i:s')) : '') . $extensionsFiles;
+            $filePathDB = $routeDBPrefix . $routeReal . $cleaner->cleanValueFileName($indicatorNameFile . '_' . $filePath) . (($dateStatus) ? '_' . $cleaner->cleanValueDate(date('Y-m-d H:i:s')) : '') . $extensionsFiles;
             /* Se construye la ruta donde quedara el archivo, pero con el prefijo 
-              designado para crear el archivo desde la ruta de llamado */            
-            $filePath = $routePrefix . $routeReal . $cleaner->cleanValueFileName($prefixNameFile . '_' . $filePath) . (($dateStatus) ? '_' . $cleaner->cleanValueDate(date('Y-m-d H:i:s')) : '') . $extensionsFiles;
+              designado para crear el archivo desde la ruta de llamado */
+            $filePath = $routePrefix . $routeReal . $cleaner->cleanValueFileName($indicatorNameFile . '_' . $filePath) . (($dateStatus) ? '_' . $cleaner->cleanValueDate(date('Y-m-d H:i:s')) : '') . $extensionsFiles;
             /* Si no existe el archivo que se va a crear */
             /* Se quitan las ñ y tildes de los nombres */
             $filePathDB = $cleaner->cleanValueSpanish($filePathDB);
             $filePath = $cleaner->cleanValueSpanish($filePath);
-
-
 
             if (!file_exists(str_replace($routeDBPrefix, $routePrefix, $filePathOriginal))) {
                 if ($base64Code !== 'NotBase64') {
@@ -227,18 +205,40 @@ function generateFiles($routePrefix, $routeDBPrefix, $routeReal, $maxFiles, $nam
     }
 }
 
-function deleteFiles($nameDataToDelete, $routePrefix, $routeDBPrefix, $routeReal, $maxFiles, $prefixNameFile, $statusDate, $extensionsFiles) {
+/**
+ * Borra todos los archivos que se le indiquen
+ * @param String $fileNameToDeletePrefix Prefijo de las variables que contienen la informacion 
+ * de los archivos
+ * @param String $routePrefix Prefijo de la ruta desde este punto, para la creacion de los archivos
+ * @param String $routeDBPrefix Prefijo de la ruta desde la raiz del proyecto, para 
+ * su referencia en la base de datos
+ * @param String $routeReal Ruta desde la raiz del system del proyecto, para indicar
+ * donde se almacenaran los archivos
+ * @param Int $maxFiles Cantidad maxima de archivos a leer, si es solo 1 se manda 
+ * cero (0) o 1, por parametro
+ * @param String $indicatorFileName Prefijo que se le quiera dar al nombre de los 
+ * archivos cuando estos sean creados 
+ * @param Boolean $statusDate True si se desea agregar la fecha y hora de creacion 
+ * @param String $extensionsFiles Extension de los archivos que seran creados 
+ * a los archivos creados, false si no
+ * @return VOID 
+ * @author Johnny Alexander Salazar
+ * @version 0.3
+ */
+function deleteFiles($fileNameToDeletePrefix, $routePrefix, $routeDBPrefix, $routeReal, $maxFiles, $indicatorFileName, $statusDate, $extensionsFiles) {
+    $fileNameToDeletePrefix = 'nameFile' . $fileNameToDeletePrefix . 'Delete';
+
     /* Objeto que permite quitar caracteres extraños al nombre del archivo */
     $cleaner = new Cleaner();
     /* Primero se recorren todos los archivos que se han eliminado desde la 
       interfaz, por si estos ya existen en el server, puedan ser eliminados */
     for ($y = 0; $y <= $maxFiles; $y++) {
         /* Se preguntan por los datos que tienen el nombre-prefijo indicado */
-        $filePathDeleted = getInfo($nameDataToDelete . $y);
+        $filePathDeleted = getInfo($fileNameToDeletePrefix . $y);
         /* Si se pudo obtener algun dato para validarlo */
         if ($filePathDeleted != null && $filePathDeleted != "") {
             /* Se contruye la ruta */
-            $filePathDeleted = $routePrefix . $routeReal . $cleaner->cleanValueFileName($prefixNameFile . '_' . $filePathDeleted) . (($statusDate) ? '_' . $cleaner->cleanValueDate(date('Y-m-d H:i:s')) : '') . $extensionsFiles;
+            $filePathDeleted = $routePrefix . $routeReal . $cleaner->cleanValueFileName($indicatorFileName . '_' . $filePathDeleted) . (($statusDate) ? '_' . $cleaner->cleanValueDate(date('Y-m-d H:i:s')) : '') . $extensionsFiles;
 
             /* Se valida si existe el archivo eliminado */
             if (file_exists($filePathDeleted)) {

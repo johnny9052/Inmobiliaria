@@ -9,7 +9,7 @@ include '../../Infraestructure/Cleaner.php';
 /* RECEPCION DE DATOS */
 $action = getInfo('action');
 $id = getInfo('id');
-$employee= getInfo('employee');
+$employee = getInfo('employee');
 $companyName = getInfo('companyName');
 $admissionDate = getInfo('admissionDate');
 $departureDate = getInfo('departureDate');
@@ -21,9 +21,11 @@ $admissionDate = date("Y-m-d", strtotime($admissionDate));
 $departureDate = date("Y-m-d", strtotime($departureDate));
 
 /* Se borran todas las imagenes que se tengan que eliminar */
-deleteFiles('nameFileWorkCertificateDelete', '../../', 'System/', 'Resource/Files/Experience/', 1, $employee, false, '.pdf');
+deleteFiles('Experience', '../../', 'System/', 'Resource/Files/Experience/', 1, $employee, false, '.pdf');
 /* Se crean las imagenes que se tengan que crear */
-$fileWorkCertificate = generateFiles('../../', 'System/', 'Resource/Files/Experience/', 1, 'nameFileWorkCertificateDelete', 'nameFileWorkCertificate', 'base64FileExperience', $employee, '.pdf', false);
+$fileWorkCertificate = generateFiles('Experience', '../../', 'System/', 'Resource/Files/Experience/', 1, $employee, '.pdf', false);
+
+
 
 /* DEFINICION DE OBJETOS */
 $obj = new EmployeeExperienceDTO($id, $employee, $companyName, $admissionDate, $departureDate, $fileWorkCertificate, $position);

@@ -24,10 +24,9 @@ $endDate = date("Y-m-d", strtotime($endDate));
 
 
 /* Se borran todas las imagenes que se tengan que eliminar */
-deleteFiles('nameFileContractDelete', '../../', 'System/', 'Resource/Files/Contract/', 1, $employee, false, '.pdf');
+deleteFiles('Contract', '../../', 'System/', 'Resource/Files/Contract/', 1, $employee, false, '.pdf');
 /* Se crean las imagenes que se tengan que crear */
-$fileContract = generateFiles('../../', 'System/', 'Resource/Files/Contract/', 1, 'nameFileContractDelete', 'nameFileContract', 'base64FileContract', $employee, '.pdf', false);
-
+$fileContract = generateFiles('Contract', '../../', 'System/', 'Resource/Files/Contract/', 1, $employee, '.pdf', false);
 
 
 /* DEFINICION DE OBJETOS */
