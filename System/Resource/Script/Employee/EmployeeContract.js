@@ -1,3 +1,11 @@
+var objFileContract = {
+    listFileBase64: new Array(),
+    listFileName: new Array(),
+    listFileURL: new Array(),
+    listFileNameDeleted: new Array()
+};
+
+
 /* Funciones jQuery */
 $(window).on("load", function (e) {
     list();
@@ -27,7 +35,18 @@ function loadContractType() {
 
 function save() {
     if (validateForm() === true) {
-        Execute(scanInfo('save', true), 'Employee/CtlEmployeeContract', '', 'closeWindow();list();');
+        /*Se define el array de datos adicionales como un objeto, debido a que 
+         * es necesario pasarlo por referencia para el llenado de los archivos*/
+        var infoPlus = {
+            temp: new Array()
+        };
+
+        /*Se manda por referencia el objeto de la info adicional donde se añadiran 
+         * los archivos, junto el el objeto que tiene la informacion real de
+         * todos los archivos*/
+        addFileNameAndEncodingAndDeletedFiles(infoPlus, objFileContract, 'Contract');
+
+        Execute(scanInfo('save', true, '', infoPlus.temp), 'Employee/CtlEmployeeContract', '', 'closeWindow();list();limpiarMultimedia();', '', 'Ha superado el tamaño maximo de las imagenes');
     }
 }
 
@@ -50,8 +69,12 @@ function showData(info) {
     refreshSelect("selContractType", info[0].tipo_contrato);
     refreshSelect("selPosition", info[0].cargo);
     $("#txtSalary").val(info[0].salario);
-    $("#fileContract").val(info[0].archivo_contrato);
-    
+
+    /*Se organiza el archivo cargado desde la base de datos, estableciendo su codificacion
+     * y todas sus caracteristicas*/
+    var nombreContrato = organizarArchivoCargadoDesdeBD(info[0].contrato, objFileContract);
+
+    $("#lstArchivoAgregado").html(imageDownloadFile("pdf", objFileContract.listFileURL[objFileContract.listFileName.indexOf(nombreContrato)], nombreContrato));
 
     openWindow();
     showButton(false);
@@ -60,11 +83,56 @@ function showData(info) {
 
 function update() {
     if (validateForm() === true) {
-        Execute(scanInfo('update', true), 'Employee/CtlEmployeeContract', '', 'closeWindow();list();');
+
+        /*Se define el array de datos adicionales como un objeto, debido a que 
+         * es necesario pasarlo por referencia para el llenado de los archivos*/
+        var infoPlus = {
+            temp: new Array()
+        };
+
+        /*Se manda por referencia el objeto de la info adicional donde se añadiran 
+         * los archivos, junto el el objeto que tiene la informacion real de
+         * todos los archivos*/
+        addFileNameAndEncodingAndDeletedFiles(infoPlus, objFileContract, 'Contract');
+
+        Execute(scanInfo('update', true, '', infoPlus.temp), 'Employee/CtlEmployeeContract', '', 'closeWindow();list();');
     }
 }
 
 
 function deleteInfo() {
-    Execute(scanInfo('delete', true), 'Employee/CtlEmployeeContract', '', 'closeWindow("ModalConfirm");list();cleanForm("ModalNew");');
+
+    /*Se define el array de datos adicionales como un objeto, debido a que 
+     * es necesario pasarlo por referencia para el llenado de los archivos*/
+    var infoPlus = {
+        temp: new Array()
+    };
+
+    /*Se manda por referencia el objeto de la info adicional donde se añadiran 
+     * los archivos, junto el el objeto que tiene la informacion real de
+     * todos los archivos*/
+    addAllFileNameDeleted(infoPlus, objFileContract, 'Contract');
+
+    Execute(scanInfo('delete', true, '', infoPlus.temp), 'Employee/CtlEmployeeContract', '', 'closeWindow("ModalConfirm");list();cleanForm("ModalNew");limpiarMultimedia();');
 }
+
+
+/**
+ * Se limpia o reinicia todos los elementos involucrados en los videos e imagenes
+ * @returns {void}
+ * @author Johnny Alexander Salazar
+ * @version 0.1
+ */
+function limpiarMultimedia() {
+    objFileContract.listFileBase64 = new Array();
+    objFileContract.listFileName = new Array();
+    objFileContract.listFileURL = new Array();
+    $("#lstArchivoAgregado").html("");
+}
+
+
+
+
+
+
+

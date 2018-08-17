@@ -1,11 +1,11 @@
 var listImagen = new Array();
 var listImagenName = new Array();
 var listImagenURL = new Array();
-
 var listImagenNameDeleted = new Array();
 
 
 var listVideo = new Array();
+
 
 
 /* Funciones jQuery */
@@ -112,43 +112,45 @@ function loadOutstandingType() {
 
 function save() {
     /*Se valida el marcador seleccionado del gps*/
-    if (markersListGlobal.length > 0) {
-        if (validateForm() === true) {
+    //if (markersListGlobal.length > 0) {
+    if (validateForm() === true) {
 
-            /*Array para datos adicionales*/
-            var temp = new Array();
+        /*Array para datos adicionales*/
+        var temp = new Array();
 
-            /*Se obteien los datos de latitud - longitud*/
-            var lat = markersListGlobal[0].getPosition().lat();
-            var lng = markersListGlobal[0].getPosition().lng();
-            /*Se añaden como datos adicionales*/
-            temp.push({datos: ["lat", lat]});
-            temp.push({datos: ["lng", lng]});
+        /*Se obteien los datos de latitud - longitud*/
+        //var lat = markersListGlobal[0].getPosition().lat();
+        //var lng = markersListGlobal[0].getPosition().lng();
+        var lat = "";
+        var lng = "";
+        /*Se añaden como datos adicionales*/
+        temp.push({datos: ["lat", lat]});
+        temp.push({datos: ["lng", lng]});
 
 
-            /*Se recorre la lista de imagenes seleccionadas*/
-            for (var x = 0; x < listImagen.length; x++) {
-                /*Por cada una se obtiene su nombre y codificacion*/
-                temp.push({datos: ["nameFile" + x, listImagenName[x]]});
-                temp.push({datos: ["base64File" + x, listImagen[x]]});
-            }
-
-            /*Array de videos*/
-            var tempVideo = new Array();
-            /*Nombre de la variable que llegara al server*/
-            tempVideo.push("urlVideos");
-            /*Por cada video agregado, se asocia al array*/
-            for (var y = 0; y < listVideo.length; y++) {
-                tempVideo.push(listVideo[y]);
-            }
-            /*Se añade como dato adicional*/
-            temp.push({datos: tempVideo});
-
-            Execute(scanInfo('save', true, '', temp), 'Propertie/CtlPropertie', '', ' closeWindow();list();deleteMarkers();limpiarMultimedia();', '', 'Ha superado el tamaño maximo de las imagenes');
+        /*Se recorre la lista de imagenes seleccionadas*/
+        for (var x = 0; x < listImagen.length; x++) {
+            /*Por cada una se obtiene su nombre y codificacion*/
+            temp.push({datos: ["nameFile" + x, listImagenName[x]]});
+            temp.push({datos: ["base64File" + x, listImagen[x]]});
         }
-    } else {
-        showToast("Seleccione un punto en el mapa", "error");
+
+        /*Array de videos*/
+        var tempVideo = new Array();
+        /*Nombre de la variable que llegara al server*/
+        tempVideo.push("urlVideos");
+        /*Por cada video agregado, se asocia al array*/
+        for (var y = 0; y < listVideo.length; y++) {
+            tempVideo.push(listVideo[y]);
+        }
+        /*Se añade como dato adicional*/
+        temp.push({datos: tempVideo});
+
+        Execute(scanInfo('save', true, '', temp), 'Propertie/CtlPropertie', '', ' closeWindow();list();deleteMarkers();limpiarMultimedia();', '', 'Ha superado el tamaño maximo de las imagenes');
     }
+    //  } else {
+    //    showToast("Seleccione un punto en el mapa", "error");
+    //}
 }
 
 
@@ -232,47 +234,49 @@ function showData(info) {
 
 function update() {
     /*Se valida si se ha seleccionado un punto en el gps*/
-    if (markersListGlobal.length > 0) {
-        if (validateForm() === true) {
-            /*Array para datos adicionales*/
-            var temp = new Array();
-            /*Se obtiene la latitud y longitud*/
-            var lat = markersListGlobal[0].getPosition().lat();
-            var lng = markersListGlobal[0].getPosition().lng();
-            /*Se añaden*/
-            temp.push({datos: ["lat", lat]});
-            temp.push({datos: ["lng", lng]});
+    //if (markersListGlobal.length > 0) {
+    if (validateForm() === true) {
+        /*Array para datos adicionales*/
+        var temp = new Array();
+        /*Se obtiene la latitud y longitud*/
+        //var lat = markersListGlobal[0].getPosition().lat();
+        //var lng = markersListGlobal[0].getPosition().lng();
+        var lat = "";
+        var lng = "";
+        /*Se añaden*/
+        temp.push({datos: ["lat", lat]});
+        temp.push({datos: ["lng", lng]});
 
 
-            /*Se validan las imagenes agregadas y se agregan*/
-            for (var x = 0; x < listImagen.length; x++) {
-                temp.push({datos: ["nameFile" + x, listImagenName[x]]});
-                temp.push({datos: ["base64File" + x, listImagen[x]]});
-            }
-
-            /*Se validan las imagenes eliminadas y se agregan para eliminarlas 
-             * en el servidor*/
-            for (var x = 0; x < listImagenNameDeleted.length; x++) {
-                temp.push({datos: ["nameFileDelete" + x, listImagenNameDeleted[x]]});
-            }
-
-            /*Se define un array para mandar todos los videos concatenados*/
-            var tempVideo = new Array();
-            /*Se añade el nombre de la variable*/
-            tempVideo.push("urlVideos");
-            /*Se añaden los videos*/
-            for (var y = 0; y < listVideo.length; y++) {
-                tempVideo.push(listVideo[y]);
-            }
-            /*Se agrega como dato adicional*/
-            temp.push({datos: tempVideo});
-
-            Execute(scanInfo('update', true, '', temp), 'Propertie/CtlPropertie', '', ' closeWindow();list();deleteMarkers();limpiarMultimedia();');
-
+        /*Se validan las imagenes agregadas y se agregan*/
+        for (var x = 0; x < listImagen.length; x++) {
+            temp.push({datos: ["nameFile" + x, listImagenName[x]]});
+            temp.push({datos: ["base64File" + x, listImagen[x]]});
         }
-    } else {
-        showToast("Seleccione un punto en el mapa", "error");
+
+        /*Se validan las imagenes eliminadas y se agregan para eliminarlas 
+         * en el servidor*/
+        for (var x = 0; x < listImagenNameDeleted.length; x++) {
+            temp.push({datos: ["nameFileDelete" + x, listImagenNameDeleted[x]]});
+        }
+
+        /*Se define un array para mandar todos los videos concatenados*/
+        var tempVideo = new Array();
+        /*Se añade el nombre de la variable*/
+        tempVideo.push("urlVideos");
+        /*Se añaden los videos*/
+        for (var y = 0; y < listVideo.length; y++) {
+            tempVideo.push(listVideo[y]);
+        }
+        /*Se agrega como dato adicional*/
+        temp.push({datos: tempVideo});
+
+        Execute(scanInfo('update', true, '', temp), 'Propertie/CtlPropertie', '', ' closeWindow();list();deleteMarkers();limpiarMultimedia();');
+
     }
+    //} else {
+    //  showToast("Seleccione un punto en el mapa", "error");
+    //}
 }
 
 
@@ -280,7 +284,9 @@ function deleteInfo() {
     /*Se pasan todas las imagenes que se tengan cargadas y eliminadas como datos a
      * eliminar*/
     var temp = new Array();
-
+    
+    /*Se agregan las imagenes que se hayan eliminado temporalmente, para que 
+     * elimine las cargadas, como las quitadas de forma temporal*/
     for (var y = 0; y < listImagenNameDeleted.length; y++) {
         listImagenName.push(listImagenNameDeleted[y]);
     }

@@ -78,7 +78,7 @@ function ExecuteAction($action, $obj, $dao) {
 
         /* Other transactions */
 
-        default :            
+        default :
             echo '{"res" : "NoActionFound", "msg" :"No action found" }';
             break;
     }
@@ -174,7 +174,7 @@ function generateFiles($routePrefix, $routeDBPrefix, $routeReal, $maxFiles, $nam
 //    }
 
     /* Ahora se pasan a crear los archivos */
-    for ($x = 0; $x <= $maxFiles; $x++) {
+    for ($x = 0; $x <= ($maxFiles - 1); $x++) {
         /* Se obtiene la codificacion del archivo */
         $base64Code = getInfo($nameBase64Files . $x);
         /* Se obtiene la ruta del archivo o el nombre de este */
@@ -182,15 +182,23 @@ function generateFiles($routePrefix, $routeDBPrefix, $routeReal, $maxFiles, $nam
         /* Este se obtiene para tener refencia del nombre original sin modificaciones */
         $filePathOriginal = getInfo($nameFiles . $x);
 
+
+
         /* Si pudo obtener un archivo */
         if ($filePath != null && $filePath != "") {
             /* Se construye la ruta donde quedara el archivo, pero con el prefijo 
               designado para quedar en base de datos */
             $filePathDB = $routeDBPrefix . $routeReal . $cleaner->cleanValueFileName($prefixNameFile . '_' . $filePath) . (($dateStatus) ? '_' . $cleaner->cleanValueDate(date('Y-m-d H:i:s')) : '') . $extensionsFiles;
             /* Se construye la ruta donde quedara el archivo, pero con el prefijo 
-              designado para crear el archivo desde la ruta de llamado */
+              designado para crear el archivo desde la ruta de llamado */            
             $filePath = $routePrefix . $routeReal . $cleaner->cleanValueFileName($prefixNameFile . '_' . $filePath) . (($dateStatus) ? '_' . $cleaner->cleanValueDate(date('Y-m-d H:i:s')) : '') . $extensionsFiles;
             /* Si no existe el archivo que se va a crear */
+            /* Se quitan las ñ y tildes de los nombres */
+            $filePathDB = $cleaner->cleanValueSpanish($filePathDB);
+            $filePath = $cleaner->cleanValueSpanish($filePath);
+
+
+
             if (!file_exists(str_replace($routeDBPrefix, $routePrefix, $filePathOriginal))) {
                 if ($base64Code !== 'NotBase64') {
                     /* Se crea el archivo */
@@ -204,9 +212,11 @@ function generateFiles($routePrefix, $routeDBPrefix, $routeReal, $maxFiles, $nam
             break;
         }
     }
+
+
     /* Si el numero maximo de archivos es 0 solo se retorna la ruta del unico archivo creado */
     if ($maxFiles <= 1) {
-        if (count($arrayFiles) > 1) {
+        if (count($arrayFiles) >= 1) {
             return $arrayFiles[0];
         } else {
             return '';

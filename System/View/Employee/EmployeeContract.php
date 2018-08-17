@@ -180,12 +180,13 @@ and open the template in the editor.
                             <div class="col-md-6">
                                 <label for="fileContract">Archivo contrato</label>
                                 <input type="file" accept=".PDF,.pdf"  id="fileContract" name="urlContract" multiple 
-                                       onchange="procesarArchivo();"><br>                            
+                                       onchange="procesarFile(true, 'fileContract', objFileContract);">
                             </div>
-                            <div class="col-md-6" id="lstArchivoAgregado">
+                            <div class="col-md-6 panel panel-default" id="lstArchivoAgregado" style="text-align: center; margin: 10px; padding: 10px;">                                
 
-                            </div>
-                        </div>                                              
+                            </div>                           
+                        </div>   
+
 
                         <div class="row">
                             <div class="col-md-12">
@@ -203,7 +204,7 @@ and open the template in the editor.
 
                     <div class="modal-footer">
 
-                        <button onclick="closeWindow();" type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
+                        <button onclick="limpiarMultimedia();closeWindow();" type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
 
                         <div class="newActionButton">                            
                             <button id="btnSave" onclick="save();" type ="button" class="btn btn-primary">Guardar</button>

@@ -403,15 +403,20 @@ function scanInfoNewTab(type, status, form, dataPlus) {
 function buildPaginator(info, id) {
     id = DefaultTableList(id);
     $("#" + id).html(info[0].res);
-    $("#" + id).DataTable({
-        'paging': true,
-        'lengthChange': true,
-        'searching': true,
-        'ordering': true,
-        'info': true,
-        'autoWidth': true,
-        'bDestroy': true
-    });
+
+    try {
+        $("#" + id).DataTable({
+            'paging': true,
+            'lengthChange': true,
+            'searching': true,
+            'ordering': true,
+            'info': true,
+            'autoWidth': true,
+            'bDestroy': true
+        });
+    } catch (exception) {
+        console.log("the table canot be converted");
+    }
 }
 
 /**
@@ -639,8 +644,12 @@ function cleanForm(form) {
     /*Etiquetas limpiables, la cuales suelen ser etiquetas de texto*/
     var collection = $(".limpiable");
     collection.each(function () {
-        var elemento = this;
-        $("#" + elemento.id).html("");
+        try {
+            var elemento = this;
+            $("#" + elemento.id).html("");
+        } catch (exception) {
+            console.log("The element not found");
+        }
     });
 
 }
@@ -970,3 +979,176 @@ function setSpacesInText(nombre) {
     nombre = (nombre).replace(/_/g, " ");
     return nombre;
 }
+
+
+
+
+
+
+
+
+
+
+
+/*******************************************************************************/
+/*******************************************************************************/
+/***********************FILES FILES FILES FILES*********************************/
+/*******************************************************************************/
+
+
+/**
+ * Se mapean todos los archivos seleccionados, convirtiendolas a base64, y 
+ * almacenandolos en el objeto mandado por referencia
+ * @param {Boolean} unicoArchivo Indica si solo debe mapear 1 solo archivo o si son varios
+ * @param {String} idInputFile Id del input tipo file a mapear
+ * @param {Object} obj Objeto que contiene las listas a mapear
+ * @returns {void}
+ * @author Johnny Alexander Salazar
+ * @version 0.3
+ */
+function procesarFile(unicoArchivo, idInputFile, obj) {
+
+    /*Si es solo 1 archivo, entonces toma el archivo actual como eliminado, y 
+     * se limpian todos los datos*/
+    if (unicoArchivo) {
+        obj.listFileNameDeleted = obj.listFileName;
+        obj.listFileBase64 = new Array();
+        obj.listFileName = new Array();
+        obj.listFileURL = new Array();
+    }
+
+    /*Se capturan todas los archivos seleccionados*/
+    var files = $("#" + idInputFile)[0].files;
+
+    /*Por cada archivo, se añade a la lista su nombre, url y se codifica a base64 
+     *  para ser almacenados*/
+    for (var i = 0; i < files.length; i++) {
+
+        /*Se obtiene el archivo*/
+        var file = files[i];
+
+        /*Si se pudo obtener algun archivo*/
+        if (file !== undefined) {
+
+            /*Se le quita la extencion*/
+            var nombreArchivo = ((file.name).split("."))[0];
+
+            /*Si la imagen que se agrego, es una que previamente se habia eliminado, 
+             * se elimina de la lista de imagenes a eliminar*/
+            var posDeleted = obj.listFileNameDeleted.indexOf(nombreArchivo);
+            /*Si se elimino previamente pero se vuelve a agregar*/
+            if (posDeleted !== -1) {
+                obj.listFileNameDeleted.splice(posDeleted, 1);
+                /*Se limpia el nombre para poder eliminarlo del listado visual*/
+            }
+
+
+            /*Se convierte el archivo seleccionado a BASE64 y se añade la 
+             * codificacion a la lista correspondiente*/
+            base64(file, function (data, fileName, urlImage) {
+                obj.listFileBase64.push((data.base64 !== undefined) ? data.base64 : ""); // prints the base64 string                                                
+                obj.listFileName.push(fileName);
+                obj.listFileURL.push(urlImage);
+            }, cleanNameFile(nombreArchivo), window.URL.createObjectURL(file));
+        }
+    }
+}
+
+
+
+/**
+ * De una ruta de un archivo, se organiza y solo retorna el nombre del archivo 
+ * @param {String} name Ruta del archivo completo.
+ * @param {Object} obj Objeto donde se almacenara la informacion del nombre, su
+ * codificacion (la cual no existira y la ruta realmente organizada)
+ * @returns {String} Nombre limpio del archivo
+ * @author Johnny Alexander Salazar
+ * @version 0.3
+ */
+function organizarArchivoCargadoDesdeBD(name, obj) {
+    /*Se deja limpio el nombre, sin path ni nada*/
+    var nombreLimpio = (name).split("/");
+    nombreLimpio = nombreLimpio[nombreLimpio.length - 1];
+    nombreLimpio = (nombreLimpio.split("."))[0];
+    nombreLimpio = nombreLimpio.split("_");
+    nombreLimpio = nombreLimpio[nombreLimpio.length - 1];
+    //nombreLimpio = setSpacesInText(nombreLimpio);
+    if (nombreLimpio !== "") {
+        /*Se agregan a la lista de imagenes*/
+        obj.listFileName.push(nombreLimpio);
+        obj.listFileBase64.push('NotBase64');
+        obj.listFileURL.push(((name).split("System/"))[1]);
+    }
+    return nombreLimpio;
+}
+
+
+
+/**
+ * Genera un icono que representa un archivo, y lo enlaca a el
+ * @param {String} type Tipo del icono a mostrar (pdf, doc)
+ * @param {String} url Ruta del archivo al cual se enlazara la imagen
+ * @param {String} name Nombre del archivo que aparecera debajo de la imagen
+ * @returns {String} Codigo html de la imagen que enlaza el archivo
+ * @author Johnny Alexander Salazar
+ * @version 0.1
+ */
+function imageDownloadFile(type, url, name) {
+
+    var iconFile = "";
+
+    switch (type) {
+        case "pdf":
+            iconFile = "Resource/IconPlatform/pdf.png";
+            break;
+    }
+
+    var img = "<a target='_blank' href='" + url + "'>\n\
+                <img height='60' width='50' src='" + iconFile + "'/></a> <br>  \n\
+                <p class='help-block limpiable'>" + name + "</p>";
+
+    return img;
+}
+
+
+
+/**
+ * Agrega a una lista de datos adiciona, la codificacion y el nombre de los
+ * archivos que se envien. Este generara por cada uno una variable agregando el 
+ * prefijo indicado
+ * @param {Object} list Objeto que contiene la lista de datos adicionales
+ * @param {Object} obj Objeto que contiene la informacion de los archivos
+ * @param {String} prefix Nombre identificador que se le dara a cada uno de las 
+ * variables generadas
+ * @returns {Void} 
+ * @author Johnny Alexander Salazar
+ * @version 0.1
+ */
+function addFileNameAndEncodingAndDeletedFiles(list, obj, prefix) {
+    /*Se recorre la lista de archivos seleccionados*/
+    for (var x = 0; x < obj.listFileBase64.length; x++) {
+        /*Por cada uno se obtiene su nombre y codificacion*/
+        list.temp.push({datos: ["nameFile" + prefix + x, obj.listFileName[x]]});
+        list.temp.push({datos: ["base64File" + prefix + x, obj.listFileBase64[x]]});
+    }
+    /*Se validan los archivos eliminados y se agregan para eliminarlos en el servidor*/
+    for (var y = 0; y < obj.listFileNameDeleted.length; y++) {
+        list.temp.push({datos: ["nameFile" + prefix + "Delete" + y, obj.listFileNameDeleted[y]]});
+    }
+}
+
+
+function addAllFileNameDeleted(list, obj, prefix) {
+    /*Se agregan los que se hayan eliminado temporalmente, para que 
+     * elimine los archivos ya cargadas, como los quitados de forma temporal*/
+    for (var y = 0; y < obj.listFileNameDeleted.length; y++) {
+        obj.listFileName.push(obj.listFileNameDeleted[y]);
+    }
+
+    for (var x = 0; x < obj.listFileName.length; x++) {
+        list.temp.push({datos: ["nameFile" + prefix + "Delete" + x, obj.listFileName[x]]});
+    }
+}
+
+
+

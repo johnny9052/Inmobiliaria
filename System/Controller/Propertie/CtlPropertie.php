@@ -50,7 +50,7 @@ $vigilanceType = getInfo('vigilanceType');
 $zone = getInfo('zone');
 $viewType = getInfo('viewType');
 /* VALIDAR ESTO EN LA BASE DE DATOS, EL ID DE REGISTRADO */
-$status = 13;
+$status = 21;
 $kitchenType = getInfo('kitchenType');
 $kitchenStructure = getInfo('kitchenStructure');
 $floorType = getInfo('floorType');
