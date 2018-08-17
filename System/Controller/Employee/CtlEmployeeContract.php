@@ -23,9 +23,9 @@ $startDate = date("Y-m-d", strtotime($startDate));
 $endDate = date("Y-m-d", strtotime($endDate));
 
 
-/* Se borran todas las imagenes que se tengan que eliminar */
+/* Se borran todos los archivos que se tengan que eliminar */
 deleteFiles('Contract', '../../', 'System/', 'Resource/Files/Contract/', 1, $employee, false, '.pdf');
-/* Se crean las imagenes que se tengan que crear */
+/* Se crean los archivos que se tengan que crear */
 $fileContract = generateFiles('Contract', '../../', 'System/', 'Resource/Files/Contract/', 1, $employee, '.pdf', false);
 
 

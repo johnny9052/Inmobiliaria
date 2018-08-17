@@ -145,7 +145,7 @@ function getInfo($name) {
 function generateFiles($prefixFile, $routePrefix, $routeDBPrefix, $routeReal, $maxFiles, $indicatorNameFile, $extensionsFiles, $dateStatus) {
 
     $nameFiles = 'nameFile' . $prefixFile;
-    $nameBase64Files = 'base64FileExperience' . $prefixFile;
+    $nameBase64Files = 'base64File' . $prefixFile;
 
     /* Objeto que permite quitar caracteres extraños al nombre del archivo */
     $cleaner = new Cleaner();

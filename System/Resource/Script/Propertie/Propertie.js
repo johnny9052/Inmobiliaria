@@ -1,7 +1,13 @@
-var listImagen = new Array();
-var listImagenName = new Array();
-var listImagenURL = new Array();
-var listImagenNameDeleted = new Array();
+var objFilePropertie = {
+    listFileBase64: new Array(),
+    listFileName: new Array(),
+    listFileURL: new Array(),
+    listFileNameDeleted: new Array()
+};
+
+
+
+
 
 
 var listVideo = new Array();
@@ -129,10 +135,10 @@ function save() {
 
 
         /*Se recorre la lista de imagenes seleccionadas*/
-        for (var x = 0; x < listImagen.length; x++) {
+        for (var x = 0; x < objFilePropertie.listFileBase64.length; x++) {
             /*Por cada una se obtiene su nombre y codificacion*/
-            temp.push({datos: ["nameFile" + x, listImagenName[x]]});
-            temp.push({datos: ["base64File" + x, listImagen[x]]});
+            temp.push({datos: ["nameFile" + x, objFilePropertie.listFileName[x]]});
+            temp.push({datos: ["base64File" + x, objFilePropertie.listFileBase64[x]]});
         }
 
         /*Array de videos*/
@@ -249,15 +255,15 @@ function update() {
 
 
         /*Se validan las imagenes agregadas y se agregan*/
-        for (var x = 0; x < listImagen.length; x++) {
-            temp.push({datos: ["nameFile" + x, listImagenName[x]]});
-            temp.push({datos: ["base64File" + x, listImagen[x]]});
+        for (var x = 0; x < objFilePropertie.listFileBase64.length; x++) {
+            temp.push({datos: ["nameFile" + x, objFilePropertie.listFileName[x]]});
+            temp.push({datos: ["base64File" + x, objFilePropertie.listFileBase64[x]]});
         }
 
         /*Se validan las imagenes eliminadas y se agregan para eliminarlas 
          * en el servidor*/
-        for (var x = 0; x < listImagenNameDeleted.length; x++) {
-            temp.push({datos: ["nameFileDelete" + x, listImagenNameDeleted[x]]});
+        for (var x = 0; x < objFilePropertie.listFileNameDeleted.length; x++) {
+            temp.push({datos: ["nameFileDelete" + x, objFilePropertie.listFileNameDeleted[x]]});
         }
 
         /*Se define un array para mandar todos los videos concatenados*/
@@ -284,15 +290,15 @@ function deleteInfo() {
     /*Se pasan todas las imagenes que se tengan cargadas y eliminadas como datos a
      * eliminar*/
     var temp = new Array();
-    
+
     /*Se agregan las imagenes que se hayan eliminado temporalmente, para que 
      * elimine las cargadas, como las quitadas de forma temporal*/
-    for (var y = 0; y < listImagenNameDeleted.length; y++) {
-        listImagenName.push(listImagenNameDeleted[y]);
+    for (var y = 0; y < objFilePropertie.listFileNameDeleted.length; y++) {
+        objFilePropertie.listFileName.push(objFilePropertie.listFileNameDeleted[y]);
     }
 
-    for (var x = 0; x < listImagenName.length; x++) {
-        temp.push({datos: ["nameFileDelete" + x, listImagenName[x]]});
+    for (var x = 0; x < objFilePropertie.listFileName.length; x++) {
+        temp.push({datos: ["nameFileDelete" + x, objFilePropertie.listFileName[x]]});
     }
 
     Execute(scanInfo('delete', true, '', temp), 'Propertie/CtlPropertie', '', 'closeWindow("ModalConfirm");list();cleanForm("ModalNew");deleteMarkers();limpiarMultimedia();');
@@ -381,22 +387,22 @@ function listImages(info) {
             //nombreLimpio = setSpacesInText(nombreLimpio);
             if (nombreLimpio !== "") {
                 /*Se agregan a la lista de imagenes*/
-                listImagenName.push(nombreLimpio);
-                listImagen.push('NotBase64');
-                listImagenURL.push(((info[x].ruta_imagen).split("System/"))[1]);
+                objFilePropertie.listFileName.push(nombreLimpio);
+                objFilePropertie.listFileBase64.push('NotBase64');
+                objFilePropertie.listFileURL.push(((info[x].ruta_imagen).split("System/"))[1]);
             }
         }
     }
 
-    for (var y = 0; y < listImagenName.length; y++) {
+    for (var y = 0; y < objFilePropertie.listFileName.length; y++) {
         /*Se arma la cadena,tomando como referencias el nombre del archivo sin 
          * espacios ni caracteres especiales*/
         if (y % 2 === 0) {
-            lblImagenes = lblImagenes + "<img  id='output_" + cleanNameFile(listImagenName[y]) + "' height='60' width='50'/><br>";
-            lblImagenes = lblImagenes + "<label class='seleccionable panel panel-default' id='" + listImagenName[y] + "' onclick='eliminarImagen(" + '"' + listImagenName[y] + '"' + ");'>(X)    " + listImagenName[y] + "</label><br>";
+            lblImagenes = lblImagenes + "<img  id='output_" + cleanNameFile(objFilePropertie.listFileName[y]) + "' height='60' width='50'/><br>";
+            lblImagenes = lblImagenes + "<label class='seleccionable panel panel-default' id='" + objFilePropertie.listFileName[y] + "' onclick='eliminarImagen(" + '"' + objFilePropertie.listFileName[y] + '"' + ");'>(X)    " + objFilePropertie.listFileName[y] + "</label><br>";
         } else {
-            lblImagenes2 = lblImagenes2 + "<img  id='output_" + cleanNameFile(listImagenName[y]) + "' height='60' width='50'/><br>";
-            lblImagenes2 = lblImagenes2 + "<label class='seleccionable panel panel-default' id='" + listImagenName[y] + "' onclick='eliminarImagen(" + '"' + listImagenName[y] + '"' + ");'>(X)    " + listImagenName[y] + "</label><br>";
+            lblImagenes2 = lblImagenes2 + "<img  id='output_" + cleanNameFile(objFilePropertie.listFileName[y]) + "' height='60' width='50'/><br>";
+            lblImagenes2 = lblImagenes2 + "<label class='seleccionable panel panel-default' id='" + objFilePropertie.listFileName[y] + "' onclick='eliminarImagen(" + '"' + objFilePropertie.listFileName[y] + '"' + ");'>(X)    " + objFilePropertie.listFileName[y] + "</label><br>";
         }
     }
 
@@ -451,11 +457,11 @@ function procesarImagenes() {
 
             /*Si la imagen que se agrego, es una que previamente se habia eliminado, 
              * se elimina de la lista de imagenes a eliminar*/
-            var posDeleted = listImagenNameDeleted.indexOf(nombreArchivo);
+            var posDeleted = objFilePropertie.listFileNameDeleted.indexOf(nombreArchivo);
 
             /*Si se elimino previamente pero se vuelve a agregar*/
             if (posDeleted !== -1) {
-                listImagenNameDeleted.splice(posDeleted, 1);
+                objFilePropertie.listFileNameDeleted.splice(posDeleted, 1);
                 /*Se limpia el nombre para poder eliminarlo del listado visual*/
             }
 
@@ -463,9 +469,9 @@ function procesarImagenes() {
              * a la lista correspondiente*/
 
             base64(file, function (data, fileName, urlImage) {
-                listImagen.push((data.base64 !== undefined) ? data.base64 : ""); // prints the base64 string                                                
-                listImagenName.push(fileName);
-                listImagenURL.push(urlImage);
+                objFilePropertie.listFileBase64.push((data.base64 !== undefined) ? data.base64 : ""); // prints the base64 string                                                
+                objFilePropertie.listFileName.push(fileName);
+                objFilePropertie.listFileURL.push(urlImage);
                 cargarMiniaturas();
             }, cleanNameFile(nombreArchivo), window.URL.createObjectURL(file));
         }
@@ -474,18 +480,18 @@ function procesarImagenes() {
     /*Se añade la nueva imagen a la lista de imagenes disponibles*/
     $("#lstImagenesAgregadas").html($("#lstImagenesAgregadas").html() + lblImagenes);
     $("#lstImagenesAgregadas2").html($("#lstImagenesAgregadas2").html() + lblImagenes2);
-    console.log(listImagen);
+    console.log(objFilePropertie.listFileBase64);
 
 }
 
 
 function cargarMiniaturas() {
 
-    for (var i = 0; i < listImagenURL.length; i++) {
+    for (var i = 0; i < objFilePropertie.listFileURL.length; i++) {
         /*Se obtiene el archivo*/
-        var url = listImagenURL[i];
+        var url = objFilePropertie.listFileURL[i];
         if (url !== undefined && url !== "") {
-            var output = document.getElementById('output_' + listImagenName[i]);
+            var output = document.getElementById('output_' + objFilePropertie.listFileName[i]);
             output.src = url;
         }
     }
@@ -589,17 +595,17 @@ function eliminarVideo(pos) {
  */
 function eliminarImagen(id) {
     /*Se obtiene la posicion de la imagen en la lista a partir de su nombre*/
-    var pos = listImagenName.indexOf(id);
+    var pos = objFilePropertie.listFileName.indexOf(id);
 
     /*Se agrega a la lista de nombres el nombre del archivo*/
-    listImagenNameDeleted.push(id);
+    objFilePropertie.listFileNameDeleted.push(id);
 
     /*Si la encuentra*/
     if (pos !== -1) {
         /*La elimina de las listas de los nombre sy las codificaciones*/
-        listImagen.splice(pos, 1);
-        listImagenName.splice(pos, 1);
-        listImagenURL.splice(pos, 1);
+        objFilePropertie.listFileBase64.splice(pos, 1);
+        objFilePropertie.listFileName.splice(pos, 1);
+        objFilePropertie.listFileURL.splice(pos, 1);
         /*Se limpia el nombre para poder eliminarlo del listado visual*/
 
     }
@@ -618,9 +624,9 @@ function eliminarImagen(id) {
  * @version 0.1
  */
 function limpiarMultimedia() {
-    listImagen = new Array();
-    listImagenName = new Array();
-    listImagenURL = new Array();
+    objFilePropertie.listFileBase64 = new Array();
+    objFilePropertie.listFileName = new Array();
+    objFilePropertie.listFileURL = new Array();
     listVideo = new Array();
     $("#lstVideosAgregados").html("");
     $("#lstImagenesAgregadas").html("");
