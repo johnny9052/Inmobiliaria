@@ -6,11 +6,9 @@ var objFilePropertie = {
 };
 
 
-
-
-
-
-var listVideo = new Array();
+var objURLVideosPropertie = {
+    listElements: new Array()
+};
 
 
 
@@ -121,8 +119,10 @@ function save() {
     //if (markersListGlobal.length > 0) {
     if (validateForm() === true) {
 
-        /*Array para datos adicionales*/
-        var temp = new Array();
+        /*Se define el array de datos adicionales como un objeto, debido a que es necesario pasarlo por referencia para el llenado de los archivos*/
+        var infoPlus = {
+            temp: new Array()
+        };
 
         /*Se obteien los datos de latitud - longitud*/
         //var lat = markersListGlobal[0].getPosition().lat();
@@ -130,29 +130,18 @@ function save() {
         var lat = "";
         var lng = "";
         /*Se añaden como datos adicionales*/
-        temp.push({datos: ["lat", lat]});
-        temp.push({datos: ["lng", lng]});
+        infoPlus.temp.push({datos: ["lat", lat]});
+        infoPlus.temp.push({datos: ["lng", lng]});
 
 
-        /*Se recorre la lista de imagenes seleccionadas*/
-        for (var x = 0; x < objFilePropertie.listFileBase64.length; x++) {
-            /*Por cada una se obtiene su nombre y codificacion*/
-            temp.push({datos: ["nameFile" + x, objFilePropertie.listFileName[x]]});
-            temp.push({datos: ["base64File" + x, objFilePropertie.listFileBase64[x]]});
-        }
+        /*Se manda por referencia el objeto de la info adicional donde se añadiran los archivos, junto el el objeto que tiene la informacion real de todos los archivos*/
+        addFileNameAndEncodingAndDeletedFiles(infoPlus, objFilePropertie, '');
 
-        /*Array de videos*/
-        var tempVideo = new Array();
-        /*Nombre de la variable que llegara al server*/
-        tempVideo.push("urlVideos");
-        /*Por cada video agregado, se asocia al array*/
-        for (var y = 0; y < listVideo.length; y++) {
-            tempVideo.push(listVideo[y]);
-        }
-        /*Se añade como dato adicional*/
-        temp.push({datos: tempVideo});
 
-        Execute(scanInfo('save', true, '', temp), 'Propertie/CtlPropertie', '', ' closeWindow();list();deleteMarkers();limpiarMultimedia();', '', 'Ha superado el tamaño maximo de las imagenes');
+        /*Se agregan los videos que se agregaron dimanicamente*/
+        infoPlus.temp.push({datos: prepareDinamicData("urlVideos", objURLVideosPropertie)});
+
+        Execute(scanInfo('save', true, '', infoPlus.temp), 'Propertie/CtlPropertie', '', ' closeWindow();list();deleteMarkers();limpiarMultimedia();', '', 'Ha superado el tamaño maximo de las imagenes');
     }
     //  } else {
     //    showToast("Seleccione un punto en el mapa", "error");
@@ -229,7 +218,6 @@ function showData(info) {
     /*Se cargan las imagenes y videos*/
     loadVideosPropertie(info[0].id);
     loadImagesPropertie(info[0].id);
-
     openWindow();
     showButton(false);
 }
@@ -242,42 +230,28 @@ function update() {
     /*Se valida si se ha seleccionado un punto en el gps*/
     //if (markersListGlobal.length > 0) {
     if (validateForm() === true) {
-        /*Array para datos adicionales*/
-        var temp = new Array();
+        /*Se define el array de datos adicionales como un objeto, debido a que es necesario pasarlo por referencia para el llenado de los archivos*/
+        var infoPlus = {
+            temp: new Array()
+        };
         /*Se obtiene la latitud y longitud*/
         //var lat = markersListGlobal[0].getPosition().lat();
         //var lng = markersListGlobal[0].getPosition().lng();
         var lat = "";
         var lng = "";
         /*Se añaden*/
-        temp.push({datos: ["lat", lat]});
-        temp.push({datos: ["lng", lng]});
+        infoPlus.temp.push({datos: ["lat", lat]});
+        infoPlus.temp.push({datos: ["lng", lng]});
 
 
-        /*Se validan las imagenes agregadas y se agregan*/
-        for (var x = 0; x < objFilePropertie.listFileBase64.length; x++) {
-            temp.push({datos: ["nameFile" + x, objFilePropertie.listFileName[x]]});
-            temp.push({datos: ["base64File" + x, objFilePropertie.listFileBase64[x]]});
-        }
+        /*Se manda por referencia el objeto de la info adicional donde se añadiran los archivos, junto el el objeto que tiene la informacion real de todos los archivos*/
+        addFileNameAndEncodingAndDeletedFiles(infoPlus, objFilePropertie, '');
 
-        /*Se validan las imagenes eliminadas y se agregan para eliminarlas 
-         * en el servidor*/
-        for (var x = 0; x < objFilePropertie.listFileNameDeleted.length; x++) {
-            temp.push({datos: ["nameFileDelete" + x, objFilePropertie.listFileNameDeleted[x]]});
-        }
 
-        /*Se define un array para mandar todos los videos concatenados*/
-        var tempVideo = new Array();
-        /*Se añade el nombre de la variable*/
-        tempVideo.push("urlVideos");
-        /*Se añaden los videos*/
-        for (var y = 0; y < listVideo.length; y++) {
-            tempVideo.push(listVideo[y]);
-        }
-        /*Se agrega como dato adicional*/
-        temp.push({datos: tempVideo});
+        /*Se agregan los videos que se agregaron dimanicamente*/
+        infoPlus.temp.push({datos: prepareDinamicData("urlVideos", objURLVideosPropertie)});
 
-        Execute(scanInfo('update', true, '', temp), 'Propertie/CtlPropertie', '', ' closeWindow();list();deleteMarkers();limpiarMultimedia();');
+        Execute(scanInfo('update', true, '', infoPlus.temp), 'Propertie/CtlPropertie', '', ' closeWindow();list();deleteMarkers();limpiarMultimedia();');
 
     }
     //} else {
@@ -287,21 +261,16 @@ function update() {
 
 
 function deleteInfo() {
-    /*Se pasan todas las imagenes que se tengan cargadas y eliminadas como datos a
-     * eliminar*/
-    var temp = new Array();
+    /*Se define el array de datos adicionales como un objeto, debido a que 
+     * es necesario pasarlo por referencia para el llenado de los archivos*/
+    var infoPlus = {
+        temp: new Array()
+    };
 
-    /*Se agregan las imagenes que se hayan eliminado temporalmente, para que 
-     * elimine las cargadas, como las quitadas de forma temporal*/
-    for (var y = 0; y < objFilePropertie.listFileNameDeleted.length; y++) {
-        objFilePropertie.listFileName.push(objFilePropertie.listFileNameDeleted[y]);
-    }
+    /*Se manda por referencia el objeto de la info adicional donde se añadiran los archivos, junto el el objeto que tiene la informacion real de todos los archivos*/
+    addAllFileNameDeleted(infoPlus, objFilePropertie, '');
 
-    for (var x = 0; x < objFilePropertie.listFileName.length; x++) {
-        temp.push({datos: ["nameFileDelete" + x, objFilePropertie.listFileName[x]]});
-    }
-
-    Execute(scanInfo('delete', true, '', temp), 'Propertie/CtlPropertie', '', 'closeWindow("ModalConfirm");list();cleanForm("ModalNew");deleteMarkers();limpiarMultimedia();');
+    Execute(scanInfo('delete', true, '', infoPlus.temp), 'Propertie/CtlPropertie', '', 'closeWindow("ModalConfirm");list();cleanForm("ModalNew");deleteMarkers();limpiarMultimedia();');
 }
 
 
@@ -365,52 +334,10 @@ function actualizarMucipioMapa() {
 
 
 function loadImagesPropertie(id) {
-    Execute(scanInfo('loadImage', false, '', [{datos: ["id", id]}]), 'Propertie/CtlPropertie', '', 'listImages(info);');
+    Execute(scanInfo('loadImage', false, '', [{datos: ["id", id]}]), 'Propertie/CtlPropertie', '', 'listFilesTwoColumns(info,objFilePropertie,"lstImagenesAgregadas","lstImagenesAgregadas2");');
 }
 
 
-
-function listImages(info) {
-
-    var lblImagenes = "";
-    var lblImagenes2 = "";
-
-    if (info !== undefined) {
-        for (var x = 0; x < info.length; x++) {
-
-            /*Se deja limpio el nombre, sin path ni nada*/
-            var nombreLimpio = (info[x].ruta_imagen).split("/");
-            nombreLimpio = nombreLimpio[nombreLimpio.length - 1];
-            nombreLimpio = (nombreLimpio.split("."))[0];
-            nombreLimpio = nombreLimpio.split("_");
-            nombreLimpio = nombreLimpio[nombreLimpio.length - 1];
-            //nombreLimpio = setSpacesInText(nombreLimpio);
-            if (nombreLimpio !== "") {
-                /*Se agregan a la lista de imagenes*/
-                objFilePropertie.listFileName.push(nombreLimpio);
-                objFilePropertie.listFileBase64.push('NotBase64');
-                objFilePropertie.listFileURL.push(((info[x].ruta_imagen).split("System/"))[1]);
-            }
-        }
-    }
-
-    for (var y = 0; y < objFilePropertie.listFileName.length; y++) {
-        /*Se arma la cadena,tomando como referencias el nombre del archivo sin 
-         * espacios ni caracteres especiales*/
-        if (y % 2 === 0) {
-            lblImagenes = lblImagenes + "<img  id='output_" + cleanNameFile(objFilePropertie.listFileName[y]) + "' height='60' width='50'/><br>";
-            lblImagenes = lblImagenes + "<label class='seleccionable panel panel-default' id='" + objFilePropertie.listFileName[y] + "' onclick='eliminarImagen(" + '"' + objFilePropertie.listFileName[y] + '"' + ");'>(X)    " + objFilePropertie.listFileName[y] + "</label><br>";
-        } else {
-            lblImagenes2 = lblImagenes2 + "<img  id='output_" + cleanNameFile(objFilePropertie.listFileName[y]) + "' height='60' width='50'/><br>";
-            lblImagenes2 = lblImagenes2 + "<label class='seleccionable panel panel-default' id='" + objFilePropertie.listFileName[y] + "' onclick='eliminarImagen(" + '"' + objFilePropertie.listFileName[y] + '"' + ");'>(X)    " + objFilePropertie.listFileName[y] + "</label><br>";
-        }
-    }
-
-    /*Se añade la nueva imagen a la lista de imagenes disponibles*/
-    $("#lstImagenesAgregadas").html(lblImagenes);
-    $("#lstImagenesAgregadas2").html(lblImagenes2);
-    cargarMiniaturas();
-}
 
 
 /**
@@ -472,7 +399,7 @@ function procesarImagenes() {
                 objFilePropertie.listFileBase64.push((data.base64 !== undefined) ? data.base64 : ""); // prints the base64 string                                                
                 objFilePropertie.listFileName.push(fileName);
                 objFilePropertie.listFileURL.push(urlImage);
-                cargarMiniaturas();
+                cargarMiniaturasFile(objFilePropertie);
             }, cleanNameFile(nombreArchivo), window.URL.createObjectURL(file));
         }
     }
@@ -485,17 +412,6 @@ function procesarImagenes() {
 }
 
 
-function cargarMiniaturas() {
-
-    for (var i = 0; i < objFilePropertie.listFileURL.length; i++) {
-        /*Se obtiene el archivo*/
-        var url = objFilePropertie.listFileURL[i];
-        if (url !== undefined && url !== "") {
-            var output = document.getElementById('output_' + objFilePropertie.listFileName[i]);
-            output.src = url;
-        }
-    }
-}
 
 
 
@@ -508,7 +424,7 @@ function loadVideosPropertie(id) {
 function listVideos(info) {
     /*Se agregan todos los videos a la lista, y se pintan*/
     for (var x = 0; x < info.length; x++) {
-        listVideo.push(info[x].ruta_video);
+        objURLVideosPropertie.listElements.push(info[x].ruta_video);
     }
 
     pintarVideos();
@@ -529,12 +445,12 @@ function agregarVideo() {
     /*Si se ha agregado algun video*/
     if (videoFileURL !== "" && videoFileURL !== null) {
         /*Se almacena el video*/
-        listVideo.push(videoFileURL);
+        objURLVideosPropertie.listElements.push(videoFileURL);
         /*Se enlista el video*/
         pintarVideos();
         /*Se limpia el campo del video ingresado*/
         $("#txtUrlVideo").val("");
-        console.log(listVideo);
+        console.log(objURLVideosPropertie.listElements);
     } else {
 
     }
@@ -551,8 +467,8 @@ function agregarVideo() {
 function pintarVideos() {
     var lblVideos = "";
     $("#lstVideosAgregados").html("");
-    for (var y = 0; y < listVideo.length; y++) {
-        lblVideos = lblVideos + "<label class='seleccionable' id='Video" + y + "' onclick='eliminarVideo(" + '"Video' + y + '"' + ");'>(X)    " + listVideo[y] + "</label><br>";
+    for (var y = 0; y < objURLVideosPropertie.listElements.length; y++) {
+        lblVideos = lblVideos + "<label class='seleccionable' id='Video" + y + "' onclick='eliminarVideo(" + '"Video' + y + '"' + ");'>(X)    " + objURLVideosPropertie.listElements[y] + "</label><br>";
     }
     $("#lstVideosAgregados").html(lblVideos);
 }
@@ -574,7 +490,7 @@ function eliminarVideo(pos) {
     pos = (pos.split("Video"))[1];
 
     if (pos !== -1) {
-        listVideo.splice(pos, 1);
+        objURLVideosPropertie.listElements.splice(pos, 1);
     }
 
     /*Repinda los videos para actualizar sus posiciones*/
@@ -609,11 +525,8 @@ function eliminarImagen(id) {
         /*Se limpia el nombre para poder eliminarlo del listado visual*/
 
     }
-
-
-    ;
-
-    listImages();
+   
+    listFilesTwoColumns('', objFilePropertie, "lstImagenesAgregadas", "lstImagenesAgregadas2");
 }
 
 
@@ -627,7 +540,7 @@ function limpiarMultimedia() {
     objFilePropertie.listFileBase64 = new Array();
     objFilePropertie.listFileName = new Array();
     objFilePropertie.listFileURL = new Array();
-    listVideo = new Array();
+    objURLVideosPropertie.listElements = new Array();
     $("#lstVideosAgregados").html("");
     $("#lstImagenesAgregadas").html("");
     $("#lstImagenesAgregadas2").html("");

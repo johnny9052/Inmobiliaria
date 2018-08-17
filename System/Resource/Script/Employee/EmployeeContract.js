@@ -35,15 +35,11 @@ function loadContractType() {
 
 function save() {
     if (validateForm() === true) {
-        /*Se define el array de datos adicionales como un objeto, debido a que 
-         * es necesario pasarlo por referencia para el llenado de los archivos*/
+        /*Se define el array de datos adicionales como un objeto, debido a que es necesario pasarlo por referencia para el llenado de los archivos*/
         var infoPlus = {
             temp: new Array()
         };
-
-        /*Se manda por referencia el objeto de la info adicional donde se añadiran 
-         * los archivos, junto el el objeto que tiene la informacion real de
-         * todos los archivos*/
+        /*Se manda por referencia el objeto de la info adicional donde se añadiran los archivos, junto el el objeto que tiene la informacion real de todos los archivos*/
         addFileNameAndEncodingAndDeletedFiles(infoPlus, objFileContract, 'Contract');
 
         Execute(scanInfo('save', true, '', infoPlus.temp), 'Employee/CtlEmployeeContract', '', 'closeWindow();list();limpiarMultimedia();', '', 'Ha superado el tamaño maximo de las imagenes');
@@ -108,9 +104,7 @@ function deleteInfo() {
         temp: new Array()
     };
 
-    /*Se manda por referencia el objeto de la info adicional donde se añadiran 
-     * los archivos, junto el el objeto que tiene la informacion real de
-     * todos los archivos*/
+    /*Se manda por referencia el objeto de la info adicional donde se añadiran los archivos, junto el el objeto que tiene la informacion real de todos los archivos*/
     addAllFileNameDeleted(infoPlus, objFileContract, 'Contract');
 
     Execute(scanInfo('delete', true, '', infoPlus.temp), 'Employee/CtlEmployeeContract', '', 'closeWindow("ModalConfirm");list();cleanForm("ModalNew");limpiarMultimedia();');

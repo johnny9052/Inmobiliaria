@@ -70,7 +70,7 @@ $receptionDate = date("Y-m-d", strtotime($receptionDate));
 $urlVideos = getInfo('urlVideos');
 
 /* Se borran todas las imagenes que se tengan que eliminar */
-deleteFiles('', '../../', 'System/', 'Resource/Images/Properties/', 100, $matriculaInmobiliaria, false, '.pdf');
+deleteFiles('', '../../', 'System/', 'Resource/Images/Properties/', 100, $matriculaInmobiliaria, false, '.jpg');
 /* Se crean las imagenes que se tengan que crear */
 $images = generateFiles('', '../../', 'System/', 'Resource/Images/Properties/', 100, $matriculaInmobiliaria, '.jpg', false);
 

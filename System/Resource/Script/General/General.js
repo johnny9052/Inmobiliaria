@@ -1155,3 +1155,90 @@ function addAllFileNameDeleted(list, obj, prefix) {
 
 
 
+
+
+/*******************************************************************************/
+/*******************************************************************************/
+/***********************DINAMIC DATA ----DINAMIC DATA***************************/
+/*******************************************************************************/
+
+
+
+function prepareDinamicData(nameData, obj) {
+    /*Array de videos*/
+    var tempVideo = new Array();
+    /*Nombre de la variable que llegara al server*/
+    tempVideo.push(nameData);
+    /*Por cada video agregado, se asocia al array*/
+    for (var y = 0; y < obj.listElements.length; y++) {
+        tempVideo.push(obj.listElements[y]);
+    }
+    return tempVideo;
+}
+
+
+
+
+
+
+
+/*******************************************************************************/
+/*******************************************************************************/
+/***********************FILES FILES FILES FILES***************************/
+/*******************************************************************************/
+
+function listFilesTwoColumns(info, obj, idColumnOne, idColumnTwo, typeFile) {
+
+    var lblImagenes = "";
+    var lblImagenes2 = "";
+
+    if (info !== undefined && info !== "" && info !== null) {
+        for (var x = 0; x < info.length; x++) {
+            organizarArchivoCargadoDesdeBD(info[x].ruta_imagen, obj);
+        }
+    }
+
+    for (var y = 0; y < obj.listFileName.length; y++) {
+        /*Se arma la cadena,tomando como referencias el nombre del archivo sin 
+         * espacios ni caracteres especiales*/
+        if (y % 2 === 0) {
+            lblImagenes = lblImagenes + "<a target='_blank' href='" + obj.listFileURL[y] + "'><img  id='output_" + cleanNameFile(obj.listFileName[y]) + "' height='60' width='50'/></a><br>";
+            lblImagenes = lblImagenes + "<label class='seleccionable panel panel-default' id='" + obj.listFileName[y] + "' onclick='eliminarImagen(" + '"' + obj.listFileName[y] + '"' + ");'>(X)    " + obj.listFileName[y] + "</label><br>";
+        } else {
+            lblImagenes2 = lblImagenes2 + "<a target='_blank' href='" + obj.listFileURL[y] + "'><img  id='output_" + cleanNameFile(obj.listFileName[y]) + "' height='60' width='50'/></a><br>";
+            lblImagenes2 = lblImagenes2 + "<label class='seleccionable panel panel-default' id='" + obj.listFileName[y] + "' onclick='eliminarImagen(" + '"' + obj.listFileName[y] + '"' + ");'>(X)    " + obj.listFileName[y] + "</label><br>";
+        }
+    }
+
+    /*Se añade la nueva imagen a la lista de imagenes disponibles*/
+    $("#" + idColumnOne).html(lblImagenes);
+    $("#" + idColumnTwo).html(lblImagenes2);
+    cargarMiniaturasFile(obj, typeFile);
+}
+
+
+
+
+function cargarMiniaturasFile(obj, typeFile) {
+    for (var i = 0; i < obj.listFileURL.length; i++) {
+        /*Se obtiene el archivo*/
+        var url = obj.listFileURL[i];
+        if (url !== undefined && url !== "") {
+            var output = document.getElementById('output_' + obj.listFileName[i]);
+            if (typeFile) {
+                switch (typeFile) {
+                    case "pdf":
+                        output.src = "Resource/IconPlatform/pdf.png";
+                        break;
+
+                    case "doc":
+                        output.src = "Resource/IconPlatform/doc.png";
+                        break;
+                }
+            } else {
+                output.src = url;
+            }
+
+        }
+    }
+}
