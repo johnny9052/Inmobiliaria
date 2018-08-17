@@ -159,13 +159,13 @@ and open the template in the editor.
                         <div class="row">
                             <br>
                             <div class="col-md-6">
-                                <label for="fileIdentification">Certificado Laboral</label>
+                                <label for="fileWorkCertificate">Certificado Laboral</label>
                                 <input type="file" accept=".PDF,.pdf"  id="fileWorkCertificate" name="urlWorkCertificate" multiple 
-                                       onchange="procesarArchivo();"><br>                            
+                                       onchange="procesarFile(true, 'fileWorkCertificate', objfileWorkCertificate);">
                             </div>
-                            <div class="col-md-6" id="lstArchivoAgregado">
+                            <div class="col-md-6 panel panel-default" id="lstArchivoAgregado" style="text-align: center; margin: 10px; padding: 10px;">                                
 
-                            </div>
+                            </div> 
                         </div>                                              
 
                         <div class="row">
