@@ -117,36 +117,35 @@ function loadOutstandingType() {
 
 function save() {
     /*Se valida el marcador seleccionado del gps*/
-    //if (markersListGlobal.length > 0) {
-    if (validateForm() === true) {
+    if (markersListGlobal.length > 0) {
+        if (validateForm() === true) {
 
-        /*Se define el array de datos adicionales como un objeto, debido a que es necesario pasarlo por referencia para el llenado de los archivos*/
-        var infoPlus = {
-            temp: new Array()
-        };
+            /*Se define el array de datos adicionales como un objeto, debido a que es necesario pasarlo por referencia para el llenado de los archivos*/
+            var infoPlus = {
+                temp: new Array()
+            };
 
-        /*Se obteien los datos de latitud - longitud*/
-        //var lat = markersListGlobal[0].getPosition().lat();
-        //var lng = markersListGlobal[0].getPosition().lng();
-        var lat = "";
-        var lng = "";
-        /*Se añaden como datos adicionales*/
-        infoPlus.temp.push({datos: ["lat", lat]});
-        infoPlus.temp.push({datos: ["lng", lng]});
+            /*Se obteien los datos de latitud - longitud*/
+            var lat = markersListGlobal[0].getPosition().lat();
+            var lng = markersListGlobal[0].getPosition().lng();
 
-
-        /*Se manda por referencia el objeto de la info adicional donde se añadiran los archivos, junto el el objeto que tiene la informacion real de todos los archivos*/
-        addFileNameAndEncodingAndDeletedFiles(infoPlus, objFilePropertie, '');
+            /*Se añaden como datos adicionales*/
+            infoPlus.temp.push({datos: ["lat", lat]});
+            infoPlus.temp.push({datos: ["lng", lng]});
 
 
-        /*Se agregan los videos que se agregaron dimanicamente*/
-        infoPlus.temp.push({datos: prepareDinamicData("urlVideos", objURLVideosPropertie)});
+            /*Se manda por referencia el objeto de la info adicional donde se añadiran los archivos, junto el el objeto que tiene la informacion real de todos los archivos*/
+            addFileNameAndEncodingAndDeletedFiles(infoPlus, objFilePropertie, '');
 
-        Execute(scanInfo('save', true, '', infoPlus.temp), 'Propertie/CtlPropertie', '', ' closeWindow();list();deleteMarkers();limpiarMultimedia();', '', 'Ha superado el tamaño maximo de las imagenes');
+
+            /*Se agregan los videos que se agregaron dimanicamente*/
+            infoPlus.temp.push({datos: prepareDinamicData("urlVideos", objURLVideosPropertie)});
+
+            Execute(scanInfo('save', true, '', infoPlus.temp), 'Propertie/CtlPropertie', '', ' closeWindow();list();deleteMarkers();limpiarMultimedia();', '', 'Ha superado el tamaño maximo de las imagenes');
+        }
+    } else {
+        showToast("Seleccione un punto en el mapa", "error");
     }
-    //  } else {
-    //    showToast("Seleccione un punto en el mapa", "error");
-    //}
 }
 
 
@@ -229,35 +228,27 @@ function showData(info) {
 
 function update() {
     /*Se valida si se ha seleccionado un punto en el gps*/
-    //if (markersListGlobal.length > 0) {
-    if (validateForm() === true) {
-        /*Se define el array de datos adicionales como un objeto, debido a que es necesario pasarlo por referencia para el llenado de los archivos*/
-        var infoPlus = {
-            temp: new Array()
-        };
-        /*Se obtiene la latitud y longitud*/
-        //var lat = markersListGlobal[0].getPosition().lat();
-        //var lng = markersListGlobal[0].getPosition().lng();
-        var lat = "";
-        var lng = "";
-        /*Se añaden*/
-        infoPlus.temp.push({datos: ["lat", lat]});
-        infoPlus.temp.push({datos: ["lng", lng]});
-
-
-        /*Se manda por referencia el objeto de la info adicional donde se añadiran los archivos, junto el el objeto que tiene la informacion real de todos los archivos*/
-        addFileNameAndEncodingAndDeletedFiles(infoPlus, objFilePropertie, '');
-
-
-        /*Se agregan los videos que se agregaron dimanicamente*/
-        infoPlus.temp.push({datos: prepareDinamicData("urlVideos", objURLVideosPropertie)});
-
-        Execute(scanInfo('update', true, '', infoPlus.temp), 'Propertie/CtlPropertie', '', ' closeWindow();list();deleteMarkers();limpiarMultimedia();');
-
+    if (markersListGlobal.length > 0) {
+        if (validateForm() === true) {
+            /*Se define el array de datos adicionales como un objeto, debido a que es necesario pasarlo por referencia para el llenado de los archivos*/
+            var infoPlus = {
+                temp: new Array()
+            };
+            /*Se obtiene la latitud y longitud*/
+            var lat = markersListGlobal[0].getPosition().lat();
+            var lng = markersListGlobal[0].getPosition().lng();
+            /*Se añaden*/
+            infoPlus.temp.push({datos: ["lat", lat]});
+            infoPlus.temp.push({datos: ["lng", lng]});
+            /*Se manda por referencia el objeto de la info adicional donde se añadiran los archivos, junto el el objeto que tiene la informacion real de todos los archivos*/
+            addFileNameAndEncodingAndDeletedFiles(infoPlus, objFilePropertie, '');
+            /*Se agregan los videos que se agregaron dimanicamente*/
+            infoPlus.temp.push({datos: prepareDinamicData("urlVideos", objURLVideosPropertie)});
+            Execute(scanInfo('update', true, '', infoPlus.temp), 'Propertie/CtlPropertie', '', ' closeWindow();list();deleteMarkers();limpiarMultimedia();');
+        }
+    } else {
+        showToast("Seleccione un punto en el mapa", "error");
     }
-    //} else {
-    //  showToast("Seleccione un punto en el mapa", "error");
-    //}
 }
 
 
@@ -267,10 +258,8 @@ function deleteInfo() {
     var infoPlus = {
         temp: new Array()
     };
-
     /*Se manda por referencia el objeto de la info adicional donde se añadiran los archivos, junto el el objeto que tiene la informacion real de todos los archivos*/
     addAllFileNameDeleted(infoPlus, objFilePropertie, '');
-
     Execute(scanInfo('delete', true, '', infoPlus.temp), 'Propertie/CtlPropertie', '', 'closeWindow("ModalConfirm");list();cleanForm("ModalNew");deleteMarkers();limpiarMultimedia();');
 }
 
