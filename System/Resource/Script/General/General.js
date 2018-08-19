@@ -981,15 +981,6 @@ function setSpacesInText(nombre) {
 }
 
 
-
-
-
-
-
-
-
-
-
 /*******************************************************************************/
 /*******************************************************************************/
 /***********************FILES FILES FILES FILES*********************************/
@@ -997,8 +988,8 @@ function setSpacesInText(nombre) {
 
 
 /**
- * Se mapean todos los archivos seleccionados, convirtiendolas a base64, y 
- * almacenandolos en el objeto mandado por referencia
+ * Se mapean el archivo seleccionado, conviertiendolo a base64 y almacenandolo
+ * en el objeto respectivo
  * @param {Boolean} unicoArchivo Indica si solo debe mapear 1 solo archivo o si son varios
  * @param {String} idInputFile Id del input tipo file a mapear
  * @param {Object} obj Objeto que contiene las listas a mapear
@@ -1033,8 +1024,8 @@ function procesarFile(unicoArchivo, idInputFile, obj) {
             /*Se le quita la extencion*/
             var nombreArchivo = ((file.name).split("."))[0];
 
-            /*Si la imagen que se agrego, es una que previamente se habia eliminado, 
-             * se elimina de la lista de imagenes a eliminar*/
+            /*Si el archivo que se agrego, es uno que previamente se habia eliminado, 
+             * se elimina de la lista de archivos a eliminar*/
             var posDeleted = obj.listFileNameDeleted.indexOf(nombreArchivo);
             /*Si se elimino previamente pero se vuelve a agregar*/
             if (posDeleted !== -1) {
@@ -1045,10 +1036,10 @@ function procesarFile(unicoArchivo, idInputFile, obj) {
 
             /*Se convierte el archivo seleccionado a BASE64 y se añade la 
              * codificacion a la lista correspondiente*/
-            base64(file, function (data, fileName, urlImage) {
+            base64(file, function (data, fileName, urlFile) {
                 obj.listFileBase64.push((data.base64 !== undefined) ? data.base64 : ""); // prints the base64 string                                                
                 obj.listFileName.push(fileName);
-                obj.listFileURL.push(urlImage);
+                obj.listFileURL.push(urlFile);
             }, cleanNameFile(nombreArchivo), window.URL.createObjectURL(file));
         }
     }
@@ -1074,7 +1065,7 @@ function organizarArchivoCargadoDesdeBD(name, obj) {
     nombreLimpio = nombreLimpio[nombreLimpio.length - 1];
     //nombreLimpio = setSpacesInText(nombreLimpio);
     if (nombreLimpio !== "") {
-        /*Se agregan a la lista de imagenes*/
+        /*Se agregan a la lista de archivos*/
         obj.listFileName.push(nombreLimpio);
         obj.listFileBase64.push('NotBase64');
         obj.listFileURL.push(((name).split("System/"))[1]);
@@ -1085,11 +1076,11 @@ function organizarArchivoCargadoDesdeBD(name, obj) {
 
 
 /**
- * Genera un icono que representa un archivo, y lo enlaca a el
+ * Genera un icono que representa un archivo, y lo enlaca a el para poderlo visualizar
  * @param {String} type Tipo del icono a mostrar (pdf, doc)
- * @param {String} url Ruta del archivo al cual se enlazara la imagen
- * @param {String} name Nombre del archivo que aparecera debajo de la imagen
- * @returns {String} Codigo html de la imagen que enlaza el archivo
+ * @param {String} url Ruta del archivo al cual se enlazara el archivo
+ * @param {String} name Nombre del archivo que aparecera debajo del archivo
+ * @returns {String} Codigo html del archivo que enlaza el archivo
  * @author Johnny Alexander Salazar
  * @version 0.1
  */
@@ -1141,6 +1132,19 @@ function addFileNameAndEncodingAndDeletedFiles(list, obj, prefix) {
 }
 
 
+
+
+/**
+ * Se agregan a la lista de archivos eliminados, todos estos elementos para
+ * eliminarlos en el servidor
+ * @param {Object} list Objeto que contiene la lista de datos adicionales
+ * @param {Object} obj Objeto que contiene la informacion de los archivos
+ * @param {String} prefix Nombre identificador que se le dara a cada uno de las 
+ * variables generadas
+ * @returns {Void} 
+ * @author Johnny Alexander Salazar
+ * @version 0.1
+ */
 function addAllFileNameDeleted(list, obj, prefix) {
     /*Se agregan los que se hayan eliminado temporalmente, para que 
      * elimine los archivos ya cargadas, como los quitados de forma temporal*/
@@ -1163,38 +1167,160 @@ function addAllFileNameDeleted(list, obj, prefix) {
 /*******************************************************************************/
 
 
-
+/**
+ * Almacena N elementos agregados en una lista, y los retorna en una lista donde
+ * su primera posicion contiene el nombre de como sera enviado al server
+ * @param {String} nameData Nombre que se le dara a la variable que sera enviada
+ * al servidor
+ * @param {Object} obj Cbjeto que contiene la lista de datos agregados dinamicamente
+ * @returns {Array} Array con los elementos agregados, donde su primera posicion contiene el elemento
+ * @author Johnny Alexander Salazar
+ * @version 0.3
+ */
 function prepareDinamicData(nameData, obj) {
-    /*Array de videos*/
-    var tempVideo = new Array();
+    /*Array de datos a agregar*/
+    var tempData = new Array();
     /*Nombre de la variable que llegara al server*/
-    tempVideo.push(nameData);
-    /*Por cada video agregado, se asocia al array*/
+    tempData.push(nameData);
+    /*Por cada dato agregado, se asocia al array*/
     for (var y = 0; y < obj.listElements.length; y++) {
-        tempVideo.push(obj.listElements[y]);
+        tempData.push(obj.listElements[y]);
     }
-    return tempVideo;
+    return tempData;
+}
+
+
+/**
+ * Almacena cada uno de los elementos devultos por el servidor en un objeto 
+ * destinado para tal fin, posteriormente los pinta, enlistadolos con todas 
+ * sus respectivas funcionalidades
+ * @param {Array} info Array de objetos devueltos por el servidor
+ * @param {Object} obj objeto donde se almacenara la informacion devuelta por
+ * el servidor, para tener acceso a ella en cualquier momento
+ * @param {String} idDiv Id del div donde se setearan los elementos
+ * @param {String} prefix Prefijo para la asignacion del ID de cada elemento 
+ * agregado en la GUI
+ * @returns {Void}
+ * @author Johnny Alexander Salazar
+ * @version 0.2
+ */
+function listDinamicData(info, obj, idDiv, prefix) {
+    /*Se agregan todos los datos a la lista, y se pintan*/
+    for (var x = 0; x < info.length; x++) {
+        obj.listElements.push(info[x].dinamic_data);
+    }
+
+    pintarDinamicData(idDiv, obj, prefix);
+}
+
+
+/**
+ * Recorre los datos almacenados, enlistandolos y tomando sus posiciones como 
+ * referentes para las acciones a realizar sobre ellos
+ * @param {String} idDiv Id del div donde se setearan los elementos
+ * @param {Object} obj objeto donde se almacenara la informacion devuelta por
+ * el servidor, para tener acceso a ella en cualquier momento 
+ * @param {String} prefix Prefijo para la asignacion del ID de cada elemento  
+ * @returns {void}
+ * @author Johnny Alexander Salazar
+ * @version 0.1
+ */
+function pintarDinamicData(idDiv, obj, prefix) {
+    var lblDataDinamic = "";
+    $("#" + idDiv).html("");
+    for (var y = 0; y < obj.listElements.length; y++) {
+        lblDataDinamic = lblDataDinamic + "<label class='seleccionable' id='" + prefix + y + "' onclick='deleteDinamicData(" + '"' + prefix + y + '","' + prefix + '",' + obj.name + ',"' + idDiv + '"' + ");'>(X)    " + obj.listElements[y] + "</label><br>";
+    }
+    $("#" + idDiv).html(lblDataDinamic);
 }
 
 
 
 
+/**
+ * Se almacenan todas las URL de textos agregados, almacenandolos en una lista 
+ * @param {String} idInput Id del input file donde se obtendra el archivo a agregar
+ * @param {Object} obj Objeto donde se almacenara el elemento agregado
+ * @param {String} idDiv Id del div donde se mostrara el elemento
+ * @returns {void}
+ * @author Johnny Alexander Salazar
+ * @version 0.1
+ */
+function addDinamicData(idInput, obj, idDiv) {
+    /*Se captura la URL*/
+    var dinamicDataFileURL = $("#" + idInput).val();
 
+    /*Si se ha agregado algun dato*/
+    if (dinamicDataFileURL !== "" && dinamicDataFileURL !== null) {
+        /*Se almacena el dato*/
+        obj.listElements.push(dinamicDataFileURL);
+        /*Se enlista el dato*/
+        pintarDinamicData(idDiv, obj, "Video");
+        /*Se limpia el campo del dato ingresado*/
+        $("#" + idInput).val("");
+        console.log(obj.listElements);
+    } else {
+
+    }
+}
+
+
+
+
+/**
+ * Se elimina un elemento listado a partir de su posicion
+ * @param {String} pos posicion del elemento  que se desea eliminar
+ * @param {String} prefix Prefijo del nombre del elemento a buscar para eliminar
+ * @param {Object} obj donde se tiene el elemento almacenado a eliminar
+ * @param {String} divId Id del div donde se debe repintar los elementos, sin 
+ * contener el elemento eliminado
+ * @returns {void}
+ * @author Johnny Alexander Salazar
+ * @version 0.1
+ */
+function deleteDinamicData(pos, prefix, obj, divId) {
+
+    /*Se obtiene la posicion del dato a eliminar*/
+    pos = (pos.split(prefix))[1];
+
+    if (pos !== -1) {
+        obj.listElements.splice(pos, 1);
+    }
+
+    /*Repinta los datos para actualizar sus posiciones*/
+    pintarDinamicData(divId, obj, prefix);
+}
 
 
 /*******************************************************************************/
 /*******************************************************************************/
-/***********************FILES FILES FILES FILES***************************/
+/***********************MULTIPLE FILES -- MULTIPLE FILES************************/
 /*******************************************************************************/
 
+
+/**
+ * Se listan diferentes archivos multiples en a 2 columnas
+ * @param {Array} info Lista de objetos devueltos por el servidor
+ * @param {Object} obj Objeto donde se almacenara la lista de archivos devueltos 
+ * por el servidor
+ * @param {String} idColumnOne Id del div referente a la primera columna donde se 
+ * pintara la informacion
+ * @param {String} idColumnTwo Id del div referente a la segunda columna donde se 
+ * pintara la informacion
+ * @param {String} typeFile Tipo de archivo que se pintara{"doc","pdf","image"}
+ * @returns {void}
+ * @author Johnny Alexander Salazar
+ * @version 0.1
+ */
 function listFilesTwoColumns(info, obj, idColumnOne, idColumnTwo, typeFile) {
 
-    var lblImagenes = "";
-    var lblImagenes2 = "";
+    /*Variables que representan el codigo HTML de ambas columnas*/
+    var lblFiles = "";
+    var lblFiles2 = "";
 
     if (info !== undefined && info !== "" && info !== null) {
         for (var x = 0; x < info.length; x++) {
-            organizarArchivoCargadoDesdeBD(info[x].ruta_imagen, obj);
+            organizarArchivoCargadoDesdeBD(info[x].url_file, obj);
         }
     }
 
@@ -1202,23 +1328,31 @@ function listFilesTwoColumns(info, obj, idColumnOne, idColumnTwo, typeFile) {
         /*Se arma la cadena,tomando como referencias el nombre del archivo sin 
          * espacios ni caracteres especiales*/
         if (y % 2 === 0) {
-            lblImagenes = lblImagenes + "<a target='_blank' href='" + obj.listFileURL[y] + "'><img  id='output_" + cleanNameFile(obj.listFileName[y]) + "' height='60' width='50'/></a><br>";
-            lblImagenes = lblImagenes + "<label class='seleccionable panel panel-default' id='" + obj.listFileName[y] + "' onclick='eliminarImagen(" + '"' + obj.listFileName[y] + '"' + ");'>(X)    " + obj.listFileName[y] + "</label><br>";
+            lblFiles = lblFiles + "<a target='_blank' href='" + obj.listFileURL[y] + "'><img  id='output_" + cleanNameFile(obj.listFileName[y]) + "' height='60' width='50'/></a><br>";
+            lblFiles = lblFiles + "<label class='seleccionable panel panel-default' id='" + obj.listFileName[y] + "' onclick='deleteMultipleFiles(" + '"' + obj.listFileName[y] + '",' + obj.name + ',"' + idColumnOne + '","' + idColumnTwo + '"' + ");'>(X)    " + obj.listFileName[y] + "</label><br>";
         } else {
-            lblImagenes2 = lblImagenes2 + "<a target='_blank' href='" + obj.listFileURL[y] + "'><img  id='output_" + cleanNameFile(obj.listFileName[y]) + "' height='60' width='50'/></a><br>";
-            lblImagenes2 = lblImagenes2 + "<label class='seleccionable panel panel-default' id='" + obj.listFileName[y] + "' onclick='eliminarImagen(" + '"' + obj.listFileName[y] + '"' + ");'>(X)    " + obj.listFileName[y] + "</label><br>";
+            lblFiles2 = lblFiles2 + "<a target='_blank' href='" + obj.listFileURL[y] + "'><img  id='output_" + cleanNameFile(obj.listFileName[y]) + "' height='60' width='50'/></a><br>";
+            lblFiles2 = lblFiles2 + "<label class='seleccionable panel panel-default' id='" + obj.listFileName[y] + "' onclick='deleteMultipleFiles(" + '"' + obj.listFileName[y] + '",' + obj.name + ',"' + idColumnOne + '","' + idColumnTwo + '"' + ");'>(X)    " + obj.listFileName[y] + "</label><br>";
         }
     }
 
-    /*Se añade la nueva imagen a la lista de imagenes disponibles*/
-    $("#" + idColumnOne).html(lblImagenes);
-    $("#" + idColumnTwo).html(lblImagenes2);
+    /*Se añade el nuevo archvio a la lista de archivos disponibles*/
+    $("#" + idColumnOne).html(lblFiles);
+    $("#" + idColumnTwo).html(lblFiles2);
     cargarMiniaturasFile(obj, typeFile);
 }
 
 
 
-
+/**
+ * Se pinta un icono por cada archivo cargado, o si es una imagen la miniatura de 
+ * esta
+ * @param {Object} obj Objeto que contiene los elementos a pintar su miniatura
+ * @param {String} typeFile Tipo de archivo en el cual se pintara su miniatura{"doc","pdf","image"} 
+ * @returns {void}
+ * @author Johnny Alexander Salazar
+ * @version 0.1
+ */
 function cargarMiniaturasFile(obj, typeFile) {
     for (var i = 0; i < obj.listFileURL.length; i++) {
         /*Se obtiene el archivo*/
@@ -1242,3 +1376,119 @@ function cargarMiniaturasFile(obj, typeFile) {
         }
     }
 }
+
+
+
+/**
+ * Se elimina un archivo a partir de su id, cuando este fue agregado junto a 
+ * multiples archivos
+ * @param {String} id id del archivo a eliminar, el cual es su nombre
+ * @param {Object} obj objeto donde se tienen almancenados los diferentes archivos agregados
+ * @param {String} idColumnOne id primera columna donde se repintadar los archivos 
+ * sin el eliminado
+ * @param {String} idColumnTwo id primera columna donde se repintadar los archivos
+ * sin el eliminado
+ * @returns {void}
+ * @author Johnny Alexander Salazar
+ * @version 0.1
+ */
+function deleteMultipleFiles(id, obj, idColumnOne, idColumnTwo) {
+    /*Se obtiene la posicion del archivo en la lista a partir de su nombre*/
+    var pos = obj.listFileName.indexOf(id);
+
+    /*Se agrega a la lista de nombres el nombre del archivo*/
+    obj.listFileNameDeleted.push(id);
+
+    /*Si la encuentra*/
+    if (pos !== -1) {
+        /*La elimina de las listas de los nombre sy las codificaciones*/
+        obj.listFileBase64.splice(pos, 1);
+        obj.listFileName.splice(pos, 1);
+        obj.listFileURL.splice(pos, 1);
+        /*Se limpia el nombre para poder eliminarlo del listado visual*/
+
+    }
+
+    listFilesTwoColumns('', obj, idColumnOne, idColumnTwo);
+}
+
+
+
+
+
+
+/**
+ * Se mapean todos los archivos seleccionadas, convirtiendolas a base64, y 
+ * almacenandolas en una lista
+ * @param {String} idInputFile id del input donde se seleccionaron los archivos
+ * @param {Object} obj objeto donde se almacenaran los diferentes archivos seleccionados
+ * @param {String} idColumnOne id primera columna donde se repintadar los archivos
+ * @param {String} idColumnTwo id primera columna donde se repintadar los archivos 
+ * @returns {void}
+ * @author Johnny Alexander Salazar
+ * @version 0.2
+ */
+function processMultipleFile(idInputFile, obj, idColumnOne, idColumnTwo) {
+
+    /*Cadena donde se almacenara los archivos que se listen, y representan 
+     * las 2 columnas*/
+    var lblFiles = "";
+    var lblFiles2 = "";
+
+    /*Se capturan todos los archivos seleccionadas*/
+    var files = $("#" + idInputFile)[0].files;
+
+    /*Por cada archivo, se añade a la cadena, se codifica a bas64 y se obtiene su 
+     * nombre para ser almacenados*/
+    for (var i = 0; i < files.length; i++) {
+
+        /*Se obtiene el archivo*/
+        var file = files[i];
+
+        /*Si se pudo obtener algun archivo*/
+        if (file !== undefined) {
+
+            var nombreArchivo = ((file.name).split("."))[0];
+
+            if (i % 2 === 0) {
+                /*Se arma la cadena,tomando como referencias el nombre del archivo sin 
+                 * espacios ni caracteres especiales*/
+                lblFiles = lblFiles + "<a target='_blank' href='" + window.URL.createObjectURL(file) + "'><img  id='output_" + cleanNameFile(nombreArchivo) + "' height='60' width='50'/></a><br>";
+                lblFiles = lblFiles + "<label class='seleccionable panel panel-default' id='" + cleanNameFile(nombreArchivo) + "' onclick='deleteMultipleFiles(" + '"' + cleanNameFile(nombreArchivo) + '",' + obj.name + ',"' + idColumnOne + '","' + idColumnTwo + '"' + ");'>(X)    " + setSpacesInText(nombreArchivo) + "</label><br>";
+                /*Se agrega a la lista de nombres el nombre del archivo*/
+            } else {
+                lblFiles2 = lblFiles2 + "<a target='_blank' href='" + window.URL.createObjectURL(file) + "'><img  id='output_" + cleanNameFile(nombreArchivo) + "' height='60' width='50'/></a><br>";
+                lblFiles2 = lblFiles2 + "<label class='seleccionable panel panel-default' id='" + cleanNameFile(nombreArchivo) + "' onclick='deleteMultipleFiles(" + '"' + cleanNameFile(nombreArchivo) + '",' + obj.name + ',"' + idColumnOne + '","' + idColumnTwo + '"' + ");'>(X)    " + setSpacesInText(nombreArchivo) + "</label><br>";
+            }
+
+            /*Si el archivo que se agrego, es una que previamente se habia eliminado, 
+             * se elimina de la lista de archivos a eliminar*/
+            var posDeleted = obj.listFileNameDeleted.indexOf(nombreArchivo);
+
+            /*Si se elimino previamente pero se vuelve a agregar*/
+            if (posDeleted !== -1) {
+                obj.listFileNameDeleted.splice(posDeleted, 1);
+                /*Se limpia el nombre para poder eliminarlo del listado visual*/
+            }
+
+            /*Se convierte el archivo seleccionado a BASE64 y se añade la codificacion 
+             * a la lista correspondiente*/
+
+            base64(file, function (data, fileName, urlFile) {
+                obj.listFileBase64.push((data.base64 !== undefined) ? data.base64 : ""); // prints the base64 string                                                
+                obj.listFileName.push(fileName);
+                obj.listFileURL.push(urlFile);
+                cargarMiniaturasFile(obj);
+            }, cleanNameFile(nombreArchivo), window.URL.createObjectURL(file));
+        }
+    }
+
+    /*Se añade el nuevo archivo a la lista de archivos disponibles*/
+    $("#" + idColumnOne).html($("#" + idColumnOne).html() + lblFiles);
+    $("#" + idColumnTwo).html($("#" + idColumnTwo).html() + lblFiles2);
+    console.log(obj.listFileBase64);
+
+}
+
+
+

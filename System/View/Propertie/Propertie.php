@@ -853,12 +853,14 @@ and open the template in the editor.
                             </div>                                                                                                                                     
                         </div>
 
+                        <hr />
+
                         <div class="row">
                             <br>
                             <div class="col-md-12">
                                 <label for="fileImagen">Imagenes del inmueble</label>
                                 <input type="file" accept=".JPEG,.PNG,.jpg"  id="fileImagen" name="urlImage" multiple 
-                                       onchange="procesarImagenes();"><br>                            
+                                       onchange="processMultipleFile('fileImagen', objFilePropertie, 'lstImagenesAgregadas', 'lstImagenesAgregadas2');"><br>                            
                             </div>
                         </div>
 
@@ -898,7 +900,7 @@ and open the template in the editor.
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <br>
-                                    <button id="btnAddVideo" onclick="agregarVideo();" type ="button" class="btn btn-primary">Agregar video</button>
+                                    <button id="btnAddVideo" onclick="addDinamicData('txtUrlVideo', objURLVideosPropertie, 'lstVideosAgregados');" type ="button" class="btn btn-primary">Agregar video</button>
                                 </div>
                             </div>
 

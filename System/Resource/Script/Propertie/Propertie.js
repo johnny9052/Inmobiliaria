@@ -1,4 +1,5 @@
 var objFilePropertie = {
+    name: 'objFilePropertie',
     listFileBase64: new Array(),
     listFileName: new Array(),
     listFileURL: new Array(),
@@ -7,6 +8,9 @@ var objFilePropertie = {
 
 
 var objURLVideosPropertie = {
+    /*Atributo con el mismo nombre del objeto, para poder pasarlo como referencia
+     * con innerHTML*/
+    name: 'objURLVideosPropertie',
     listElements: new Array()
 };
 
@@ -109,9 +113,6 @@ function loadClient() {
 function loadOutstandingType() {
     Execute(scanInfo('loadOutstandingType', false), 'General/CtlGeneral', '', 'buildSelect(info,"selOutstandingType");');
 }
-
-
-
 
 
 function save() {
@@ -332,201 +333,12 @@ function actualizarMucipioMapa() {
 
 
 
-
 function loadImagesPropertie(id) {
     Execute(scanInfo('loadImage', false, '', [{datos: ["id", id]}]), 'Propertie/CtlPropertie', '', 'listFilesTwoColumns(info,objFilePropertie,"lstImagenesAgregadas","lstImagenesAgregadas2");');
 }
 
-
-
-
-/**
- * Se mapean todas las imagenes seleccionadas, convirtiendolas a base64, y 
- * almacenandolas en una lista
- * @returns {void}
- * @author Johnny Alexander Salazar
- * @version 0.2
- */
-function procesarImagenes() {
-
-    /*Cadena donde se almacenara las imagenes que se listen*/
-    var lblImagenes = "";
-    var lblImagenes2 = "";
-
-    /*Se capturan todas las imagenes seleccionadas*/
-    var files = $("#fileImagen")[0].files;
-
-    /*Por cada imagen, se añade a la cadena, se codifica a bas64 y se obtiene su 
-     * nombre para ser almacenados*/
-    for (var i = 0; i < files.length; i++) {
-
-        /*Se obtiene el archivo*/
-        var file = files[i];
-
-        /*Si se pudo obtener algun archivo*/
-        if (file !== undefined) {
-
-            var nombreArchivo = ((file.name).split("."))[0];
-
-            if (i % 2 === 0) {
-                /*Se arma la cadena,tomando como referencias el nombre del archivo sin 
-                 * espacios ni caracteres especiales*/
-                lblImagenes = lblImagenes + "<img  id='output_" + cleanNameFile(nombreArchivo) + "' height='60' width='50'/><br>";
-                lblImagenes = lblImagenes + "<label class='seleccionable panel panel-default' id='" + cleanNameFile(nombreArchivo) + "' onclick='eliminarImagen(" + '"' + cleanNameFile(nombreArchivo) + '"' + ");'>(X)    " + setSpacesInText(nombreArchivo) + "</label><br>";
-
-                /*Se agrega a la lista de nombres el nombre del archivo*/
-            } else {
-                lblImagenes2 = lblImagenes2 + "<img  id='output_" + cleanNameFile(nombreArchivo) + "' height='60' width='50'/><br>";
-                lblImagenes2 = lblImagenes2 + "<label class='seleccionable panel panel-default' id='" + cleanNameFile(nombreArchivo) + "' onclick='eliminarImagen(" + '"' + cleanNameFile(nombreArchivo) + '"' + ");'>(X)    " + setSpacesInText(nombreArchivo) + "</label><br>";
-
-            }
-
-
-            /*Si la imagen que se agrego, es una que previamente se habia eliminado, 
-             * se elimina de la lista de imagenes a eliminar*/
-            var posDeleted = objFilePropertie.listFileNameDeleted.indexOf(nombreArchivo);
-
-            /*Si se elimino previamente pero se vuelve a agregar*/
-            if (posDeleted !== -1) {
-                objFilePropertie.listFileNameDeleted.splice(posDeleted, 1);
-                /*Se limpia el nombre para poder eliminarlo del listado visual*/
-            }
-
-            /*Se convierte la imagen seleccionada a BASE64 y se añade la codificacion 
-             * a la lista correspondiente*/
-
-            base64(file, function (data, fileName, urlImage) {
-                objFilePropertie.listFileBase64.push((data.base64 !== undefined) ? data.base64 : ""); // prints the base64 string                                                
-                objFilePropertie.listFileName.push(fileName);
-                objFilePropertie.listFileURL.push(urlImage);
-                cargarMiniaturasFile(objFilePropertie);
-            }, cleanNameFile(nombreArchivo), window.URL.createObjectURL(file));
-        }
-    }
-
-    /*Se añade la nueva imagen a la lista de imagenes disponibles*/
-    $("#lstImagenesAgregadas").html($("#lstImagenesAgregadas").html() + lblImagenes);
-    $("#lstImagenesAgregadas2").html($("#lstImagenesAgregadas2").html() + lblImagenes2);
-    console.log(objFilePropertie.listFileBase64);
-
-}
-
-
-
-
-
-
 function loadVideosPropertie(id) {
-    Execute(scanInfo('loadVideo', false, '', [{datos: ["id", id]}]), 'Propertie/CtlPropertie', '', 'listVideos(info);');
-}
-
-
-function listVideos(info) {
-    /*Se agregan todos los videos a la lista, y se pintan*/
-    for (var x = 0; x < info.length; x++) {
-        objURLVideosPropertie.listElements.push(info[x].ruta_video);
-    }
-
-    pintarVideos();
-}
-
-
-
-/**
- * Se almacenan todas las URL de videos agregados, almacenandolos en una lista 
- * @returns {void}
- * @author Johnny Alexander Salazar
- * @version 0.1
- */
-function agregarVideo() {
-    /*Se captura la URL*/
-    var videoFileURL = $("#txtUrlVideo").val();
-
-    /*Si se ha agregado algun video*/
-    if (videoFileURL !== "" && videoFileURL !== null) {
-        /*Se almacena el video*/
-        objURLVideosPropertie.listElements.push(videoFileURL);
-        /*Se enlista el video*/
-        pintarVideos();
-        /*Se limpia el campo del video ingresado*/
-        $("#txtUrlVideo").val("");
-        console.log(objURLVideosPropertie.listElements);
-    } else {
-
-    }
-}
-
-
-/**
- * Recorre los videos almacenados, enlistandolos y tomando sus posiciones como 
- * referentes
- * @returns {void}
- * @author Johnny Alexander Salazar
- * @version 0.1
- */
-function pintarVideos() {
-    var lblVideos = "";
-    $("#lstVideosAgregados").html("");
-    for (var y = 0; y < objURLVideosPropertie.listElements.length; y++) {
-        lblVideos = lblVideos + "<label class='seleccionable' id='Video" + y + "' onclick='eliminarVideo(" + '"Video' + y + '"' + ");'>(X)    " + objURLVideosPropertie.listElements[y] + "</label><br>";
-    }
-    $("#lstVideosAgregados").html(lblVideos);
-}
-
-
-
-
-
-
-/**
- * Se elimina un video a partir de su posicion
- * @param {String} pos posicion del video que se desea eliminar
- * @returns {void}
- * @author Johnny Alexander Salazar
- * @version 0.1
- */
-function eliminarVideo(pos) {
-    /*Se obtiene la posicion del video a eliminar*/
-    pos = (pos.split("Video"))[1];
-
-    if (pos !== -1) {
-        objURLVideosPropertie.listElements.splice(pos, 1);
-    }
-
-    /*Repinda los videos para actualizar sus posiciones*/
-    pintarVideos();
-
-}
-
-
-
-
-/**
- * Se elimina un video a partir de su id
- * @param {String} id id de la imagen a eliminar, el cual es su nombre sin 
- * caracteres especiales
- * @returns {void}
- * @author Johnny Alexander Salazar
- * @version 0.1
- */
-function eliminarImagen(id) {
-    /*Se obtiene la posicion de la imagen en la lista a partir de su nombre*/
-    var pos = objFilePropertie.listFileName.indexOf(id);
-
-    /*Se agrega a la lista de nombres el nombre del archivo*/
-    objFilePropertie.listFileNameDeleted.push(id);
-
-    /*Si la encuentra*/
-    if (pos !== -1) {
-        /*La elimina de las listas de los nombre sy las codificaciones*/
-        objFilePropertie.listFileBase64.splice(pos, 1);
-        objFilePropertie.listFileName.splice(pos, 1);
-        objFilePropertie.listFileURL.splice(pos, 1);
-        /*Se limpia el nombre para poder eliminarlo del listado visual*/
-
-    }
-   
-    listFilesTwoColumns('', objFilePropertie, "lstImagenesAgregadas", "lstImagenesAgregadas2");
+    Execute(scanInfo('loadVideo', false, '', [{datos: ["id", id]}]), 'Propertie/CtlPropertie', '', 'listDinamicData(info, objURLVideosPropertie,"lstVideosAgregados","Video");');
 }
 
 
