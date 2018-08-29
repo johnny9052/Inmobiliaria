@@ -11,20 +11,27 @@
         <!-- CSS  -->        
 
         <link href="Resources/public/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        
+
         <link href="Resources/public/css/album.css" rel="stylesheet" type="text/css"/>  
-        
+
         <link href="Resources/public/css/carousel.css" rel="stylesheet" type="text/css"/>
+
+        <link href="System/Resource/Style/General.css" rel="stylesheet" type="text/css"/>
+        <link href="System/Resource/Style/hexagono.css" rel="stylesheet" type="text/css"/>
+        
         
         <!-- Font Awesome <Esta es utilizada para los iconos de bootstrap> -->
-        <link href="Resources/public/css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-
+        <link href="Resources/public/css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>        
         <!--  Scripts-->
-        <script src="Resources/public/js/jquery/code.jquery.com_jquery-3.3.1.slim.min.js" type="text/javascript"></script>
-        <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>        
+<!--        <script src="Resources/public/js/jquery/code.jquery.com_jquery-3.3.1.slim.min.js" type="text/javascript"></script>-->
+        <script src="System/Resource/bower_components/jquery/dist/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>');</script>        
         <script src="Resources/public/js/bootstrap/vendor/popper.min.js" type="text/javascript"></script>        
         <script src="Resources/public/js/bootstrap/bootstrap.min.js" type="text/javascript"></script>        
         <script src="Resources/public/js/bootstrap/vendor/holder.min.js" type="text/javascript"></script>
+
+        <script src="System/Resource/Script/General/General.js" type="text/javascript"></script>
+
 
     </head>
     <body>
@@ -50,10 +57,10 @@
 
 
 
-       
 
-        
 
-     
+
+
+
     </body>
 </html>

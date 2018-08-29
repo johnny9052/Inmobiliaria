@@ -10,7 +10,7 @@ function save() {
 }
 
 function list() {
-    Execute(scanInfo('listfilter'), 'Configuration/CtlRol', '', 'buildPaginator(info);');
+    Execute(scanInfo('list'), 'Configuration/CtlRol', '', 'buildPaginator(info);');
 }
 
 

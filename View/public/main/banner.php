@@ -6,7 +6,7 @@
                 <strong>Inicio</strong>
             </a>
 
-            <a href="index.php?page=searchProperty" class="navbar-brand d-flex align-items-center">
+            <a href="index.php?page=searchPropertie" class="navbar-brand d-flex align-items-center">
                 <i class="fa fa-home">&nbsp</i> 
                 <strong>Buscar inmueble</strong>
             </a>

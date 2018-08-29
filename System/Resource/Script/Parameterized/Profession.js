@@ -18,7 +18,7 @@ function save() {
 }
 
 function list() {
-    Execute(scanInfo('listfilter'), 'Parameterized/CtlProfession', '', 'buildPaginator(info);');
+    Execute(scanInfo('list'), 'Parameterized/CtlProfession', '', 'buildPaginator(info);');
 }
 
 

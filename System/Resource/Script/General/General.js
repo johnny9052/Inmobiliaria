@@ -1,22 +1,28 @@
 $(document).ready(function () {
 
-    /*Configuraciones basicas del modal, no permite cerrar con click por fuera 
-     * del modal, y no se permite cerrarlo con la tecla escape*/
-    $.fn.modal.Constructor.DEFAULTS.backdrop = false;
-    $.fn.modal.Constructor.DEFAULTS.keyboard = false;
+    try {
+        /*Configuraciones basicas del modal, no permite cerrar con click por fuera 
+         * del modal, y no se permite cerrarlo con la tecla escape*/
+        $.fn.modal.Constructor.DEFAULTS.backdrop = false;
+        $.fn.modal.Constructor.DEFAULTS.keyboard = false;
+    } catch (exception) {
+        console.log("Error configurando los modales");
+    }
 
+    try {
+        /*Se inicializan los campos de fecha*/
+        $('.dateAction').datepicker({
+            autoclose: true
+        });
 
-    /*Se inicializan los campos de fecha*/
-    $('.dateAction').datepicker({
-        autoclose: true
-    });
-
-    //Se inicializa los campos de tipo hora Timepicker
-    $('.timepicker').timepicker({
-        showInputs: false,
-        showMeridian: false,
-    });
-
+        //Se inicializa los campos de tipo hora Timepicker
+        $('.timepicker').timepicker({
+            showInputs: false,
+            showMeridian: false
+        });
+    } catch (exception) {
+        console.log("Error configurando los inputs tipo fecha");
+    }
 
     // https://stackoverflow.com/questions/19639951/how-do-i-change-selected-value-of-select2-dropdown-with-jqgrid
     //$('.select2').select2();// Para colocar el select con autocompletado.     
@@ -130,14 +136,14 @@ function showLoadBar(status) {
  * @author Johnny Alexander Salazar
  * @version 0.4
  */
-function Execute(dataSend, url, before, success, idModalByError, msgNoAction) {
+function Execute(dataSend, url, before, success, idModalByError, msgNoAction, server) {
 
     console.log("INFO QUE SE ENVIA");
     console.log(dataSend);
 
     $.ajax({
         type: 'post',
-        url: "Controller/" + url + ".php",
+        url: ((server === undefined) ? "" : server) + "Controller/" + url + ".php",
         beforeSend: function () {
             showLoadBar(true);
             if (before !== "") {
@@ -825,6 +831,18 @@ function refreshPage(url) {
 
 
 /**
+ * Redirecciona a otro formulario del sistema publico
+ * @param {string} url : Ruta archivo a abrir
+ * @author Johnny Alexander Salazar
+ * @version 0.1
+ */
+function refreshPagePublic(url) {
+    window.location.href = "index.php?page=" + url;
+}
+
+
+
+/**
  * Valida si se ha realizado una busqueda previa, validando si el campo por defecto
  * se encuentra bien, o si se especifica por parametro el campo que se desea validar,
  * lo valida
@@ -1492,3 +1510,21 @@ function processMultipleFile(idInputFile, obj, idColumnOne, idColumnTwo) {
 
 
 
+
+
+
+function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName,
+            i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+}
+;

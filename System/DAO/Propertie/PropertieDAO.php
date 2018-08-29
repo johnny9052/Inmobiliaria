@@ -66,7 +66,7 @@ class PropertieDAO {
      * @author Johnny Alexander Salazar
      * @version 0.1
      */
-    public function ListAll(PropertieDTO $obj, $type) {
+    public function ListAll(PropertieDTO $obj) {
         $query = $this->repository->buildQuery("listpropertie", array((int) $obj->getIdUser()));
         $this->repository->BuildPaginatorDataTable($query, '');
     }
@@ -160,6 +160,19 @@ class PropertieDAO {
      */
     public function LoadImage(PropertieDTO $obj) {
         $query = $this->repository->buildQuery("listimagepropertie", array((int) $obj->getId()));
+        $this->repository->Execute($query);
+    }
+
+    /**
+     * Ejecuta un listar en la base de datos, pero sin organizarlo en una tabla
+     * @param PropertieDTO $obj
+     * @param intean $type indica si se quiere filtro o no 
+     * @return void      
+     * @author Johnny Alexander Salazar
+     * @version 0.1
+     */
+    public function ListAllNoTable(PropertieDTO $obj) {
+        $query = $this->repository->buildQuery("listpropertiepublic", array((int) $obj->getIdUser()));
         $this->repository->Execute($query);
     }
 

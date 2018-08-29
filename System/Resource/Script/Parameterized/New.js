@@ -34,7 +34,7 @@ function save() {
 }
 
 function list() {
-    Execute(scanInfo('listfilter'), 'Parameterized/CtlNew', '', 'buildPaginator(info);');
+    Execute(scanInfo('list'), 'Parameterized/CtlNew', '', 'buildPaginator(info);');
 }
 
 

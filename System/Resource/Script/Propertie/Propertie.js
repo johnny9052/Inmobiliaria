@@ -150,7 +150,7 @@ function save() {
 
 
 function list() {
-    Execute(scanInfo('listfilter'), 'Propertie/CtlPropertie', '', 'buildPaginator(info);');
+    Execute(scanInfo('list'), 'Propertie/CtlPropertie', '', 'buildPaginator(info);');
 }
 
 

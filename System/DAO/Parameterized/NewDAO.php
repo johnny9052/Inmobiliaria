@@ -44,7 +44,7 @@ class NewDAO {
     }
     
     
-     public function ListAllNoTable(NewDTO $obj, $type) {
+     public function ListAllNoTable(NewDTO $obj) {
         $query = $this->repository->buildQuery("listnoticia", array((int) $obj->getIdUser()));        
         $this->repository->Execute($query);
     }
