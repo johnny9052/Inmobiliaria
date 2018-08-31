@@ -141,7 +141,10 @@ class Repository extends Internationalization {
      * @author Johnny Alexander Salazar
      * @version 0.1
      */
-    public function ExecuteLoadPage($query) {
+    public function ExecuteLoadPage($query, $value = "") {
+        
+        
+        
 
         /* Le asigno la consulta SQL a la conexion de la base de datos */
         $resultado = $this->objCon->getConnect()->prepare($query);
@@ -153,9 +156,15 @@ class Repository extends Internationalization {
             $vec = $resultado->fetchAll(PDO::FETCH_ASSOC);
         }
 
+        
         if (isset($vec)) {
             $_SESSION["Page"] = $vec[0]['codigo'];
-            header('location: ../../index.php');
+
+            if ($value !== "") {
+                $value = "?idFilter=" . $value;
+            }
+
+            header('location: ../../index.php' . $value);
         } else {
             $_SESSION["Page"] = "View/Home/Home";
             header('location: ../../index.php');

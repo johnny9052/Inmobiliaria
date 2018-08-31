@@ -28,17 +28,14 @@ function ExecuteAction($action, $obj, $dao) {
             break;
 
         case "list":
-            $dao->ListAll($obj, false);
+            $dao->ListAll($obj);
             break;
 
         case "listNoTable":
-            $dao->ListAllNoTable($obj, false);
+            $dao->ListAllNoTable($obj);
             break;
-
-        case "listfilter":
-            $dao->ListAll($obj, true);
-            break;
-
+        
+     
         case "GeneratePDF":
             $dao->GeneratePDF($obj);
             break;

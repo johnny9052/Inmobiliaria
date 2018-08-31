@@ -25,8 +25,8 @@ class ContentDAO {
      * @version 0.1
      */
     public function ValidatePage(ContentDTO $obj) {
-        $query = $this->repository->buildQuery("loadapage", array((string) $obj->getPage(), (string) $obj->getIdRol()));        
-        $this->repository->ExecuteLoadPage($query);
+        $query = $this->repository->buildQuery("loadapage", array((string) $obj->getPage(), (string) $obj->getIdRol()));                               
+        $this->repository->ExecuteLoadPage($query, $obj->getIdfilter());
     }
 
 }

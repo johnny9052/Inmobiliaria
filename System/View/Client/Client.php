@@ -85,6 +85,10 @@ and open the template in the editor.
                 <div class="modal-content">
                     <div class="modal-header">                       
                         <h4 class="modal-title">Gestion registro</h4>
+                        <div class="updateActionButton">
+                            <button onclick="redirectInfoFilter('Propertie/Propertie')" type="button" 
+                                    class="btn btn-default pull-left">Inmuebles</button>
+                        </div>
                     </div>
 
                     <div class="modal-body" id="FormContainer">
@@ -482,18 +486,6 @@ and open the template in the editor.
 
 
         <!-- END MODAL DE CONFIRMACION-->
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     </body>

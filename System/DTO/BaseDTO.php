@@ -15,6 +15,7 @@ abstract class BaseDTO {
 
     protected $IdUser;
     protected $IdRol;
+    protected $idfilter;
 
     function getIdUser() {
         return $this->IdUser;
@@ -23,7 +24,7 @@ abstract class BaseDTO {
     function setIdUser($IdUser) {
         $this->IdUser = $IdUser;
     }
-    
+
     function getIdRol() {
         return $this->IdRol;
     }
@@ -32,7 +33,12 @@ abstract class BaseDTO {
         $this->IdRol = $IdRol;
     }
 
+    function getIdfilter() {
+        return $this->idfilter;
+    }
 
-    
+    function setIdfilter($idfilter) {
+        $this->idfilter = $idfilter;
+    }
 
 }

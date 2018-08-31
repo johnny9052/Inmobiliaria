@@ -20,7 +20,9 @@ var objURLVideosPropertie = {
 /* global markersListGlobal, google, URL */
 
 $(window).on("load", function (e) {
-    list();
+    /*Se obtiene un posible filtro de busqueda, si es que existe*/
+    var id = getUrlParameter('idFilter');
+    list(id);
     loadDepartment();
     loadCity(-1);
     loadNeighborhood(-1);
@@ -149,8 +151,15 @@ function save() {
 }
 
 
-function list() {
-    Execute(scanInfo('listfilter'), 'Propertie/CtlPropertie', '', 'buildPaginator(info);');
+function list(id) {
+
+    /*Se agrega un posible filtro del listado*/
+    var infoPlus = {
+        temp: new Array()
+    };
+    infoPlus.temp.push({datos: ["idFilter", id]});
+
+    Execute(scanInfo('list', false, '', infoPlus.temp), 'Propertie/CtlPropertie', '', 'buildPaginator(info);');
 }
 
 
@@ -347,4 +356,7 @@ function limpiarMultimedia() {
     $("#lstImagenesAgregadas2").html("");
     $("#fileImagen").val('');
 }
+
+
+
 
