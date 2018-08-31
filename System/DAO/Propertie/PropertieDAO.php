@@ -67,7 +67,7 @@ class PropertieDAO {
      * @version 0.1
      */
     public function ListAll(PropertieDTO $obj) {
-        $query = $this->repository->buildQuery("listpropertie", array((int) $obj->getIdUser()));
+        $query = $this->repository->buildQuery("listpropertie", array((int) $obj->getIdfilter()));
         $this->repository->BuildPaginatorDataTable($query, '');
     }
 

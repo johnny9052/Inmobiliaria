@@ -1,3 +1,4 @@
+
 DROP PROCEDURE IF EXISTS searchpropertie;
 
 DELIMITER //
@@ -58,9 +59,36 @@ BEGIN
                inm.zonaMascotas as zona_mascotas,
                inm.parqueaderoCubierto as parqueadero_cubierto,
                inm.amoblado as amoblado,
-               ciu.`Departamentos_idDepartamento` as id_departamento
+               ciu.`Departamentos_idDepartamento` as id_departamento,
+               dep.`nombreDepartamento` as nombre_departamento,
+               ciu.`nombreCiudad` as nombre_ciudad,
+               bar.`nombreBarrio` as nombre_barrio,
+               estr.`nombreEstrato` as nombre_estrato,
+               tipinm.`nombreTipoInmueble` as nombre_tipo_inmueble,
+               tipofer.`nombreTipoOferta` as nombre_tipo_oferta,
+               tipcort.`nombreTipoCortina` as nombre_tipo_cortina,
+               tipvig.`nombreTipoVigilancia` as nombre_tipo_vigilancia,
+               zon.`nombreZona` as nombre_zona,
+               tipvist.`nombreTipoVista` as nombre_tipo_vista,
+               tipcoc.`nombreTipoCocina` as nombre_tipo_cocina,
+               estcoc.`nombreEstructuraCocina` as nombre_estructura_cocina,
+               tipis.`nombreTipoPiso` as nombre_tipo_piso,
+               tipdest.`nombreDestacado` as nombre_tipo_destacado               
 	FROM inmuebles as inm
         inner join ciudades as ciu on inm.ciudades_idciudad = ciu.idciudad
+        inner join departamentos as dep on ciu.`Departamentos_idDepartamento` = dep.`idDepartamento`
+        inner join barrios as bar on bar.`idCiudad` = ciu.idciudad
+        inner join estratos as estr on estr.idestrato = inm.estratos_idestrato
+        inner join tiposinmuebles as tipinm on tipinm.`idtipoInmueble` = inm.`tiposInmuebles_idtipoInmueble`
+        inner join tiposofertas as tipofer on tipofer.`idtipoOferta` = inm.`tiposOfertas_idtipoOferta`
+        inner join tiposcortinas as tipcort on tipcort.`idtipoCortina` = inm.`tiposCortinas_idtipoCortina`
+        inner join tiposvigilancias as tipvig on tipvig.`idtipoVigilancia` = inm.`tiposVigilancias_idtipoVigilancia`
+        inner join zonas as zon on zon.idzona = inm.zonas_idzona
+        inner join tiposvistas as tipvist on tipvist.`idtipoVista` = inm.`tiposVistas_idtipoVista`
+        inner join tiposcocinas as tipcoc on tipcoc.`idtipoCocina` = inm.`tiposCocinas_idtipoCocina`
+        inner join estructurascocinas as estcoc on estcoc.`idestructuraCocina` = inm.`estructurasCocinas_idestructuraCocina`
+        inner join tipospisos as tipis on tipis.`idtipoPiso` = inm.`tiposPisos_idtipoPiso`
+        inner join tiposdestacados as tipdest on tipdest.`idtipoDestacado` = inm.`tiposDestacados_idtipoDestacado`        
 	where idinmueble = vid;	
 	
 END//

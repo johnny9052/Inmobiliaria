@@ -821,22 +821,31 @@ function showButton(status) {
 /**
  * Redirecciona a otro formulario del sistema
  * @param {string} url : Ruta archivo a abrir
+ * @param {string} value : Valor a enviar
  * @author Johnny Alexander Salazar
  * @version 0.1
  */
-function refreshPage(url) {
-    window.location.href = "Helper/Content/Content.php?page=" + url;
+function refreshPage(url, value) {
+
+    var data = "";
+
+    if (value !== "" && value !== undefined) {
+        data += "&&idFilter=" + value;
+    }
+   
+    window.location.href = "Helper/Content/Content.php?page=" + url + data;
 }
 
 
 
 /**
  * Redirecciona a otro formulario del sistema publico
- * @param {string} url : Ruta archivo a abrir
+ * @param {string} url : Ruta archivo a abrir 
  * @author Johnny Alexander Salazar
  * @version 0.1
  */
 function refreshPagePublic(url) {
+
     window.location.href = "index.php?page=" + url;
 }
 
@@ -1512,7 +1521,13 @@ function processMultipleFile(idInputFile, obj, idColumnOne, idColumnTwo) {
 
 
 
-
+/**
+ * Returna una variable por get
+ * @param {String} sParam Nombre del parametro get
+ * @returns {String}
+ * @author Johnny Alexander Salazar
+ * @version 0.1
+ */
 function getUrlParameter(sParam) {
     var sPageURL = decodeURIComponent(window.location.search.substring(1)),
             sURLVariables = sPageURL.split('&'),
@@ -1527,4 +1542,18 @@ function getUrlParameter(sParam) {
         }
     }
 }
-;
+
+
+
+/**
+ * Redirecciona a otra pagina del sistema interno, enviando una variable de 
+ * filtro para filtrar la informacion del formulario destino
+ * @param {String} page Ruta de la pagina a cargar
+ * @returns {String}
+ * @author Johnny Alexander Salazar
+ * @version 0.1
+ */
+function redirectInfoFilter(page) {
+    var id = $("#txtId").val();
+    refreshPage(page, id);
+}

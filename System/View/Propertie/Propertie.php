@@ -92,7 +92,7 @@ and open the template in the editor.
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">                       
-                        <h4 class="modal-title">Gestion registro</h4>
+                        <h4 class="modal-title">Gestion registro</h4>                        
                     </div>
 
                     <div class="modal-body" id="FormContainer">

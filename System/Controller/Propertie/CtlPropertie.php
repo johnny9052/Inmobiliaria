@@ -64,6 +64,10 @@ $avaluoCatastral = getInfo('avaluoCatastral');
 $latitude = getInfo('lat');
 $longitude = getInfo('lng');
 
+/*Filtros del listado*/
+$idFilter = getInfo('idFilter');
+/*END Filtros del listado*/
+
 $publicationDate = date("Y-m-d", strtotime($publicationDate));
 $receptionDate = date("Y-m-d", strtotime($receptionDate));
 
@@ -75,7 +79,7 @@ deleteFiles('', '../../', 'System/', 'Resource/Images/Properties/', 100, $matric
 $images = generateFiles('', '../../', 'System/', 'Resource/Images/Properties/', 100, $matriculaInmobiliaria, '.jpg', false);
 
 /* DEFINICION DE OBJETOS */
-$obj = new PropertieDTO($id, $precio, $administrationCost, $room, $bath, $parking, $totalArea, $areasWithoutBalconies, $buildYear, $numeroPiso, $chimenea, $estudio, $deposito, $zonaRopas, $parqueaderoVisitante, $ascensor, $terraza, $transportePublicoCercano, $salonComunal, $sauna, $turco, $jacuzzi, $zonaInfantil, $jardines, $duplex, $puertaSeguridad, $gimnasio, $precioNegociable, $piscina, $zonaMascotas, $parqueaderoCubierto, $amoblado, $city, $barrio, $estrato, $propertieType, $offerType, $curtainType, $vigilanceType, $zone, $viewType, $status, $kitchenType, $kitchenStructure, $floorType, $client, $publicationDate, $receptionDate, $outstandingType, $linderos, $matriculaInmobiliaria, $avaluoCatastral, $latitude, $longitude, $images, $urlVideos);
+$obj = new PropertieDTO($id, $precio, $administrationCost, $room, $bath, $parking, $totalArea, $areasWithoutBalconies, $buildYear, $numeroPiso, $chimenea, $estudio, $deposito, $zonaRopas, $parqueaderoVisitante, $ascensor, $terraza, $transportePublicoCercano, $salonComunal, $sauna, $turco, $jacuzzi, $zonaInfantil, $jardines, $duplex, $puertaSeguridad, $gimnasio, $precioNegociable, $piscina, $zonaMascotas, $parqueaderoCubierto, $amoblado, $city, $barrio, $estrato, $propertieType, $offerType, $curtainType, $vigilanceType, $zone, $viewType, $status, $kitchenType, $kitchenStructure, $floorType, $client, $publicationDate, $receptionDate, $outstandingType, $linderos, $matriculaInmobiliaria, $avaluoCatastral, $latitude, $longitude, $images, $urlVideos, $idFilter);
 $dao = new PropertieDAO();
 
 /* CONTROL DE ACCIONES */

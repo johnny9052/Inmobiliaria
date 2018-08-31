@@ -3,7 +3,7 @@ DROP PROCEDURE IF EXISTS listpropertie;
 
 
 DELIMITER //
-CREATE PROCEDURE listpropertie(iduser int)
+CREATE PROCEDURE listpropertie(idfilter int)
 COMMENT 'Procedimiento que lista los inmuebles'
 BEGIN
    select inm.idinmueble as id, inm.`matriculaInmobiliaria` as matricula, tip_inm.`nombreTipoInmueble` as tipo,
@@ -14,6 +14,8 @@ BEGIN
         inner join tiposofertas as tip_ofer on inm.`tiposOfertas_idtipoOferta` = tip_ofer.`idtipoOferta` 
         inner join ciudades as ciud on inm.ciudades_idciudad = ciud.idciudad 
         inner join zonas as zon on inm.zonas_idzona = zon.idzona
+   --https://stackoverflow.com/questions/14614573/using-case-in-the-where-clause
+   where (case when idfilter>0 then inm.`clientes_cedulaCliente` = idfilter ELSE TRUE END )
 
    order by inm.`fechaRecepcion`;
 END//
