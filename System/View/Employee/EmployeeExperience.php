@@ -100,6 +100,8 @@ and open the template in the editor.
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
+                                    <label for="" class="fa fa-user-circle"></label>
+                                    &nbsp;&nbsp;
                                     <label>Empleado</label>
                                     <select id="selEmployee" name="employee" required class="form-control select2" style="width: 100%;">
                                         <option value="-1" selected> -- SELECCIONE --</option>                            
@@ -148,6 +150,8 @@ and open the template in the editor.
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
+                                    <label for="" class="fa fa-briefcase"></label>
+                                    &nbsp;&nbsp;
                                     <label>Cargo</label>
                                     <select id="selPosition" name="position" required class="form-control select2" style="width: 100%;">
                                         <option value="-1" selected> -- SELECCIONE --</option>                            
@@ -159,6 +163,8 @@ and open the template in the editor.
                         <div class="row">
                             <br>
                             <div class="col-md-6">
+                                <label for="" class="fa fa-paperclip"></label>
+                                    &nbsp;&nbsp;
                                 <label for="fileWorkCertificate">Certificado Laboral</label>
                                 <input type="file" accept=".PDF,.pdf"  id="fileWorkCertificate" name="urlWorkCertificate" multiple 
                                        onchange="procesarFile(true, 'fileWorkCertificate', objfileWorkCertificate);">
@@ -184,7 +190,7 @@ and open the template in the editor.
 
                     <div class="modal-footer">
 
-                        <button onclick="closeWindow();" type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
+                        <button onclick="limpiarMultimedia();closeWindow();" type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
 
                         <div class="newActionButton">                            
                             <button id="btnSave" onclick="save();" type ="button" class="btn btn-primary">Guardar</button>

@@ -38,7 +38,7 @@ class EmployeeDAO {
             (int) $obj->getPensionFund(), (int) $obj->getSeveranceFund(),
             (int) $obj->getArl(), (int) $obj->getEps(),
             (int) $obj->getCompensationBox(), (int) $obj->getDisability(),
-            (string) implode(",", $obj->getImageEmployee()) . ',', (string) $obj->getContacName(),
+            (string) $obj->getImageEmployee(), (string) $obj->getContactName(),
             (string) $obj->getContactPhone(), (string) $obj->getContactEmail()  
         ));
         $this->repository->ExecuteTransaction($query);
@@ -91,7 +91,7 @@ class EmployeeDAO {
             (int) $obj->getPensionFund(), (int) $obj->getSeveranceFund(),
             (int) $obj->getArl(), (int) $obj->getEps(),
             (int) $obj->getCompensationBox(), (int) $obj->getDisability(),
-            (string) implode(",", $obj->getImageEmployee()) . ',', (string) $obj->getContacName(),
+            (string) $obj->getImageEmployee(), (string) $obj->getContactName(),
             (string) $obj->getContactPhone(), (string) $obj->getContactEmail()));
         $this->repository->ExecuteTransaction($query);
     }

@@ -13,7 +13,6 @@ $employee = getInfo('employee');
 $companyName = getInfo('companyName');
 $admissionDate = getInfo('admissionDate');
 $departureDate = getInfo('departureDate');
-$urlWorkCertificate = getInfo('urlWorkCertificate');
 $position = getInfo('position');
 
 

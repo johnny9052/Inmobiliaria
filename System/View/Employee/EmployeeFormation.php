@@ -100,6 +100,8 @@ and open the template in the editor.
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
+                                    <label for="" class="fa fa-user-circle"></label>
+                                    &nbsp;&nbsp;
                                     <label>Empleado</label>
                                     <select id="selEmployee" name="employee" required class="form-control select2" style="width: 100%;">
                                         <option value="-1" selected> -- SELECCIONE --</option>                            
@@ -122,6 +124,8 @@ and open the template in the editor.
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
+                                    <label for="" class="fa fa-book"></label>
+                                    &nbsp;&nbsp;
                                     <label>Nivel educativo</label>
                                     <select id="selProfessionNivel" name="professionNivel" 
                                             class="form-control select2" style="width: 100%;" 
@@ -132,6 +136,8 @@ and open the template in the editor.
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
+                                    <label for="" class="fa fa-black-tie"></label>
+                                    &nbsp;&nbsp;
                                     <label>Título</label>
                                     <select id="selProfession" name="profession" required class="form-control select2" style="width: 100%;">
                                         <option value="-1" selected> -- SELECCIONE --</option>                            
@@ -143,6 +149,8 @@ and open the template in the editor.
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
+                                    <label for="" class="fa fa-calendar-o"></label>
+                                    &nbsp;&nbsp;
                                     <label>Periodicidad</label>
                                     <select id="selPeriodicity" name="periodicity" required class="form-control select2" style="width: 100%;">
                                         <option value="-1" selected> -- SELECCIONE --</option>                            
@@ -153,7 +161,7 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <input type="checkbox" id="chkGraduate" name="graduate"/>
                                     &nbsp;&nbsp;
-                                    <label for="chkGraduate" class="fa fa-wheelchair-alt"></label>                                    
+                                    <label for="chkGraduate" class="fa fa-graduation-cap"></label>                                    
                                     <label for="chkGraduate">Graduado</label>
                                 </div>
                             </div>
@@ -162,6 +170,8 @@ and open the template in the editor.
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
+                                    <label for="" class="fa fa-check-circle"></label>
+                                    &nbsp;&nbsp;
                                     <label for="txtLevel">Nivel alcanzado</label>                                    
                                     <input id="txtLevel" name="level" class="form-control" type="number" value="" autocomplete="off"
                                            placeholder="Nivel alcanzado">
@@ -172,13 +182,15 @@ and open the template in the editor.
                         <div class="row">
                             <br>
                             <div class="col-md-6">
-                                <label for="fileIdentification">Diploma, Acta o Certificado</label>
-                                <input type="file" accept=".PDF,.pdf"  id="fileEducationCertificate" name="urlEducationCertificate" multiple 
-                                       onchange="procesarArchivo();"><br>                            
+                                <label for="" class="fa fa-paperclip"></label>
+                                &nbsp;&nbsp;
+                                <label for="fileFormation">Diploma, Acta o Certificado</label>
+                                <input type="file" accept=".PDF,.pdf"  id="fileFormation" name="urlfileFormation" multiple 
+                                       onchange="procesarFile(true, 'fileFormation', objFileFormation);">
                             </div>
-                            <div class="col-md-6" id="lstArchivoAgregado">
+                            <div class="col-md-6 panel panel-default" id="lstArchivoAgregado" style="text-align: center; margin: 10px; padding: 10px;">                                
 
-                            </div>
+                            </div> 
                         </div>
 
 
@@ -198,7 +210,7 @@ and open the template in the editor.
 
                     <div class="modal-footer">
 
-                        <button onclick="closeWindow();" type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
+                        <button onclick="limpiarMultimedia();closeWindow();" type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
 
                         <div class="newActionButton">                            
                             <button id="btnSave" onclick="save();" type ="button" class="btn btn-primary">Guardar</button>

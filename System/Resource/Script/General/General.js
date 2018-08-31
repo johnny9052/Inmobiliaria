@@ -1095,6 +1095,10 @@ function imageDownloadFile(type, url, name) {
         case "doc":
             iconFile = "Resource/IconPlatform/doc.png";
             break;
+        case "jpg":
+            iconFile = "Resource/IconPlatform/jpg.png";
+            break;
+            
     }
 
     var img = "<a target='_blank' href='" + url + "'>\n\

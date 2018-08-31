@@ -30,14 +30,12 @@ $expeditionDate = getInfo('expeditionDate');
 $cityBirth = getInfo('cityBirth');
 $militaryCard = getInfo('militaryCard');
 $bloodType = getInfo('bloodType');
-$fileMilitaryCard = getInfo('urlFileMilitaryCard');
 $pensionFund = getInfo('pensionFund');
 $severanceFund = getInfo('severanceFund');
 $arl = getInfo('arl');
 $eps = getInfo('eps');
 $compensationBox = getInfo('compensationBox');
 $disability = getInfo('disability');
-$imageEmployee = getInfo('urlImage');
 $contactName = getInfo('contactName');
 $contactPhone = getInfo('contactPhone');
 $contactEmail = getInfo('contactEmail');
@@ -45,15 +43,18 @@ $contactEmail = getInfo('contactEmail');
 
 $birthdate = date("Y-m-d", strtotime($birthdate));
 
-
 /* Se borran todas las imagenes que se tengan que eliminar */
-//deleteFiles('nameFileDelete', '../../', 'System/', 'Resource/Images/Properties/', 100, $matriculaInmobiliaria, false, '.jpg');
-
-
+deleteFiles('EmployeeIdentification', '../../', 'System/', 'Resource/Files/Employees/Identification/', 1, $documentNumber, false, '.pdf');
 /* Se crean las imagenes que se tengan que crear */
-$fileIdentification = generateFiles('../../', 'System/', 'Resource/Files/Employees/', 1, 'nameFileDelete', 'nameFile', 'base64File', $documentNumber, '.pdf', false);
+$fileIdentification= generateFiles('EmployeeIdentification', '../../', 'System/', 'Resource/Files/Employees/Identification/', 1, $documentNumber, '.pdf', false);
 
+deleteFiles('EmployeeMilitaryCard', '../../', 'System/', 'Resource/Files/Employees/MilitaryCard/', 1, $documentNumber, false, '.pdf');
+/* Se crean las imagenes que se tengan que crear */
+$fileMilitaryCard = generateFiles('EmployeeMilitaryCard', '../../', 'System/', 'Resource/Files/Employees/MilitaryCard/', 1, $documentNumber, '.pdf', false);
 
+deleteFiles('EmployeeImage', '../../', 'System/', 'Resource/Files/Employees/Images/', 1, $documentNumber, false, '.jpg');
+/* Se crean las imagenes que se tengan que crear */
+$imageEmployee = generateFiles('EmployeeImage', '../../', 'System/', 'Resource/Files/Employees/Images/', 1, $documentNumber, '.jpg', false);
 
 /* DEFINICION DE OBJETOS */
 $obj = new EmployeeDTO($id, $firstName, $secondName, $firstLastName, $secondLastName, $documentNumber, $expeditionDate, $birthdate, $address, $homePhone, $mobilePhone, $email, $gender, $typeEmployee, $cityResidence, $profession, $maritalStatus, $cityExpedition, $fileIdentification, $cityBirth, $militaryCard, $bloodType, $fileMilitaryCard, $pensionFund, $severanceFund, $arl, $eps, $compensationBox, $disability, $imageEmployee, $contactName, $contactPhone, $contactEmail);

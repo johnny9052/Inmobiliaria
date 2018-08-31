@@ -196,7 +196,7 @@ class EmployeeDTO extends BaseDTO {
         return $this->imageEmployee;
     }
 
-    function getContacName() {
+    function getContactName() {
         return $this->contactName;
     }
 
@@ -328,7 +328,7 @@ class EmployeeDTO extends BaseDTO {
         $this->imageEmployee = $imageEmployee;
     }
 
-    function setContacName($contacName) {
+    function setContactName($contacName) {
         $this->contactName = $contacName;
     }
 

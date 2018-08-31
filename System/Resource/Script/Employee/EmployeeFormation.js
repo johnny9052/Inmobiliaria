@@ -1,6 +1,9 @@
-var listFileCertificate = new Array();
-var listFileNameCertificate = new Array();
-var listFileURLCertificate = new Array();
+var objFileFormation = {
+    listFileBase64: new Array(),
+    listFileName: new Array(),
+    listFileURL: new Array(),
+    listFileNameDeleted: new Array()
+};
 
 /* Funciones jQuery */
 $(window).on("load", function (e) {
@@ -34,16 +37,19 @@ function loadPosition() {
 
 function save() {
     if (validateForm() === true) {
+        
+        /*Se define el array de datos adicionales como un objeto, debido a que 
+         * es necesario pasarlo por referencia para el llenado de los archivos*/
+        var infoPlus = {
+            temp: new Array()
+        };
 
-        var temp = new Array();
+        /*Se manda por referencia el objeto de la info adicional donde se añadiran 
+         * los archivos, junto el el objeto que tiene la informacion real de
+         * todos los archivos*/
+        addFileNameAndEncodingAndDeletedFiles(infoPlus, objFileFormation, 'Formation');
 
-        for (var x = 0; x < listFileCertificate.length; x++) {
-
-            temp.push({datos: ["nameFile" + x, listFileNameCertificate[x]]});
-            temp.push({datos: ["base64File" + x, listFileCertificate[x]]});
-        }
-
-        Execute(scanInfo('save', true), 'Employee/CtlEmployeeFormation', '', 'closeWindow();list();');
+        Execute(scanInfo('save', true, '', infoPlus.temp), 'Employee/CtlEmployeeFormation', '', 'closeWindow();list();limpiarMultimedia();', '', 'Ha superado el tamaño maximo de las imagenes');
     }
 }
 
@@ -68,6 +74,14 @@ function showData(info) {
     refreshSelect("selPeriodicity", info[0].periodicidad);
     refreshSelect("selProfessionNivel", info[0].idnivel_Profesion);
     refreshCheckbox("chkGraduate", info[0].graduado);
+    
+    /*Se organiza el archivo cargado desde la base de datos, estableciendo su codificacion
+     * y todas sus caracteristicas*/
+    var nombreArchivoFormacion = organizarArchivoCargadoDesdeBD(info[0].certificado, objFileFormation);
+
+    $("#lstArchivoAgregado").html(imageDownloadFile("pdf", objFileFormation.listFileURL[objFileFormation.listFileName.indexOf(nombreArchivoFormacion)], nombreArchivoFormacion));
+    
+    
     openWindow();
     showButton(false);
 }
@@ -75,88 +89,47 @@ function showData(info) {
 
 function update() {
     if (validateForm() === true) {
-        Execute(scanInfo('update', true), 'Employee/CtlEmployeeFormation', '', 'closeWindow();list();');
+        
+        /*Se define el array de datos adicionales como un objeto, debido a que 
+         * es necesario pasarlo por referencia para el llenado de los archivos*/
+        var infoPlus = {
+            temp: new Array()
+        };
+
+        /*Se manda por referencia el objeto de la info adicional donde se añadiran 
+         * los archivos, junto el el objeto que tiene la informacion real de
+         * todos los archivos*/
+        addFileNameAndEncodingAndDeletedFiles(infoPlus, objFileFormation, 'Formation');
+
+        Execute(scanInfo('update', true, '', infoPlus.temp), 'Employee/CtlEmployeeFormation', '', 'closeWindow();list();');
     }
 }
 
 
 function deleteInfo() {
-    Execute(scanInfo('delete', true), 'Employee/CtlEmployeeFormation', '', 'closeWindow("ModalConfirm");list();cleanForm("ModalNew");');
+    /*Se define el array de datos adicionales como un objeto, debido a que 
+     * es necesario pasarlo por referencia para el llenado de los archivos*/
+    var infoPlus = {
+        temp: new Array()
+    };
+
+    /*Se manda por referencia el objeto de la info adicional donde se añadiran 
+     * los archivos, junto el el objeto que tiene la informacion real de
+     * todos los archivos*/
+    addAllFileNameDeleted(infoPlus, objFileFormation, 'Formation');
+
+    Execute(scanInfo('delete', true, '', infoPlus.temp), 'Employee/CtlEmployeeFormation', '', 'closeWindow("ModalConfirm");list();cleanForm("ModalNew");limpiarMultimedia();');
 }
 
-function procesarArchivo2() {
-
-
-    /*Se capturan todas las imagenes seleccionadas*/
-    var files = $("#fileCertificate")[0].files;
-
-    /*Por cada imagen, se añade a la cadena, se codifica a bas64 y se obtiene su 
-     * nombre para ser almacenados*/
-    for (var i = 0; i < files.length; i++) {
-
-        /*Se obtiene el archivo*/
-        var file = files[i];
-
-        /*Si se pudo obtener algun archivo*/
-        if (file !== undefined) {
-            var nombreArchivo = ((file.name).split("."))[0].substring(0, 5);
-
-            /*Se agrega a la lista de nombres el nombre del archivo*/
-            listFileNameCertificate.push(cleanNameFile(nombreArchivo));
-            /*Se convierte la imagen seleccionada a BASE64 y se añade la codificacion 
-             * a la lista correspondiente*/
-            base64(file, function (data) {
-                listFileCertificate.push((data.base64 !== undefined) ? data.base64 : ""); // prints the base64 string                                
-            });
-        }
-    }
-
-
-}
-
-function listImages(info) {
-
-    var lblImagenes = "";
-
-    for (var x = 0; x < info.length; x++) {
-        /*Se agrega a la lista de nombres el nombre del archivo*/
-        listImagenName.push(info[x].ruta_imagen);
-        listImagen.push('Not base64');
-
-        /*Se arma la cadena,tomando como referencias el nombre del archivo sin 
-         * espacios ni caracteres especiales*/
-        lblImagenes = lblImagenes + "<label class='seleccionable' id='" + info[x].ruta_imagen + "' onclick='eliminarImagen(" + '"' + info[x].ruta_imagen + '"' + ");'>(X)    " + setSpacesInText(((info[x].ruta_imagen).split("/"))[4]) + "</label><br>";
-    }
-
-    /*Se añade la nueva imagen a la lista de imagenes disponibles*/
-    $("#lstImagenesAgregadas").html($("#lstImagenesAgregadas").html() + lblImagenes);
-
-}
-
-function procesarArchivo() {
-
-    /*Se capturan todas las imagenes seleccionadas*/
-    var files = $("#fileCertificate")[0].files;
-
-    /*Por cada imagen, se añade a la cadena, se codifica a bas64 y se obtiene su 
-     * nombre para ser almacenados*/
-    for (var i = 0; i < files.length; i++) {
-
-        /*Se obtiene el archivo*/
-        var file = files[i];
-
-        /*Si se pudo obtener algun archivo*/
-        if (file !== undefined) {
-
-            var nombreArchivo = ((file.name).split("."))[0];
-
-            /*Se convierte la imagen seleccionada a BASE64 y se añade la codificacion 
-             * a la lista correspondiente*/
-            base64(file, function (data, fileName, urlImage) {
-                listFileCertificate.push((data.base64 !== undefined) ? data.base64 : ""); // prints the base64 string                                                
-                listFileNameCertificate.push(fileName);
-                listFileURLCertificate.push(urlImage);
-            }, cleanNameFile(nombreArchivo), window.URL.createObjectURL(file));
-        }
-    }
+/**
+ * Se limpia o reinicia todos los elementos involucrados en los videos e imagenes
+ * @returns {void}
+ * @author Johnny Alexander Salazar
+ * @version 0.1
+ */
+function limpiarMultimedia() {
+    objFileFormation.listFileBase64 = new Array();
+    objFileFormation.listFileName = new Array();
+    objFileFormation.listFileURL = new Array();
+    $("#lstArchivoAgregado").html("");
 }
