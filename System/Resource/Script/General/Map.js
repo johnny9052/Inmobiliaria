@@ -147,11 +147,16 @@ function myMap() {
 
 
 
-function addMarker(location) {
-
+function addMarker(location, public) {
     /*Imagen del marcador*/
     //var image = 'System/Resource/Images/map/marker.png';
-    var image = 'Resource/Images/map/marker.png';
+    var image = '';
+    if (public) {
+        image = 'System/Resource/Images/map/marker.png';
+    } else {        
+        image = 'Resource/Images/map/marker.png';
+    }
+
     /*Titulo del marcador*/
     var mensaje = 'informacion marker';
     /*Se instancia el marcador*/
