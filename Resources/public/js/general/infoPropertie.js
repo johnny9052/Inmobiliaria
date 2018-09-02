@@ -33,12 +33,14 @@ function search(id) {
 
 function showData(info) {
     $("#txtId").val(info[0].id);
-
     /*ICONOS PLUS ESTATICOS*/
     $("#lblRoom").html(info[0].habitaciones);
     $("#lblBath").html(info[0].banios);
     $("#lblParking").html(info[0].parqueaderos);
     $("#lblTotalArea").html(info[0].area_total + " m<sup>2</sup>");
+
+    $("#lblTituloBarrio").html(info[0].nombre_barrio);
+    $("#lblDescripcion").html(info[0].linderos_inmbueble);
     /*END ICONOS PLUS ESTATICOS*/
 
     /*INFO ESTATICA*/
@@ -114,8 +116,8 @@ function showData(info) {
     addMarker(new google.maps.LatLng(info[0].latitud, info[0].longitud), true);
     /*Se cargan las imagenes y videos*/
 
+
     loadVideosPropertie(info[0].id);
-    loadImagesPropertie(info[0].id);
 
 }
 
@@ -212,14 +214,16 @@ function addCharacteristics(text, value) {
 
 
 function loadVideosPropertie(id) {
-    Execute(scanInfo('loadVideo', false, '', [{datos: ["id", id]}]), 'Propertie/CtlPropertie', '', 'almacenarVideos(info, objURLVideosPropertie);', '', '', 'System/');
+    Execute(scanInfo('loadVideo', false, '', [{datos: ["id", id]}]), 'Propertie/CtlPropertie', '', 'almacenarVideos(info, objURLVideosPropertie,' + id + ');', '', '', 'System/');
 }
 
-function almacenarVideos(info, obj) {
+function almacenarVideos(info, obj, id) {
     /*Se agregan todos los datos a la lista, y se pintan*/
     for (var x = 0; x < info.length; x++) {
         obj.listElements.push(info[x].dinamic_data);
     }
+
+    loadImagesPropertie(id);
 }
 
 
@@ -248,7 +252,7 @@ function buildCarusel(info, obj) {
         positionCarusel++;
     }
 
-    
+
     for (var z = 0; z < objURLVideosPropertie.listElements.length; z++) {
         imgcarusel += "<div class='carousel-item'><div class='auto-resizable-iframe'><div><iframe frameborder='0' allowfullscreen='' src='" + (objURLVideosPropertie.listElements[z]).replace("watch?v=", "embed/") + "'></iframe></div></div></div>";
         paginatorcarusel += "<li data-target='#divcarusel' data-slide-to='" + positionCarusel + "'></li>";
