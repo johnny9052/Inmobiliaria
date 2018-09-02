@@ -1,5 +1,7 @@
 /* Funciones jQuery */
 $(window).on("load", function (e) {
+    /*Se obtiene un posible filtro de busqueda, si es que existe*/
+    var id = getUrlParameter('idFilter');
     list();
     loadEmployee();
     loadClient();
@@ -37,8 +39,13 @@ function save() {
 
 }
 
-function list() {
-    Execute(scanInfo('list'), 'Client/CtlEvent', '', 'buildPaginator(info);');
+function list(id) {
+    /*Se agrega un posible filtro del listado*/
+    var infoPlus = {
+        temp: new Array()
+    };
+    infoPlus.temp.push({datos: ["idFilter", id]});
+    Execute(scanInfo('list', false, '', infoPlus.temp), 'Client/CtlEvent', '', 'buildPaginator(info);');
 }
 
 

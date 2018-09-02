@@ -15,7 +15,7 @@ class EventDTO extends BaseDTO {
     private $observations;
     private $employeesSelecteds;
     
-    function __construct($id, $dateEvent, $timeEvent, $placeEvent, $latitude, $length, $client, $eventType, $observations, $employeesSelecteds) {
+    function __construct($id, $dateEvent, $timeEvent, $placeEvent, $latitude, $length, $client, $eventType, $observations, $employeesSelecteds, $idfilter) {
         $this->id = $id;
         $this->dateEvent = $dateEvent;
         $this->timeEvent = $timeEvent;
@@ -26,6 +26,7 @@ class EventDTO extends BaseDTO {
         $this->eventType = $eventType;
         $this->observations = $observations;
         $this->employeesSelecteds = $employeesSelecteds;
+        $this->idfilter = $idfilter;
     }
     
     function getId() {

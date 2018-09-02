@@ -42,7 +42,7 @@ class EventDAO {
      * @version 0.1
      */
     public function ListAll(EventDTO $obj) {
-        $query = $this->repository->buildQuery("listevent", array((int) $obj->getId()));
+        $query = $this->repository->buildQuery("listevent", array((int) $obj->getIdfilter()));
         $this->repository->BuildPaginatorDataTable($query, '');
     }
 
