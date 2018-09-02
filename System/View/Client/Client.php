@@ -83,9 +83,11 @@ and open the template in the editor.
         <div class="modal fade" id="ModalNew" >
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header">                       
-                        <h4 class="modal-title">Gestion registro</h4>
-                        <div class="updateActionButton">
+                    <div class="modal-header">
+                        <div class="col-md-4">
+                            <h4 class="modal-title">Gestion registro------\</h4>
+                        </div>
+                        <div class="updateActionButton col-md-6"">
                             <button onclick="redirectInfoFilter('Propertie/Propertie')" type="button" 
                                     class="btn btn-default pull-left">Inmuebles</button>
                         </div>
