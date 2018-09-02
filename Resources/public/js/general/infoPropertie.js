@@ -111,11 +111,12 @@ function showData(info) {
 
 
     /*Se añade el punto del gps*/
-    //addMarker(new google.maps.LatLng(info[0].latitud, info[0].longitud));
+    addMarker(new google.maps.LatLng(info[0].latitud, info[0].longitud), true);
     /*Se cargan las imagenes y videos*/
 
+    loadVideosPropertie(info[0].id);
     loadImagesPropertie(info[0].id);
-    //loadVideosPropertie(info[0].id);        
+
 }
 
 function addIconsPlus(
@@ -210,16 +211,30 @@ function addCharacteristics(text, value) {
 
 
 
+function loadVideosPropertie(id) {
+    Execute(scanInfo('loadVideo', false, '', [{datos: ["id", id]}]), 'Propertie/CtlPropertie', '', 'almacenarVideos(info, objURLVideosPropertie);', '', '', 'System/');
+}
+
+function almacenarVideos(info, obj) {
+    /*Se agregan todos los datos a la lista, y se pintan*/
+    for (var x = 0; x < info.length; x++) {
+        obj.listElements.push(info[x].dinamic_data);
+    }
+}
+
 
 function loadImagesPropertie(id) {
     Execute(scanInfo('loadImage', false, '', [{datos: ["id", id]}]), 'Propertie/CtlPropertie', '', 'buildCarusel(info,objFilePropertie);', '', '', 'System/');
 }
 
 
+
 function buildCarusel(info, obj) {
 
     var imgcarusel = "";
     var paginatorcarusel = "";
+
+    var positionCarusel = 0;
 
     if (info !== undefined && info !== "" && info !== null) {
         for (var x = 0; x < info.length; x++) {
@@ -228,9 +243,18 @@ function buildCarusel(info, obj) {
     }
 
     for (var y = 0; y < obj.listFileName.length; y++) {
-        imgcarusel += "<div class='carousel-item active'><img src='System/" + obj.listFileURL[y] + "' alt='" + cleanNameFile(obj.listFileName[y]) + "' width='1100' height='500'></div>";
+        imgcarusel += "<div class='carousel-item " + ((y === 0) ? 'active' : '') + "'><img src='System/" + obj.listFileURL[y] + "' alt='" + cleanNameFile(obj.listFileName[y]) + "'></div>";
         paginatorcarusel += "<li data-target='#divcarusel' data-slide-to='" + y + "' class='" + ((y === 0) ? 'active' : '') + "'></li>";
+        positionCarusel++;
     }
+
+    
+    for (var z = 0; z < objURLVideosPropertie.listElements.length; z++) {
+        imgcarusel += "<div class='carousel-item'><div class='auto-resizable-iframe'><div><iframe frameborder='0' allowfullscreen='' src='" + (objURLVideosPropertie.listElements[z]).replace("watch?v=", "embed/") + "'></iframe></div></div></div>";
+        paginatorcarusel += "<li data-target='#divcarusel' data-slide-to='" + positionCarusel + "'></li>";
+        positionCarusel++;
+    }
+
 
 
     var car = "<div id='divcarusel' class='carousel slide' data-ride='carousel'>\n\
@@ -239,18 +263,15 @@ function buildCarusel(info, obj) {
     car += paginatorcarusel;
     car += "</ul>";
 
-    car += "<div class='carousel-inner' id='imagesCarusel'>";
+    car += "<div class='carousel-inner' id='imagesCarusel' style='max-width: 1100px; max-height: 450px'>";
     car += imgcarusel;
     car += "</div>";
     car += "<a class='carousel-control-prev' href='#divcarusel' data-slide='prev'><span class='carousel-control-prev-icon'></span></a><a class='carousel-control-next' href='#divcarusel' data-slide='next'><span class='carousel-control-next-icon'></span></a>";
     car += "</div>";
-    /*Se añade el nuevo archvio a la lista de archivos disponibles*/
-    //$("#imagesCarusel").html(imgcarusel);
-    //$("#paginatorcarusel").html(paginatorcarusel);
 
     console.log(car);
 
-    //$("#containercarusel").html(car);
+    $("#containercarusel").html(car);
 
 
 }
