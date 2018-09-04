@@ -31,8 +31,23 @@ function search(id) {
 }
 
 
-function showData(info) {
+
+function sendContact() {
+    if (validateForm() === true) {
+        Execute(scanInfo('search', true), 'Contact/CtlContact', '', 'showDataSendContact();');
+    }
+}
+
+
+function showDataSendContact() {
+    showToast("Mensaje enviado, pronto te contactaremos", "sucess");
+    cleanForm();
+}
+
+
+function showData(info) {    
     $("#txtId").val(info[0].id);
+    $("#txtMatricula").val(info[0].matricula_inmobiliaria);
     /*ICONOS PLUS ESTATICOS*/
     $("#lblRoom").html(info[0].habitaciones);
     $("#lblBath").html(info[0].banios);
@@ -116,9 +131,9 @@ function showData(info) {
     addMarker(new google.maps.LatLng(info[0].latitud, info[0].longitud), true);
     /*Se cargan las imagenes y videos*/
 
-
     loadVideosPropertie(info[0].id);
 
+    $('html, body').animate({scrollTop: 0}, 'fast');
 }
 
 function addIconsPlus(

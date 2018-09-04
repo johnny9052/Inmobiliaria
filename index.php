@@ -18,8 +18,8 @@
 
         <link href="System/Resource/Style/General.css" rel="stylesheet" type="text/css"/>
         <link href="System/Resource/Style/hexagono.css" rel="stylesheet" type="text/css"/>
-        
-        
+
+
         <!-- Font Awesome <Esta es utilizada para los iconos de bootstrap> -->
         <link href="Resources/public/css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>        
         <!--  Scripts-->
@@ -60,6 +60,23 @@
 
 
 
+        <!--MODAL GENERICO PARA MOSTRAR MENSAJES -->
+        <div class="modal fade" id="modal-default">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">                        
+                        <h4 class="modal-title" id="lblTituloMensajeModal">Mensaje</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p id="lblMessageModal"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>                        
+                    </div>
+                </div>                
+            </div>            
+        </div>
+        <!--END MODAL GENERICO PARA MOSTRAR MENSAJES -->
 
 
     </body>

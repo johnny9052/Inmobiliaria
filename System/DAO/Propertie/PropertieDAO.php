@@ -80,6 +80,7 @@ class PropertieDAO {
      */
     public function Search(PropertieDTO $obj) {
         $query = $this->repository->buildQuery("searchpropertie", array((int) $obj->getId()));
+        //echo $query;
         $this->repository->Execute($query);
     }
 

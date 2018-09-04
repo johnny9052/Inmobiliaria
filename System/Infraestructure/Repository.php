@@ -14,7 +14,7 @@ class Repository extends Internationalization {
     private $con;
     private $objCon;
     private $clean;
-    private $emailSystem = "alexander9052@gmail.com";
+    private $emailSystem = "davidangaritag@gmail.com";
 
     function Repository() {
         $this->clean = new Cleaner();
@@ -142,9 +142,9 @@ class Repository extends Internationalization {
      * @version 0.1
      */
     public function ExecuteLoadPage($query, $value = "") {
-        
-        
-        
+
+
+
 
         /* Le asigno la consulta SQL a la conexion de la base de datos */
         $resultado = $this->objCon->getConnect()->prepare($query);
@@ -156,7 +156,7 @@ class Repository extends Internationalization {
             $vec = $resultado->fetchAll(PDO::FETCH_ASSOC);
         }
 
-        
+
         if (isset($vec)) {
             $_SESSION["Page"] = $vec[0]['codigo'];
 
@@ -518,12 +518,14 @@ class Repository extends Internationalization {
      * @param string $email Correo al cual se enviara el mensaje
      * @param string $titulo Tema del correo
      * @param string $mensaje Mensaje del correo
+     * @param string $numeroTelefonico Numero telefonico de quien envia el correo
      * @author Johnny Alexander Salazar
      * @version 0.1
      */
-    public function sendEmail($email, $titulo, $mensaje) {
-        $mensaje = $mensaje . '------ Responder al correo: ' . $email;
+    public function sendEmail($email, $titulo, $mensaje, $numeroTelefonico) {
+        $mensaje = $mensaje . '------ Responder al correo: ' . $email . ' o al numero telefonico ' . $numeroTelefonico;
         mail($this->emailSystem, 'Mensaje de: ' . $titulo, $mensaje);
+        echo $mensaje . ' ' . $titulo;
     }
 
     /**

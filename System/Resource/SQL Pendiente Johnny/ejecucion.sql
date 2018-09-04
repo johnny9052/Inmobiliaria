@@ -1,0 +1,1 @@
+CALL searchpropertie(18);
