@@ -1,0 +1,7 @@
+organization=johnny9052-github
+projectKey=Inmobiliaria
+serverUrl=https://sonarcloud.io
+serverVersion=7.4.0.16105
+dashboardUrl=https://sonarcloud.io/dashboard?id=Inmobiliaria
+ceTaskId=AWWhYME5ljHIaY3G_vJf
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AWWhYME5ljHIaY3G_vJf

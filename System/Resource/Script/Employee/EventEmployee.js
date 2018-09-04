@@ -1,5 +1,5 @@
 /* Funciones jQuery */
-$(window).on("load", function (e) {
+$(window).on("load", function (e) {    
     list();
     loadCheckboxEmployees();
 });
