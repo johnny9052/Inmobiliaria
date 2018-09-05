@@ -14,7 +14,6 @@ and open the template in the editor.
 
         <!-- bootstrap datepicker -->
         <link rel="stylesheet" href="Resource/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
-
         <script src="Resource/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
         
 
@@ -22,7 +21,7 @@ and open the template in the editor.
         <link rel="stylesheet" href="Resource/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
 
         <!-- AdminLTE Skins. Choose a skin from the css/skins
-             folder instead of downloading all of them to reduce the load. -->                                              
+             folder instead of downloading all of them to reduce the load. --> 
         <link rel="stylesheet" href="Resource/dist/css/skins/_all-skins.min.css">
         <!-- iCheck for checkboxes and radio inputs -->
         <link rel="stylesheet" href="Resource/plugins/iCheck/all.css">

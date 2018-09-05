@@ -44,23 +44,20 @@ and open the template in the editor.
                             <form role="form">
                                 <div class="form-group">
 
-                                    <div class="col-md-2 col-xs-6">
-                                        <button type="button" class="btn btn-primary verdeExaudi" data-toggle="modal" data-target="#ModalNew" onclick="showButton(true);">Nuevo registro</button>                                                                
+                                    <div class="col-md-3 col-xs-12">
+                                        <button type="button" class="btn btn-primary verdeExaudi" data-toggle="modal" data-target="#ModalNew" onclick="showButton(true);">Nuevo registro</button>                                                                                                                                           
+                                        <a class="btn btn-social-icon btn-primary" onclick="executeSubmit('frmPDF');"><i class="fa fa-print" style="color: white"></i></a>
+                                        <a class="btn btn-social-icon btn-primary"><i class="fa fa-file-excel-o" style="color: white"></i></a>
                                     </div>
 
-                                    <div class="col-md-9  col-xs-6">
+                                    <div class="col-md-8  col-xs-12">
                                         <div class="progress progress-sm active">
                                             <div class="progress-bar progress-bar-primary progress-bar-striped" role="progressbar" aria-valuenow="100" aria-valuemin="100" aria-valuemax="100" style="width: 100%">
                                                 <span class="sr-only">100% Complete</span>
                                             </div>
                                         </div>
                                     </div>
-
-
-
                                 </div>
-
-
                             </form>
                         </div>
 
@@ -1038,6 +1035,15 @@ and open the template in the editor.
         </div>
         <!-- /.modal -->
 
+
+
+        <!--FORM GENERACION DE PDF-->
+        <form id="frmPDF" name="formPDF" method="post" 
+              action="Controller/Propertie/CtlPropertie.php" target="_blank">
+            <input type="hidden" name="id" value="30" id="txtIdPDF">
+            <input type="hidden" name="action" value="generatePDF">        
+        </form>   
+        <!--END FORM GENERACION DE PDF-->   
 
         <!-- END MODAL DE CONFIRMACION-->
 

@@ -34,20 +34,21 @@ function ExecuteAction($action, $obj, $dao) {
         case "listNoTable":
             $dao->ListAllNoTable($obj);
             break;
-        
-     
-        case "GeneratePDF":
-            $dao->GeneratePDF($obj);
-            break;
 
         /* END Transaction CRUD */
 
 
         /* Other transactions */
 
+        case "generatePDF":
+            $dao->GeneratePDF($obj);
+            break;
+
+
         case "reportcsv":
             $dao->ReportCSV($obj);
             break;
+
 
         case "register":
             $dao->Register($obj);

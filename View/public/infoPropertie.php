@@ -40,11 +40,39 @@ and open the template in the editor.
             <!-----------------END CARRUSEL--------------------------------->
 
 
+
+            <div class="row">
+                <div class="col-md-2 col-sm-1 col-xs-12"></div>
+                <div class="col-md-8 col-sm-10 col-xs-12 text-center">
+                    <table width="100%" height="100%" align="center" valign="center">
+                        <tr>
+                            <td id="divImgMiniatura">                                
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-md-2 col-sm-1 col-xs-12"></div>
+            </div>
+
+            <br>
+
             <div class="row">
                 <div class="col-md-2 col-sm-1 col-xs-12"></div>
                 <div class="col-md-8 col-sm-10 col-xs-12">
-                    <h2 class="text-light-blue" id="lblTituloBarrio">                        
-                    </h2>
+
+                    <table  width="100%">
+                        <tr>
+                            <td>
+                                <h2 class="text-light-blue" id="lblTituloBarrio">                        
+                                </h2>
+                            </td>
+                            <td class="text-right">
+                                <a class="btn btn-social-icon btn-dropbox"><i class="fa fa-print" style="color: white"></i></a>
+                                <a class="btn btn-social-icon btn-facebook" onclick="sharedContentFacebook()"><i class="fa fa-facebook" style="color: white"></i></a>
+                                <a class="btn btn-social-icon btn-twitter" onclick="sharedContentTwitter()"><i class="fa fa-twitter" style="color: white"></i></a>                                                                
+                            </td>
+                        </tr>
+                    </table>
                 </div>
                 <div class="col-md-2 col-sm-1 col-xs-12"></div>
             </div>
@@ -57,7 +85,7 @@ and open the template in the editor.
                 </div>
                 <div class="col-md-2 col-sm-1 col-xs-12"></div>
             </div>
-            
+
             <br>
 
 
@@ -166,21 +194,130 @@ and open the template in the editor.
             </div>                                         
             <div class="col-md-2 col-sm-2 col-xs-12"></div>
         </div>
-
     </section>
 
+    <br>
 
+    <section id="FormContainer">
 
-    <div class="modal-body" id="FormContainer">
         <div class="row">
+            <div class="col-md-2 col-sm-1 col-xs-12"></div>
+            <div class="col-md-8 col-sm-10 col-xs-12">
+                <h2 class="text-light-blue">                        
+                    Contactanos y agenda una cita
+                </h2>
+            </div>
+            <div class="col-md-2 col-sm-1 col-xs-12"></div>
+        </div>
 
+        <div class="row">
             <div class="col-md-10 col-sm-10 col-xs-12">
                 <div class="form-group">                                                                        
                     <input id="txtId" name="id" class="form-control identificator"  type="hidden" value="">
                 </div>
             </div>            
         </div>
-    </div>
+
+        <div class="row">
+            <div class="col-md-10 col-sm-10 col-xs-12">
+                <div class="form-group">                                                                        
+                    <input id="txtMatricula" name="matricula" class="form-control identificator"  type="hidden" value="">
+                </div>
+            </div>            
+        </div>
+
+        <div class="row">
+            <div class="col-md-3 col-sm-3 col-xs-12"></div>
+            <div class="col-md-6 col-sm-6 col-xs-12"> 
+                <label for="txtNameUser">Nombre</label>   
+                <div class="input-group">                    
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-user"></i></span>
+                    </div>
+                    <input type="text" class="form-control" id="txtNameUser" name="name" 
+                           placeholder="Ingrese su nombre" required>                    
+                </div>
+
+            </div>  
+            <div class="col-md-3 col-sm-3 col-xs-12"></div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-md-3 col-sm-3 col-xs-12"></div>
+            <div class="col-md-6 col-sm-6 col-xs-12">  
+                <label for="txtEmailUser">Correo</label>   
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-at"></i></span>
+                    </div>
+                    <input type="email" class="form-control" id="txtEmailUser" name="email" 
+                           placeholder="Ingrese su correo" required>                    
+                </div>
+
+            </div>  
+            <div class="col-md-3 col-sm-3 col-xs-12"></div>
+        </div>
+
+
+        <br>
+
+        <div class="row">
+            <div class="col-md-3 col-sm-3 col-xs-12"></div>
+            <div class="col-md-6 col-sm-6 col-xs-12">   
+                <label for="txtPhoneUser">Numero</label>   
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-mobile-phone"></i></span>
+                    </div>
+                    <input type="number" class="form-control" id="txtPhoneUser" name="phone" 
+                           placeholder="Ingrese su numero" required>                    
+                </div>
+
+            </div>  
+            <div class="col-md-3 col-sm-3 col-xs-12"></div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-md-3 col-sm-3 col-xs-12"></div>
+            <div class="col-md-6 col-sm-6 col-xs-12">  
+                <label for="txtDescription">Mensaje</label>   
+                <div class="form-group">                    
+                    <textarea id="txtDescription" name="description" class="form-control" 
+                              name="message" rows="3" placeholder="Ingrese su mensaje" required></textarea>
+                </div>
+            </div>                       
+            <div class="col-md-3 col-sm-3 col-xs-12"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3 col-sm-3 col-xs-12"></div>
+            <div class="col-md-6 col-sm-6 col-xs-12">            
+                <div class="progress progress-sm active">
+                    <div class="progress-bar progress-bar-primary progress-bar-striped" role="progressbar" aria-valuenow="100" aria-valuemin="100" aria-valuemax="100" style="width: 100%">
+                        <span class="sr-only">100% Complete</span>
+                    </div>
+                </div>
+            </div>   
+            <div class="col-md-3 col-sm-3 col-xs-12"></div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-md-3 col-sm-3 col-xs-12"></div>
+            <div class="col-md-6 col-sm-6 col-xs-12">            
+                <div class="newActionButton">                            
+                    <button id="btnSave" onclick="sendContact();" type ="button" class="btn btn-primary">Enviar</button>
+                </div>
+            </div>   
+            <div class="col-md-3 col-sm-3 col-xs-12"></div>
+        </div>
+
+    </section>
 
 
     <!-- END MODAL DE CONFIRMACION-->

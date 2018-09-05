@@ -6,7 +6,7 @@ CREATE  PROCEDURE searchpropertie(vid int)
     COMMENT 'Procedimiento que carga la informacion de un inmueble'
 BEGIN
  	
-	SELECT inm.idinmueble as id,
+	SELECT distinct inm.idinmueble as id,
                inm.precio as precio,
                inm.costoAdministracion as costo_administracion,
                inm.habitaciones as habitaciones,
@@ -74,10 +74,10 @@ BEGIN
                estcoc.`nombreEstructuraCocina` as nombre_estructura_cocina,
                tipis.`nombreTipoPiso` as nombre_tipo_piso,
                tipdest.`nombreDestacado` as nombre_tipo_destacado               
-	FROM inmuebles as inm
-        inner join ciudades as ciu on inm.ciudades_idciudad = ciu.idciudad
-        inner join departamentos as dep on ciu.`Departamentos_idDepartamento` = dep.`idDepartamento`
-        inner join barrios as bar on bar.`idCiudad` = ciu.idciudad
+	FROM inmuebles as inm        
+        inner join barrios as bar on bar.`idbarrio` = inm.barrios_idbarrio
+        inner join ciudades as ciu on inm.ciudades_idciudad = ciu.idciudad        
+        inner join departamentos as dep on ciu.`Departamentos_idDepartamento` = dep.`idDepartamento`        
         inner join estratos as estr on estr.idestrato = inm.estratos_idestrato
         inner join tiposinmuebles as tipinm on tipinm.`idtipoInmueble` = inm.`tiposInmuebles_idtipoInmueble`
         inner join tiposofertas as tipofer on tipofer.`idtipoOferta` = inm.`tiposOfertas_idtipoOferta`

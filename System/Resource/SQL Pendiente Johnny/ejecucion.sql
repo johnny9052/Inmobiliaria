@@ -1,0 +1,1 @@
+CALL listpropertie(0);

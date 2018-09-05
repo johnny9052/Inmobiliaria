@@ -2,6 +2,7 @@
 
 $(window).on("load", function (e) {
     $("#txtUser").focus();
+    showLoadBar(false);
 });
 
 

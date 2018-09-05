@@ -80,6 +80,7 @@ class PropertieDAO {
      */
     public function Search(PropertieDTO $obj) {
         $query = $this->repository->buildQuery("searchpropertie", array((int) $obj->getId()));
+        //echo $query;
         $this->repository->Execute($query);
     }
 
@@ -174,6 +175,13 @@ class PropertieDAO {
     public function ListAllNoTable(PropertieDTO $obj) {
         $query = $this->repository->buildQuery("listpropertiepublic", array((int) $obj->getIdUser()));
         $this->repository->Execute($query);
+    }
+
+    
+    
+    public function GeneratePDF(PropertieDTO $obj) {
+        $query = $this->repository->buildQuery("listpropertie", array((int) $obj->getId()));
+        $this->repository->BuildPDF($query);
     }
 
 }
