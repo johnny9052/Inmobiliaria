@@ -45,7 +45,7 @@ function showDataSendContact() {
 }
 
 
-function showData(info) {    
+function showData(info) {
     $("#txtId").val(info[0].id);
     $("#txtMatricula").val(info[0].matricula_inmobiliaria);
     /*ICONOS PLUS ESTATICOS*/
@@ -251,6 +251,7 @@ function loadImagesPropertie(id) {
 function buildCarusel(info, obj) {
 
     var imgcarusel = "";
+    var imgMiniaturaCarusel = "";
     var paginatorcarusel = "";
 
     var positionCarusel = 0;
@@ -263,13 +264,15 @@ function buildCarusel(info, obj) {
 
     for (var y = 0; y < obj.listFileName.length; y++) {
         imgcarusel += "<div class='carousel-item " + ((y === 0) ? 'active' : '') + "'><img src='System/" + obj.listFileURL[y] + "' alt='" + cleanNameFile(obj.listFileName[y]) + "'></div>";
+        imgMiniaturaCarusel += "<span data-target='#divcarusel' data-slide-to='" + y + "'><img class='seleccionable' src='System/" + obj.listFileURL[y] + "' alt='" + cleanNameFile(obj.listFileName[y]) + "' height='40' width='40'></span>&nbsp;";
         paginatorcarusel += "<li data-target='#divcarusel' data-slide-to='" + y + "' class='" + ((y === 0) ? 'active' : '') + "'></li>";
         positionCarusel++;
     }
 
 
     for (var z = 0; z < objURLVideosPropertie.listElements.length; z++) {
-        imgcarusel += "<div class='carousel-item'><div class='auto-resizable-iframe'><div><iframe frameborder='0' allowfullscreen='' src='" + (objURLVideosPropertie.listElements[z]).replace("watch?v=", "embed/") + "'></iframe></div></div></div>";
+        imgcarusel += "<div class='carousel-item'><div class='auto-resizable-iframe'><div><iframe frameborder='0' allowfullscreen='' src='" + (objURLVideosPropertie.listElements[z]).replace("watch?v=", "embed/") + "'></iframe></div></div></div>";        
+        imgMiniaturaCarusel += "<span data-target='#divcarusel' data-slide-to='" + positionCarusel + "'><img class='seleccionable' src='System/Resource/Multimedia/Images/videocarusel.png' alt='Video' height='40' width='40'></span>&nbsp;";
         paginatorcarusel += "<li data-target='#divcarusel' data-slide-to='" + positionCarusel + "'></li>";
         positionCarusel++;
     }
@@ -291,6 +294,8 @@ function buildCarusel(info, obj) {
     console.log(car);
 
     $("#containercarusel").html(car);
+    $("#divImgMiniatura").html(imgMiniaturaCarusel);
+
 
 
 }
