@@ -39,6 +39,8 @@ and open the template in the editor.
             <br>
             <!-----------------END CARRUSEL--------------------------------->
 
+
+
             <div class="row">
                 <div class="col-md-2 col-sm-1 col-xs-12"></div>
                 <div class="col-md-8 col-sm-10 col-xs-12 text-center">
@@ -52,11 +54,25 @@ and open the template in the editor.
                 <div class="col-md-2 col-sm-1 col-xs-12"></div>
             </div>
 
+            <br>
+
             <div class="row">
                 <div class="col-md-2 col-sm-1 col-xs-12"></div>
                 <div class="col-md-8 col-sm-10 col-xs-12">
-                    <h2 class="text-light-blue" id="lblTituloBarrio">                        
-                    </h2>
+
+                    <table  width="100%">
+                        <tr>
+                            <td>
+                                <h2 class="text-light-blue" id="lblTituloBarrio">                        
+                                </h2>
+                            </td>
+                            <td class="text-right">
+                                <a class="btn btn-social-icon btn-dropbox"><i class="fa fa-print" style="color: white"></i></a>
+                                <a class="btn btn-social-icon btn-facebook" onclick="sharedContentFacebook()"><i class="fa fa-facebook" style="color: white"></i></a>
+                                <a class="btn btn-social-icon btn-twitter" onclick="sharedContentTwitter()"><i class="fa fa-twitter" style="color: white"></i></a>                                                                
+                            </td>
+                        </tr>
+                    </table>
                 </div>
                 <div class="col-md-2 col-sm-1 col-xs-12"></div>
             </div>

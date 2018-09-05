@@ -445,57 +445,9 @@ class Repository extends Internationalization {
         $max = 200;
 
         /* Le asigno la consulta SQL a la conexion de la base de datos */
-        $resultado = $this->objCon->getConnect()->prepare($query);
+        //$resultado = $this->objCon->getConnect()->prepare($query);
         /* Executo la consulta */
-        $resultado->execute();
-
-        /* Se meten los datos a un vector, organizados sus campos no por nombre, 
-          si no enumarados */
-        $vec = $resultado->fetchAll(PDO::FETCH_NUM);
-        //echo $resultado->columnCount() . '----' . $resultado->rowCount();
-
-        /* quedo pendiente mirar como saco todos los registros por un lado y 
-         * los campos por el otro de ser necesario, para eso si se necesita 
-         * sacar una copia de resultado despues del execute pues se hace.
-         */
-
-        require_once('../../Resource/html2pdf/html2pdf.class.php'); // Se carga la libreria
-
-        if ($resultado->rowCount() > 0) {
-
-            $descripcion = '';
-            $cadenaHTML = "<page>";
-            $cadenaHTML .= '<link href="../../Resource/Style/estilosPDF.css" type="text/css" rel="stylesheet">';
-            $cadenaHTML .= "<div><img class='logo' src='../../../Resources/public/image/logo.png'></div><br><br>";
-
-            if ($vec[0][4] != '' && $vec[0][4] != null) {
-                $cadenaHTML .= "<div><img class='imgNoticia' id='imgNoticia' src='../../../" . $vec[0][4] . "'></div>";
-            }
-
-            $cadenaHTML .= "<div><h4>" . $vec[0][1] . "</h4><br></div>";
-
-
-            $descripcion .= str_replace("\n", "<br>", $vec[0][2]);
-            $descripcionArray = explode("<br>", $descripcion);
-
-            foreach ($descripcionArray as $valor) {
-                $cadenaHTML .= "<div><label class='descNoticia'>" . $valor . "</label></div>";
-            }
-
-            if ($vec[0][5] != '' && $vec[0][5] != null) {
-                $cadenaHTML .= "<table><tr><td><h4>Video: </h4></td><td><a>" . $vec[0][5] . "</a></td></tr></table>";
-            }
-
-            $cadenaHTML .= "</page>";
-        } else {
-            $cadenaHTML = "<label>No hay registros en la base de datos</label>";
-        }
-
-        //formato del pdf (posicion (P=vertical L=horizontal), tamaño del pdf, lenguaje)
-        $html2pdf = new HTML2PDF('P', 'A4', 'es');
-        $html2pdf->WriteHTML($cadenaHTML); //Lo que tenga content lo pasa a pdf
-        ob_end_clean(); // se limpia nuevamente el buffer
-        $html2pdf->Output($vec[0][1] . '.pdf'); //se genera el pdf, generando por defecto el nombre indicado para guardar
+        echo $query;
     }
 
     /* Funciones para correo electronico */

@@ -177,4 +177,11 @@ class PropertieDAO {
         $this->repository->Execute($query);
     }
 
+    
+    
+    public function GeneratePDF(PropertieDTO $obj) {
+        $query = $this->repository->buildQuery("listpropertie", array((int) $obj->getId()));
+        $this->repository->BuildPDF($query);
+    }
+
 }

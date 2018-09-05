@@ -14,7 +14,7 @@
 
         <link href="Resources/public/css/album.css" rel="stylesheet" type="text/css"/>  
 
-        <link href="Resources/public/css/carousel.css" rel="stylesheet" type="text/css"/>
+        <link href="Resources/public/css/carousel.css" rel="stylesheet" type="text/css"/>                
 
         <link href="System/Resource/Style/General.css" rel="stylesheet" type="text/css"/>
         <link href="System/Resource/Style/hexagono.css" rel="stylesheet" type="text/css"/>
