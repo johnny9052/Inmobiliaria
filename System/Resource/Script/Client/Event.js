@@ -2,7 +2,7 @@
 $(window).on("load", function (e) {
     /*Se obtiene un posible filtro de busqueda, si es que existe*/
     var id = getUrlParameter('idFilter');
-    list();
+    list(id);
     loadEmployee();
     loadClient();
     loadTypeEvent();

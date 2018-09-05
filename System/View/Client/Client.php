@@ -88,7 +88,7 @@ and open the template in the editor.
                     <div class="modal-header">
                         <div class="nav-tabs-custom">
                             <ul class="nav nav-tabs">
-                                <li class="active"><a href="#register" data-toggle="tab">Activity</a></li>
+                                <li class="active"><a href="#register" data-toggle="tab">Información</a></li>
                                 <li><a href="" onclick="redirectInfoFilter('Propertie/Propertie');" data-toggle="tab">Inmuebles</a></li>
                                 <li><a href="" onclick="redirectInfoFilter('Client/Event');" data-toggle="tab">Eventos</a></li>
                             </ul>
@@ -423,10 +423,6 @@ and open the template in the editor.
                                     <!-- Post -->
                                 </div>
                             </div>
-                        </div>
-                        <div class="updateActionButton col-md-6"">
-                            <button onclick="redirectInfoFilter('Propertie/Propertie')" type="button" 
-                                    class="btn btn-default pull-left">Inmuebles</button>
                         </div>
                     </div>
 
