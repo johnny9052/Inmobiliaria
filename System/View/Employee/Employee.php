@@ -30,47 +30,66 @@ and open the template in the editor.
         <section class="content">
             <div class="row">        
                 <div class="col-md-12">
-                    <!-- general form elements -->
-                    <div class="box box-primary">
-                        <div class="box-header with-border">
-                            <h3 class="box-title">Acciones</h3>
-                        </div>
-
-                        <!-- BOTON AÑADIR Y PRIMERA BARRA DE CARGA--> 
-                        <div class="box-body">
-                            <form role="form">
-                                <div class="form-group">
-
-                                    <div class="col-md-2 col-xs-6">
-                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalNew" onclick="showButton(true);">Nuevo registro</button>                                                                
+                    <div class="nav-tabs-custom">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#employee" data-toggle="tab">Gestión Empleado</a></li>
+                            <li><a href="" onclick="redirectInfoFilter('Employee/EmployeeExperience');" data-toggle="tab">Experiencia</a></li>
+                            <li><a href="" onclick="redirectInfoFilter('Employee/EmployeeFormation');" data-toggle="tab">Formación</a></li>
+                            <li><a href="" onclick="redirectInfoFilter('Employee/EmployeeContract');" data-toggle="tab">Contratos</a></li>
+                            <li><a href="" onclick="redirectInfoFilter('Client/event');" data-toggle="tab">Eventos</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="active tab-pane" id="employee">
+                                <!-- general form elements -->
+                                <div class="box box-primary">
+                                    <div class="box-header with-border">
+                                        <h3 class="box-title">Acciones</h3>
                                     </div>
 
-                                    <div class="col-md-9  col-xs-6">
-                                        <div class="progress progress-sm active">
-                                            <div class="progress-bar progress-bar-primary progress-bar-striped" role="progressbar" aria-valuenow="100" aria-valuemin="100" aria-valuemax="100" style="width: 100%">
-                                                <span class="sr-only">100% Complete</span>
+                                    <!-- BOTON AÑADIR Y PRIMERA BARRA DE CARGA--> 
+                                    <div class="box-body">
+                                        <form role="form">
+                                            <div class="form-group">
+
+                                                <div class="col-md-2 col-xs-6">
+                                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalNew" onclick="showButton(true);">Nuevo registro</button>                                                                
+                                                </div>
+
+                                                <div class="col-md-9  col-xs-6">
+                                                    <div class="progress progress-sm active">
+                                                        <div class="progress-bar progress-bar-primary progress-bar-striped" role="progressbar" aria-valuenow="100" aria-valuemin="100" aria-valuemax="100" style="width: 100%">
+                                                            <span class="sr-only">100% Complete</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
+                                        </form>
                                     </div>
+
+
+                                    <!-- END BOTON AÑADIR Y PRIMERA BARRA DE CARGA-->
+
+
+                                    <div class="box-body table-responsive">
+                                        <table id="TblList" class="table table-bordered table-striped table-hover">
+
+
+                                        </table>
+                                    </div>
+                                    <!-- /.box-body -->
+
+                                    <div class="box-footer">
+
+                                    </div>               
                                 </div>
-                            </form>
+                            </div>
+                            <div class="tab-pane" id="timeline">
+                                <!-- Post -->
+                            </div>
+                            <div class="tab-pane" id="settings">
+                                <!-- Post -->
+                            </div>
                         </div>
-
-
-                        <!-- END BOTON AÑADIR Y PRIMERA BARRA DE CARGA-->
-
-
-                        <div class="box-body table-responsive">
-                            <table id="TblList" class="table table-bordered table-striped table-hover">
-
-
-                            </table>
-                        </div>
-                        <!-- /.box-body -->
-
-                        <div class="box-footer">
-
-                        </div>               
                     </div>
                 </div>
             </div>
@@ -101,7 +120,7 @@ and open the template in the editor.
 
 
                         <div class="row">
-                            
+
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="" class="fa fa-user-circle-o"></label>
@@ -125,7 +144,7 @@ and open the template in the editor.
                                 </div>
                             </div>    
                         </div>
-                        
+
                         <div class="row">
 
                             <div class="col-md-6">
@@ -152,7 +171,7 @@ and open the template in the editor.
                                 </div>
                             </div>     
                         </div>
-                        
+
                         <div class="row">
                             <div class="col-md-6">                                
                                 <div class="form-group">
@@ -166,7 +185,7 @@ and open the template in the editor.
                                 </div>
                             </div>     
                         </div>
-                        
+
                         <div class="row">
                             <br>
                             <div class="col-md-6">
@@ -178,8 +197,8 @@ and open the template in the editor.
 
                             </div> 
                         </div>
-                        
-                         <div class="row">
+
+                        <div class="row">
 
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -204,7 +223,7 @@ and open the template in the editor.
                                 </div>
                             </div>     
                         </div>
-                                               
+
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -265,7 +284,7 @@ and open the template in the editor.
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="" class="fa fa-gratipay"></label>
@@ -277,7 +296,7 @@ and open the template in the editor.
                                 </div>
                             </div>     
                         </div>
-                        
+
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -310,15 +329,15 @@ and open the template in the editor.
 
                             </div> 
                         </div>
-                        
+
                         <div class="row">
                             <div class="col-md-12">
                                 <label for="txtAddress">Direccion</label> 
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-arrows"></i></span>          
-                                        <input id="txtAddress" name="address" class="form-control" type="text" value="" autocomplete="off" required
-                                               placeholder="Direccion de residencia">
-                                    </div>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-arrows"></i></span>          
+                                    <input id="txtAddress" name="address" class="form-control" type="text" value="" autocomplete="off" required
+                                           placeholder="Direccion de residencia">
+                                </div>
                             </div>                                                
                         </div>
 
@@ -402,7 +421,7 @@ and open the template in the editor.
                                     &nbsp;&nbsp;
                                     <label>Nivel de profesion</label>
                                     <select id="selProfessionNivel" name="professionNivel" 
-                                             class="form-control select2" style="width: 100%;" 
+                                            class="form-control select2" style="width: 100%;" 
                                             onchange="loadProfession(this.value);">
                                         <option value="-1" selected> -- SELECCIONE --</option>                            
                                     </select>
@@ -420,7 +439,7 @@ and open the template in the editor.
                                 </div>
                             </div>     
                         </div>
-                        
+
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -443,7 +462,7 @@ and open the template in the editor.
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -466,7 +485,7 @@ and open the template in the editor.
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -478,7 +497,7 @@ and open the template in the editor.
                                     </select>
                                 </div>
                             </div>
-                            
+
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <input type="checkbox" id="chkDisability" name="disability"/>
@@ -488,11 +507,11 @@ and open the template in the editor.
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="" class="fa fa-camera"></label>
-                                    &nbsp;&nbsp;
+                                &nbsp;&nbsp;
                                 <label for="imageEmployee">Foto empleado</label>
                                 <input type="file" accept=".JPG,.jpg"  id="imageEmployee" name="urlimageEmployee" multiple 
                                        onchange="procesarFile(true, 'imageEmployee', objImageEmployee);">
@@ -501,7 +520,7 @@ and open the template in the editor.
 
                             </div>
                         </div>
-                        
+
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -513,7 +532,7 @@ and open the template in the editor.
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="txtContactPhone">Telefono contacto</label>
@@ -525,7 +544,7 @@ and open the template in the editor.
                                 </div>
                             </div> 
                         </div>
-                        
+
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
