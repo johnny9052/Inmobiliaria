@@ -1040,7 +1040,7 @@ and open the template in the editor.
         <!--FORM GENERACION DE PDF-->
         <form id="frmPDF" name="formPDF" method="post" 
               action="Controller/Propertie/CtlPropertie.php" target="_blank">
-            <input type="hidden" name="id" value="30" id="txtIdPDF">
+            <input type="hidden" name="id" value="" id="txtIdPDF">
             <input type="hidden" name="action" value="generatePDF">        
         </form>   
         <!--END FORM GENERACION DE PDF-->   

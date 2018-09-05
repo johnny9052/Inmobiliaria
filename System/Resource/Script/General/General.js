@@ -1564,7 +1564,8 @@ function redirectInfoFilter(page) {
 
 
 
-
+/*https://css-tricks.com/simple-social-sharing-links/*/
+/*https://codepen.io/Huskie/pen/wKphk*/
 
 function sharedContentFacebook() {
     var facebookWindow = window.open('https://www.facebook.com/sharer/sharer.php?u=' + document.URL, 'facebook-popup', 'height=350,width=600');
@@ -1574,6 +1575,9 @@ function sharedContentFacebook() {
 }
 
 
+
+/*https://css-tricks.com/simple-social-sharing-links/*/
+/*https://codepen.io/Huskie/pen/wKphk*/
 function sharedContentTwitter() {
     var twitterWindow = window.open('https://twitter.com/share?url=' + document.URL, 'twitter-popup', 'height=350,width=600');
     if (twitterWindow.focus) {
@@ -1583,17 +1587,21 @@ function sharedContentTwitter() {
 
 
 
+/*https://css-tricks.com/simple-social-sharing-links/*/
+/*https://codepen.io/Huskie/pen/wKphk*/
+function sharedContentLinkedIn(tituloPublicacion, contenidoPublicacion, empresaPublicacion) {
 
-function sharedContentLinkedIn() {
-    
-    var url = "https://www.linkedin.com/shareArticle" + 
-                "?mini=true" + 
-                "&url=https%3A%2F%2Fwww.css-tricks.com%2F" + 
-                "&title=Inmobiliaria" +
-                "&summary=Mensaje a publicar" + 
-                "&source=NombreEmpresa";
+    var url = "https://www.linkedin.com/shareArticle" +
+            "?mini=true" +
+            "&url=" + document.URL +
+            "&title=" + tituloPublicacion +
+            "&summary=" + contenidoPublicacion +
+            "&source=" + empresaPublicacion;
 
-    var LinkedWindow = window.open('https://www.facebook.com/sharer/sharer.php?u=' + document.URL, 'facebook-popup', 'height=350,width=600');
+
+    console.log(url);
+
+    var LinkedWindow = window.open(url, 'linkedin-popup', 'height=350,width=600');
     if (LinkedWindow.focus) {
         LinkedWindow.focus();
     }

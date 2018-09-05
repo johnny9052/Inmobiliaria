@@ -70,6 +70,7 @@ and open the template in the editor.
                                 <a class="btn btn-social-icon btn-dropbox"><i class="fa fa-print" style="color: white"></i></a>
                                 <a class="btn btn-social-icon btn-facebook" onclick="sharedContentFacebook()"><i class="fa fa-facebook" style="color: white"></i></a>
                                 <a class="btn btn-social-icon btn-twitter" onclick="sharedContentTwitter()"><i class="fa fa-twitter" style="color: white"></i></a>                                                                
+                                <a class="btn btn-social-icon btn-linkedin" onclick="sharedContentLinkedIn('Mira este inmueble', 'Estoy interesado en este inmueble', 'NombreInmobiliaria')"><i class="fa fa-linkedin" style="color: white"></i></a>                                                                
                             </td>
                         </tr>
                     </table>
