@@ -933,13 +933,12 @@ and open the template in the editor.
                             <button id="btnSave" onclick="save();" type ="button" class="btn btn-primary">Guardar</button>
                         </div>
 
-                        <div class="updateActionButton">                            
+                        <div class="updateActionButton">                                                        
+                            <button id="btnExportPDF" onclick="executeSubmit('frmPDFPropertie');" type="button" class="btn btn-primary">PDF</button>
                             <button id="btnUpdate" onclick="update();" type="button" class="btn btn-warning">Editar</button>
                             <button id="btnSave"   onclick="goNavigation('ModalNew', 'ModalConfirm');" 
                                     type="button" class="btn btn-danger">Eliminar</button>
                         </div>
-
-
 
                     </div>
                 </div>
@@ -1035,17 +1034,27 @@ and open the template in the editor.
         </div>
         <!-- /.modal -->
 
+        <!-- END MODAL DE CONFIRMACION-->
 
 
         <!--FORM GENERACION DE PDF-->
         <form id="frmPDF" name="formPDF" method="post" 
               action="Controller/Propertie/CtlPropertie.php" target="_blank">
             <input type="hidden" name="id" value="" id="txtIdPDF">
+            <input type="hidden" name="action" value="generatePDFList">        
+        </form>   
+        <!--END FORM GENERACION DE PDF-->   
+
+
+
+        <!--FORM GENERACION DE PDF-->
+        <form id="frmPDFPropertie" name="formPDFPropertie" method="post" 
+              action="Controller/Propertie/CtlPropertie.php" target="_blank">
+            <input type="hidden" name="id" value="" id="txtIdPDFPropertie">
             <input type="hidden" name="action" value="generatePDF">        
         </form>   
         <!--END FORM GENERACION DE PDF-->   
 
-        <!-- END MODAL DE CONFIRMACION-->
 
         <!-- SCRIPT DE MAPAS, ACTIVACION MEDIANTE KEY -->
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmpRlSVVxIje1GdQb7jlW5QwG-WBfVEnw&libraries=places&callback=myMap"

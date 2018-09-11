@@ -5,7 +5,7 @@
  * @author Johnny Alexander Salazar
  * @version 0.1
  */
-function ExecuteAction($action, $obj, $dao) {
+function ExecuteAction($action, $obj, $dao, $specific = null) {
 
     switch ($action) {
 
@@ -42,6 +42,10 @@ function ExecuteAction($action, $obj, $dao) {
 
         case "generatePDF":
             $dao->GeneratePDF($obj);
+            break;
+
+        case "generatePDFList":
+            $dao->GeneratePDFList($obj);
             break;
 
 

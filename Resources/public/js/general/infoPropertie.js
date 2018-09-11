@@ -3,6 +3,7 @@
 
 $(window).on("load", function (e) {
     var id = getUrlParameter('id');
+    $("#txtIdPDFPropertie").val(id);
     search(id);
 });
 
@@ -271,7 +272,7 @@ function buildCarusel(info, obj) {
 
 
     for (var z = 0; z < objURLVideosPropertie.listElements.length; z++) {
-        imgcarusel += "<div class='carousel-item'><div class='auto-resizable-iframe'><div><iframe frameborder='0' allowfullscreen='' src='" + (objURLVideosPropertie.listElements[z]).replace("watch?v=", "embed/") + "'></iframe></div></div></div>";        
+        imgcarusel += "<div class='carousel-item'><div class='auto-resizable-iframe'><div><iframe frameborder='0' allowfullscreen='' src='" + (objURLVideosPropertie.listElements[z]).replace("watch?v=", "embed/") + "'></iframe></div></div></div>";
         imgMiniaturaCarusel += "<span data-target='#divcarusel' data-slide-to='" + positionCarusel + "'><img class='seleccionable' src='System/Resource/Multimedia/Images/videocarusel.png' alt='Video' height='40' width='40'></span>&nbsp;";
         paginatorcarusel += "<li data-target='#divcarusel' data-slide-to='" + positionCarusel + "'></li>";
         positionCarusel++;

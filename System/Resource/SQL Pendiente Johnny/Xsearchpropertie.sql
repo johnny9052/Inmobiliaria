@@ -73,7 +73,8 @@ BEGIN
                tipcoc.`nombreTipoCocina` as nombre_tipo_cocina,
                estcoc.`nombreEstructuraCocina` as nombre_estructura_cocina,
                tipis.`nombreTipoPiso` as nombre_tipo_piso,
-               tipdest.`nombreDestacado` as nombre_tipo_destacado               
+               tipdest.`nombreDestacado` as nombre_tipo_destacado,
+               loadimagepropertie(inm.idinmueble) as imagen          
 	FROM inmuebles as inm        
         inner join barrios as bar on bar.`idbarrio` = inm.barrios_idbarrio
         inner join ciudades as ciu on inm.ciudades_idciudad = ciu.idciudad        

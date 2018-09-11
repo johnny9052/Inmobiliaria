@@ -171,6 +171,7 @@ function search(id) {
 
 function showData(info) {
     $("#txtId").val(info[0].id);
+    $("#txtIdPDFPropertie").val(info[0].id);
     $("#txtPrice").val(info[0].precio);
     $("#txtAdministrationCost").val(info[0].costo_administracion);
     $("#txtRoom").val(info[0].habitaciones);
