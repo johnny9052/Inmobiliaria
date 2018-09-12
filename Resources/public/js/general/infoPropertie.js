@@ -4,7 +4,8 @@
 $(window).on("load", function (e) {
     var id = getUrlParameter('id');
     $("#txtIdPDFPropertie").val(id);
-    search(id);
+    //search(id);
+    saveAudit();
 });
 
 
@@ -24,6 +25,13 @@ var objURLVideosPropertie = {
     listElements: new Array()
 };
 
+
+
+function saveAudit() {
+    alert(getBrowserName());
+    alert(getNameOperativeSystem());
+    alert(getDeviceType());
+}
 
 
 function search(id) {

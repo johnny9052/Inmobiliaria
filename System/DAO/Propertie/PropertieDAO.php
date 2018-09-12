@@ -266,7 +266,7 @@ class PropertieDAO {
               18 inm.precioNegociable as precio_negociable,
               19 inm.latitud as latitud,
               20 inm.longitud as longitud,
-             
+
               21 inm.salonComunal as salon_comunal,
               22 inm.sauna as sauna,
               23 inm.turco as turco,
@@ -276,7 +276,7 @@ class PropertieDAO {
               27 inm.duplex as duplex,
               28 inm.puertaDeSeguridad as puerta_de_seguridad,
               29 inm.gimnasio as gimnasio,
-             
+
               30 inm.ciudades_idciudad as id_ciudad,
               31 inm.estratos_idestrato as id_estrato,
               32 inm.tiposInmuebles_idtipoInmueble as id_tipo_inmueble,
@@ -297,11 +297,11 @@ class PropertieDAO {
               47 inm.matriculaInmobiliaria as matricula_inmobiliaria,
               48 inm.avaluoCatastral as avaluo_catastral,
               49 inm.piscina as piscina,
-             
+
               50 inm.zonaMascotas as zona_mascotas,
               51 inm.parqueaderoCubierto as parqueadero_cubierto,
               52 inm.amoblado as amoblado,
-             
+
               53 ciu.`Departamentos_idDepartamento` as id_departamento,
               54 dep.`nombreDepartamento` as nombre_departamento,
               55 ciu.`nombreCiudad` as nombre_ciudad,
@@ -322,11 +322,11 @@ class PropertieDAO {
             $cadenaHTML .= "<table style='width:100%;'>";
             $cadenaHTML .= $this->generateCharacteristicGeneric("Codigo", $vec[0][47]);
             $cadenaHTML .= $this->generateCharacteristicGeneric("Precio", '$ ' . $vec[0][1]);
-            $cadenaHTML .= $this->generateCharacteristicGeneric("Costo administracion", '$ ' . $vec[0][2]);            
-            $cadenaHTML .= $this->generateCharacteristicGeneric("Habitaciones",$vec[0][3]);
+            $cadenaHTML .= $this->generateCharacteristicGeneric("Costo administracion", '$ ' . $vec[0][2]);
+            $cadenaHTML .= $this->generateCharacteristicGeneric("Habitaciones", $vec[0][3]);
             $cadenaHTML .= $this->generateCharacteristicGeneric("Baños", $vec[0][4]);
-            $cadenaHTML .= $this->generateCharacteristicGeneric("Parqueaderos",$vec[0][5]);
-            $cadenaHTML .= $this->generateCharacteristicGeneric("Area total",$vec[0][6]  . " mts 2");            
+            $cadenaHTML .= $this->generateCharacteristicGeneric("Parqueaderos", $vec[0][5]);
+            $cadenaHTML .= $this->generateCharacteristicGeneric("Area total", $vec[0][6] . " mts 2");
             $cadenaHTML .= $this->generateCharacteristicGeneric("Area sin balcones", $vec[0][7] . " mts 2");
             $cadenaHTML .= $this->generateCharacteristicGeneric("Año de construccion", $vec[0][8]);
             $cadenaHTML .= $this->generateCharacteristicGeneric("Departamento", $vec[0][54]);
@@ -355,37 +355,36 @@ class PropertieDAO {
                                 <td>
                                     <hr>
                                 </td>
-                            </tr>";                        
+                            </tr>";
             $cadenaHTML .= "</table>";
-            
+
             $cadenaHTML .= "<table style='width:100%;'>";
-            $cadenaHTML .= $this->generateCharacteristicGeneric("Chimenea", ($vec[0][10]==='1')? 'Si' : 'No');
-            $cadenaHTML .= $this->generateCharacteristicGeneric("Estudio", ($vec[0][11]==='1')? 'Si' : 'No');
-            $cadenaHTML .= $this->generateCharacteristicGeneric("Deposito", ($vec[0][12]==='1')? 'Si' : 'No');
-            $cadenaHTML .= $this->generateCharacteristicGeneric("Zona de ropas", ($vec[0][13]==='1')? 'Si' : 'No');
-            $cadenaHTML .= $this->generateCharacteristicGeneric("Parq. visitantes", ($vec[0][14]==='1')? 'Si' : 'No');
-            $cadenaHTML .= $this->generateCharacteristicGeneric("Ascensor", ($vec[0][15]==='1')? 'Si' : 'No');
-            $cadenaHTML .= $this->generateCharacteristicGeneric("Terraza", ($vec[0][16]==='1')? 'Si' : 'No');
-            $cadenaHTML .= $this->generateCharacteristicGeneric("Transp. publico cercano", ($vec[0][17]==='1')? 'Si' : 'No');
-            
-            $cadenaHTML .= $this->generateCharacteristicGeneric("Salon comunal", ($vec[0][21]==='1')? 'Si' : 'No');
-            $cadenaHTML .= $this->generateCharacteristicGeneric("Sauna", ($vec[0][22]==='1')? 'Si' : 'No');
-            $cadenaHTML .= $this->generateCharacteristicGeneric("Turco", ($vec[0][23]==='1')? 'Si' : 'No');
-            $cadenaHTML .= $this->generateCharacteristicGeneric("Jacuzzi", ($vec[0][24]==='1')? 'Si' : 'No');
-            $cadenaHTML .= $this->generateCharacteristicGeneric("Zona infantil", ($vec[0][25]==='1')? 'Si' : 'No');
-            $cadenaHTML .= $this->generateCharacteristicGeneric("Jardines", ($vec[0][26]==='1')? 'Si' : 'No');
-            $cadenaHTML .= $this->generateCharacteristicGeneric("Duplex", ($vec[0][27]==='1')? 'Si' : 'No');
-            $cadenaHTML .= $this->generateCharacteristicGeneric("Puerta seguridad", ($vec[0][28]==='1')? 'Si' : 'No');
-            $cadenaHTML .= $this->generateCharacteristicGeneric("Gimnacion", ($vec[0][29]==='1')? 'Si' : 'No');
-            
-            $cadenaHTML .= $this->generateCharacteristicGeneric("Precio negociable", ($vec[0][18]==='1')? 'Si' : 'No');
-            
-            $cadenaHTML .= $this->generateCharacteristicGeneric("Zona mascotas", ($vec[0][50]==='1')? 'Si' : 'No');
-            $cadenaHTML .= $this->generateCharacteristicGeneric("Parqueadero cubierto", ($vec[0][51]==='1')? 'Si' : 'No');
-            $cadenaHTML .= $this->generateCharacteristicGeneric("Amoblado", ($vec[0][52]==='1')? 'Si' : 'No');
-            
+            $cadenaHTML .= $this->generateCharacteristicGeneric("Chimenea", ($vec[0][10] === '1') ? 'Si' : 'No');
+            $cadenaHTML .= $this->generateCharacteristicGeneric("Estudio", ($vec[0][11] === '1') ? 'Si' : 'No');
+            $cadenaHTML .= $this->generateCharacteristicGeneric("Deposito", ($vec[0][12] === '1') ? 'Si' : 'No');
+            $cadenaHTML .= $this->generateCharacteristicGeneric("Zona de ropas", ($vec[0][13] === '1') ? 'Si' : 'No');
+            $cadenaHTML .= $this->generateCharacteristicGeneric("Parq. visitantes", ($vec[0][14] === '1') ? 'Si' : 'No');
+            $cadenaHTML .= $this->generateCharacteristicGeneric("Ascensor", ($vec[0][15] === '1') ? 'Si' : 'No');
+            $cadenaHTML .= $this->generateCharacteristicGeneric("Terraza", ($vec[0][16] === '1') ? 'Si' : 'No');
+            $cadenaHTML .= $this->generateCharacteristicGeneric("Transp. publico cercano", ($vec[0][17] === '1') ? 'Si' : 'No');
+
+            $cadenaHTML .= $this->generateCharacteristicGeneric("Salon comunal", ($vec[0][21] === '1') ? 'Si' : 'No');
+            $cadenaHTML .= $this->generateCharacteristicGeneric("Sauna", ($vec[0][22] === '1') ? 'Si' : 'No');
+            $cadenaHTML .= $this->generateCharacteristicGeneric("Turco", ($vec[0][23] === '1') ? 'Si' : 'No');
+            $cadenaHTML .= $this->generateCharacteristicGeneric("Jacuzzi", ($vec[0][24] === '1') ? 'Si' : 'No');
+            $cadenaHTML .= $this->generateCharacteristicGeneric("Zona infantil", ($vec[0][25] === '1') ? 'Si' : 'No');
+            $cadenaHTML .= $this->generateCharacteristicGeneric("Jardines", ($vec[0][26] === '1') ? 'Si' : 'No');
+            $cadenaHTML .= $this->generateCharacteristicGeneric("Duplex", ($vec[0][27] === '1') ? 'Si' : 'No');
+            $cadenaHTML .= $this->generateCharacteristicGeneric("Puerta seguridad", ($vec[0][28] === '1') ? 'Si' : 'No');
+            $cadenaHTML .= $this->generateCharacteristicGeneric("Gimnacion", ($vec[0][29] === '1') ? 'Si' : 'No');
+
+            $cadenaHTML .= $this->generateCharacteristicGeneric("Precio negociable", ($vec[0][18] === '1') ? 'Si' : 'No');
+
+            $cadenaHTML .= $this->generateCharacteristicGeneric("Zona mascotas", ($vec[0][50] === '1') ? 'Si' : 'No');
+            $cadenaHTML .= $this->generateCharacteristicGeneric("Parqueadero cubierto", ($vec[0][51] === '1') ? 'Si' : 'No');
+            $cadenaHTML .= $this->generateCharacteristicGeneric("Amoblado", ($vec[0][52] === '1') ? 'Si' : 'No');
+
             $cadenaHTML .= "</table>";
-            
         } else {
             $cadenaHTML = "<label>No hay registros en la base de datos</label>";
         }
@@ -410,6 +409,11 @@ class PropertieDAO {
                         <br>
                     </td>
                 </tr>";
+    }
+
+    public function ReportCSVList(PropertieDTO $obj) {
+        $query = $this->repository->buildQuery("listpropertiecsv", array((int) $obj->getId()));
+        $this->repository->BuildReportCSV($query, 'lista de inmuebles');
     }
 
     public function GeneratePDFList(PropertieDTO $obj) {

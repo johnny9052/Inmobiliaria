@@ -47,7 +47,7 @@ and open the template in the editor.
                                     <div class="col-md-3 col-xs-12">
                                         <button type="button" class="btn btn-primary verdeExaudi" data-toggle="modal" data-target="#ModalNew" onclick="showButton(true);">Nuevo registro</button>                                                                                                                                           
                                         <a class="btn btn-social-icon btn-primary" onclick="executeSubmit('frmPDF');"><i class="fa fa-print" style="color: white"></i></a>
-                                        <a class="btn btn-social-icon btn-primary"><i class="fa fa-file-excel-o" style="color: white"></i></a>
+                                        <a class="btn btn-social-icon btn-primary" onclick="executeSubmit('frmCSV');"><i class="fa fa-file-excel-o" style="color: white"></i></a>
                                     </div>
 
                                     <div class="col-md-8  col-xs-12">
@@ -1052,6 +1052,14 @@ and open the template in the editor.
               action="Controller/Propertie/CtlPropertie.php" target="_blank">
             <input type="hidden" name="id" value="" id="txtIdPDFPropertie">
             <input type="hidden" name="action" value="generatePDF">        
+        </form>   
+        <!--END FORM GENERACION DE PDF-->   
+
+
+        <!--FORM GENERACION DE PDF-->
+        <form id="frmCSV" name="frmCSV" method="post" 
+              action="Controller/Propertie/CtlPropertie.php" target="_blank">            
+            <input type="hidden" name="action" value="reportCSVList">        
         </form>   
         <!--END FORM GENERACION DE PDF-->   
 

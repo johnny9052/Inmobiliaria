@@ -48,6 +48,9 @@ function ExecuteAction($action, $obj, $dao, $specific = null) {
             $dao->GeneratePDFList($obj);
             break;
 
+        case "reportCSVList":
+            $dao->ReportCSVList($obj);
+            break;
 
         case "reportcsv":
             $dao->ReportCSV($obj);
