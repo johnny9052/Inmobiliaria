@@ -129,14 +129,18 @@ function showLoadBar(status) {
  * @param {String} url Paquete y nombre del controlador a ejecutar
  * @param {String} before Codigo javascript que se quiere ejecutar antes de enviar la informacion
  * @param {String} success Codigo javascript que se quiere ejecutar cuando se recibe una respuesta
- * @param {String} idModalByError Si es una ventana emergente, que se abrio desde otra emergente, 
+ * @param {String} idModalOpenFinish Si se desea que cuando se muestre el mensaje, ya sea de error 
+ * o de exito, se abra un modal previo, se indica el id de dicho modal
  * @param {String} msgNoAction Si es una ventana emergente, que se abrio desde otra emergente, 
  * se debe especificar su ID, por si sucede un error en esta, no regrese a la ventana original
+ * @param {String} server Si el servidor tiene una ruta inicial especifica, se indica en este parametro 
+ * @param {String} notShowMessage Si uno no desea que el resultado de esta accion muestre su resultado 
+ * en una ventana emergente, indica con true.
  * @returns {void} 
  * @author Johnny Alexander Salazar
  * @version 0.4
  */
-function Execute(dataSend, url, before, success, idModalByError, msgNoAction, server, notShowMessage) {
+function Execute(dataSend, url, before, success, idModalOpenFinish, msgNoAction, server, notShowMessage) {
 
     console.log("INFO QUE SE ENVIA");
     console.log(dataSend);
@@ -170,7 +174,13 @@ function Execute(dataSend, url, before, success, idModalByError, msgNoAction, se
                 case "Success":
                     /*Funcion que refresca la pagina*/
                     if (notShowMessage !== true) {
-                        showToast(msg, "success");
+                        /*Si se indico que se abriera una ventana previa despues de mostrar el modal de 
+                         * mensaje final de la accion*/
+                        if (idModalOpenFinish !== "" && idModalOpenFinish !== undefined) {
+                            showToast(msg, "success", idModalOpenFinish);
+                        } else {
+                            showToast(msg, "success");
+                        }
                     }
 
                     if (success !== "") {
@@ -194,13 +204,13 @@ function Execute(dataSend, url, before, success, idModalByError, msgNoAction, se
                     $('.modal').modal('hide');
                     /*Muestra un modal de error*/
                     if (notShowMessage !== true) {
-                        showToast(msg, "error", idModalByError);
+                        showToast(msg, "error", idModalOpenFinish);
                     }
                     break;
 
                 case "NoActionFound":
                     if (notShowMessage !== true) {
-                        showToast(msgNoAction, "error", idModalByError);
+                        showToast(msgNoAction, "error", idModalOpenFinish);
                     }
                     break;
                 case undefined:

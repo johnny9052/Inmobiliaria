@@ -53,7 +53,7 @@ function saveAudit() {
     infoPlus.temp.push({datos: ["ip", ip]});
     infoPlus.temp.push({datos: ["id", idPropertie]});
 
-    Execute(scanInfo('auditPublic', false, '', infoPlus.temp), 'Propertie/CtlPropertie', '', '', '', '', 'System/');
+    Execute(scanInfo('auditPublic', false, '', infoPlus.temp), 'Propertie/CtlPropertie', '', '', '', '', 'System/', true);
 }
 
 
