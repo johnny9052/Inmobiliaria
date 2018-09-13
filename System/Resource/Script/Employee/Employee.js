@@ -128,7 +128,7 @@ function loadPersonType() {
 
 function save() {
     if (validateForm() === true) {
-        
+
         /*Se define el array de datos adicionales como un objeto, debido a que 
          * es necesario pasarlo por referencia para el llenado de los archivos*/
         var infoPlus = {
@@ -142,10 +142,36 @@ function save() {
         addFileNameAndEncodingAndDeletedFiles(infoPlus, objFileMilitaryCard, 'EmployeeMilitaryCard');
         addFileNameAndEncodingAndDeletedFiles(infoPlus, objImageEmployee, 'EmployeeImage');
 
-        Execute(scanInfo('save', true, '', infoPlus.temp), 'Employee/CtlEmployee', '', 'closeWindow();list();limpiarMultimedia();', '', 'Ha superado el tamaño maximo de las imagenes');
-        
+        Execute(scanInfo('save', true, '', infoPlus.temp), 'Employee/CtlEmployee', '', 'list();mostrarMensaje();', '', 'Ha superado el tamaño maximo de las imagenes', '', true);
+
     }
 
+}
+
+function mostrarMensaje() {
+    showToast("Almacenado correctamente", "success", "ModalNew");
+    showButtonEmployee(false);
+}
+
+
+function showButtonEmployee(status) {
+    if (status) {
+        $("#newActionButtonEmployee").show();
+        $("#updateActionButtonEmployee").hide();
+    } else {
+        $("#newActionButtonEmployee").hide();
+        $("#updateActionButtonEmployee").show();
+    }
+}
+
+function showButtonExperience(status) {
+    if (status) {
+        $("#newActionButtonExperience").show();
+        $("#updateActionButtonExperience").hide();
+    } else {
+        $("#newActionButtonExperience").hide();
+        $("#updateActionButtonExperience").show();
+    }
 }
 
 function list() {
@@ -195,13 +221,13 @@ function showData(info) {
     $("#txtContacName").val(info[0].nombre_Contacto);
     $("#txtContactPhone").val(info[0].telefono_Contacto);
     $("#txtContactEmail").val(info[0].correo_Contacto);
-    
+
     /*Se organiza el archivo cargado desde la base de datos, estableciendo su codificacion
      * y todas sus caracteristicas*/
     var nombreArchivoCedula = organizarArchivoCargadoDesdeBD(info[0].archivo_Cedula, objFileIdentification);
 
     $("#lstArchivoCedula").html(imageDownloadFile("pdf", objFileIdentification.listFileURL[objFileIdentification.listFileName.indexOf(nombreArchivoCedula)], nombreArchivoCedula));
-    
+
     var nombreArchivoLibreta = organizarArchivoCargadoDesdeBD(info[0].archivo_Libreta_Militar, objFileMilitaryCard);
 
     $("#lstArchivoLibreta").html(imageDownloadFile("pdf", objFileMilitaryCard.listFileURL[objFileMilitaryCard.listFileName.indexOf(nombreArchivoLibreta)], nombreArchivoLibreta));
@@ -209,7 +235,7 @@ function showData(info) {
     var nombreArchivoFoto = organizarArchivoCargadoDesdeBD(info[0].foto_Empleado, objImageEmployee);
 
     $("#lstArchivoFoto").html(imageDownloadFile("jpg", objImageEmployee.listFileURL[objImageEmployee.listFileName.indexOf(nombreArchivoFoto)], nombreArchivoFoto));
-   
+
     openWindow();
     showButton(false);
 }
@@ -263,12 +289,12 @@ function limpiarMultimedia() {
     objFileIdentification.listFileName = new Array();
     objFileIdentification.listFileURL = new Array();
     $("#lstArchivoCedula").html("");
-    
+
     objFileMilitaryCard.listFileBase64 = new Array();
     objFileMilitaryCard.listFileName = new Array();
     objFileMilitaryCard.listFileURL = new Array();
     $("#lstArchivoLibreta").html("");
-    
+
     objImageEmployee.listFileBase64 = new Array();
     objImageEmployee.listFileName = new Array();
     objImageEmployee.listFileURL = new Array();

@@ -15,6 +15,14 @@ function ExecuteActionLoad($action, $obj, $dao) {
             $dao->LoadSelect($obj, "loadrol");
             break;
         
+        case "loadBank":
+            $dao->LoadSelect($obj, "loadbank");
+            break;
+        
+        case "loadTypeReference":
+            $dao->LoadSelect($obj, "loadtypereference");
+            break;
+        
         case "loadArea":
             $dao->LoadSelect($obj, "loadarea");
             break;
@@ -83,6 +91,10 @@ function ExecuteActionLoad($action, $obj, $dao) {
 
         case "loadProfession":
             $dao->LoadSelect($obj, "loadprofession");
+            break;
+        
+        case "loadPropertie":
+            $dao->LoadSelect($obj, "loadpropertie");
             break;
 
         case "loadMaritalStatus":

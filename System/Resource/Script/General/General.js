@@ -83,7 +83,7 @@ function showToast(message, type, idModalBefore) {
 
         /*Cuando el mensaje se cierra,en el caso de que sea de tipo error 
          * regresa al modal anterior*/
-        if (type === "error") {
+        if (type === "error" || (idModalBefore !== "" && idModalBefore !== undefined)) {
             /*Se cierra la ventana actual, si no se especifica uno, calculara el modal 
              * por defecto, el ModalNew. Ademas se indica con false que no limpie los 
              * campos*/
@@ -136,7 +136,7 @@ function showLoadBar(status) {
  * @author Johnny Alexander Salazar
  * @version 0.4
  */
-function Execute(dataSend, url, before, success, idModalByError, msgNoAction, server) {
+function Execute(dataSend, url, before, success, idModalByError, msgNoAction, server, notShowMessage) {
 
     console.log("INFO QUE SE ENVIA");
     console.log(dataSend);
@@ -169,7 +169,9 @@ function Execute(dataSend, url, before, success, idModalByError, msgNoAction, se
 
                 case "Success":
                     /*Funcion que refresca la pagina*/
-                    showToast(msg, "success");
+                    if (notShowMessage !== true) {
+                        showToast(msg, "success");
+                    }
 
                     if (success !== "") {
                         /*Si en la estructura enviada se tienen datos, entonces
@@ -191,11 +193,15 @@ function Execute(dataSend, url, before, success, idModalByError, msgNoAction, se
                     /*Cierra cualquier modal que se tenga previamente*/
                     $('.modal').modal('hide');
                     /*Muestra un modal de error*/
-                    showToast(msg, "error", idModalByError);
+                    if (notShowMessage !== true) {
+                        showToast(msg, "error", idModalByError);
+                    }
                     break;
 
                 case "NoActionFound":
-                    showToast(msgNoAction, "error", idModalByError);
+                    if (notShowMessage !== true) {
+                        showToast(msgNoAction, "error", idModalByError);
+                    }
                     break;
                 case undefined:
                 default :
@@ -1560,47 +1566,4 @@ function getUrlParameter(sParam) {
 function redirectInfoFilter(page) {
     var id = $("#txtId").val();
     refreshPage(page, id);
-}
-
-
-
-
-
-function sharedContentFacebook() {
-    var facebookWindow = window.open('https://www.facebook.com/sharer/sharer.php?u=' + document.URL, 'facebook-popup', 'height=350,width=600');
-    if (facebookWindow.focus) {
-        facebookWindow.focus();
-    }
-}
-
-
-function sharedContentTwitter() {
-    var twitterWindow = window.open('https://twitter.com/share?url=' + document.URL, 'twitter-popup', 'height=350,width=600');
-    if (twitterWindow.focus) {
-        twitterWindow.focus();
-    }
-}
-
-
-
-
-function sharedContentLinkedIn() {
-    
-    var url = "https://www.linkedin.com/shareArticle" + 
-                "?mini=true" + 
-                "&url=https%3A%2F%2Fwww.css-tricks.com%2F" + 
-                "&title=Inmobiliaria" +
-                "&summary=Mensaje a publicar" + 
-                "&source=NombreEmpresa";
-
-    var LinkedWindow = window.open('https://www.facebook.com/sharer/sharer.php?u=' + document.URL, 'facebook-popup', 'height=350,width=600');
-    if (LinkedWindow.focus) {
-        LinkedWindow.focus();
-    }
-}
-
-
-
-function executeSubmit(idForm) {
-    document.getElementById(idForm).submit();
 }

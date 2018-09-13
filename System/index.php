@@ -12,7 +12,7 @@ session_start();
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
 
-        <link rel="shortcut icon" type="image/png" href="Resource/Images/Public/favicon.ico"/>
+        <link rel="shortcut icon" type="image/png" href="Resource/Images/Public/favicon.png"/>
         <link href="Resource/Style/General.css" rel="stylesheet" type="text/css"/>
         <!-- Bootstrap 3.3.7 -->
         <link rel="stylesheet" href="Resource/bower_components/bootstrap/dist/css/bootstrap.min.css">

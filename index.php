@@ -6,7 +6,7 @@
 
 
         <title>Inmobiliaria Armenia</title>
-        <link rel="shortcut icon" type="image/png" href="System/Resource/Images/Public/favicon.ico"/>
+        <link rel="shortcut icon" type="image/png" href="System/Resource/Images/Public/favicon.png"/>
 
         <!-- CSS  -->        
 
