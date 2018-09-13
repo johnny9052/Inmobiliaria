@@ -4,8 +4,13 @@
 $(window).on("load", function (e) {
     var id = getUrlParameter('id');
     $("#txtIdPDFPropertie").val(id);
-    //search(id);
-    saveAudit();
+    search(id);
+
+
+    setTimeout(function () {
+        saveAudit();
+    }, 5000);
+
 });
 
 
@@ -28,9 +33,27 @@ var objURLVideosPropertie = {
 
 
 function saveAudit() {
-    alert(getBrowserName());
-    alert(getNameOperativeSystem());
-    alert(getDeviceType());
+    var browser = getBrowserName();
+    var so = getNameOperativeSystem();
+    var device = getDeviceType();
+    var user = (getDataCache("userhexagono")).data;
+    var ip = (getDataCache("userhexagonoip")).data;
+    var idPropertie = getUrlParameter('id');
+
+    /*Se define el array de datos adicionales como un objeto, debido a que es necesario pasarlo por referencia para el llenado de los archivos*/
+    var infoPlus = {
+        temp: new Array()
+    };
+
+    /*Se añaden como datos adicionales*/
+    infoPlus.temp.push({datos: ["browser", browser]});
+    infoPlus.temp.push({datos: ["so", so]});
+    infoPlus.temp.push({datos: ["device", device]});
+    infoPlus.temp.push({datos: ["user", user]});
+    infoPlus.temp.push({datos: ["ip", ip]});
+    infoPlus.temp.push({datos: ["id", idPropertie]});
+
+    Execute(scanInfo('auditPublic', false, '', infoPlus.temp), 'Propertie/CtlPropertie', '', '', '', '', 'System/');
 }
 
 
@@ -143,6 +166,8 @@ function showData(info) {
     loadVideosPropertie(info[0].id);
 
     $('html, body').animate({scrollTop: 0}, 'fast');
+
+
 }
 
 function addIconsPlus(

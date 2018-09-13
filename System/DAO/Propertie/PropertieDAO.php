@@ -486,4 +486,23 @@ class PropertieDAO {
         $this->repository->BuildPDF($cadenaHTML, $vec[0][1]);
     }
 
+    public function AuditPublic(PropertieDTO $obj) {
+        $query = $this->repository->buildQuerySimply("savepropertieauditpublic", array(
+            (string) $obj->getTokenUser(),
+            (int) $obj->getId(),
+            (string) $obj->getDia(),
+            (string) $obj->getMes(),
+            (string) $obj->getAnio(),
+            (string) $obj->getHora(),
+            (string) $obj->getIp(),
+            (string) $obj->getDevice(),
+            (string) $obj->getSistemaOperativo(),
+            (string) $obj->getNavegador()
+        ));
+
+        //echo $query;
+
+        $this->repository->ExecuteTransaction($query);
+    }
+
 }

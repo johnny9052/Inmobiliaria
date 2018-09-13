@@ -40,6 +40,10 @@ function ExecuteAction($action, $obj, $dao, $specific = null) {
 
         /* Other transactions */
 
+        case "auditPublic":
+            $dao->AuditPublic($obj);
+            break;
+
         case "generatePDF":
             $dao->GeneratePDF($obj);
             break;
