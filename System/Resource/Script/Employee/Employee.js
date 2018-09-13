@@ -232,7 +232,7 @@ function saveExperience() {
          * todos los archivos*/
         addFileNameAndEncodingAndDeletedFiles(infoPlus, objfileWorkCertificate, 'Experience');
 
-        Execute(scanInfo('save', true, 'FormContainerExperience', infoPlus.temp), 'Employee/CtlEmployeeExperience', '', 'list();mostrarMensajeExperience();limpiarMultimedia();', '', 'Ha superado el tamaño maximo de las imagenes');
+        Execute(scanInfo('save', true, 'FormContainerExperience', infoPlus.temp), 'Employee/CtlEmployeeExperience', '', 'list();mostrarMensajeExperience();limpiarMultimedia();cleanForm("FormContainerExperience")', '', 'Ha superado el tamaño maximo de las imagenes');
     }
 }
 
@@ -254,8 +254,8 @@ function saveFormation() {
     }
 }
 
-function saveContract("FormContainerContract") {
-    if (validateForm() === true) {
+function saveContract() {
+    if (validateForm("FormContainerContract") === true) {
         /*Se define el array de datos adicionales como un objeto, debido a que es necesario pasarlo por referencia para el llenado de los archivos*/
         var infoPlus = {
             temp: new Array()
@@ -298,6 +298,16 @@ function showButtonEmployee(status) {
     }
 }
 
+function showButtonContract(status) {
+    if (status) {
+        $("#newActionButtonContract").show();
+        $("#updateActionButtonContract").hide();
+    } else {
+        $("#newActionButtonContract").hide();
+        $("#updateActionButtonContract").show();
+    }
+}
+
 function showButtonExperience(status) {
     if (status) {
         $("#newActionButtonExperience").show();
@@ -308,16 +318,6 @@ function showButtonExperience(status) {
     }
 }
 
-function showButtonFormation(status) {
-    if (status) {
-        $("#newActionButtonFormation").show();
-        $("#updateActionButtonFormation").hide();
-    } else {
-        $("#newActionButtonFormation").hide();
-        $("#updateActionButtonFormation").show();
-    }
-}
-
 function showButtonContract(status) {
     if (status) {
         $("#newActionButtonContract").show();
@@ -325,6 +325,16 @@ function showButtonContract(status) {
     } else {
         $("#newActionButtonContract").hide();
         $("#updateActionButtonContract").show();
+    }
+}
+
+function showButtonFormation(status) {
+    if (status) {
+        $("#newActionButtonFormation").show();
+        $("#updateActionButtonFormation").hide();
+    } else {
+        $("#newActionButtonFormation").hide();
+        $("#updateActionButtonFormation").show();
     }
 }
 
