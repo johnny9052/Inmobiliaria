@@ -3,7 +3,14 @@
 
 $(window).on("load", function (e) {
     var id = getUrlParameter('id');
+    $("#txtIdPDFPropertie").val(id);
     search(id);
+
+
+    setTimeout(function () {
+        saveAudit();
+    }, 5000);
+
 });
 
 
@@ -23,6 +30,31 @@ var objURLVideosPropertie = {
     listElements: new Array()
 };
 
+
+
+function saveAudit() {
+    var browser = getBrowserName();
+    var so = getNameOperativeSystem();
+    var device = getDeviceType();
+    var user = (getDataCache("userhexagono")).data;
+    var ip = (getDataCache("userhexagonoip")).data;
+    var idPropertie = getUrlParameter('id');
+
+    /*Se define el array de datos adicionales como un objeto, debido a que es necesario pasarlo por referencia para el llenado de los archivos*/
+    var infoPlus = {
+        temp: new Array()
+    };
+
+    /*Se añaden como datos adicionales*/
+    infoPlus.temp.push({datos: ["browser", browser]});
+    infoPlus.temp.push({datos: ["so", so]});
+    infoPlus.temp.push({datos: ["device", device]});
+    infoPlus.temp.push({datos: ["user", user]});
+    infoPlus.temp.push({datos: ["ip", ip]});
+    infoPlus.temp.push({datos: ["id", idPropertie]});
+
+    Execute(scanInfo('auditPublic', false, '', infoPlus.temp), 'Propertie/CtlPropertie', '', '', '', '', 'System/');
+}
 
 
 function search(id) {
@@ -134,6 +166,8 @@ function showData(info) {
     loadVideosPropertie(info[0].id);
 
     $('html, body').animate({scrollTop: 0}, 'fast');
+
+
 }
 
 function addIconsPlus(
@@ -271,7 +305,7 @@ function buildCarusel(info, obj) {
 
 
     for (var z = 0; z < objURLVideosPropertie.listElements.length; z++) {
-        imgcarusel += "<div class='carousel-item'><div class='auto-resizable-iframe'><div><iframe frameborder='0' allowfullscreen='' src='" + (objURLVideosPropertie.listElements[z]).replace("watch?v=", "embed/") + "'></iframe></div></div></div>";        
+        imgcarusel += "<div class='carousel-item'><div class='auto-resizable-iframe'><div><iframe frameborder='0' allowfullscreen='' src='" + (objURLVideosPropertie.listElements[z]).replace("watch?v=", "embed/") + "'></iframe></div></div></div>";
         imgMiniaturaCarusel += "<span data-target='#divcarusel' data-slide-to='" + positionCarusel + "'><img class='seleccionable' src='System/Resource/Multimedia/Images/videocarusel.png' alt='Video' height='40' width='40'></span>&nbsp;";
         paginatorcarusel += "<li data-target='#divcarusel' data-slide-to='" + positionCarusel + "'></li>";
         positionCarusel++;

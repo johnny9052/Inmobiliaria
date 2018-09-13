@@ -4,7 +4,7 @@ require_once ('../../DTO/BaseDTO.php');
 
 class GeneralDTO extends BaseDTO {
 
-    private $id;
+    private $id;        
 
     public function __Construct($id) {
         $this->id = $id;
@@ -12,7 +12,7 @@ class GeneralDTO extends BaseDTO {
 
     /**
      * Retorna el ID de busqueda y filtro para el llenado del select
-     * @return int (Si retorna -2 es que no tiene campo de busqueda y traera
+     * @return int (Si retorna -1 es que no tiene campo de busqueda y traera
      *  todos los datos)
      * @author Johnny Alexander Salazar
      * @version 0.2

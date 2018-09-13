@@ -1,1 +1,1 @@
-CALL listpropertie(0);
+CALL searchpropertie(18);

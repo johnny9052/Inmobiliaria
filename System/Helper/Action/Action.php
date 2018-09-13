@@ -5,7 +5,7 @@
  * @author Johnny Alexander Salazar
  * @version 0.1
  */
-function ExecuteAction($action, $obj, $dao) {
+function ExecuteAction($action, $obj, $dao, $specific = null) {
 
     switch ($action) {
 
@@ -40,10 +40,21 @@ function ExecuteAction($action, $obj, $dao) {
 
         /* Other transactions */
 
+        case "auditPublic":
+            $dao->AuditPublic($obj);
+            break;
+
         case "generatePDF":
             $dao->GeneratePDF($obj);
             break;
 
+        case "generatePDFList":
+            $dao->GeneratePDFList($obj);
+            break;
+
+        case "reportCSVList":
+            $dao->ReportCSVList($obj);
+            break;
 
         case "reportcsv":
             $dao->ReportCSV($obj);

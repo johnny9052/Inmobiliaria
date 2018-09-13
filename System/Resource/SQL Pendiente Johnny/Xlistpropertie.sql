@@ -6,9 +6,14 @@ DELIMITER //
 CREATE PROCEDURE listpropertie(idfilter int)
 COMMENT 'Procedimiento que lista los inmuebles'
 BEGIN
-   select inm.idinmueble as id, inm.`matriculaInmobiliaria` as matricula, tip_inm.`nombreTipoInmueble` as tipo,
-               tip_ofer.`nombreTipoOferta` as oferta, inm.precio as precio, ciud.`nombreCiudad` as ciudad, 
-               zon.`nombreZona` as zona, inm.`fechaRecepcion` as fecha
+    select inm.idinmueble as id, 
+           inm.`matriculaInmobiliaria` as matricula, 
+           tip_inm.`nombreTipoInmueble` as tipo,
+           tip_ofer.`nombreTipoOferta` as oferta, 
+           inm.precio as precio, 
+           ciud.`nombreCiudad` as ciudad, 
+           zon.`nombreZona` as zona, 
+           inm.`fechaRecepcion` as fecha
    from inmuebles as inm 
         inner join tiposinmuebles as tip_inm on inm.`tiposInmuebles_idtipoInmueble` = tip_inm.`idtipoInmueble` 
         inner join tiposofertas as tip_ofer on inm.`tiposOfertas_idtipoOferta` = tip_ofer.`idtipoOferta` 

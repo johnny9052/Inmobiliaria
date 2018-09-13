@@ -47,7 +47,7 @@ and open the template in the editor.
                                     <div class="col-md-3 col-xs-12">
                                         <button type="button" class="btn btn-primary verdeExaudi" data-toggle="modal" data-target="#ModalNew" onclick="showButton(true);">Nuevo registro</button>                                                                                                                                           
                                         <a class="btn btn-social-icon btn-primary" onclick="executeSubmit('frmPDF');"><i class="fa fa-print" style="color: white"></i></a>
-                                        <a class="btn btn-social-icon btn-primary"><i class="fa fa-file-excel-o" style="color: white"></i></a>
+                                        <a class="btn btn-social-icon btn-primary" onclick="executeSubmit('frmCSV');"><i class="fa fa-file-excel-o" style="color: white"></i></a>
                                     </div>
 
                                     <div class="col-md-8  col-xs-12">
@@ -933,13 +933,12 @@ and open the template in the editor.
                             <button id="btnSave" onclick="save();" type ="button" class="btn btn-primary">Guardar</button>
                         </div>
 
-                        <div class="updateActionButton">                            
+                        <div class="updateActionButton">                                                        
+                            <button id="btnExportPDF" onclick="executeSubmit('frmPDFPropertie');" type="button" class="btn btn-primary">PDF</button>
                             <button id="btnUpdate" onclick="update();" type="button" class="btn btn-warning">Editar</button>
                             <button id="btnSave"   onclick="goNavigation('ModalNew', 'ModalConfirm');" 
                                     type="button" class="btn btn-danger">Eliminar</button>
                         </div>
-
-
 
                     </div>
                 </div>
@@ -1035,17 +1034,35 @@ and open the template in the editor.
         </div>
         <!-- /.modal -->
 
+        <!-- END MODAL DE CONFIRMACION-->
 
 
         <!--FORM GENERACION DE PDF-->
         <form id="frmPDF" name="formPDF" method="post" 
               action="Controller/Propertie/CtlPropertie.php" target="_blank">
-            <input type="hidden" name="id" value="30" id="txtIdPDF">
+            <input type="hidden" name="id" value="" id="txtIdPDF">
+            <input type="hidden" name="action" value="generatePDFList">        
+        </form>   
+        <!--END FORM GENERACION DE PDF-->   
+
+
+
+        <!--FORM GENERACION DE PDF-->
+        <form id="frmPDFPropertie" name="formPDFPropertie" method="post" 
+              action="Controller/Propertie/CtlPropertie.php" target="_blank">
+            <input type="hidden" name="id" value="" id="txtIdPDFPropertie">
             <input type="hidden" name="action" value="generatePDF">        
         </form>   
         <!--END FORM GENERACION DE PDF-->   
 
-        <!-- END MODAL DE CONFIRMACION-->
+
+        <!--FORM GENERACION DE PDF-->
+        <form id="frmCSV" name="frmCSV" method="post" 
+              action="Controller/Propertie/CtlPropertie.php" target="_blank">            
+            <input type="hidden" name="action" value="reportCSVList">        
+        </form>   
+        <!--END FORM GENERACION DE PDF-->   
+
 
         <!-- SCRIPT DE MAPAS, ACTIVACION MEDIANTE KEY -->
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmpRlSVVxIje1GdQb7jlW5QwG-WBfVEnw&libraries=places&callback=myMap"

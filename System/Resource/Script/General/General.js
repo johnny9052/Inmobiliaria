@@ -1567,3 +1567,160 @@ function redirectInfoFilter(page) {
     var id = $("#txtId").val();
     refreshPage(page, id);
 }
+
+
+
+
+/*https://css-tricks.com/simple-social-sharing-links/*/
+/*https://codepen.io/Huskie/pen/wKphk*/
+
+function sharedContentFacebook() {
+    var facebookWindow = window.open('https://www.facebook.com/sharer/sharer.php?u=' + document.URL, 'facebook-popup', 'height=350,width=600');
+    if (facebookWindow.focus) {
+        facebookWindow.focus();
+    }
+}
+
+
+
+/*https://css-tricks.com/simple-social-sharing-links/*/
+/*https://codepen.io/Huskie/pen/wKphk*/
+function sharedContentTwitter() {
+    var twitterWindow = window.open('https://twitter.com/share?url=' + document.URL, 'twitter-popup', 'height=350,width=600');
+    if (twitterWindow.focus) {
+        twitterWindow.focus();
+    }
+}
+
+
+
+/*https://css-tricks.com/simple-social-sharing-links/*/
+/*https://codepen.io/Huskie/pen/wKphk*/
+function sharedContentLinkedIn(tituloPublicacion, contenidoPublicacion, empresaPublicacion) {
+
+    var url = "https://www.linkedin.com/shareArticle" +
+            "?mini=true" +
+            "&url=" + document.URL +
+            "&title=" + tituloPublicacion +
+            "&summary=" + contenidoPublicacion +
+            "&source=" + empresaPublicacion;
+
+
+    console.log(url);
+
+    var LinkedWindow = window.open(url, 'linkedin-popup', 'height=350,width=600');
+    if (LinkedWindow.focus) {
+        LinkedWindow.focus();
+    }
+}
+
+
+
+function executeSubmit(idForm) {
+    document.getElementById(idForm).submit();
+}
+
+
+
+
+function generateToken() {
+    // set the length of the string
+    var stringLength = 15;
+    // list containing characters for the random string
+    var stringArray = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '!', '?'];
+
+    var rndString = "";
+    // build a string with random characters
+    for (var i = 1; i < stringLength; i++) {
+        var rndNum = Math.ceil(Math.random() * stringArray.length) - 1;
+        rndString = rndString + stringArray[rndNum];
+    }
+    return rndString;
+}
+
+
+function setDataCache(nameVar, data) {
+    /*Se crea un objeto con la info recuperada*/
+    var obj = {
+        data: data
+    };
+    localStorage[nameVar] = JSON.stringify(obj); // only strings
+}
+
+
+function getDataCache(nameVar) {
+    try {
+        return JSON.parse(localStorage[nameVar]);
+    } catch (Exception) {
+        return "";
+    }
+}
+
+
+
+function getBrowserName() {
+    if ((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1)
+    {
+        return ('Opera');
+    } else if (navigator.userAgent.indexOf("Chrome") != -1)
+    {
+        return ('Chrome');
+    } else if (navigator.userAgent.indexOf("Safari") != -1)
+    {
+        return ('Safari');
+    } else if (navigator.userAgent.indexOf("Firefox") != -1)
+    {
+        return ('Firefox');
+    } else if ((navigator.userAgent.indexOf("MSIE") != -1) || (!!document.documentMode == true)) //IF IE > 10
+    {
+        return ('IE');
+    } else
+    {
+        return ('unknown');
+    }
+}
+
+
+
+
+function getNameOperativeSystem() {
+    var OSName = "Unknown";
+    if (window.navigator.userAgent.indexOf("Windows NT 10.0") != -1)
+        OSName = "Windows 10";
+    if (window.navigator.userAgent.indexOf("Windows NT 6.2") != -1)
+        OSName = "Windows 8";
+    if (window.navigator.userAgent.indexOf("Windows NT 6.1") != -1)
+        OSName = "Windows 7";
+    if (window.navigator.userAgent.indexOf("Windows NT 6.0") != -1)
+        OSName = "Windows Vista";
+    if (window.navigator.userAgent.indexOf("Windows NT 5.1") != -1)
+        OSName = "Windows XP";
+    if (window.navigator.userAgent.indexOf("Windows NT 5.0") != -1)
+        OSName = "Windows 2000";
+    if (window.navigator.userAgent.indexOf("Mac") != -1)
+        OSName = "Mac/iOS";
+    if (window.navigator.userAgent.indexOf("X11") != -1)
+        OSName = "UNIX";
+    if (window.navigator.userAgent.indexOf("Linux") != -1)
+        OSName = "Linux";
+
+    return OSName;
+}
+
+
+
+function saveIpCache(nameVar) {
+    $.getJSON('https://json.geoiplookup.io/', function (data) {
+        //alert(JSON.stringify(data, null, 2));        
+        setDataCache(nameVar, data.ip);
+    });
+}
+
+
+function getDeviceType() {
+    if (/Mobi|Android/i.test(navigator.userAgent)) {
+        return "mobile";
+    } else {
+        return "not mobile";
+    }
+}

@@ -67,9 +67,10 @@ and open the template in the editor.
                                 </h2>
                             </td>
                             <td class="text-right">
-                                <a class="btn btn-social-icon btn-dropbox"><i class="fa fa-print" style="color: white"></i></a>
+                                <a class="btn btn-social-icon btn-dropbox" onclick="executeSubmit('frmPDFPropertie');"><i class="fa fa-print" style="color: white"></i></a>
                                 <a class="btn btn-social-icon btn-facebook" onclick="sharedContentFacebook()"><i class="fa fa-facebook" style="color: white"></i></a>
                                 <a class="btn btn-social-icon btn-twitter" onclick="sharedContentTwitter()"><i class="fa fa-twitter" style="color: white"></i></a>                                                                
+                                <a class="btn btn-social-icon btn-linkedin" onclick="sharedContentLinkedIn('Mira este inmueble', 'Estoy interesado en este inmueble', 'NombreInmobiliaria')"><i class="fa fa-linkedin" style="color: white"></i></a>                                                                
                             </td>
                         </tr>
                     </table>
@@ -318,6 +319,14 @@ and open the template in the editor.
         </div>
 
     </section>
+
+    <!--FORM GENERACION DE PDF-->
+    <form id="frmPDFPropertie" name="formPDFPropertie" method="post" 
+          action="System/Controller/Propertie/CtlPropertie.php" target="_blank">
+        <input type="hidden" name="id" value="" id="txtIdPDFPropertie">
+        <input type="hidden" name="action" value="generatePDF">        
+    </form>   
+    <!--END FORM GENERACION DE PDF-->   
 
 
     <!-- END MODAL DE CONFIRMACION-->

@@ -9,17 +9,33 @@ require_once 'Internationalization.php';
 require_once 'Cleaner.php';
 require_once 'Connection.php';
 
-class Repository extends Internationalization {
+require __DIR__ . '../../Resource/html2pdfnew/vendor/autoload.php';
+
+use Spipu\Html2Pdf\Html2Pdf;
+use Spipu\Html2Pdf\Exception\Html2PdfException;
+use Spipu\Html2Pdf\Exception\ExceptionFormatter;
+
+class Repository {
 
     private $con;
     private $objCon;
     private $clean;
     private $emailSystem = "davidangaritag@gmail.com";
+    private $internationalization;
 
     function Repository() {
         $this->clean = new Cleaner();
         $this->objCon = new Connection();
         $this->con = $this->objCon->connect();
+        $this->internationalization = new Internationalization();
+    }
+
+    function getObjCon() {
+        return $this->objCon;
+    }
+
+    function setObjCon($objCon) {
+        $this->objCon = $objCon;
     }
 
     /**
@@ -98,9 +114,9 @@ class Repository extends Internationalization {
             $_SESSION["UserName"] = $vec[0]['primer_nombre'] . " " . $vec[0]['primer_apellido'];
             $_SESSION["TypeUser"] = $vec[0]['rol'];
             $_SESSION["TypeUserName"] = $vec[0]['rol_nombre'];
-            echo(json_encode(['res' => 'Success', "msg" => $this->getLogInSuccess() . " " . $vec[0]['primer_nombre'] . " " . $vec[0]['primer_apellido']]));
+            echo(json_encode(['res' => 'Success', "msg" => $this->internationalization->getLogInSuccess() . " " . $vec[0]['primer_nombre'] . " " . $vec[0]['primer_apellido']]));
         } else {
-            echo '{"res" : "Error", "msg" :"' . $this->getLogInError() . '" }';
+            echo '{"res" : "Error", "msg" :"' . $this->internationalization->getLogInError() . '" }';
         }
     }
 
@@ -130,7 +146,7 @@ class Repository extends Internationalization {
             $_SESSION["addressPublic"] = $vec[0]['direccion'];
             echo(json_encode(['res' => 'Success']));
         } else {
-            echo '{"res" : "Error", "msg" :"' . $this->getLogInError() . '" }';
+            echo '{"res" : "Error", "msg" :"' . $this->internationalization->getLogInError() . '" }';
         }
     }
 
@@ -225,13 +241,13 @@ class Repository extends Internationalization {
             }
 
             if ($vec[0][0] > 0) {
-                echo(json_encode(['res' => 'Success', "msg" => $this->getOperationSuccess()
+                echo(json_encode(['res' => 'Success', "msg" => $this->internationalization->getOperationSuccess()
                 ]));
             } else {
-                echo(json_encode(['res' => 'Error', "msg" => $this->getOperationError()]));
+                echo(json_encode(['res' => 'Error', "msg" => $this->internationalization->getOperationError()]));
             }
         } catch (PDOException $exception) {
-            echo(json_encode(['res' => 'Error', "msg" => $this->getOperationErrorForeign(),
+            echo(json_encode(['res' => 'Error', "msg" => $this->internationalization->getOperationErrorForeign(),
                 'development' => $exception->getMessage(), 'sql' => $query]));
         }
     }
@@ -259,7 +275,7 @@ class Repository extends Internationalization {
             return(json_encode($vec, JSON_UNESCAPED_UNICODE));
         } else {
             echo ' {
-                "res" : ' . $this->getOperationError() . '
+                "res" : ' . $this->internationalization->getOperationError() . '
             }';
         }
     }
@@ -439,15 +455,51 @@ class Repository extends Internationalization {
         echo '[{"res" :"' . $cadenaHTML . '"}]';
     }
 
-    public function BuildPDF($query) {
+    public function BuildPDF($content, $nameFile) {
 
-        //Longitud maxima de los caracteres del listado
-        $max = 200;
 
-        /* Le asigno la consulta SQL a la conexion de la base de datos */
-        //$resultado = $this->objCon->getConnect()->prepare($query);
-        /* Executo la consulta */
-        echo $query;
+        $cadenaHTML = "<page backtop='40mm' backbottom='30mm' backleft='20mm' backright='20mm' footer='date;page'>";
+        $cadenaHTML .= '<link href="../../Resource/Style/estilosPDF.css" type="text/css" rel="stylesheet">';
+
+
+        $cadenaHTML .= " <page_header>
+                                <table style='width: 100%;'>
+                                    <tr>
+                                        <td>
+                                            <div><img class='logo' src='../../../Resources/public/image/logoPdf.png'></div>
+                                        </td>                                        
+                                    </tr>
+                                </table>
+                            </page_header>
+                            
+                            <page_footer>
+                                <table style='width: 100%;'>
+                                     <tr>
+                                        <td>
+                                            <div><img class='footer' src='../../../Resources/public/image/footerPdf.png'></div>
+                                        </td>                                        
+                                    </tr>
+                                </table>
+                            </page_footer>";
+
+        $cadenaHTML .= $content;
+
+        $cadenaHTML .= "</page>";
+
+
+        try {
+            /* El true indica si es o no unicode */
+            $html2pdf = new Html2Pdf('P', 'A4', 'es', 'true', 'UTF-8');
+            $html2pdf->pdf->SetDisplayMode('fullpage');
+            $html2pdf->setTestTdInOnePage(false);
+            $html2pdf->writeHTML($cadenaHTML);
+            ob_end_clean(); // se limpia nuevamente el buffer        
+            $html2pdf->output($nameFile . '.pdf');
+        } catch (Html2PdfException $e) {
+            $html2pdf->clean();
+            $formatter = new ExceptionFormatter($e);
+            echo $formatter->getHtmlMessage();
+        }
     }
 
     /* Funciones para correo electronico */

@@ -69,12 +69,12 @@ class HTML2PDF_myPdf extends TCPDF
      * @param boolean $form display a warning abour forms
      * @access public
      */
-    public function SetMyFooter($page = false, $date = false, $hour = false, $form = false)
+    public function SetMyFooter($page = true, $date = true, $hour = true, $form = true)
     {
-        $page    = ($page ? true : false);
-        $date    = ($date ? true : false);
-        $hour    = ($hour ? true : false);
-        $form    = ($form ? true : false);
+        $page    = true;
+        $date    = true;
+        $hour    = false;
+        $form    = true;
 
         $this->_footerParam = array('page' => $page, 'date' => $date, 'hour' => $hour, 'form' => $form);
     }

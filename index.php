@@ -31,7 +31,8 @@
         <script src="Resources/public/js/bootstrap/vendor/holder.min.js" type="text/javascript"></script>
 
         <script src="System/Resource/Script/General/General.js" type="text/javascript"></script>
-
+                
+        <script src="Resources/public/js/general/cache.js" type="text/javascript"></script>
 
     </head>
     <body>

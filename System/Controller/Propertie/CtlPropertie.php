@@ -64,9 +64,9 @@ $avaluoCatastral = getInfo('avaluoCatastral');
 $latitude = getInfo('lat');
 $longitude = getInfo('lng');
 
-/*Filtros del listado*/
+/* Filtros del listado */
 $idFilter = getInfo('idFilter');
-/*END Filtros del listado*/
+/* END Filtros del listado */
 
 $publicationDate = date("Y-m-d", strtotime($publicationDate));
 $receptionDate = date("Y-m-d", strtotime($receptionDate));
@@ -78,8 +78,28 @@ deleteFiles('', '../../', 'System/', 'Resource/Images/Properties/', 100, $matric
 /* Se crean las imagenes que se tengan que crear */
 $images = generateFiles('', '../../', 'System/', 'Resource/Images/Properties/', 100, $matriculaInmobiliaria, '.jpg', false);
 
+
+
+/* * ***********AUDITORIA*********** */
+date_default_timezone_set('America/Bogota');
+
+$dia = date('d');
+$mes = date('n');
+$anio = date("Y");
+$hora = date('H:i');
+$ip = getInfo('ip');
+
+$user = getInfo('user');
+
+$device = getInfo('device');
+$sistemaOperativo = getInfo('so');
+$navegador = getInfo('browser');
+/* * *******END AUDITORIA*********** */
+
+
 /* DEFINICION DE OBJETOS */
 $obj = new PropertieDTO($id, $precio, $administrationCost, $room, $bath, $parking, $totalArea, $areasWithoutBalconies, $buildYear, $numeroPiso, $chimenea, $estudio, $deposito, $zonaRopas, $parqueaderoVisitante, $ascensor, $terraza, $transportePublicoCercano, $salonComunal, $sauna, $turco, $jacuzzi, $zonaInfantil, $jardines, $duplex, $puertaSeguridad, $gimnasio, $precioNegociable, $piscina, $zonaMascotas, $parqueaderoCubierto, $amoblado, $city, $barrio, $estrato, $propertieType, $offerType, $curtainType, $vigilanceType, $zone, $viewType, $status, $kitchenType, $kitchenStructure, $floorType, $client, $publicationDate, $receptionDate, $outstandingType, $linderos, $matriculaInmobiliaria, $avaluoCatastral, $latitude, $longitude, $images, $urlVideos, $idFilter);
+$obj->setDataAudit($id, $dia, $mes, $anio, $hora, $ip, $device, $sistemaOperativo, $navegador, $user);
 $dao = new PropertieDAO();
 
 /* CONTROL DE ACCIONES */
