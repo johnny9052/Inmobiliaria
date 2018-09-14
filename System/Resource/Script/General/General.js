@@ -24,6 +24,13 @@ $(document).ready(function () {
         console.log("Error configurando los inputs tipo fecha");
     }
 
+    try {
+        /* BOOTSTRAP SLIDER */
+        $('.slider').slider();
+    } catch (Exception) {
+        console.log("Error configurando los sliders");
+    }
+
     // https://stackoverflow.com/questions/19639951/how-do-i-change-selected-value-of-select2-dropdown-with-jqgrid
     //$('.select2').select2();// Para colocar el select con autocompletado.     
 });
@@ -1733,4 +1740,11 @@ function getDeviceType() {
     } else {
         return "not mobile";
     }
+}
+
+
+
+
+function replaceText(cadena,find,replace){
+    return cadena.replace(new RegExp(find, 'g'), replace);
 }

@@ -60,7 +60,11 @@ class PropertieDTO extends BaseDTO {
     private $longitude;
     private $images;
     private $urlVideos;
-    
+    /* Filter */
+    private $areaMax;
+    private $valorMax;
+    private $state;
+
     function __construct($id, $precio, $administrationCost, $room, $bath, $parking, $totalArea, $areasWithoutBalconies, $buildYear, $numeroPiso, $chimenea, $estudio, $deposito, $zonaRopas, $parqueaderoVisitante, $ascensor, $terraza, $transportePublicoCercano, $salonComunal, $sauna, $turco, $jacuzzi, $zonaInfantil, $jardines, $duplex, $puertaSeguridad, $gimnasio, $precioNegociable, $piscina, $zonaMascotas, $parqueaderoCubierto, $amoblado, $city, $barrio, $estrato, $propertieType, $offerType, $curtainType, $vigilanceType, $zone, $viewType, $status, $kitchenType, $kitchenStructure, $floorType, $client, $publicationDate, $receptionDate, $outstandingType, $linderos, $matriculaInmobiliaria, $avaluoCatastral, $latitude, $longitude, $images, $urlVideos, $idfilter) {
         $this->id = $id;
         $this->precio = $precio;
@@ -120,8 +124,23 @@ class PropertieDTO extends BaseDTO {
         $this->urlVideos = $urlVideos;
         $this->idfilter = $idfilter;
     }
-    
-    
+
+    function getAreaMax() {
+        return $this->areaMax;
+    }
+
+    function getValorMax() {
+        return $this->valorMax;
+    }
+
+    function setAreaMax($areaMax) {
+        $this->areaMax = $areaMax;
+    }
+
+    function setValorMax($valorMax) {
+        $this->valorMax = $valorMax;
+    }
+
     function getId() {
         return $this->id;
     }
@@ -570,7 +589,29 @@ class PropertieDTO extends BaseDTO {
         $this->urlVideos = $urlVideos;
     }
 
+    function getState() {
+        return $this->state;
+    }
 
+    function setState($state) {
+        $this->state = $state;
+    }
 
+    function saveFilterSearch($areaMax, $valorMax, $state, $city, $barrio, $zone, $propertieType, $offerType, $estrato, $ascensor, $piscina, $room, $bath, $parking) {
+        $this->valorMax = $valorMax;
+        $this->areaMax = $areaMax;
+        $this->state = $state;
+        $this->city = $city;
+        $this->barrio = $barrio;
+        $this->zone = $zone;
+        $this->propertieType = $propertieType;
+        $this->offerType = $offerType;
+        $this->estrato = $estrato;
+        $this->ascensor = $ascensor;
+        $this->piscina = $piscina;
+        $this->room = $room;
+        $this->bath = $bath;
+        $this->parking = $parking;
+    }
 
 }

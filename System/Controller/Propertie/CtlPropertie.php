@@ -66,6 +66,11 @@ $longitude = getInfo('lng');
 
 /* Filtros del listado */
 $idFilter = getInfo('idFilter');
+$state = getInfo('state');
+
+$areaMax = getInfo('areaMax');
+$valorMax = getInfo('valorMax');
+
 /* END Filtros del listado */
 
 $publicationDate = date("Y-m-d", strtotime($publicationDate));
@@ -100,6 +105,7 @@ $navegador = getInfo('browser');
 /* DEFINICION DE OBJETOS */
 $obj = new PropertieDTO($id, $precio, $administrationCost, $room, $bath, $parking, $totalArea, $areasWithoutBalconies, $buildYear, $numeroPiso, $chimenea, $estudio, $deposito, $zonaRopas, $parqueaderoVisitante, $ascensor, $terraza, $transportePublicoCercano, $salonComunal, $sauna, $turco, $jacuzzi, $zonaInfantil, $jardines, $duplex, $puertaSeguridad, $gimnasio, $precioNegociable, $piscina, $zonaMascotas, $parqueaderoCubierto, $amoblado, $city, $barrio, $estrato, $propertieType, $offerType, $curtainType, $vigilanceType, $zone, $viewType, $status, $kitchenType, $kitchenStructure, $floorType, $client, $publicationDate, $receptionDate, $outstandingType, $linderos, $matriculaInmobiliaria, $avaluoCatastral, $latitude, $longitude, $images, $urlVideos, $idFilter);
 $obj->setDataAudit($id, $dia, $mes, $anio, $hora, $ip, $device, $sistemaOperativo, $navegador, $user);
+$obj->saveFilterSearch($areaMax, $valorMax, $state, $city, $barrio, $zone, $propertieType, $offerType, $estrato, $ascensor, $piscina, $room, $bath, $parking);
 $dao = new PropertieDAO();
 
 /* CONTROL DE ACCIONES */
