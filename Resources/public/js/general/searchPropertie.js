@@ -24,7 +24,7 @@ function loadValorMaximo() {
 
 function cargarValorMaximo(info) {    
     $("#rngValorMaximoInmueble").prop('max', info[0].precio);
-    $("#lblValorMaxPosible").html(parseFloat(info[0].precio).toLocaleString('en'));
+    $("#lblValorMaxPosible").html("$ "+parseFloat(info[0].precio).toLocaleString('en'));
 }
 
 
