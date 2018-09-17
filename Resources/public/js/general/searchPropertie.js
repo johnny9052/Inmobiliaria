@@ -148,7 +148,8 @@ function construirRegistroPaginacion(pos) {
     var area = objectToPagination[pos].area;
     var tipoinmueble = objectToPagination[pos].tipoinmueble;
 
-
+    /*Medidas originales, a col-md-4 y 100 x 225*/
+    /*Medidas de prueba, a col-md-3 y 100 x 175*/
     return "<div class='col-md-4'>\n\
                                     <div class='card mb-4 box-shadow'>\n\
                                         <img src='" + imagen + "'  \n\

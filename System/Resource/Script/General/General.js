@@ -1757,9 +1757,12 @@ function replaceText(cadena, find, replace) {
 
 /*************GENERACION DE REPORTES************************************/
 
-var colorScale = d3.scale.category10();
+
 
 function buildDashboardBarByCategory(columnsName, data, idDivGoal, labelAxisX, labelAxisY) {
+    
+    var colorScale = d3.scale.category10();
+    
     return c3.generate({
         bindto: '#' + idDivGoal,
         data: {
