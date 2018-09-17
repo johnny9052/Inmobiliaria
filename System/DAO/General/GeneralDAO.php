@@ -41,10 +41,8 @@ class GeneralDAO {
         //echo $query;
         $this->repository->BuildCheckboxDinamic($query);
     }
-    
-    
-    
-       /**
+
+    /**
      * Ejecuta una consulta que sera cargado como foranea en un select 
      * en la interfaz
      * @param GeneralDTO $obj
@@ -53,6 +51,12 @@ class GeneralDAO {
      * @version 0.2
      */
     public function LoadValue(GeneralDTO $obj, $name) {
+        $query = $this->repository->buildQuery($name, array((int) $obj->getId()));
+        //echo $query;
+        $this->repository->Execute($query);
+    }
+
+    public function LoadDataDashboard(GeneralDTO $obj, $name) {
         $query = $this->repository->buildQuery($name, array((int) $obj->getId()));
         //echo $query;
         $this->repository->Execute($query);

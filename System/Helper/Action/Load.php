@@ -229,16 +229,34 @@ function ExecuteActionLoad($action, $obj, $dao) {
 
 
         /* LOAD VALUES */
+
+
         case "loadPrecioMaximoInmueble":
             $dao->LoadValue($obj, "loadpreciomaximoinmueble");
             break;
-        
+
         case "loadAreaMaximaInmueble":
             $dao->LoadValue($obj, "loadareamaximainmueble");
             break;
-        
-        
+
+
         /* END LOAD VALUES */
+
+
+
+        /* LOAD DATA DASHBOARD */
+
+
+        case "loadInmueblesTopVisitas":
+            $dao->LoadValue($obj, "loadinmueblestopvisitas");
+            break;
+
+        case "loadZonasTopVisitas":
+            $dao->LoadValue($obj, "loadzonastopvisitas");
+            break;
+        
+        
+        /* END LOAD DATA DASHBOARD */
 
         default :
             echo 'No action found';

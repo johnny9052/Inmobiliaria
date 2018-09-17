@@ -1743,8 +1743,79 @@ function getDeviceType() {
 }
 
 
-
-
-function replaceText(cadena,find,replace){
+function replaceText(cadena, find, replace) {
     return cadena.replace(new RegExp(find, 'g'), replace);
 }
+
+
+
+
+
+
+
+
+
+/*************GENERACION DE REPORTES************************************/
+
+var colorScale = d3.scale.category10();
+
+function buildDashboardBarByCategory(columnsName, data, idDivGoal, labelAxisX, labelAxisY) {
+    return c3.generate({
+        bindto: '#' + idDivGoal,
+        data: {
+            columns: [
+                data
+            ],
+            type: 'bar',
+            order: 'asc',
+            labels: true,
+            color: function (inColor, data) {
+                if (data.index !== undefined) {
+                    return colorScale(data.index);
+                }
+
+                return inColor;
+            }
+        },
+        legend: {
+            show: false
+        },
+        zoom: {
+            enabled: false
+        },
+        axis: {
+            y: {
+                label: {
+                    text: labelAxisY,
+                    position: 'outer-middle'
+                            // inner-top : default
+                            // inner-middle
+                            // inner-bottom
+                            // outer-top
+                            // outer-middle
+                            // outer-bottom
+                }
+            },
+            x: {
+                type: 'category',
+                categories: columnsName,
+                label: {
+                    text: labelAxisX,
+                    position: 'outer-center'
+                            // inner-right : default
+                            // inner-center
+                            // inner-left
+                            // outer-right
+                            // outer-center
+                            // outer-left
+                }
+            }
+        },
+        tooltip: {
+            show: false
+        },
+    });
+
+}
+
+
