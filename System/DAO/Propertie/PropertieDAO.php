@@ -173,7 +173,25 @@ class PropertieDAO {
      * @version 0.1
      */
     public function ListAllNoTable(PropertieDTO $obj) {
-        $query = $this->repository->buildQuery("listpropertiepublic", array((int) $obj->getIdUser()));
+        $query = $this->repository->buildQuery("listpropertiepublic", array(
+            (int) $obj->getIdUser(),
+            (int) $obj->getState(),
+            (int) $obj->getAreaMax(),
+            (int) $obj->getValorMax(),
+            (int) $obj->getCity(),
+            (int) $obj->getBarrio(),
+            (int) $obj->getZone(),
+            (int) $obj->getPropertieType(),
+            (int) $obj->getOfferType(),
+            (int) $obj->getEstrato(),
+            (int) $obj->getAscensor(),
+            (int) $obj->getPiscina(),
+            (int) $obj->getRoom(),
+            (int) $obj->getBath(),
+            (int) $obj->getParking()
+        ));
+
+        //echo $query;
         $this->repository->Execute($query);
     }
 

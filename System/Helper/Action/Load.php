@@ -14,43 +14,43 @@ function ExecuteActionLoad($action, $obj, $dao) {
         case "loadRol":
             $dao->LoadSelect($obj, "loadrol");
             break;
-        
+
         case "loadBank":
             $dao->LoadSelect($obj, "loadbank");
             break;
-        
+
         case "loadTypeReference":
             $dao->LoadSelect($obj, "loadtypereference");
             break;
-        
+
         case "loadArea":
             $dao->LoadSelect($obj, "loadarea");
             break;
-        
+
         case "loadContractType":
             $dao->LoadSelect($obj, "loadcontracttype");
             break;
-        
+
         case "loadBloodType":
             $dao->LoadSelect($obj, "loadbloodtype");
             break;
-        
+
         case "loadPensionFund":
             $dao->LoadSelect($obj, "loadpensionfund");
             break;
-        
+
         case "loadSeveranceFund":
             $dao->LoadSelect($obj, "loadseverancefund");
             break;
-        
+
         case "loadArl":
             $dao->LoadSelect($obj, "loadarl");
             break;
-        
+
         case "loadEps":
             $dao->LoadSelect($obj, "loadeps");
             break;
-        
+
         case "loadCompensationBox":
             $dao->LoadSelect($obj, "loadcompensationbox");
             break;
@@ -71,7 +71,7 @@ function ExecuteActionLoad($action, $obj, $dao) {
         case "loadGender":
             $dao->LoadSelect($obj, "loadgender");
             break;
-        
+
         case "loadClientType":
             $dao->LoadSelect($obj, "loadclientType");
             break;
@@ -80,7 +80,7 @@ function ExecuteActionLoad($action, $obj, $dao) {
         case "loadActivityEconomic":
             $dao->LoadSelect($obj, "loadactivityeconomic");
             break;
-        
+
         case "loadPosition":
             $dao->LoadSelect($obj, "loadposition");
             break;
@@ -92,7 +92,7 @@ function ExecuteActionLoad($action, $obj, $dao) {
         case "loadProfession":
             $dao->LoadSelect($obj, "loadprofession");
             break;
-        
+
         case "loadPropertie":
             $dao->LoadSelect($obj, "loadpropertie");
             break;
@@ -200,32 +200,63 @@ function ExecuteActionLoad($action, $obj, $dao) {
         case "loadClientTypeSelected":
             $dao->LoadSelect($obj, "loadclienttypeselected");
             break;
-        
+
         case "loadEmployeeSelected":
             $dao->LoadSelect($obj, "loademployeeselected");
             break;
-        
+
         case "loadPeriodicity":
             $dao->LoadSelect($obj, "loadperiodicity");
             break;
-        
+
         case "loadCheckboxEmployees":
             $dao->LoadCheckbox($obj, "loademployee");
             break;
 
         /* END Load checkbox */
-        
-        
-        
-        /*Load checkbox Selected*/
-        
-        
-        
-        
-        /*END Load checkbox Selected*/
+
+
+
+        /* Load checkbox Selected */
+
+
+
+
+        /* END Load checkbox Selected */
         case "loadCheckboxEmployees":
             $dao->LoadCheckbox($obj, "loademployee");
             break;
+
+
+        /* LOAD VALUES */
+
+
+        case "loadPrecioMaximoInmueble":
+            $dao->LoadValue($obj, "loadpreciomaximoinmueble");
+            break;
+
+        case "loadAreaMaximaInmueble":
+            $dao->LoadValue($obj, "loadareamaximainmueble");
+            break;
+
+
+        /* END LOAD VALUES */
+
+
+
+        /* LOAD DATA DASHBOARD */
+
+
+        case "loadInmueblesTopVisitas":
+            $dao->LoadValue($obj, "loadinmueblestopvisitas");
+            break;
+
+        case "loadZonasTopVisitas":
+            $dao->LoadValue($obj, "loadzonastopvisitas");
+            break;
+        
+        
+        /* END LOAD DATA DASHBOARD */
 
         default :
             echo 'No action found';

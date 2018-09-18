@@ -24,6 +24,13 @@ $(document).ready(function () {
         console.log("Error configurando los inputs tipo fecha");
     }
 
+    try {
+        /* BOOTSTRAP SLIDER */
+        $('.slider').slider();
+    } catch (Exception) {
+        console.log("Error configurando los sliders");
+    }
+
     // https://stackoverflow.com/questions/19639951/how-do-i-change-selected-value-of-select2-dropdown-with-jqgrid
     //$('.select2').select2();// Para colocar el select con autocompletado.     
 });
@@ -1734,3 +1741,84 @@ function getDeviceType() {
         return "not mobile";
     }
 }
+
+
+function replaceText(cadena, find, replace) {
+    return cadena.replace(new RegExp(find, 'g'), replace);
+}
+
+
+
+
+
+
+
+
+
+/*************GENERACION DE REPORTES************************************/
+
+
+
+function buildDashboardBarByCategory(columnsName, data, idDivGoal, labelAxisX, labelAxisY) {
+    
+    var colorScale = d3.scale.category10();
+    
+    return c3.generate({
+        bindto: '#' + idDivGoal,
+        data: {
+            columns: [
+                data
+            ],
+            type: 'bar',
+            order: 'asc',
+            labels: true,
+            color: function (inColor, data) {
+                if (data.index !== undefined) {
+                    return colorScale(data.index);
+                }
+
+                return inColor;
+            }
+        },
+        legend: {
+            show: false
+        },
+        zoom: {
+            enabled: false
+        },
+        axis: {
+            y: {
+                label: {
+                    text: labelAxisY,
+                    position: 'outer-middle'
+                            // inner-top : default
+                            // inner-middle
+                            // inner-bottom
+                            // outer-top
+                            // outer-middle
+                            // outer-bottom
+                }
+            },
+            x: {
+                type: 'category',
+                categories: columnsName,
+                label: {
+                    text: labelAxisX,
+                    position: 'outer-center'
+                            // inner-right : default
+                            // inner-center
+                            // inner-left
+                            // outer-right
+                            // outer-center
+                            // outer-left
+                }
+            }
+        },
+        tooltip: {
+            show: false
+        },
+    });
+
+}
+
+

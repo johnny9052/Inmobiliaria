@@ -1,6 +1,15 @@
 /* Funciones jQuery */
 $(window).on("load", function (e) {
+    loadDepartment();
+    loadCity(-1);
+    loadNeighborhood(-1);
+    loadZone();
+    loadPropertieType();
+    loadOfferType();
+    loadStratum();
     listProperties();
+    loadValorMaximo();
+    loadAreaMaxima();
 });
 
 var registrosPagina = 3;
@@ -8,10 +17,75 @@ var totalRegistros = 0;
 var totalPaginacion = 0;
 var objectToPagination;
 
-function listProperties() {
-    Execute(scanInfo('listNoTable'), 'Propertie/CtlPropertie', '', 'buildListPropertie(info);', '', '', 'System/');
+
+function loadValorMaximo() {
+    Execute(scanInfo('loadPrecioMaximoInmueble', false), 'General/CtlGeneral', '', 'cargarValorMaximo(info)', '', '', 'System/');
 }
 
+function cargarValorMaximo(info) {    
+    $("#rngValorMaximoInmueble").prop('max', info[0].precio);
+    $("#lblValorMaxPosible").html("$ "+parseFloat(info[0].precio).toLocaleString('en'));
+}
+
+
+function loadAreaMaxima() {
+    Execute(scanInfo('loadAreaMaximaInmueble', false), 'General/CtlGeneral', '', 'cargarAreaMaxima(info)', '', '', 'System/');
+}
+
+function cargarAreaMaxima(info) {    
+    $("#rngAreaInmueble").prop('max', info[0].area);
+    $("#lblAreaMaxPosible").html(info[0].area + " mts2");
+}
+
+function loadDepartment() {
+    Execute(scanInfo('loadDepartment', false), 'General/CtlGeneral', '', 'buildSelect(info,"selState");', '', '', 'System/');
+}
+
+function loadCity(id) {
+    Execute(scanInfo('loadCity', false, '', [{datos: ["id", id]}]), 'General/CtlGeneral', '', 'buildSelect(info,"selCity");', '', '', 'System/');
+}
+
+
+function loadNeighborhood(id) {
+    Execute(scanInfo('loadNeighborhood', false, '', [{datos: ["id", id]}]), 'General/CtlGeneral', '', 'buildSelect(info,"selBarrio");', '', '', 'System/');
+}
+
+function loadZone() {
+    Execute(scanInfo('loadZone', false), 'General/CtlGeneral', '', 'buildSelect(info,"selZone");', '', '', 'System/');
+}
+
+
+function loadPropertieType() {
+    Execute(scanInfo('loadPropertieType', false), 'General/CtlGeneral', '', 'buildSelect(info,"selPropertieType");', '', '', 'System/');
+}
+
+
+function loadOfferType() {
+    Execute(scanInfo('loadOfferType', false), 'General/CtlGeneral', '', 'buildSelect(info,"selOfferType");', '', '', 'System/');
+}
+
+function loadStratum() {
+    Execute(scanInfo('loadStratum', false), 'General/CtlGeneral', '', 'buildSelect(info,"selStratum");', '', '', 'System/');
+}
+
+
+function listProperties() {
+
+    /*Se define el array de datos adicionales como un objeto, debido a que es necesario pasarlo por referencia para el llenado de los archivos*/
+    var infoPlus = {
+        temp: new Array()
+    };
+
+    var valorMax = $("#lblvalorMaxInmueble").html();
+    var areaMax = $("#lblAreaInmueble").html();
+
+    /*Se añaden como datos adicionales*/
+    infoPlus.temp.push({datos: ["valorMax", replaceText(valorMax, ",", "")]});
+    infoPlus.temp.push({datos: ["areaMax", areaMax]});
+
+
+    Execute(scanInfo('listNoTable', true, '', infoPlus.temp), 'Propertie/CtlPropertie', '', 'buildListPropertie(info);', '', '', 'System/');
+}
 
 
 function buildListPropertie(info) {
@@ -39,8 +113,18 @@ function buildListPropertie(info) {
         $("#lstProperties").html(listado);
         configurarPaginador(1);
     } else {
-        //listado = listado + "<div class='row'><div class='col s12 m1'></div><div class='col s12 m8'><div class='icon-block'><div> <hr style='color: #DFDFDF;' /></div><label>Informacion no encontrada</label><br><p class='light'>No se encuentran noticias para mostrar</p></div></div><div class='col s12 m1'></div></div>";
-        //$("#lstNoticias").html(listado);
+        listado = listado + "<div class='row'>\n\
+                                    <div class='col-md-4'></div>\n\
+                                    </div>\n\
+                                    <div class='col-md-4'></div>\n\
+                                                <div class='icon-block'><div> <hr style='color: #DFDFDF;' /></div>\n\
+                                                    <label>No se encuentran inmubles con esas caracteristicas</label>\n\
+                                                </div>\n\
+                                    </div>\n\
+                                    <div class='col-md-4'></div>\n\
+                             </div>";
+        $("#lstProperties").html(listado);
+        $('#segmentoPaginador').html("");
     }
 
     showLoadBar(false);
@@ -64,7 +148,8 @@ function construirRegistroPaginacion(pos) {
     var area = objectToPagination[pos].area;
     var tipoinmueble = objectToPagination[pos].tipoinmueble;
 
-
+    /*Medidas originales, a col-md-4 y 100 x 225*/
+    /*Medidas de prueba, a col-md-3 y 100 x 175*/
     return "<div class='col-md-4'>\n\
                                     <div class='card mb-4 box-shadow'>\n\
                                         <img src='" + imagen + "'  \n\
@@ -136,4 +221,12 @@ function repaginar(posSeleccionada) {
 function viewInfoPropertie(id) {
     var url = "infoPropertie&&id=" + id;
     refreshPagePublic(url);
+}
+
+
+
+
+
+function changeValueRange(idRange, idLbl) {
+    $("#" + idLbl).html(parseFloat($("#" + idRange).val()).toLocaleString('en'));
 }
