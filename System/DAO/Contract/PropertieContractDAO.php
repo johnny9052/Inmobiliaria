@@ -24,10 +24,11 @@ class PropertieContractDAO {
      */
     public function Save(PropertieContractDTO $obj) {
         $query = $this->repository->buildQuerySimply("savecontractpropertie", array((int) $obj->getId(),
-            (int) $obj->getPropertie(), (string) $obj->getFirmDate(),
-            (string) $obj->getStartDate(),(string) $obj->getEndDate(),
-            (float) $obj->getContractValue(), (int) $obj->getTermContract(),
-            (string) $obj->getWayPay(), (string) $obj->getUrlContract()
+            (int) $obj->getClient(),(int) $obj->getPropertie(), 
+            (string) $obj->getFirmDate(),(string) $obj->getStartDate(),
+            (string) $obj->getEndDate(), (float) $obj->getContractValue(), 
+            (int) $obj->getTermContract(), (string) $obj->getWayPay(), 
+            (string) $obj->getUrlContract()
         ));
         //echo $query;
         $this->repository->ExecuteTransaction($query);
@@ -66,10 +67,11 @@ class PropertieContractDAO {
      */
     public function Update(PropertieContractDTO $obj) {
         $query = $this->repository->buildQuerySimply("updatecontractpropertie", array((int) $obj->getId(),
-            (int) $obj->getPropertie(), (string) $obj->getFirmDate(),
-            (string) $obj->getStartDate(),(string) $obj->getEndDate(),
-            (float) $obj->getContractValue(), (int) $obj->getTermContract(),
-            (string) $obj->getWayPay(), (string) $obj->getUrlContract()
+            (int) $obj->getClient(),(int) $obj->getPropertie(), 
+            (string) $obj->getFirmDate(),(string) $obj->getStartDate(),
+            (string) $obj->getEndDate(), (float) $obj->getContractValue(), 
+            (int) $obj->getTermContract(), (string) $obj->getWayPay(), 
+            (string) $obj->getUrlContract()
         ));
         $this->repository->ExecuteTransaction($query);
     }

@@ -9,7 +9,7 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <title></title>
 
-        <script defer type="text/javascript" src="Resource/Script/Propertie/PropertieContract.js"></script>
+        <script defer type="text/javascript" src="Resource/Script/Contract/PropertieContract.js"></script>
     </head>
     <body>
 
@@ -32,8 +32,8 @@ and open the template in the editor.
                 <div class="col-md-12">
                     <div class="nav-tabs-custom">
                         <ul class="nav nav-tabs">
-                            <li><a href="" onclick="redirectInfoFilter('Propertie/Propertie');"data-toggle="tab">Inmubeles</a></li>
                             <li class="active"><a href="" data-toggle="tab">Contratos</a></li>
+                            <li><a href="" onclick="redirectInfoFilter('Contract/Spouse');"data-toggle="tab">Conyugues</a></li>
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane" id="properties">
@@ -111,8 +111,21 @@ and open the template in the editor.
                                 </div>
                             </div>
                         </div>
-
+                        
                         <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="" class="fa fa-user"></label>
+                                    &nbsp;&nbsp;
+                                    <label>Cliente</label>
+                                    <div>
+                                        <select id="selClient" name="client" 
+                                                class="form-control select2" style="width: 100%;" required>
+                                            <option value="-1" selected> -- SELECCIONE --</option>                            
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="" class="fa fa-home"></label>
@@ -123,7 +136,9 @@ and open the template in the editor.
                                     </select>
                                 </div>
                             </div>
+                        </div>
 
+                        <div class="row">
                             <div class="col-md-6">                                
                                 <div class="form-group">
                                     <label>Fecha de firma</label>
@@ -135,9 +150,6 @@ and open the template in the editor.
                                     </div>
                                 </div>
                             </div> 
-                        </div>
-
-                        <div class="row">
                             <div class="col-md-6">                                
                                 <div class="form-group">
                                     <label>Fecha de inicio</label>
@@ -149,7 +161,9 @@ and open the template in the editor.
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
+                        <div class="row">
                             <div class="col-md-6">                                
                                 <div class="form-group">
                                     <label>Fecha de terminación</label>
@@ -161,9 +175,6 @@ and open the template in the editor.
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="txtContractValue">Valor Contrato</label>   
@@ -174,6 +185,9 @@ and open the template in the editor.
                                     </div>
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="txtTermContract">Plazo contrato</label>   
@@ -183,10 +197,7 @@ and open the template in the editor.
                                                placeholder="Plazo contrato">
                                     </div>
                                 </div>
-                            </div> 
-                        </div>
-
-                        <div class="row">
+                            </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="txtWayPay">Forma de pago</label>   
@@ -198,6 +209,7 @@ and open the template in the editor.
                                 </div>
                             </div> 
                         </div>
+
 
                         <div class="row">
                             <br>
