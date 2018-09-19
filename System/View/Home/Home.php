@@ -25,8 +25,7 @@ and open the template in the editor.
                     <!-- small box -->
                     <div class="small-box bg-aqua">
                         <div class="inner">
-                            <h3>150</h3>
-
+                            <h3 id="lblTotalInmuebles">--</h3>
                             <p>Total inmuebles</p>
                         </div>
                         <div class="icon">
@@ -40,7 +39,7 @@ and open the template in the editor.
                     <!-- small box -->
                     <div class="small-box bg-green">
                         <div class="inner">
-                            <h3>150</h3>
+                            <h3 id="lblTotalClientes">--</h3>
 
                             <p>Total clientes</p>
                         </div>
@@ -55,9 +54,9 @@ and open the template in the editor.
                     <!-- small box -->
                     <div class="small-box bg-yellow">
                         <div class="inner">
-                            <h3>44</h3>
+                            <h3 id="lblTotalArrendatarios">--</h3>
 
-                            <p>Total empleados</p>
+                            <p>Total arrendatarios</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-person-add"></i>

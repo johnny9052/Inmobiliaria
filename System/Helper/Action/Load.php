@@ -239,6 +239,19 @@ function ExecuteActionLoad($action, $obj, $dao) {
             $dao->LoadValue($obj, "loadareamaximainmueble");
             break;
 
+        case "loadTotalInmuebles":
+            $dao->LoadValue($obj, "loadtotalinmuebles");
+            break;
+
+        case "loadTotalClientes":
+            $dao->LoadValue($obj, "loadtotalclientes");
+            break;
+
+
+        case "loadTotalArrendatarios":
+            $dao->LoadValue($obj, "loadtotalarrendatarios");
+            break;
+
 
         /* END LOAD VALUES */
 
@@ -254,8 +267,16 @@ function ExecuteActionLoad($action, $obj, $dao) {
         case "loadZonasTopVisitas":
             $dao->LoadValue($obj, "loadzonastopvisitas");
             break;
-        
-        
+
+        case "loadTotalInmueblesPorOferta":
+            $dao->LoadValue($obj, "loadtotalinmueblesporoferta");
+            break;
+
+        case "loadTotalInmueblesPorOfertaContrato":
+            $dao->LoadValue($obj, "loadtotalinmueblesporofertacontrato");
+            break;
+
+
         /* END LOAD DATA DASHBOARD */
 
         default :
