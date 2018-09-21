@@ -26,6 +26,8 @@ $cityResidence = getInfo('cityResidence');
 $cityExpedition = getInfo('cityExpedition');
 $expeditionDate = getInfo('expeditionDate');
 
+$expeditionDate = date("Y-m-d", strtotime($expeditionDate));
+
 /* DEFINICION DE OBJETOS */
 $obj = new DebtorDTO($id, $documentNumber, $firstName, $secondName, $firstLastName, $secondLastName, $address, $homePhone, $addressOffice, $officePhone, $mobilePhone, $email, $monthlyIncome, $maritalStatus, $documentType, $cityResidence, $cityExpedition, $expeditionDate);
 $dao = new DebtorDAO();

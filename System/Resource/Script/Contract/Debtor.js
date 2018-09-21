@@ -61,7 +61,7 @@ function showData(info) {
     $("#txtSecondName").val(info[0].segundo_nombre);
     $("#txtFirstLastName").val(info[0].primer_apellido);
     $("#txtSecondLastName").val(info[0].segundo_apellido);
-    $("#txtAddress").val(info[0].direccion);
+    $("#txtAddress").val(info[0].direccion_residencia);
     $("#txtHomePhone").val(info[0].telefono_residencia);
     $("#txtAddressOffice").val(info[0].direccion_laboral);
     $("#txtOfficePhone").val(info[0].telefono_laboral);
@@ -69,10 +69,10 @@ function showData(info) {
     $("#txtEmail").val(info[0].email);
     $("#txtMonthlyIncome").val(info[0].ingresos);
     refreshSelect("selMaritalStatus", info[0].estado_civil);
-    refreshSelect("selDocumentType", info[0].id_tipo_identificacion);
-    refreshSelect("selStateResidence", info[0].departamento_residencia);
+    refreshSelect("selDocumentType", info[0].tipo_identificacion);
+    refreshSelect("selStateResidence", info[0].id_departamento_residencia);
     refreshSelect("selCityResidence", info[0].id_ciudad_residencia);
-    refreshSelect("selStateExpedition", info[0].departamento_expedicion);
+    refreshSelect("selStateExpedition", info[0].id_departamento_expedicion);
     refreshSelect("selCityExpedition", info[0].id_ciudad_expedicion);
     
     $("#txtExpeditionDate").val(info[0].fecha_expedicion);
