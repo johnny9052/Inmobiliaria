@@ -29,35 +29,61 @@ and open the template in the editor.
                         <br>
 
                         <div class="row">                            
-                            <div class="col-md-12 col-sm-12 col-xs-12">                                 
-                                <div class="input-group">                    
+                            <div class="col-md-6 col-sm-6 col-xs-12">                                 
+                                <label for="txtFirstNameUser">Primer nombre</label>   
+                                <div class="input-group">                                            
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fa fa-user"></i></span>
                                     </div>
-                                    <input type="text" class="form-control" id="txtNameUser" name="name" 
-                                           placeholder="Ingrese su nombre" required>                    
+                                    <input type="text" class="form-control" id="txtFirstNameUser" name="firstName" 
+                                           placeholder="Primer nombre" required>                    
                                 </div>
                             </div>                              
+
+
+                            <div class="col-md-6 col-sm-6 col-xs-12">                                 
+                                <label for="txtSecondNameUser">Segundo nombre</label>   
+                                <div class="input-group">                                            
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" id="txtSecondNameUser" name="secondName" 
+                                           placeholder="Segundo nombre">                    
+                                </div>
+                            </div>     
                         </div>
 
                         <br>
 
                         <div class="row">                            
-                            <div class="col-md-12 col-sm-12 col-xs-12">                                 
+                            <div class="col-md-6 col-sm-6 col-xs-12">     
+                                <label for="txtFirstLastNameUser">Primer apellido</label>   
                                 <div class="input-group">                    
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fa fa-user"></i></span>
                                     </div>
-                                    <input type="text" class="form-control" id="txtLastNameUser" name="lastname" 
-                                           placeholder="Ingrese sus apellidos" required>                    
+                                    <input type="text" class="form-control" id="txtFirstLastNameUser" name="firstLastName" 
+                                           placeholder="Primer apellido" required>                    
                                 </div>
-                            </div>                              
+                            </div>        
+
+                            <div class="col-md-6 col-sm-6 col-xs-12">         
+                                <label for="txtSecondLastNameUser">Segundo apellido</label>   
+                                <div class="input-group">                    
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" id="txtSecondLastNameUser" name="secondLastName" 
+                                           placeholder="Segundo apellido">
+                                </div>
+                            </div>         
                         </div>
 
                         <br>
 
                         <div class="row">                            
-                            <div class="col-md-12 col-sm-12 col-xs-12">                                  
+                            <div class="col-md-12 col-sm-12 col-xs-12">      
+                                <label for="txtEmailUser">Correo</label>   
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fa fa-at"></i></span>
@@ -72,13 +98,14 @@ and open the template in the editor.
                         <br>
 
                         <div class="row">                           
-                            <div class="col-md-12 col-sm-12 col-xs-12">                                     
+                            <div class="col-md-12 col-sm-12 col-xs-12">   
+                                <label for="txtPhoneUser">Numero de telefono</label>   
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fa fa-mobile-phone"></i></span>
                                     </div>
-                                    <input type="number" class="form-control" id="txtPhoneUser" name="phone" 
-                                           placeholder="Ingrese su numero" required>                    
+                                    <input type="number" class="form-control" id="txtPhoneUser" name="mobilePhone" 
+                                           placeholder="Ingrese su numero telefonico" required>                    
                                 </div>
                             </div>                              
                         </div>
@@ -86,7 +113,8 @@ and open the template in the editor.
                         <br>
 
                         <div class="row">                           
-                            <div class="col-md-12 col-sm-12 col-xs-12">                                     
+                            <div class="col-md-12 col-sm-12 col-xs-12"> 
+                                <label for="txtPassword">Password</label>   
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fa fa-asterisk"></i></span>
@@ -102,6 +130,7 @@ and open the template in the editor.
 
                         <div class="row">                           
                             <div class="col-md-12 col-sm-12 col-xs-12">                                     
+                                <label for="txtPasswordConfirm">Confirme password</label>   
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fa fa-asterisk"></i></span>
@@ -116,7 +145,7 @@ and open the template in the editor.
 
                     <div class="modal-footer">
 
-                        <button type="button" class="btn btn-default pull-left" onclick="goNavigation('ModalNewUser','ModalIdentifyUser')">Cerrar</button>
+                        <button type="button" class="btn btn-default pull-left" onclick="goNavigation('ModalNewUser', 'ModalIdentifyUser')">Cerrar</button>
 
                         <div class="newActionButton">                            
                             <button id="btnSave" onclick="saveNewUser();" type ="button" class="btn btn-primary">Guardar</button>
@@ -138,15 +167,11 @@ and open the template in the editor.
 
 
 
-
-
-
-
         <!-- MODAL PARA ADMINISTRACION DE REGISTROS-->
         <div class="modal fade" id="ModalIdentifyUser" >
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-body" id="FormContainerNewUser">
+                    <div class="modal-body" id="FormContainerIdentifyUser">
                         <div class="row" style="text-align: center;">                                                        
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <h2 class="text-light-blue">                        
@@ -186,15 +211,15 @@ and open the template in the editor.
                     </div>
 
                     <div class="modal-footer">
-                      
+
                         <button onclick="closeWindow();" type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
 
                         <div class="newActionButton">                            
                             <button id="btnSave" onclick="saveNewUser();" type ="button" class="btn btn-primary">Identificarse</button>
                         </div>
-                        
-                        
-                        <button id="btnOpenLogIn" type ="button" class="btn btn-primary" onclick="goNavigation('ModalIdentifyUser','ModalNewUser')">Registrarse</button>
+
+
+                        <button id="btnOpenLogIn" type ="button" class="btn btn-primary" onclick="goNavigation('ModalIdentifyUser', 'ModalNewUser')">Registrarse</button>
 
                     </div>
                 </div>

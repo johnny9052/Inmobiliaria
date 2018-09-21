@@ -33,7 +33,7 @@
             } else {
                 ?>   
 
-                <a onclick="prueba();" href = "#" class = "navbar-brand d-flex align-items-center" data-toggle="modal" data-target="#ModalIdentifyUser">
+                <a href = "#" class = "navbar-brand d-flex align-items-center" data-toggle="modal" data-target="#ModalIdentifyUser">
                     <i class = "fa fa-user">&nbsp</i>
                     <strong>Identificarse</strong>
                 </a>
