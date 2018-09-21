@@ -31,46 +31,67 @@ and open the template in the editor.
             <div class="row">        
                 <div class="col-md-12">
                     <!-- general form elements -->
-                    <div class="box box-primary">
-                        <div class="box-header with-border">
-                            <h3 class="box-title">Acciones</h3>
-                        </div>
 
-                        <!-- BOTON AÑADIR Y PRIMERA BARRA DE CARGA--> 
-                        <div class="box-body">
-                            <form role="form">
-                                <div class="form-group">
-
-                                    <div class="col-md-2 col-xs-6">
-                                        
+                    <div class="nav-tabs-custom">
+                        <ul class="nav nav-tabs">
+                            <li><a href="" onclick="redirectInfoFilter('Contract/PropertieContract');"data-toggle="tab">Contratos</a></li>
+                            <li><a href="" onclick="redirectInfoFilter('Contract/Spouse');"data-toggle="tab">Conyugues</a></li>
+                            <li class="active"><a href="" data-toggle="tab">Dependiente</a></li>
+                            <<li><a href="" onclick="redirectInfoFilter('Client/IndependentPerson');"data-toggle="tab">Independiente</a></li>
+                            <li><a href="" onclick="redirectInfoFilter('Client/BankReferenceClient');"data-toggle="tab">Ref. Bancaría</a></li>
+                            <li><a href="" onclick="redirectInfoFilter('Client/ReferenceClient');"data-toggle="tab">Ref. Personal</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane" id="properties">
+                            </div>
+                            <div class="active tab-pane" id="contracts">
+                                <!-- general form elements -->
+                                <div class="box box-primary">
+                                    <div class="box-header with-border">
+                                        <h3 class="box-title">Acciones</h3>
                                     </div>
 
-                                    <div class="col-md-9  col-xs-6">
-                                        <div class="progress progress-sm active">
-                                            <div class="progress-bar progress-bar-primary progress-bar-striped" role="progressbar" aria-valuenow="100" aria-valuemin="100" aria-valuemax="100" style="width: 100%">
-                                                <span class="sr-only">100% Complete</span>
+                                    <!-- BOTON AÑADIR Y PRIMERA BARRA DE CARGA--> 
+                                    <div class="box-body">
+                                        <form role="form">
+                                            <div class="form-group">
+
+                                                <div class="col-md-2 col-xs-6">
+
+                                                </div>
+
+                                                <div class="col-md-9  col-xs-6">
+                                                    <div class="progress progress-sm active">
+                                                        <div class="progress-bar progress-bar-primary progress-bar-striped" role="progressbar" aria-valuenow="100" aria-valuemin="100" aria-valuemax="100" style="width: 100%">
+                                                            <span class="sr-only">100% Complete</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
+                                        </form>
                                     </div>
+
+
+                                    <!-- END BOTON AÑADIR Y PRIMERA BARRA DE CARGA-->
+
+
+                                    <div class="box-body table-responsive">
+                                        <table id="TblList" class="table table-bordered table-striped table-hover">
+
+
+                                        </table>
+                                    </div>
+                                    <!-- /.box-body -->
+
+                                    <div class="box-footer">
+
+                                    </div>               
                                 </div>
-                            </form>
+                            </div>
+                            <div class="tab-pane" id="settings">
+                                <!-- Post -->
+                            </div>
                         </div>
-
-
-                        <!-- END BOTON AÑADIR Y PRIMERA BARRA DE CARGA-->
-
-
-                        <div class="box-body table-responsive">
-                            <table id="TblList" class="table table-bordered table-striped table-hover">
-
-
-                            </table>
-                        </div>
-                        <!-- /.box-body -->
-
-                        <div class="box-footer">
-
-                        </div>               
                     </div>
                 </div>
             </div>
@@ -110,7 +131,7 @@ and open the template in the editor.
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="selLaborType" class="fa fa-briefcase"></label>
@@ -124,9 +145,9 @@ and open the template in the editor.
                                 </div>
                             </div>    
                         </div>
-                       
+
                         <div class="row">
-                            
+
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="txtCompanyName">Empresa</label>    
@@ -137,7 +158,7 @@ and open the template in the editor.
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="selPosition" class="fa fa-briefcase"></label>
@@ -187,8 +208,8 @@ and open the template in the editor.
                                     </div>
                                 </div>
                             </div> 
-                            
-                                    
+
+
                         </div>
 
 
@@ -214,9 +235,9 @@ and open the template in the editor.
                                     </div>
                                 </div>
                             </div>
-    
+
                         </div>
-                        
+
 
 
                         <div class="row">

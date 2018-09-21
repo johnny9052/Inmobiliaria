@@ -35,6 +35,10 @@ and open the template in the editor.
                         <ul class="nav nav-tabs">
                             <li><a href="" onclick="redirectInfoFilter('Contract/PropertieContract');"data-toggle="tab">Contratos</a></li>
                             <li class="active"><a href="" data-toggle="tab">Conyugues</a></li>
+                            <li><a href="" onclick="redirectInfoFilter('Client/DependentPerson');"data-toggle="tab">Dependiente</a></li>
+                            <li><a href="" onclick="redirectInfoFilter('Contract/IndependentPerson');"data-toggle="tab">Independiente</a></li>
+                            <li><a href="" onclick="redirectInfoFilter('Contract/BankReferenceClient');"data-toggle="tab">Ref. Bancaría</a></li>
+                            <li><a href="" onclick="redirectInfoFilter('Contract/ReferenceClient');"data-toggle="tab">Ref. Personal</a></li>
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane" id="properties">
