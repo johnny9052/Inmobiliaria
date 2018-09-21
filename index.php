@@ -15,9 +15,9 @@
         <link href="Resources/public/css/album.css" rel="stylesheet" type="text/css"/>  
 
         <link href="Resources/public/css/carousel.css" rel="stylesheet" type="text/css"/>
-        
+
         <link href="System/Resource/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css"/>
-        
+
         <link href="System/Resource/plugins/bootstrap-slider/slider.css" rel="stylesheet" type="text/css"/>
 
         <link href="System/Resource/Style/General.css" rel="stylesheet" type="text/css"/>
@@ -32,18 +32,18 @@
         <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>');</script>        
         <script src="Resources/public/js/bootstrap/vendor/popper.min.js" type="text/javascript"></script>        
         <script src="Resources/public/js/bootstrap/bootstrap.min.js" type="text/javascript"></script>        
-        
+
         <script src="System/Resource/plugins/bootstrap-slider/bootstrap-slider.js" type="text/javascript"></script>
-        
+
         <script src="Resources/public/js/bootstrap/vendor/holder.min.js" type="text/javascript"></script>
-        
+
         <script src="System/Resource/bower_components/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
         <script src="System/Resource/bower_components/fastclick/lib/fastclick.js" type="text/javascript"></script>
-        
+
         <script src="System/Resource/dist/js/adminlte.min.js" type="text/javascript"></script>
-        
+
         <script src="System/Resource/Script/General/General.js" type="text/javascript"></script>
-                
+
         <script src="Resources/public/js/general/cache.js" type="text/javascript"></script>
 
     </head>
@@ -90,6 +90,14 @@
             </div>            
         </div>
         <!--END MODAL GENERICO PARA MOSTRAR MENSAJES -->
+
+
+        <?php
+        if (!isset($_SESSION['userpublichexagon'])) {
+            include("View/public/identifyUser.php");
+        }
+        ?>      
+
 
 
     </body>

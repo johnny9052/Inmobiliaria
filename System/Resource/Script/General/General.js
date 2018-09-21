@@ -1760,9 +1760,9 @@ function replaceText(cadena, find, replace) {
 
 
 function buildDashboardBarByCategory(columnsName, data, idDivGoal, labelAxisX, labelAxisY) {
-    
+
     var colorScale = d3.scale.category10();
-    
+
     return c3.generate({
         bindto: '#' + idDivGoal,
         data: {
@@ -1820,5 +1820,55 @@ function buildDashboardBarByCategory(columnsName, data, idDivGoal, labelAxisX, l
     });
 
 }
+
+
+
+
+
+
+
+
+
+function buildDashboardArea(columnsName, arrayToArrayData, idDivGoal, labelAxisX, labelAxisY) {
+    
+    return c3.generate({
+        bindto: '#' + idDivGoal,
+        data: {
+            columns: arrayToArrayData,
+            type: 'area-spline'
+        },
+        axis: {
+            y: {
+                label: {
+                    text: labelAxisY,
+                    position: 'outer-middle'
+                            // inner-top : default
+                            // inner-middle
+                            // inner-bottom
+                            // outer-top
+                            // outer-middle
+                            // outer-bottom
+                }
+            },
+            x: {
+                type: 'category',
+                categories: columnsName,
+                label: {
+                    text: labelAxisX,
+                    position: 'outer-center'
+                            // inner-right : default
+                            // inner-center
+                            // inner-left
+                            // outer-right
+                            // outer-center
+                            // outer-left
+                }
+            }
+        }
+    });
+
+}
+
+
 
 

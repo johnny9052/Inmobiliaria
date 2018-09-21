@@ -98,4 +98,23 @@ class ClientDAO {
         $this->repository->ExecuteTransaction($query);
     }
 
+    /**
+     * Ejecuta un guardar en la base de datos, pero desde la pagina web
+     * @param ClientDTO $obj 
+     * @return void      
+     * @author Johnny Alexander Salazar
+     * @version 0.1
+     */
+    public function SavePublic(ClientDTO $obj) {
+        $query = $this->repository->buildQuerySimply("saveclientpublic", array((int) $obj->getId(),
+            (string) $obj->getFirstName(), (string) $obj->getSecondName(),
+            (string) $obj->getFirstLastName(), (string) $obj->getSecondLastName(),
+            (string) $obj->getMobilePhone(),
+            (string) $obj->getEmail(),
+            (string) $obj->getPassword(),
+        ));
+        //echo $query;
+        $this->repository->ExecuteTransaction($query);
+    }
+
 }

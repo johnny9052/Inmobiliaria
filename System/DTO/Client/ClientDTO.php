@@ -24,8 +24,9 @@ class ClientDTO extends BaseDTO {
     private $maritalStatus;
     private $personType;
     private $typesClientSelecteds;
+    private $password;
 
-    function __construct($id, $firstName, $secondName, $firstLastName, $secondLastName, $documentType, $documentNumber, $cityExpedition, $birthdate, $clientType, $address, $homePhone, $mobilePhone, $email, $gender, $cityResidence, $profession, $maritalStatus, $personType, $typesClientSelecteds) {
+    function __construct($id, $firstName, $secondName, $firstLastName, $secondLastName, $documentType, $documentNumber, $cityExpedition, $birthdate, $clientType, $address, $homePhone, $mobilePhone, $email, $gender, $cityResidence, $profession, $maritalStatus, $personType, $typesClientSelecteds, $password) {
         $this->id = $id;
         $this->firstName = $firstName;
         $this->secondName = $secondName;
@@ -46,6 +47,15 @@ class ClientDTO extends BaseDTO {
         $this->maritalStatus = $maritalStatus;
         $this->personType = $personType;
         $this->typesClientSelecteds = $typesClientSelecteds;
+        $this->password = $password;
+    }
+
+    function getPassword() {
+        return $this->password;
+    }
+
+    function setPassword($password) {
+        $this->password = $password;
     }
 
     function getId() {

@@ -19,6 +19,29 @@
                 <i class="fa fa-comment-o">&nbsp</i> 
                 <strong>Contacto</strong>
             </a>         
+
+
+            <?php
+            if (isset($_SESSION['userpublichexagon'])) {
+                ?>      
+
+                <a href = "#" class = "navbar-brand d-flex align-items-center">
+                    <i class = "fa fa-user">&nbsp</i>
+                    <strong>Bienvenido usuario</strong>
+                </a>
+                <?php
+            } else {
+                ?>   
+
+                <a href = "#" class = "navbar-brand d-flex align-items-center" data-toggle="modal" data-target="#ModalIdentifyUser">
+                    <i class = "fa fa-user">&nbsp</i>
+                    <strong>Identificarse</strong>
+                </a>
+                <?php
+            }
+            ?>      
+
+
         </div>
 
     </div>

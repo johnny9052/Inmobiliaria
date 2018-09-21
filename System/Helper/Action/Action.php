@@ -15,6 +15,10 @@ function ExecuteAction($action, $obj, $dao, $specific = null) {
             $dao->Save($obj);
             break;
 
+        case "savePublic":
+            $dao->SavePublic($obj);
+            break;
+
         case "search":
             $dao->Search($obj);
             break;
