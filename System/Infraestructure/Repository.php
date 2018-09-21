@@ -229,7 +229,7 @@ class Repository {
      * @author Johnny Alexander Salazar
      * @version 0.2
      */
-    public function ExecuteTransaction($query) {
+    public function ExecuteTransaction($query, $msgError = "") {
         try {
             /* Le asigno la consulta SQL a la conexion de la base de datos */
             $resultado = $this->objCon->getConnect()->prepare($query);
@@ -244,10 +244,10 @@ class Repository {
                 echo(json_encode(['res' => 'Success', "msg" => $this->internationalization->getOperationSuccess()
                 ]));
             } else {
-                echo(json_encode(['res' => 'Error', "msg" => $this->internationalization->getOperationError()]));
+                echo(json_encode(['res' => 'Error', "msg" => ($msgError === "") ? $this->internationalization->getOperationError() : $msgError]));
             }
         } catch (PDOException $exception) {
-            echo(json_encode(['res' => 'Error', "msg" => $this->internationalization->getOperationErrorForeign(),
+            echo(json_encode(['res' => 'Error', "msg" => ($msgError === "") ? $this->internationalization->getOperationErrorForeign() : $msgError,
                 'development' => $exception->getMessage(), 'sql' => $query]));
         }
     }

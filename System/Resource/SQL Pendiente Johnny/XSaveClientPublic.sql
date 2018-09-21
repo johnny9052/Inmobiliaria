@@ -1,4 +1,4 @@
-DROP PROCEDURE IF EXISTS saveclientpublic;
+DROP FUNCTION IF EXISTS saveclientpublic;
 
 
 DELIMITER //
@@ -9,7 +9,7 @@ CREATE FUNCTION saveclientpublic (vid INT,
                                vSecondLastName varchar(20),                                
                                vMobilePhone VARCHAR(10), 
                                vEmail VARCHAR(45), 
-                               vPassword VARCHAR(10)
+                               vPassword VARCHAR(32)
                                ) RETURNS int(1)
     READS SQL DATA
     DETERMINISTIC
@@ -26,7 +26,14 @@ IF NOT EXISTS(select 1 from clientes where correoCliente=vEmail)
                                     segundoApellidoCliente,
                                     telefonoMovilCliente,
                                     correoCliente,
-                                    password
+                                    password,
+                                    ciudadResidencia_idciudad,
+                                    tipoIdentificacion_idtipoIdentificacion,
+                                    ciudadExpedicion_idciudad,
+                                    profesiones_idprofesion,
+                                    tipoPersonaCliente_idtipoPersonCliente,
+                                    idEstadoCivil,
+                                    idGenero
                                    )
                         VALUES (
                                vFirstName, 
@@ -35,7 +42,8 @@ IF NOT EXISTS(select 1 from clientes where correoCliente=vEmail)
                                vSecondLastName,
                                vMobilePhone,
                                vEmail,
-                               vPassword
+                               vPassword,
+                               0,0,0,0,0,0,0
                               );
 
     

@@ -243,6 +243,16 @@ function Execute(dataSend, url, before, success, idModalOpenFinish, msgNoAction,
 
 
 
+
+function executeWithTime(code, time) {
+    setTimeout(function () {
+        eval(code);
+    }, time);
+
+}
+
+
+
 /**
  * Ejecuta una peticion al servidor por get, mostrando los resultados en una 
  * nueva pestaña en el navegador
@@ -868,6 +878,8 @@ function refreshPage(url, value) {
  * @version 0.1
  */
 function refreshPagePublic(url) {
+
+    url = (url === undefined || url === "" || url === null) ? "home" : url;
 
     window.location.href = "index.php?page=" + url;
 }
@@ -1830,7 +1842,7 @@ function buildDashboardBarByCategory(columnsName, data, idDivGoal, labelAxisX, l
 
 
 function buildDashboardArea(columnsName, arrayToArrayData, idDivGoal, labelAxisX, labelAxisY) {
-    
+
     return c3.generate({
         bindto: '#' + idDivGoal,
         data: {

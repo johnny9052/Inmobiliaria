@@ -215,7 +215,7 @@ and open the template in the editor.
                         <button onclick="closeWindow();" type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
 
                         <div class="newActionButton">                            
-                            <button id="btnSave" onclick="saveNewUser();" type ="button" class="btn btn-primary">Identificarse</button>
+                            <button id="btnSave" onclick="LogInPublic();" type ="button" class="btn btn-primary">Identificarse</button>
                         </div>
 
 
