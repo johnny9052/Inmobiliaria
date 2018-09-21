@@ -1,3 +1,17 @@
+var objFileContract = {
+    listFileBase64: new Array(),
+    listFileName: new Array(),
+    listFileURL: new Array(),
+    listFileNameDeleted: new Array()
+};
+
+var objFileFormation = {
+    listFileBase64: new Array(),
+    listFileName: new Array(),
+    listFileURL: new Array(),
+    listFileNameDeleted: new Array()
+};
+
 var objFileIdentification = {
     listFileBase64: new Array(),
     listFileName: new Array(),
@@ -19,6 +33,12 @@ var objImageEmployee = {
     listFileNameDeleted: new Array()
 };
 
+var objfileWorkCertificate = {
+    listFileBase64: new Array(),
+    listFileName: new Array(),
+    listFileURL: new Array(),
+    listFileNameDeleted: new Array()
+};
 
 /* Funciones jQuery */
 $(window).on("load", function (e) {
@@ -40,7 +60,58 @@ $(window).on("load", function (e) {
     loadArl();
     loadEps();
     loadCompensationBox();
+    loadEmployee();
+    loadPosition();
+    loadEmployeeFormation();
+    loadProfessionNivelFormation();
+    loadProfessionFormation(-1);
+    loadPeriodicityFormation();
+    loadEmployeeContract();
+    loadPositionContract();
+    loadArea();
+    loadContractType();
+    
 });
+
+function loadEmployeeContract() {
+    Execute(scanInfo('loadEmployee', false), 'General/CtlGeneral', '', 'buildSelect(info,"selEmployeeContract");');
+}
+
+function loadPositionContract() {
+    Execute(scanInfo('loadPosition', false), 'General/CtlGeneral', '', 'buildSelect(info,"selPositionContract");');
+}
+
+function loadArea() {
+    Execute(scanInfo('loadArea', false), 'General/CtlGeneral', '', 'buildSelect(info,"selArea");');
+}
+
+function loadContractType() {
+    Execute(scanInfo('loadContractType', false), 'General/CtlGeneral', '', 'buildSelect(info,"selContractType");');
+}
+
+function loadPeriodicityFormation() {
+    Execute(scanInfo('loadPeriodicity', false), 'General/CtlGeneral', '', 'buildSelect(info,"selPeriodicity");');
+}
+
+function loadProfessionNivelFormation() {
+    Execute(scanInfo('loadProfessionNivel', false), 'General/CtlGeneral', '', 'buildSelect(info,"selProfessionNivelFormation");');
+}
+
+function loadProfessionFormation(id) {
+    Execute(scanInfo('loadProfession', false, '', [{datos: ["id", id]}]), 'General/CtlGeneral', '', 'buildSelect(info,"selProfessionFormation");');
+}
+
+function loadEmployeeFormation() {
+    Execute(scanInfo('loadEmployee', false), 'General/CtlGeneral', '', 'buildSelect(info,"selEmployeeFormation");');
+}
+
+function loadEmployee() {
+    Execute(scanInfo('loadEmployee', false), 'General/CtlGeneral', '', 'buildSelect(info,"selEmployee");');
+}
+
+function loadPosition() {
+    Execute(scanInfo('loadPosition', false), 'General/CtlGeneral', '', 'buildSelect(info,"selPosition");');
+}
 
 function loadTypeEmployee() {
     Execute(scanInfo('loadTypeEmployee', false), 'General/CtlGeneral', '', 'buildSelect(info,"selTypeEmployee");');
@@ -148,9 +219,72 @@ function save() {
 
 }
 
+function saveExperience() {
+    if (validateForm("FormContainerExperience") === true) {
+        /*Se define el array de datos adicionales como un objeto, debido a que 
+         * es necesario pasarlo por referencia para el llenado de los archivos*/
+        var infoPlus = {
+            temp: new Array()
+        };
+
+        /*Se manda por referencia el objeto de la info adicional donde se añadiran 
+         * los archivos, junto el el objeto que tiene la informacion real de
+         * todos los archivos*/
+        addFileNameAndEncodingAndDeletedFiles(infoPlus, objfileWorkCertificate, 'Experience');
+
+        Execute(scanInfo('save', true, 'FormContainerExperience', infoPlus.temp), 'Employee/CtlEmployeeExperience', '', 'list();mostrarMensajeExperience();limpiarMultimedia();cleanForm("FormContainerExperience")', '', 'Ha superado el tamaño maximo de las imagenes');
+    }
+}
+
+function saveFormation() {
+    if (validateForm("FormContainerFormation") === true) {
+        
+        /*Se define el array de datos adicionales como un objeto, debido a que 
+         * es necesario pasarlo por referencia para el llenado de los archivos*/
+        var infoPlus = {
+            temp: new Array()
+        };
+
+        /*Se manda por referencia el objeto de la info adicional donde se añadiran 
+         * los archivos, junto el el objeto que tiene la informacion real de
+         * todos los archivos*/
+        addFileNameAndEncodingAndDeletedFiles(infoPlus, objFileFormation, 'Formation');
+
+        Execute(scanInfo('save', true, 'FormContainerFormation', infoPlus.temp), 'Employee/CtlEmployeeFormation', '', 'list();mostrarMensajeFormation();limpiarMultimedia();', '', 'Ha superado el tamaño maximo de las imagenes');
+    }
+}
+
+function saveContract() {
+    if (validateForm("FormContainerContract") === true) {
+        /*Se define el array de datos adicionales como un objeto, debido a que es necesario pasarlo por referencia para el llenado de los archivos*/
+        var infoPlus = {
+            temp: new Array()
+        };
+        /*Se manda por referencia el objeto de la info adicional donde se añadiran los archivos, junto el el objeto que tiene la informacion real de todos los archivos*/
+        addFileNameAndEncodingAndDeletedFiles(infoPlus, objFileContract, 'Contract');
+
+        Execute(scanInfo('save', true, 'FormContainerContract', infoPlus.temp), 'Employee/CtlEmployeeContract', '', 'list();mostrarMensajeContract();limpiarMultimedia();', '', 'Ha superado el tamaño maximo de las imagenes');
+    }
+}
+
 function mostrarMensaje() {
     showToast("Almacenado correctamente", "success", "ModalNew");
     showButtonEmployee(false);
+}
+
+function mostrarMensajeExperience() {
+    showToast("Almacenado correctamente", "success", "ModalNew");
+    showButtonExperience(false);
+}
+
+function mostrarMensajeContract() {
+    showToast("Almacenado correctamente", "success", "ModalNew");
+    showButtonContract(false);
+}
+
+function mostrarMensajeFormation() {
+    showToast("Almacenado correctamente", "success", "ModalNew");
+    showButtonFormation(false);
 }
 
 
@@ -164,6 +298,16 @@ function showButtonEmployee(status) {
     }
 }
 
+function showButtonContract(status) {
+    if (status) {
+        $("#newActionButtonContract").show();
+        $("#updateActionButtonContract").hide();
+    } else {
+        $("#newActionButtonContract").hide();
+        $("#updateActionButtonContract").show();
+    }
+}
+
 function showButtonExperience(status) {
     if (status) {
         $("#newActionButtonExperience").show();
@@ -171,6 +315,26 @@ function showButtonExperience(status) {
     } else {
         $("#newActionButtonExperience").hide();
         $("#updateActionButtonExperience").show();
+    }
+}
+
+function showButtonContract(status) {
+    if (status) {
+        $("#newActionButtonContract").show();
+        $("#updateActionButtonContract").hide();
+    } else {
+        $("#newActionButtonContract").hide();
+        $("#updateActionButtonContract").show();
+    }
+}
+
+function showButtonFormation(status) {
+    if (status) {
+        $("#newActionButtonFormation").show();
+        $("#updateActionButtonFormation").hide();
+    } else {
+        $("#newActionButtonFormation").hide();
+        $("#updateActionButtonFormation").show();
     }
 }
 
@@ -239,7 +403,6 @@ function showData(info) {
     openWindow();
     showButton(false);
 }
-
 
 function update() {
     if (validateForm() === true) {

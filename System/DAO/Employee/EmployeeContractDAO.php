@@ -69,7 +69,7 @@ class EmployeeContractDAO {
             (int) $obj->getEmployee(), (int) $obj->getArea(),
             (string) $obj->getStartDate(),(string) $obj->getEndDate(),
             (int) $obj->getContractType(), (int) $obj->getPosition(),
-            (string) $obj->getUrlContract()
+            (float)$obj->getSalary(), (string) $obj->getUrlContract()
         ));
         $this->repository->ExecuteTransaction($query);
     }

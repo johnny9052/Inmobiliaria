@@ -61,7 +61,7 @@ function showData(info) {
     refreshSelect("selEmployee", info[0].empleado);
     refreshSelect("selArea", info[0].area);
     $("#txtStartDate").val(info[0].fecha_inicio);
-    $("#txtEndDate").val(info[0].fecha_finalizacion);
+    $("#txtEndDate").val(info[0].fecha_terminacion);
     refreshSelect("selContractType", info[0].tipo_contrato);
     refreshSelect("selPosition", info[0].cargo);
     $("#txtSalary").val(info[0].salario);

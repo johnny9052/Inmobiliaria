@@ -30,10 +30,6 @@ function loadEmployee() {
     Execute(scanInfo('loadEmployee', false), 'General/CtlGeneral', '', 'buildSelect(info,"selEmployee");');
 }
 
-function loadPosition() {
-    Execute(scanInfo('loadPosition', false), 'General/CtlGeneral', '', 'buildSelect(info,"selPosition");');
-}
-
 
 function save() {
     if (validateForm() === true) {

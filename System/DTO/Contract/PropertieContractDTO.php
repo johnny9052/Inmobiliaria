@@ -5,6 +5,7 @@ require_once ('../../DTO/BaseDTO.php');
 class PropertieContractDTO extends BaseDTO {
 
     private $id;
+    private $client;
     private $propertie;
     private $firmDate;
     private $startDate;
@@ -14,8 +15,9 @@ class PropertieContractDTO extends BaseDTO {
     private $wayPay;
     private $urlContract;
     
-    function __construct($id, $propertie, $firmDate, $startDate, $endDate, $contractValue, $termContract, $wayPay, $urlContract) {
+    function __construct($id, $client, $propertie, $firmDate, $startDate, $endDate, $contractValue, $termContract, $wayPay, $urlContract) {
         $this->id = $id;
+        $this->client = $client;
         $this->propertie = $propertie;
         $this->firmDate = $firmDate;
         $this->startDate = $startDate;
@@ -28,6 +30,10 @@ class PropertieContractDTO extends BaseDTO {
     
     function getId() {
         return $this->id;
+    }
+
+    function getClient() {
+        return $this->client;
     }
 
     function getPropertie() {
@@ -64,6 +70,10 @@ class PropertieContractDTO extends BaseDTO {
 
     function setId($id) {
         $this->id = $id;
+    }
+
+    function setClient($client) {
+        $this->client = $client;
     }
 
     function setPropertie($propertie) {

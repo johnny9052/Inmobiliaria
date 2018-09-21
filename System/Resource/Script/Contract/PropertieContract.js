@@ -8,13 +8,18 @@ var objFileContract = {
 
 /* Funciones jQuery */
 $(window).on("load", function (e) {
-//    list();
+    list();
     loadPropertie();
+    loadClient();
 });
 
 
 function loadPropertie() {
     Execute(scanInfo('loadPropertie', false), 'General/CtlGeneral', '', 'buildSelect(info,"selPropertie");');
+}
+
+function loadClient() {
+    Execute(scanInfo('loadClient', false), 'General/CtlGeneral', '', 'buildSelect(info,"selClient");');
 }
 
 
@@ -27,33 +32,34 @@ function save() {
         /*Se manda por referencia el objeto de la info adicional donde se añadiran los archivos, junto el el objeto que tiene la informacion real de todos los archivos*/
         addFileNameAndEncodingAndDeletedFiles(infoPlus, objFileContract, 'Contract');
 
-        Execute(scanInfo('save', true, '', infoPlus.temp), 'Propertie/CtlPropertieContract', '', 'closeWindow();list();limpiarMultimedia();', '', 'Ha superado el tamaño maximo de las imagenes');
+        Execute(scanInfo('save', true, '', infoPlus.temp), 'Contract/CtlPropertieContract', '', 'closeWindow();list();limpiarMultimedia();', '', 'Ha superado el tamaño maximo de las imagenes');
     }
 }
 
 function list() {
-    Execute(scanInfo('list'), 'Propertie/CtlPropertieContract', '', 'buildPaginator(info);');
+    Execute(scanInfo('list'), 'Contract/CtlPropertieContract', '', 'buildPaginator(info);');
 }
 
 
 function search(id) {
     $("#txtId").val(id);
-    Execute(scanInfo('search', true), 'Propertie/CtlPropertieContract', '', 'showData(info);');
+    Execute(scanInfo('search', true), 'Contract/CtlPropertieContract', '', 'showData(info);');
 }
 
 
 function showData(info) {
-    refreshSelect("selPropertie", info[0].empleado);
-    refreshSelect("selArea", info[0].area);
+    refreshSelect("selClient", info[0].cliente);
+    refreshSelect("selPropertie", info[0].inmueble);
+    $("#txtFirmDate").val(info[0].fecha_contrato);
     $("#txtStartDate").val(info[0].fecha_inicio);
-    $("#txtEndDate").val(info[0].fecha_finalizacion);
-    refreshSelect("selContractType", info[0].tipo_contrato);
-    refreshSelect("selPosition", info[0].cargo);
-    $("#txtSalary").val(info[0].salario);
+    $("#txtEndDate").val(info[0].fecha_fin);
+    $("#txtContractValue").val(info[0].valor_contrato);
+    $("#txtTermContract").val(info[0].plazo_contrato);
+    $("#txtWayPay").val(info[0].forma_pago);
 
     /*Se organiza el archivo cargado desde la base de datos, estableciendo su codificacion
      * y todas sus caracteristicas*/
-    var nombreContrato = organizarArchivoCargadoDesdeBD(info[0].contrato, objFileContract);
+    var nombreContrato = organizarArchivoCargadoDesdeBD(info[0].ruta_contrato, objFileContract);
 
     $("#lstArchivoAgregado").html(imageDownloadFile("pdf", objFileContract.listFileURL[objFileContract.listFileName.indexOf(nombreContrato)], nombreContrato));
 
@@ -76,7 +82,7 @@ function update() {
          * todos los archivos*/
         addFileNameAndEncodingAndDeletedFiles(infoPlus, objFileContract, 'Contract');
 
-        Execute(scanInfo('update', true, '', infoPlus.temp), 'Propertie/CtlPropertieContract', '', 'closeWindow();list();');
+        Execute(scanInfo('update', true, '', infoPlus.temp), 'Contract/CtlPropertieContract', '', 'closeWindow();list();');
     }
 }
 
@@ -92,7 +98,7 @@ function deleteInfo() {
     /*Se manda por referencia el objeto de la info adicional donde se añadiran los archivos, junto el el objeto que tiene la informacion real de todos los archivos*/
     addAllFileNameDeleted(infoPlus, objFileContract, 'Contract');
 
-    Execute(scanInfo('delete', true, '', infoPlus.temp), 'Propertie/CtlPropertieContract', '', 'closeWindow("ModalConfirm");list();cleanForm("ModalNew");limpiarMultimedia();');
+    Execute(scanInfo('delete', true, '', infoPlus.temp), 'Contract/CtlPropertieContract', '', 'closeWindow("ModalConfirm");list();cleanForm("ModalNew");limpiarMultimedia();');
 }
 
 
