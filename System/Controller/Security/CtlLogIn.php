@@ -3,11 +3,12 @@
 /* IMPORTS */
 require '../../DTO/Security/LogInDTO.php';
 require '../../DAO/Security/LogInDAO.php';
+include '../../Helper/Action/Action.php';
 
 /* RECEPCION DE DATOS */
-$action = (isset($_REQUEST['action']) ? $_REQUEST['action'] : "");
-$usuario = (isset($_POST['user']) ? $_POST['user'] : "");
-$password = (isset($_POST['password']) ? $_POST['password'] : "");
+$action = getInfo('action');
+$usuario = getInfo('user');
+$password = getInfo('password');
 
 
 /* DEFINICION DE OBJETOS */

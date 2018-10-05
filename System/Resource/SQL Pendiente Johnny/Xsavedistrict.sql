@@ -1,4 +1,4 @@
-DROP PROCEDURE IF EXISTS savedistrict;
+DROP FUNCTION IF EXISTS savedistrict;
 
 
 
@@ -15,12 +15,10 @@ BEGIN
 IF NOT EXISTS(select 1 from barrios where nombreBarrio=vname)
 		THEN
 			insert into barrios(
-                                    	idbarrio, 
                                     nombreBarrio, 
                                     	idCiudad 
                                   )
-                        VALUES (
-                                    vid, 
+                        VALUES (                                    
                                     vname ,
                                     vcity 
                                     );

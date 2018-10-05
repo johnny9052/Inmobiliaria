@@ -1,0 +1,1 @@
+ALTER TABLE inmuebles CHANGE `fechaPublicación` `fechaPublicacion` date;
