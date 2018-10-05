@@ -1,4 +1,4 @@
-
+<!-- INICIO DEL CARRUSEL-->
 <div class="row">
     <div class="col-md-2 col-sm-1 col-xs-12"></div>
     <div class="col-md-8 col-sm-10 col-xs-12" id="containercarusel">
@@ -30,22 +30,21 @@
     </div>
     <div class="col-md-2 col-sm-1 col-xs-12"></div>
 </div>
+<!-- FIN DEL CARRUSEL-->
 
 
 
-
-
+<!-- INICIO SECCION CENTRAL-->
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
     <h3>NUESTRA SECCIÓN INMOBILIARIA EN COLOMBIA</h3>
     <small>Encuentra tu inmueble, a continuación selecciona la región en donde quieres buscar</small>
 </div>
-
-
-
-
+<!-- FIN SECCION CENTRAL-->
 
 <br>
 
+
+<!-- INICIO IMAGENES DE LAS CIUDADES PRINCIPALES-->
 <section >
     <div class="container marketing">
         <!-- Three columns of text below the carousel -->
@@ -72,3 +71,46 @@
         </div>
     </div>
 </section>
+<!-- FIN IMAGENES DE LAS CIUDADES PRINCIPALES-->
+
+<br>
+
+
+<!-- INICIO VIDEO TOUR Y DESTACADOS-->
+<?php
+include("View/public/main/videoTourDestacados.php");
+?>             
+<!-- FIN VIDEO TOUR Y DESTACADOS-->
+
+
+<div class="row">
+    <div class="col-md-2 col-sm-1 col-xs-12"></div>
+    <div class="col-md-8 col-sm-10 col-xs-12">
+        <hr>
+    </div>
+    <div class="col-md-2 col-sm-1 col-xs-12"></div>
+</div>
+
+<div class="row">
+
+    <div class="col-md-2 col-sm-1 col-xs-12">
+
+    </div>
+    <div class="col-md-2 col-sm-1 col-xs-12">
+        <img src="Resources/public/image/patrocinio1.PNG" alt=""/>
+    </div>
+
+    <div class="col-md-2 col-sm-1 col-xs-12">
+        <img src="Resources/public/image/socio1.PNG" alt=""/>
+    </div>
+
+    <div class="col-md-2 col-sm-1 col-xs-12">
+        <img src="Resources/public/image/patrocinio1.PNG" alt=""/>
+    </div>
+
+    <div class="col-md-2 col-sm-1 col-xs-12">
+        <img src="Resources/public/image/socio1.PNG" alt=""/>
+    </div>
+
+    <div class="col-md-2 col-sm-1 col-xs-12"></div>
+</div>
