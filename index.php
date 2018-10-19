@@ -46,7 +46,10 @@ session_start();
 
         <link href="System/Resource/Style/General.css" rel="stylesheet" type="text/css"/>
         
+        <!-- ESTILOS VISUALES DE LA PAGINA WEB-->
         <link href="Resources/public/css/generalWeb.css" rel="stylesheet" type="text/css"/>
+        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+        <!-- END ESTILOS VISUALES DE LA PAGINA WEB-->
         
         <link href="System/Resource/Style/hexagono.css" rel="stylesheet" type="text/css"/>
 
