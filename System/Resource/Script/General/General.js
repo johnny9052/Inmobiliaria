@@ -10,6 +10,8 @@ $(document).ready(function () {
         console.log("Error configurando los modales" + exception.message);
     }
 
+
+
     try {
         /*Se inicializan los campos de fecha*/
         $('.dateAction').datepicker({
@@ -225,6 +227,7 @@ function Execute(dataSend, url, before, success, idModalOpenFinish, msgNoAction,
                 default :
                     /*En el caso de que sea un listar info, buscar o pintar menu*/
                     if (dataSend.action === "list" || dataSend.action === "listfilter" ||
+                            dataSend.action === "listbyuser" ||
                             dataSend.action === "menu" || dataSend.action === "search"
                             || dataSend.action === "detail" || dataSend.action.indexOf("load") > -1) {
                         if (success !== "") {
@@ -1025,7 +1028,7 @@ function cleanText(textToClean) {
  */
 function cleanNameFile(nombre) {
     nombre = ((nombre).replace(/\./g, "_")).replace(/\s/g, "");
-    return nombre.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
+    return nombre.replace(/[`~!@#$%^&*()_|+\=?;:'",.<>\{\}\[\]\\\/]/gi, '');
 }
 
 
@@ -1119,7 +1122,7 @@ function procesarFile(unicoArchivo, idInputFile, obj) {
  * @author Johnny Alexander Salazar
  * @version 0.3
  */
-function organizarArchivoCargadoDesdeBD(name, obj) {
+function organizarArchivoCargadoDesdeBD(name, obj, public = false) {
     /*Se deja limpio el nombre, sin path ni nada*/
     var nombreLimpio = (name).split("/");
     nombreLimpio = nombreLimpio[nombreLimpio.length - 1];
@@ -1131,7 +1134,12 @@ function organizarArchivoCargadoDesdeBD(name, obj) {
         /*Se agregan a la lista de archivos*/
         obj.listFileName.push(nombreLimpio);
         obj.listFileBase64.push('NotBase64');
-        obj.listFileURL.push(((name).split("System/"))[1]);
+        if (public) {
+            obj.listFileURL.push(name);
+        } else {
+            obj.listFileURL.push(((name).split("System/"))[1]);
+        }
+
     }
     return nombreLimpio;
 }
@@ -1379,7 +1387,7 @@ function deleteDinamicData(pos, prefix, obj, divId) {
  * @author Johnny Alexander Salazar
  * @version 0.1
  */
-function listFilesTwoColumns(info, obj, idColumnOne, idColumnTwo, typeFile) {
+function listFilesTwoColumns(info, obj, idColumnOne, idColumnTwo, typeFile, public = false) {
 
     /*Variables que representan el codigo HTML de ambas columnas*/
     var lblFiles = "";
@@ -1387,7 +1395,7 @@ function listFilesTwoColumns(info, obj, idColumnOne, idColumnTwo, typeFile) {
 
     if (info !== undefined && info !== "" && info !== null) {
         for (var x = 0; x < info.length; x++) {
-            organizarArchivoCargadoDesdeBD(info[x].url_file, obj);
+            organizarArchivoCargadoDesdeBD(info[x].url_file, obj, public);
         }
     }
 

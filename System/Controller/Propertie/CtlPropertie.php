@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 /* IMPORTS */
 require '../../DTO/Propertie/PropertieDTO.php';
 require '../../DAO/Propertie/PropertieDAO.php';
@@ -54,7 +56,7 @@ $status = (getInfo('status') === "") ? 21 : getInfo('status');
 $kitchenType = getInfo('kitchenType');
 $kitchenStructure = getInfo('kitchenStructure');
 $floorType = getInfo('floorType');
-$client = getInfo('client');
+$client = (getInfo('client') === "") ? $_SESSION["identificationPublicHexagon"] : getInfo('client');
 $publicationDate = getInfo('publicationDate');
 $receptionDate = getInfo('receptionDate');
 $outstandingType = getInfo('outstandingType');
@@ -94,7 +96,7 @@ $anio = date("Y");
 $hora = date('H:i');
 $ip = getInfo('ip');
 
-$user = getInfo('user');
+$tokenuser = getInfo('user');
 
 $device = getInfo('device');
 $sistemaOperativo = getInfo('so');
@@ -102,10 +104,16 @@ $navegador = getInfo('browser');
 /* * *******END AUDITORIA*********** */
 
 
+/* * ***********FILTRO USUARIO********************** */
+$iduser = (isset($_SESSION["identificationPublicHexagon"]) ? $_SESSION["identificationPublicHexagon"] : "");
+/* * *******END FILTRO USUARIO********************** */
+
+
 /* DEFINICION DE OBJETOS */
 $obj = new PropertieDTO($id, $precio, $administrationCost, $room, $bath, $parking, $totalArea, $areasWithoutBalconies, $buildYear, $numeroPiso, $chimenea, $estudio, $deposito, $zonaRopas, $parqueaderoVisitante, $ascensor, $terraza, $transportePublicoCercano, $salonComunal, $sauna, $turco, $jacuzzi, $zonaInfantil, $jardines, $duplex, $puertaSeguridad, $gimnasio, $precioNegociable, $piscina, $zonaMascotas, $parqueaderoCubierto, $amoblado, $city, $barrio, $estrato, $propertieType, $offerType, $curtainType, $vigilanceType, $zone, $viewType, $status, $kitchenType, $kitchenStructure, $floorType, $client, $publicationDate, $receptionDate, $outstandingType, $linderos, $matriculaInmobiliaria, $avaluoCatastral, $latitude, $longitude, $images, $urlVideos, $idFilter);
-$obj->setDataAudit($id, $dia, $mes, $anio, $hora, $ip, $device, $sistemaOperativo, $navegador, $user);
+$obj->setDataAudit($id, $dia, $mes, $anio, $hora, $ip, $device, $sistemaOperativo, $navegador, $tokenuser);
 $obj->saveFilterSearch($areaMax, $valorMax, $state, $city, $barrio, $zone, $propertieType, $offerType, $estrato, $ascensor, $piscina, $room, $bath, $parking);
+$obj->setIdUser($iduser);
 $dao = new PropertieDAO();
 
 /* CONTROL DE ACCIONES */

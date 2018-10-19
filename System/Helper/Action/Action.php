@@ -35,6 +35,10 @@ function ExecuteAction($action, $obj, $dao, $specific = null) {
             $dao->ListAll($obj);
             break;
 
+        case "listbyuser":
+            $dao->ListByUser($obj);
+            break;
+
         case "listNoTable":
             $dao->ListAllNoTable($obj);
             break;
@@ -56,8 +60,16 @@ function ExecuteAction($action, $obj, $dao, $specific = null) {
             $dao->GeneratePDFList($obj);
             break;
 
+        case "generatePDFListByUser":
+            $dao->GeneratePDFListByUser($obj);
+            break;
+
         case "reportCSVList":
             $dao->ReportCSVList($obj);
+            break;
+
+        case "reportCSVListByUser":
+            $dao->ReportCSVListByUser($obj);
             break;
 
         case "reportcsv":

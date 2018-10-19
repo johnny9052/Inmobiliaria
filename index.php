@@ -15,13 +15,32 @@ session_start();
 
         <!-- CSS  -->        
 
+
+
         <link href="Resources/public/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="System/Resource/bower_components/font-awesome/css/font-awesome.min.css">
+        <!-- Select2 -->
+        <link rel="stylesheet" href="System/Resource/bower_components/select2/dist/css/select2.min.css">
+        <!-- Bootstrap time Picker -->
+        <link rel="stylesheet" href="System/Resource/plugins/timepicker/bootstrap-timepicker.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="System/Resource/bower_components/Ionicons/css/ionicons.min.css">
+        <!-- MATERIAL icons -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- Theme style -->
+        <link href="System/Resource/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css"/>
+        <!-- Google Font -->        
+        <link href="System/Resource/Style/googleFonts.css" rel="stylesheet" type="text/css"/>
+
 
         <link href="Resources/public/css/album.css" rel="stylesheet" type="text/css"/>  
 
         <link href="Resources/public/css/carousel.css" rel="stylesheet" type="text/css"/>
 
-        <link href="System/Resource/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css"/>
+
+
 
         <link href="System/Resource/plugins/bootstrap-slider/slider.css" rel="stylesheet" type="text/css"/>
 
@@ -29,11 +48,14 @@ session_start();
         <link href="System/Resource/Style/hexagono.css" rel="stylesheet" type="text/css"/>
 
 
-        <!-- Font Awesome <Esta es utilizada para los iconos de bootstrap> -->
-        <link href="Resources/public/css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>        
+        <!-- DataTables -->
+        <link rel="stylesheet" href="System/Resource/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+
+
         <!--  Scripts-->
 <!--        <script src="Resources/public/js/jquery/code.jquery.com_jquery-3.3.1.slim.min.js" type="text/javascript"></script>-->
         <script src="System/Resource/bower_components/jquery/dist/jquery.min.js"></script>
+
         <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>');</script>        
         <script src="Resources/public/js/bootstrap/vendor/popper.min.js" type="text/javascript"></script>        
         <script src="Resources/public/js/bootstrap/bootstrap.min.js" type="text/javascript"></script>        
@@ -47,7 +69,18 @@ session_start();
 
         <script src="System/Resource/dist/js/adminlte.min.js" type="text/javascript"></script>
 
+        <script src="System/Resource/bower_components/jquery-ui/jquery-ui.min.js"></script>
+        <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+        <!-- TimePicker -->
+        <script src="System/Resource/plugins/timepicker/bootstrap-timepicker.min.js"></script>
+
         <script src="Resources/public/js/general/cache.js" type="text/javascript"></script>
+
+
+        <!-- DataTables -->
+<!--        <script src="System/Resource/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+        <script src="System/Resource/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>-->
+
 
     </head>
     <body>
@@ -77,7 +110,7 @@ session_start();
 
 
         <!--MODAL GENERICO PARA MOSTRAR MENSAJES -->
-        <div class="modal fade" id="modal-default">
+        <div class="modal fade" id="modal-default" data-backdrop="static" data-keyboard="false">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">                        
@@ -100,10 +133,10 @@ session_start();
             include("View/public/identifyUser.php");
         }
         ?>      
-        
-        
-        
-        
+
+
+
+
 
 
         <script src="System/Resource/Script/General/General.js" type="text/javascript"></script>

@@ -45,7 +45,7 @@ and open the template in the editor.
                                 <div class="form-group">
 
                                     <div class="col-md-3 col-xs-12">
-                                        <button type="button" class="btn btn-primary verdeExaudi" data-toggle="modal" data-target="#ModalNew" onclick="showButton(true);">Nuevo registro</button>                                                                                                                                           
+                                        <button type="button" class="btn btn-primary verdeExaudi" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#ModalNew" onclick="showButton(true);">Nuevo registro</button>                                                                                                                                           
                                         <a class="btn btn-social-icon btn-primary" onclick="executeSubmit('frmPDF');"><i class="fa fa-print" style="color: white"></i></a>
                                         <a class="btn btn-social-icon btn-primary" onclick="executeSubmit('frmCSV');"><i class="fa fa-file-excel-o" style="color: white"></i></a>
                                     </div>
@@ -659,18 +659,18 @@ and open the template in the editor.
                                 </div>
                             </div>  
 
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="" class="fa fa-circle"></label>
-                                    &nbsp;&nbsp;
-                                    <label>Estado</label>
-                                    <div>
-                                        <select id="selStatus" name="status" required class="form-control select2" style="width: 100%;">
-                                            <option value="-1" selected> -- SELECCIONE --</option>                            
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>     
+                            <!--                            <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="" class="fa fa-circle"></label>
+                                                                &nbsp;&nbsp;
+                                                                <label>Estado</label>
+                                                                <div>
+                                                                    <select id="selStatus" name="status" required class="form-control select2" style="width: 100%;">
+                                                                        <option value="-1" selected> -- SELECCIONE --</option>                            
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>     -->
                         </div>
 
 
@@ -725,19 +725,19 @@ and open the template in the editor.
                                 </div>
                             </div>  
 
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="" class="fa fa-user"></label>
-                                    &nbsp;&nbsp;
-                                    <label>Cliente</label>
-                                    <div>
-                                        <select id="selClient" name="client" 
-                                                class="form-control select2" style="width: 100%;" required>
-                                            <option value="-1" selected> -- SELECCIONE --</option>                            
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>  
+                            <!--                            <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="" class="fa fa-user"></label>
+                                                                &nbsp;&nbsp;
+                                                                <label>Cliente</label>
+                                                                <div>
+                                                                    <select id="selClient" name="client" 
+                                                                            class="form-control select2" style="width: 100%;" required>
+                                                                        <option value="-1" selected> -- SELECCIONE --</option>                            
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>  -->
                         </div>
 
 
@@ -753,7 +753,7 @@ and open the template in the editor.
                                         <div class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </div>
-                                        <input type="text" name="publicationDate" 
+                                        <input type="date" name="publicationDate" 
                                                required class="form-control pull-right dateAction" 
                                                id="txtPublicationDate">
                                     </div>
@@ -767,7 +767,7 @@ and open the template in the editor.
                                         <div class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </div>
-                                        <input type="text" name="receptionDate" 
+                                        <input type="date" name="receptionDate" 
                                                required class="form-control pull-right dateAction" 
                                                id="txtReceptionDate">
                                     </div>
@@ -1039,27 +1039,16 @@ and open the template in the editor.
 
         <!--FORM GENERACION DE PDF-->
         <form id="frmPDF" name="formPDF" method="post" 
-              action="Controller/Propertie/CtlPropertie.php" target="_blank">
+              action="System/Controller/Propertie/CtlPropertie.php" target="_blank">
             <input type="hidden" name="id" value="" id="txtIdPDF">
-            <input type="hidden" name="action" value="generatePDFList">        
+            <input type="hidden" name="action" value="generatePDFListByUser">        
         </form>   
-        <!--END FORM GENERACION DE PDF-->   
-
-
-
-        <!--FORM GENERACION DE PDF-->
-        <form id="frmPDFPropertie" name="formPDFPropertie" method="post" 
-              action="Controller/Propertie/CtlPropertie.php" target="_blank">
-            <input type="hidden" name="id" value="" id="txtIdPDFPropertie">
-            <input type="hidden" name="action" value="generatePDF">        
-        </form>   
-        <!--END FORM GENERACION DE PDF-->   
-
+        <!--END FORM GENERACION DE PDF-->      
 
         <!--FORM GENERACION DE PDF-->
         <form id="frmCSV" name="frmCSV" method="post" 
-              action="Controller/Propertie/CtlPropertie.php" target="_blank">            
-            <input type="hidden" name="action" value="reportCSVList">        
+              action="System/Controller/Propertie/CtlPropertie.php" target="_blank">            
+            <input type="hidden" name="action" value="reportCSVListByUser">        
         </form>   
         <!--END FORM GENERACION DE PDF-->   
 

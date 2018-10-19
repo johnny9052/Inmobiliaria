@@ -14,8 +14,7 @@
             <nav class="my-2 my-md-0 mr-md-3">
                 <a class="p-2 text-dark" href="index.php?page=home">Inicio</a>
                 <a class="p-2 text-dark" href="index.php?page=searchPropertie">Buscar inmueble</a>
-                <a class="p-2 text-dark" href="index.php?page=about">Acerca de</a>
-                <a class="p-2 text-dark" href="index.php?page=contact">Contacto</a>
+                <a class="p-2 text-dark" href="index.php?page=about">Acerca de</a>                
 
 
                 <?php
@@ -35,7 +34,7 @@
                         Gestion inmuebles
                     </a>
 
-                    <a href="index.php?page=about" class="p-2 text-dark">
+                    <a href="index.php?page=pqrs" class="p-2 text-dark">
                         <i class="fa fa-child">&nbsp</i> 
                         PQRS
                     </a>
@@ -48,7 +47,7 @@
                 } else {
                     ?>   
 
-                    <a href = "#" class = "p-2 text-dark" data-toggle="modal" data-target="#ModalIdentifyUser">
+                    <a href = "#" class = "p-2 text-dark" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#ModalIdentifyUser">
                         <i class = "fa fa-user">&nbsp</i>
                         Identificarse
                     </a>
