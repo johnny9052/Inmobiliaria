@@ -13,7 +13,16 @@
 
     <div class="col-md-5 col-sm-12 col-xs-12">
         <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto">
-            <h3>Destacados</h3>                
+            <table width="100%">
+                <tr>
+                    <td><h3>Destacados</h3></td>
+                    
+                    <td class="tituloDestacado">
+                        <img src="Resources/public/image/iconoAnterior.PNG" alt="1" width="30"/>
+                        <img src="Resources/public/image/iconoSiguiente.PNG" alt="1" width="30"/>
+                    </td>
+                </tr>
+            </table>
             <hr>
 
             <table>
@@ -29,9 +38,26 @@
                                     &nbsp; &nbsp;
                                 </td>
                                 <td>
-                                    <h6>Armenia loft</h6>
-
-                                    <small>Laureles</small>
+                                    <table class="tableEspacios">
+                                        <tr class="informacionInmuebleDestacado">
+                                            <td>
+                                                <h6 class="informacionInmuebleDestacado">Armenia loft</h6>
+                                            </td>
+                                        </tr>
+                                        <tr class="informacionInmuebleDestacado">
+                                            <td >
+                                                <h6 class="informacionInmuebleDestacado">Laureles</h6>
+                                                <img src="Resources/public/image/LineaDivisora2.PNG" width="55"/>
+                                            </td>
+                                        </tr>
+                                        <tr class="informacionInmuebleDestacado">
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        <tr class="informacionInmuebleDestacado">
+                                            <td></td>
+                                        </tr>
+                                    </table>
                                 </td>
                             </tr>
                         </table>
@@ -53,9 +79,26 @@
                                     &nbsp; &nbsp;
                                 </td>
                                 <td>
-                                    <h6>Armenia loft</h6>
-
-                                    <small>Laureles</small>
+                                    <table class="tableEspacios">
+                                        <tr class="informacionInmuebleDestacado">
+                                            <td>
+                                                <h6 class="informacionInmuebleDestacado">Armenia loft</h6>
+                                            </td>
+                                        </tr>
+                                        <tr class="informacionInmuebleDestacado">
+                                            <td >
+                                                <h6 class="informacionInmuebleDestacado">Laureles</h6>
+                                                <img src="Resources/public/image/LineaDivisora2.PNG" width="55"/>
+                                            </td>
+                                        </tr>
+                                        <tr class="informacionInmuebleDestacado">
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        <tr class="informacionInmuebleDestacado">
+                                            <td></td>
+                                        </tr>
+                                    </table>
                                 </td>
                             </tr>
                         </table>

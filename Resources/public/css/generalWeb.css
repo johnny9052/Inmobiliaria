@@ -14,3 +14,20 @@
 .textoMenu:hover{
     color: #00adee !important;    
 }
+
+.tituloDestacado{
+    text-align: right;
+    align-items: flex-end;
+}
+
+.informacionInmuebleDestacado{
+    list-style-type: none !important;
+    list-style-image: none !important;
+    margin: -2px !important;
+    padding:-2px !important;
+}
+
+.tableEspacios { 
+border-spacing: 0;
+border-collapse: collapse;
+}
