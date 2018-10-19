@@ -23,98 +23,96 @@ $(window).on("load", function (e) {
     /*Se obtiene un posible filtro de busqueda, si es que existe*/
     var id = getUrlParameter('idFilter');
     list(id);
-    loadDepartment();
-    loadCity(-1);
-    loadNeighborhood(-1);
-    loadStratum();
-    loadPropertieType();
-    loadOfferType();
-    loadCurtainType();
-    loadVigilanceType();
-    loadZone();
-    loadStatus();
-    loadViewType();
-    loadKitchenType();
-    loadKitchenStructure();
-    loadFloorType();
-    loadClient();
-    loadOutstandingType();
+//    loadDepartment();
+//    loadCity(-1);
+//    loadNeighborhood(-1);
+//    loadStratum();
+//    loadPropertieType();
+//    loadOfferType();
+//    loadCurtainType();
+//    loadVigilanceType();
+//    loadZone();    
+//    loadViewType();
+//    loadKitchenType();
+//    loadKitchenStructure();
+//    loadFloorType();
+//    loadOutstandingType();
 });
 
 
 
 function loadDepartment() {
-    Execute(scanInfo('loadDepartment', false), 'General/CtlGeneral', '', 'buildSelect(info,"selState");');
+    Execute(scanInfo('loadDepartment', false), 'General/CtlGeneral', '', 'buildSelect(info,"selState");', '', '', 'System/');
 }
 
 
 function loadCity(id) {
-    Execute(scanInfo('loadCity', false, '', [{datos: ["id", id]}]), 'General/CtlGeneral', '', 'buildSelect(info,"selCity");');
+    Execute(scanInfo('loadCity', false, '', [{datos: ["id", id]}]), 'General/CtlGeneral', '', 'buildSelect(info,"selCity");', '', '', 'System/');
 }
 
 
 function loadNeighborhood(id) {
-    Execute(scanInfo('loadNeighborhood', false, '', [{datos: ["id", id]}]), 'General/CtlGeneral', '', 'buildSelect(info,"selBarrio");');
+    Execute(scanInfo('loadNeighborhood', false, '', [{datos: ["id", id]}]), 'General/CtlGeneral', '', 'buildSelect(info,"selBarrio");', '', '', 'System/');
 }
 
 function loadStratum() {
-    Execute(scanInfo('loadStratum', false), 'General/CtlGeneral', '', 'buildSelect(info,"selStratum");');
+    Execute(scanInfo('loadStratum', false), 'General/CtlGeneral', '', 'buildSelect(info,"selStratum");', '', '', 'System/');
 }
 
 
 function loadPropertieType() {
-    Execute(scanInfo('loadPropertieType', false), 'General/CtlGeneral', '', 'buildSelect(info,"selPropertieType");');
+    Execute(scanInfo('loadPropertieType', false), 'General/CtlGeneral', '', 'buildSelect(info,"selPropertieType");', '', '', 'System/');
 }
 
 
 function loadOfferType() {
-    Execute(scanInfo('loadOfferType', false), 'General/CtlGeneral', '', 'buildSelect(info,"selOfferType");');
+    Execute(scanInfo('loadOfferType', false), 'General/CtlGeneral', '', 'buildSelect(info,"selOfferType");', '', '', 'System/');
 }
 
 
 function loadCurtainType() {
-    Execute(scanInfo('loadCurtainType', false), 'General/CtlGeneral', '', 'buildSelect(info,"selCurtainType");');
+    Execute(scanInfo('loadCurtainType', false), 'General/CtlGeneral', '', 'buildSelect(info,"selCurtainType");', '', '', 'System/');
 }
 
 
 function loadVigilanceType() {
-    Execute(scanInfo('loadVigilanceType', false), 'General/CtlGeneral', '', 'buildSelect(info,"selVigilanceType");');
+    Execute(scanInfo('loadVigilanceType', false), 'General/CtlGeneral', '', 'buildSelect(info,"selVigilanceType");', '', '', 'System/');
 }
 
 function loadZone() {
-    Execute(scanInfo('loadZone', false), 'General/CtlGeneral', '', 'buildSelect(info,"selZone");');
+    Execute(scanInfo('loadZone', false), 'General/CtlGeneral', '', 'buildSelect(info,"selZone");', '', '', 'System/');
 }
 
 
 function loadViewType() {
-    Execute(scanInfo('loadViewType', false), 'General/CtlGeneral', '', 'buildSelect(info,"selViewType");');
+    Execute(scanInfo('loadViewType', false), 'General/CtlGeneral', '', 'buildSelect(info,"selViewType");', '', '', 'System/');
 }
 
 function loadStatus() {
-    Execute(scanInfo('loadStatus', false), 'General/CtlGeneral', '', 'buildSelect(info,"selStatus");');
+    Execute(scanInfo('loadStatus', false), 'General/CtlGeneral', '', 'buildSelect(info,"selStatus");', '', '', 'System/');
 }
 
 function loadKitchenType() {
-    Execute(scanInfo('loadKitchenType', false), 'General/CtlGeneral', '', 'buildSelect(info,"selKitchenType");');
+    Execute(scanInfo('loadKitchenType', false), 'General/CtlGeneral', '', 'buildSelect(info,"selKitchenType");', '', '', 'System/');
 }
 
 
 function loadKitchenStructure() {
-    Execute(scanInfo('loadKitchenStructure', false), 'General/CtlGeneral', '', 'buildSelect(info,"selKitchenStructure");');
+    Execute(scanInfo('loadKitchenStructure', false), 'General/CtlGeneral', '', 'buildSelect(info,"selKitchenStructure");', '', '', 'System/');
 }
 
 
 function loadFloorType() {
-    Execute(scanInfo('loadFloorType', false), 'General/CtlGeneral', '', 'buildSelect(info,"selFloorType");');
+    Execute(scanInfo('loadFloorType', false), 'General/CtlGeneral', '', 'buildSelect(info,"selFloorType");', '', '', 'System/');
 }
 
-function loadClient() {
-    Execute(scanInfo('loadClient', false), 'General/CtlGeneral', '', 'buildSelect(info,"selClient");');
-}
+//function loadClient() {
+//    Execute(scanInfo('loadClient', false), 'General/CtlGeneral', '', 'buildSelect(info,"selClient");', '', '', 'System/');
+//}
 
 
 function loadOutstandingType() {
-    Execute(scanInfo('loadOutstandingType', false), 'General/CtlGeneral', '', 'buildSelect(info,"selOutstandingType");');
+    Execute(scanInfo('loadOutstandingType', false), 'General/CtlGeneral', '', 'buildSelect(info,"selOutstandingType");', '', '', 'System/');
 }
 
 
@@ -144,7 +142,8 @@ function save() {
             /*Se agregan los videos que se agregaron dimanicamente*/
             infoPlus.temp.push({datos: prepareDinamicData("urlVideos", objURLVideosPropertie)});
 
-            Execute(scanInfo('save', true, '', infoPlus.temp), 'Propertie/CtlPropertie', '', ' closeWindow();list();deleteMarkers();limpiarMultimedia();', '', 'Ha superado el tamaño maximo de las imagenes');
+            Execute(scanInfo('save', true, '', infoPlus.temp), 'Propertie/CtlPropertie', '', ' closeWindow();list();deleteMarkers();limpiarMultimedia();', '', 'Ha superado el tamaño maximo de las imagenes', 'System/');
+
         }
     } else {
         showToast("Seleccione un punto en el mapa", "error");
@@ -160,13 +159,13 @@ function list(id) {
     };
     infoPlus.temp.push({datos: ["idFilter", id]});
 
-    Execute(scanInfo('list', false, '', infoPlus.temp), 'Propertie/CtlPropertie', '', 'buildPaginator(info);');
+    Execute(scanInfo('listbyuser', false, '', infoPlus.temp), 'Propertie/CtlPropertie', '', 'buildPaginator(info);', '', '', 'System/');
 }
 
 
 function search(id) {
     $("#txtId").val(id);
-    Execute(scanInfo('search', true), 'Propertie/CtlPropertie', '', 'showData(info);');
+    Execute(scanInfo('search', true), 'Propertie/CtlPropertie', '', 'showData(info);', '', '', 'System/');
 }
 
 
@@ -213,7 +212,7 @@ function showData(info) {
     refreshSelect("selCurtainType", info[0].id_tipo_cortina);
     refreshSelect("selVigilanceType", info[0].id_tipo_vigilancia);
     refreshSelect("selZone", info[0].id_zona);
-    refreshSelect("selStatus", info[0].estado);    
+    refreshSelect("selStatus", info[0].estado);
     refreshSelect("selViewType", info[0].id_tipo_vista);
     refreshSelect("selKitchenType", info[0].id_tipo_cocina);
     refreshSelect("selKitchenStructure", info[0].id_estructura_cocina);
@@ -256,7 +255,7 @@ function update() {
             addFileNameAndEncodingAndDeletedFiles(infoPlus, objFilePropertie, '');
             /*Se agregan los videos que se agregaron dimanicamente*/
             infoPlus.temp.push({datos: prepareDinamicData("urlVideos", objURLVideosPropertie)});
-            Execute(scanInfo('update', true, '', infoPlus.temp), 'Propertie/CtlPropertie', '', ' closeWindow();list();deleteMarkers();limpiarMultimedia();');
+            Execute(scanInfo('update', true, '', infoPlus.temp), 'Propertie/CtlPropertie', '', ' closeWindow();list();deleteMarkers();limpiarMultimedia();', '', '', 'System/');
         }
     } else {
         showToast("Seleccione un punto en el mapa", "error");
@@ -272,7 +271,7 @@ function deleteInfo() {
     };
     /*Se manda por referencia el objeto de la info adicional donde se añadiran los archivos, junto el el objeto que tiene la informacion real de todos los archivos*/
     addAllFileNameDeleted(infoPlus, objFilePropertie, '');
-    Execute(scanInfo('delete', true, '', infoPlus.temp), 'Propertie/CtlPropertie', '', 'closeWindow("ModalConfirm");list();cleanForm("ModalNew");deleteMarkers();limpiarMultimedia();');
+    Execute(scanInfo('delete', true, '', infoPlus.temp), 'Propertie/CtlPropertie', '', 'closeWindow("ModalConfirm");list();cleanForm("ModalNew");deleteMarkers();limpiarMultimedia();', '', '', 'System/');
 }
 
 
@@ -335,11 +334,11 @@ function actualizarMucipioMapa() {
 
 
 function loadImagesPropertie(id) {
-    Execute(scanInfo('loadImage', false, '', [{datos: ["id", id]}]), 'Propertie/CtlPropertie', '', 'listFilesTwoColumns(info,objFilePropertie,"lstImagenesAgregadas","lstImagenesAgregadas2");');
+    Execute(scanInfo('loadImage', false, '', [{datos: ["id", id]}]), 'Propertie/CtlPropertie', '', 'listFilesTwoColumns(info,objFilePropertie,"lstImagenesAgregadas","lstImagenesAgregadas2","",true);', '', '', 'System/');
 }
 
 function loadVideosPropertie(id) {
-    Execute(scanInfo('loadVideo', false, '', [{datos: ["id", id]}]), 'Propertie/CtlPropertie', '', 'listDinamicData(info, objURLVideosPropertie,"lstVideosAgregados","Video");');
+    Execute(scanInfo('loadVideo', false, '', [{datos: ["id", id]}]), 'Propertie/CtlPropertie', '', 'listDinamicData(info, objURLVideosPropertie,"lstVideosAgregados","Video");', '', '', 'System/');
 }
 
 

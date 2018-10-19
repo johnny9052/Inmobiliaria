@@ -142,7 +142,7 @@ class Repository {
             session_start();
             $_SESSION["identificationPublicHexagon"] = $vec[0]['id'];
             $_SESSION["namePublicHexagon"] = $vec[0]['nombre'];
-            $_SESSION["emailPublicHexagon"] = $vec[0]['email'];            
+            $_SESSION["emailPublicHexagon"] = $vec[0]['email'];
             echo(json_encode(['res' => 'Success']));
         } else {
             echo '{"res" : "Error", "msg" :"' . $this->internationalization->getLogInError() . '" }';

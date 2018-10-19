@@ -2,7 +2,7 @@
 DROP PROCEDURE IF EXISTS listpropertiecsv;
 
 DELIMITER //
-CREATE  PROCEDURE listpropertiecsv(vid int)
+CREATE  PROCEDURE listpropertiecsv(idfilter int)
     COMMENT 'Procedimiento que carga la informacion de todos los inmuebles para exportarla a un fichero CSV'
 BEGIN
  	
@@ -38,7 +38,7 @@ BEGIN
                CASE WHEN inm.puertaDeSeguridad = 1 THEN 'Si' ELSE 'No' END  as puerta_de_seguridad,
                CASE WHEN inm.gimnasio= 1 THEN 'Si' ELSE 'No' END  as gimnasio,
                inm.clientes_cedulaCliente as cedula_cliente,
-               inm.fechaPublicación as fecha_publicacion,
+               inm.fechaPublicacion as fecha_publicacion,
                inm.fechaRecepcion as fecha_recepcion,
                inm.linderosInmueble as linderos_inmbueble,               
                inm.avaluoCatastral as avaluo_catastral,
@@ -75,7 +75,8 @@ BEGIN
         inner join tiposcocinas as tipcoc on tipcoc.`idtipoCocina` = inm.`tiposCocinas_idtipoCocina`
         inner join estructurascocinas as estcoc on estcoc.`idestructuraCocina` = inm.`estructurasCocinas_idestructuraCocina`
         inner join tipospisos as tipis on tipis.`idtipoPiso` = inm.`tiposPisos_idtipoPiso`
-        inner join tiposdestacados as tipdest on tipdest.`idtipoDestacado` = inm.`tiposDestacados_idtipoDestacado` ;       	
+        inner join tiposdestacados as tipdest on tipdest.`idtipoDestacado` = inm.`tiposDestacados_idtipoDestacado`      	
+        where (case when idfilter>0 then inm.`clientes_cedulaCliente` = idfilter ELSE TRUE END );
 	
 END//
 

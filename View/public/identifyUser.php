@@ -106,7 +106,7 @@ and open the template in the editor.
                                         <span class="input-group-text"><i class="fa fa-mobile-phone"></i></span>
                                     </div>
                                     <input type="number" class="form-control" id="txtPhoneUser" name="mobilePhone" 
-                                           placeholder="Ingrese su numero telefonico" required>                    
+                                           placeholder="Ingrese su numero telefonico" max="9999999999" required>                    
                                 </div>
                             </div>                              
                         </div>

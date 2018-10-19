@@ -71,6 +71,11 @@ class PropertieDAO {
         $this->repository->BuildPaginatorDataTable($query, '');
     }
 
+    public function ListByUser(PropertieDTO $obj) {
+        $query = $this->repository->buildQuery("listpropertie", array((int) $obj->getIdUser()));
+        $this->repository->BuildPaginatorDataTable($query, '');
+    }
+
     /**
      * Ejecuta un buscar en la base de datos
      * @param PropertieDTO $obj 
@@ -434,9 +439,84 @@ class PropertieDAO {
         $this->repository->BuildReportCSV($query, 'lista de inmuebles');
     }
 
+    public function ReportCSVListByUser(PropertieDTO $obj) {
+        $query = $this->repository->buildQuery("listpropertiecsv", array((int) $obj->getIdUser()));
+        $this->repository->BuildReportCSV($query, 'lista de inmuebles');
+    }
+
     public function GeneratePDFList(PropertieDTO $obj) {
 
         $query = $this->repository->buildQuery("listpropertie", array((int) $obj->getId()));
+
+        //Longitud maxima de los caracteres del listado
+        $max = 200;
+        $cadenaHTML = "";
+        /* Le asigno la consulta SQL a la conexion de la base de datos */
+        $resultado = $this->repository->getObjCon()->getConnect()->prepare($query);
+        /* Executo la consulta */
+        $resultado->execute();
+
+        /* Se meten los datos a un vector, organizados sus campos no por nombre, 
+          si no enumarados */
+        $vec = $resultado->fetchAll(PDO::FETCH_NUM);
+        //echo $resultado->columnCount() . '----' . $resultado->rowCount();
+
+        /* quedo pendiente mirar como saco todos los registros por un lado y 
+         * los campos por el otro de ser necesario, para eso si se necesita 
+         * sacar una copia de resultado despues del execute pues se hace.
+         */
+
+        if ($resultado->rowCount() > 0) {
+
+            $cadenaHTML .= "<table class='titulo' style='width:100%;'>  
+                              <tr>
+                                  <td style='width:100%;'>
+                                     Listado de inmuebles registrados
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td>
+                                    <hr>
+                                  </td>
+                              </tr>
+                            </table>
+                            <br>";
+
+
+            $cadenaHTML .= "<table id='customers' style='width:100%;'>";
+
+            $cadenaHTML .= "<tr>";
+            $cadenaHTML .= "<th style='width:14%;'>Matricula</th>";
+            $cadenaHTML .= "<th style='width:14%;'>Tipo</th>";
+            $cadenaHTML .= "<th style='width:14%;'>Oferta</th>";
+            $cadenaHTML .= "<th style='width:14%;'>Precio</th>";
+            $cadenaHTML .= "<th style='width:14%;'>Ciudad</th>";
+            $cadenaHTML .= "<th style='width:14%;'>Zona</th>";
+            $cadenaHTML .= "<th style='width:14%;'>Fecha</th>";
+            $cadenaHTML .= "</tr>";
+
+            for ($cont = 0; $cont < $resultado->rowCount(); $cont++) {
+                $cadenaHTML .= "<tr>";
+                $cadenaHTML .= "<td style='width:14%;'>" . $vec[$cont][1] . "</td>";
+                $cadenaHTML .= "<td style='width:14%;'>" . $vec[$cont][2] . "</td>";
+                $cadenaHTML .= "<td style='width:14%;'>" . $vec[$cont][3] . "</td>";
+                $cadenaHTML .= "<td style='width:14%;'>" . $vec[$cont][4] . "</td>";
+                $cadenaHTML .= "<td style='width:14%;'>" . $vec[$cont][5] . "</td>";
+                $cadenaHTML .= "<td style='width:14%;'>" . $vec[$cont][6] . "</td>";
+                $cadenaHTML .= "<td style='width:14%;'>" . $vec[$cont][7] . "</td>";
+                $cadenaHTML .= "</tr>";
+            }
+            $cadenaHTML .= "</table>";
+        } else {
+            $cadenaHTML = "<label>No hay registros en la base de datos</label>";
+        }
+
+        $this->repository->BuildPDF($cadenaHTML, $vec[0][1]);
+    }
+
+    public function GeneratePDFListByUser(PropertieDTO $obj) {
+
+        $query = $this->repository->buildQuery("listpropertie", array((int) $obj->getIdUser()));
 
         //Longitud maxima de los caracteres del listado
         $max = 200;

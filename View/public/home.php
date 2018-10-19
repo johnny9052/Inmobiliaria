@@ -1,4 +1,5 @@
 <!-- INICIO DEL CARRUSEL-->
+
 <div class="row">
     <div class="col-md-2 col-sm-1 col-xs-12"></div>
     <div class="col-md-8 col-sm-10 col-xs-12" id="containercarusel">
@@ -11,13 +12,13 @@
 
             <div class="carousel-inner" id="imagesCarusel" style="max-width: 1100px; max-height: 450px">
                 <div class="carousel-item active">
-                    <img src="System/Resource/Images/Properties/987654321_jellyfish.jpg" alt="jellyfish">
+                    <img src="System/Resource/Images/Properties/casa2.jpg" alt="jellyfish">
                 </div>
                 <div class="carousel-item ">
-                    <img src="System/Resource/Images/Properties/987654321_koala.jpg" alt="koala">
+                    <img src="System/Resource/Images/Properties/casa1.jpg" alt="koala">
                 </div>
                 <div class="carousel-item ">
-                    <img src="System/Resource/Images/Properties/987654321_lighthouse.jpg" alt="lighthouse">
+                    <img src="System/Resource/Images/Properties/casa2.jpg" alt="lighthouse">
                 </div>              
             </div>
             <a class="carousel-control-prev" href="#divcarusel" data-slide="prev">
