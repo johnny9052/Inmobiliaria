@@ -45,6 +45,9 @@ session_start();
         <link href="System/Resource/plugins/bootstrap-slider/slider.css" rel="stylesheet" type="text/css"/>
 
         <link href="System/Resource/Style/General.css" rel="stylesheet" type="text/css"/>
+        
+        <link href="Resources/public/css/generalWeb.css" rel="stylesheet" type="text/css"/>
+        
         <link href="System/Resource/Style/hexagono.css" rel="stylesheet" type="text/css"/>
 
 
