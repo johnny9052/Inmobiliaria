@@ -1,3 +1,8 @@
+<?php
+/* Toca colocarlo aqui porque si no el servidor esta mostrando error */
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -41,8 +46,6 @@
         <script src="System/Resource/bower_components/fastclick/lib/fastclick.js" type="text/javascript"></script>
 
         <script src="System/Resource/dist/js/adminlte.min.js" type="text/javascript"></script>
-
-        <script src="System/Resource/Script/General/General.js" type="text/javascript"></script>
 
         <script src="Resources/public/js/general/cache.js" type="text/javascript"></script>
 
@@ -97,8 +100,12 @@
             include("View/public/identifyUser.php");
         }
         ?>      
+        
+        
+        
+        
 
 
-
+        <script src="System/Resource/Script/General/General.js" type="text/javascript"></script>
     </body>
 </html>

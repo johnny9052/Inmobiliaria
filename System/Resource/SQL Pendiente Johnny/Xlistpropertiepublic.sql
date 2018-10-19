@@ -36,11 +36,8 @@ BEGIN
           (case when vpiscina=1 then inm.piscina = vpiscina  ELSE TRUE END ) AND
           (case when vroom>-1 then inm.habitaciones = vroom  ELSE TRUE END ) AND 
           (case when vbath>-1 then inm.banos = vbath  ELSE TRUE END ) AND 
-          (case when vparking>-1 then inm.parqueaderos = vparking  ELSE TRUE END )
-
-
-
-
+          (case when vparking>-1 then inm.parqueaderos = vparking  ELSE TRUE END ) AND
+          inm.estado_idestado = 22
    order by inm.`fechaRecepcion`;
 END//
 

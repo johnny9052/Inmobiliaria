@@ -140,10 +140,9 @@ class Repository {
 
         if (isset($vec)) {
             session_start();
-            $_SESSION["identificationPublic"] = $vec[0]['id'];
-            $_SESSION["namePublic"] = $vec[0]['nombre'];
-            $_SESSION["emailPublic"] = $vec[0]['email'];
-            $_SESSION["addressPublic"] = $vec[0]['direccion'];
+            $_SESSION["identificationPublicHexagon"] = $vec[0]['id'];
+            $_SESSION["namePublicHexagon"] = $vec[0]['nombre'];
+            $_SESSION["emailPublicHexagon"] = $vec[0]['email'];            
             echo(json_encode(['res' => 'Success']));
         } else {
             echo '{"res" : "Error", "msg" :"' . $this->internationalization->getLogInError() . '" }';
@@ -229,7 +228,7 @@ class Repository {
      * @author Johnny Alexander Salazar
      * @version 0.2
      */
-    public function ExecuteTransaction($query) {
+    public function ExecuteTransaction($query, $msgError = "") {
         try {
             /* Le asigno la consulta SQL a la conexion de la base de datos */
             $resultado = $this->objCon->getConnect()->prepare($query);
@@ -244,10 +243,10 @@ class Repository {
                 echo(json_encode(['res' => 'Success', "msg" => $this->internationalization->getOperationSuccess()
                 ]));
             } else {
-                echo(json_encode(['res' => 'Error', "msg" => $this->internationalization->getOperationError()]));
+                echo(json_encode(['res' => 'Error', "msg" => ($msgError === "") ? $this->internationalization->getOperationError() : $msgError]));
             }
         } catch (PDOException $exception) {
-            echo(json_encode(['res' => 'Error', "msg" => $this->internationalization->getOperationErrorForeign(),
+            echo(json_encode(['res' => 'Error', "msg" => ($msgError === "") ? $this->internationalization->getOperationErrorForeign() : $msgError,
                 'development' => $exception->getMessage(), 'sql' => $query]));
         }
     }

@@ -9,6 +9,7 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <title></title>
         <script src="Resources/public/js/general/identifyUser.js" type="text/javascript"></script>
+        
     </head>
     <body>
 
@@ -145,7 +146,7 @@ and open the template in the editor.
 
                     <div class="modal-footer">
 
-                        <button type="button" class="btn btn-default pull-left" onclick="goNavigation('ModalNewUser', 'ModalIdentifyUser')">Cerrar</button>
+                        <button type="button" class="btn btn-default pull-left" onclick="goNavigation('ModalNewUser', 'ModalIdentifyUser');cleanForm('FormContainerNewUser');">Cerrar</button>
 
                         <div class="newActionButton">                            
                             <button id="btnSave" onclick="saveNewUser();" type ="button" class="btn btn-primary">Guardar</button>
@@ -186,7 +187,7 @@ and open the template in the editor.
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fa fa-at"></i></span>
                                     </div>
-                                    <input type="email" class="form-control" id="txtEmailUserIdentify" name="email" 
+                                    <input type="email" class="form-control" id="txtEmailUserIdentify" name="user" 
                                            placeholder="Ingrese su correo" required>                    
                                 </div>
                             </div>                              
@@ -212,10 +213,10 @@ and open the template in the editor.
 
                     <div class="modal-footer">
 
-                        <button onclick="closeWindow();" type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
+                        <button onclick="closeWindow('ModalIdentifyUser',true);" type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
 
                         <div class="newActionButton">                            
-                            <button id="btnSave" onclick="saveNewUser();" type ="button" class="btn btn-primary">Identificarse</button>
+                            <button id="btnSave" onclick="LogInPublic();" type ="button" class="btn btn-primary">Identificarse</button>
                         </div>
 
 

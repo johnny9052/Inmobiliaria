@@ -9,9 +9,9 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <title></title>
 
-        <script defer type="text/javascript" src="Resource/Script/Propertie/Propertie.js"></script>
-        <script src="Resource/Script/General/Map.js" type="text/javascript"></script>
-        <link href="Resource/Style/mapSearch.css" rel="stylesheet" type="text/css"/>
+        <script defer type="text/javascript" src="Resources/public/js/general/inmueble.js"></script>
+        <script src="System/Resource/Script/General/Map.js" type="text/javascript"></script>
+        <link href="System/Resource/Style/mapSearch.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
 

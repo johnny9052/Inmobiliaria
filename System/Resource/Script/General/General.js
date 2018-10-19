@@ -5,8 +5,9 @@ $(document).ready(function () {
          * del modal, y no se permite cerrarlo con la tecla escape*/
         $.fn.modal.Constructor.DEFAULTS.backdrop = false;
         $.fn.modal.Constructor.DEFAULTS.keyboard = false;
+
     } catch (exception) {
-        console.log("Error configurando los modales");
+        console.log("Error configurando los modales" + exception.message);
     }
 
     try {
@@ -21,14 +22,14 @@ $(document).ready(function () {
             showMeridian: false
         });
     } catch (exception) {
-        console.log("Error configurando los inputs tipo fecha");
+        console.log("Error configurando los inputs tipo fecha" + exception.message);
     }
 
     try {
         /* BOOTSTRAP SLIDER */
         $('.slider').slider();
-    } catch (Exception) {
-        console.log("Error configurando los sliders");
+    } catch (exception) {
+        console.log("Error configurando los sliders" + exception.message);
     }
 
     // https://stackoverflow.com/questions/19639951/how-do-i-change-selected-value-of-select2-dropdown-with-jqgrid
@@ -239,6 +240,16 @@ function Execute(dataSend, url, before, success, idModalOpenFinish, msgNoAction,
             showToast("Verifique la ruta del archivo", "error");
         }
     });
+}
+
+
+
+
+function executeWithTime(code, time) {
+    setTimeout(function () {
+        eval(code);
+    }, time);
+
 }
 
 
@@ -868,6 +879,8 @@ function refreshPage(url, value) {
  * @version 0.1
  */
 function refreshPagePublic(url) {
+
+    url = (url === undefined || url === "" || url === null) ? "home" : url;
 
     window.location.href = "index.php?page=" + url;
 }

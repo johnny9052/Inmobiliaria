@@ -1,4 +1,4 @@
-DROP PROCEDURE IF EXISTS savepropertie;
+DROP FUNCTION IF EXISTS savepropertie;
 
 
 DELIMITER //
@@ -113,7 +113,7 @@ IF NOT EXISTS(select 1 from inmuebles where matriculaInmobiliaria=vMatriculaInmo
                                     estructurasCocinas_idestructuraCocina ,
                                     tiposPisos_idtipoPiso ,
                                     clientes_cedulaCliente ,
-                                    fechaPublicación ,
+                                    fechaPublicacion ,
                                     fechaRecepcion ,
                                     tiposDestacados_idtipoDestacado ,
                                     linderosInmueble ,

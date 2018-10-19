@@ -114,7 +114,7 @@ class ClientDAO {
             (string) $obj->getPassword(),
         ));
         //echo $query;
-        $this->repository->ExecuteTransaction($query);
+        $this->repository->ExecuteTransaction($query, "El correo ingresado ya se encuentra registrado");
     }
 
 }

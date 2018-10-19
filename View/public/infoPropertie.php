@@ -336,5 +336,12 @@ and open the template in the editor.
     async defer></script>
 
 
+    <!-- INICIO VIDEO TOUR Y DESTACADOS-->
+    <?php
+    include("View/public/main/videoTourDestacados.php");
+    ?>             
+    <!-- FIN VIDEO TOUR Y DESTACADOS-->
+
+
 </body>
 </html>
