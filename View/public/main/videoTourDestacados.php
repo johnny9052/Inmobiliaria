@@ -5,7 +5,7 @@
         <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto">
             <h3>Video Tour</h3>            
             <iframe 
-                width="360" height="215" src="https://www.youtube.com/embed/6KpqL5Ke8nU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>                    
+                width="300" height="240" src="https://www.youtube.com/embed/6KpqL5Ke8nU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>                    
             </iframe>
 
         </div>
