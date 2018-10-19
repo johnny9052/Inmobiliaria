@@ -30,10 +30,18 @@
 footer {
   padding-top: 3rem;
   padding-bottom: 3rem;
+  color: #FFFFFF;
+  background: #3F5666;;
 }
 
 footer p {
   margin-bottom: .25rem;
+}
+
+footerText {
+  font-size: 22px;
+  margin-bottom: .25rem;
+  font-color: #FFFFFF;
 }
 
 .box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }

@@ -5,11 +5,11 @@
         <div class="col-md-2">                 
         </div>
         
-        <div class="col-md-2">   
-            <h5 class="my-0 mr-md-auto font-weight-normal">HEXAGONO</h5>
+        <div class="col-md-2">
+            <img src="Resources/public/image/LogoBanner.PNG" alt="60" width="200" />
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-6 align-self-md-end">
             
             <nav class="my-2 my-md-0 mr-md-3">
                 <a class="p-2 text-dark" href="index.php?page=home">Inicio</a>

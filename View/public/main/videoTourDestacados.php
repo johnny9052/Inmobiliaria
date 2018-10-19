@@ -4,8 +4,9 @@
     <div class="col-md-3 col-sm-12 col-xs-12">
         <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto">
             <h3>Video Tour</h3>            
-            <hr>
-            <img class="" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="240" height="140">                                
+            <iframe 
+                width="360" height="215" src="https://www.youtube.com/embed/6KpqL5Ke8nU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>                    
+            </iframe>
 
         </div>
     </div>

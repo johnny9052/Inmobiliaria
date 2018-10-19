@@ -11,13 +11,13 @@
 
             <div class="carousel-inner" id="imagesCarusel" style="max-width: 1100px; max-height: 450px">
                 <div class="carousel-item active">
-                    <img src="System/Resource/Images/Properties/987654321_jellyfish.jpg" alt="jellyfish">
+                    <img src="Resources/public/image/ImagenSlidePrincipal.PNG" alt="Hexagono">
+                </div>  
+                <div class="carousel-item ">
+                    <img src="Resources/public/image/ImagenSlideArriendo.PNG" alt="Arriendos">
                 </div>
                 <div class="carousel-item ">
-                    <img src="System/Resource/Images/Properties/987654321_koala.jpg" alt="koala">
-                </div>
-                <div class="carousel-item ">
-                    <img src="System/Resource/Images/Properties/987654321_lighthouse.jpg" alt="lighthouse">
+                    <img src="Resources/public/image/ImagenSlideVacacional.PNG" alt="vacacional">
                 </div>              
             </div>
             <a class="carousel-control-prev" href="#divcarusel" data-slide="prev">
@@ -50,21 +50,21 @@
         <!-- Three columns of text below the carousel -->
         <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <img class="" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="240" height="140">                                
+                <img class="" src="Resources/public/image/risaralda.jpg" alt="Generic placeholder image" width="240" height="140">                                
                 <label>Risaralda</label>                
             </div>            
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <img class="" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="240" height="140">
+                <img class="" src="Resources/public/image/Quindio.jpg" alt="Generic placeholder image" width="240" height="140">
                 <label>Quindio</label>
                 <br>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <img class="" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="240" height="140">            
+                <img class="" src="Resources/public/image/Caldas.jpg" alt="Generic placeholder image" width="240" height="140">            
                 <label>Caldas</label>
                 <br>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <img class="" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="240" height="140">
+                <img class="" src="Resources/public/image/Vacaciones.jpg" alt="Generic placeholder image" width="240" height="140">
                 <label>Vacacionales</label>
                 <br>
             </div>
@@ -110,6 +110,7 @@ include("View/public/main/videoTourDestacados.php");
 
     <div class="col-md-2 col-sm-1 col-xs-12">
         <img src="Resources/public/image/socio1.PNG" alt=""/>
+        <br><br><br>
     </div>
 
     <div class="col-md-2 col-sm-1 col-xs-12"></div>
