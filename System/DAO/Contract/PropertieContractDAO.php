@@ -28,7 +28,8 @@ class PropertieContractDAO {
             (string) $obj->getFirmDate(),(string) $obj->getStartDate(),
             (string) $obj->getEndDate(), (float) $obj->getContractValue(), 
             (int) $obj->getTermContract(), (string) $obj->getWayPay(), 
-            (string) $obj->getUrlContract()
+            (string) $obj->getUrlContract(),
+            (string) $obj->getTypesClientSelecteds() . ","
         ));
         //echo $query;
         $this->repository->ExecuteTransaction($query);
@@ -71,7 +72,7 @@ class PropertieContractDAO {
             (string) $obj->getFirmDate(),(string) $obj->getStartDate(),
             (string) $obj->getEndDate(), (float) $obj->getContractValue(), 
             (int) $obj->getTermContract(), (string) $obj->getWayPay(), 
-            (string) $obj->getUrlContract()
+            (string) $obj->getUrlContract(),(string) $obj->getTypesClientSelecteds() . ","
         ));
         $this->repository->ExecuteTransaction($query);
     }

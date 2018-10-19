@@ -158,7 +158,7 @@ and open the template in the editor.
                                                         <div class="input-group-addon">
                                                             <i class="fa fa-calendar"></i>
                                                         </div>
-                                                        <input type="text" name="expeditiondate" required class="form-control pull-right dateAction" id="txtExpeditiondate">
+                                                        <input type="text" name="expeditionDate" required class="form-control pull-right dateAction" id="txtExpeditionDate">
                                                     </div>
                                                 </div>
                                             </div>

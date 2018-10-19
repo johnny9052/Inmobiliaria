@@ -38,6 +38,7 @@ and open the template in the editor.
                             <li><a href="" onclick="redirectInfoFilter('Client/IndependentPerson');"data-toggle="tab">Independiente</a></li>
                             <li><a href="" onclick="redirectInfoFilter('Client/BankReferenceClient');"data-toggle="tab">Ref. Bancaría</a></li>
                             <li><a href="" onclick="redirectInfoFilter('Client/ReferenceClient');"data-toggle="tab">Ref. Personal</a></li>
+                            <li><a href="" onclick="redirectInfoFilter('Contract/Debtor');"data-toggle="tab">Deudor</a></li>
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane" id="properties">
@@ -115,7 +116,7 @@ and open the template in the editor.
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -227,7 +228,48 @@ and open the template in the editor.
                             <div class="col-md-6 panel panel-default" id="lstArchivoAgregado" style="text-align: center; margin: 10px; padding: 10px;">                                
 
                             </div>                           
-                        </div>   
+                        </div>
+
+                        <div class="row">                           
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="" class="fa fa-user"></label>
+                                    &nbsp;&nbsp;
+                                    <label>Objetos Contrato</label>
+                                    <div id="FormContainerCheckboxContractType" class="containerPermission">
+
+                                    </div>
+                                </div>
+                            </div>           
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="" class="fa fa-user"></label>
+                                    &nbsp;&nbsp;
+                                    <label>Deudor</label>
+                                    <div>
+                                        <select id="selDebtor" name="debtor" 
+                                                class="form-control select2" style="width: 100%;" required>
+                                            <option value="-1" selected> -- SELECCIONE --</option>                            
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="col-md-1">
+                                <br>
+                                <button onclick="agregarDeudorContrato()">+</button>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <div id="listDebtor">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
 
                         <div class="row">

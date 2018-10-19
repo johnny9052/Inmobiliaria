@@ -1830,7 +1830,7 @@ function buildDashboardBarByCategory(columnsName, data, idDivGoal, labelAxisX, l
 
 
 function buildDashboardArea(columnsName, arrayToArrayData, idDivGoal, labelAxisX, labelAxisY) {
-    
+
     return c3.generate({
         bindto: '#' + idDivGoal,
         data: {
@@ -1872,3 +1872,24 @@ function buildDashboardArea(columnsName, arrayToArrayData, idDivGoal, labelAxisX
 
 
 
+
+
+
+function scanDataLabelDinamic(nameData, prefixLabel, split = false, charactersSplit) {
+    var temp = new Array();
+    temp.push(nameData);
+
+    $(".dinamicLabelData").each(function () {
+        var elemento = this;
+        if ((elemento.id).includes(prefixLabel)) {
+
+            if (split) {
+                temp.push(((elemento.html()).split(charactersSplit)))[0];
+            } else {
+                temp.push(elemento.html());
+            }
+        }
+    });
+
+    return temp;
+}

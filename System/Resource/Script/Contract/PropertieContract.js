@@ -11,6 +11,8 @@ $(window).on("load", function (e) {
     list();
     loadPropertie();
     loadClient();
+    loadContractTypeCheckbox();
+    loadDebtor();
 });
 
 
@@ -22,6 +24,18 @@ function loadClient() {
     Execute(scanInfo('loadClient', false), 'General/CtlGeneral', '', 'buildSelect(info,"selClient");');
 }
 
+function loadDebtor() {
+    Execute(scanInfo('loadDebtor', false), 'General/CtlGeneral', '', 'buildSelect(info,"selDebtor");');
+}
+
+
+function loadContractTypeCheckbox() {
+    Execute(scanInfo('loadContractTypeCheckbox', false),
+            'General/CtlGeneral',
+            '',
+            'BuildCheckbox(info,"FormContainerCheckboxContractType", "ContractType");');
+    /*BuildCheckbox("Info que llega","Id del contenedor", "Nombre de los checks");')*/
+}
 
 function save() {
     if (validateForm() === true) {
@@ -29,10 +43,16 @@ function save() {
         var infoPlus = {
             temp: new Array()
         };
+
         /*Se manda por referencia el objeto de la info adicional donde se añadiran los archivos, junto el el objeto que tiene la informacion real de todos los archivos*/
         addFileNameAndEncodingAndDeletedFiles(infoPlus, objFileContract, 'Contract');
 
+        infoPlus.temp.push({datos: scanCheckboxDinamic("typesContractSelecteds", "ContractType")});
+        
+        infoPlus.temp.push({datos: scanDataLabelDinamic("listDebtor", "deudor",true,"-")});
+
         Execute(scanInfo('save', true, '', infoPlus.temp), 'Contract/CtlPropertieContract', '', 'closeWindow();list();limpiarMultimedia();', '', 'Ha superado el tamaño maximo de las imagenes');
+        //Execute(scanInfo('save', true, '', [{datos: scanCheckboxDinamic("typesContractSelecteds", "ContractType")}]),
     }
 }
 
@@ -101,6 +121,14 @@ function deleteInfo() {
     Execute(scanInfo('delete', true, '', infoPlus.temp), 'Contract/CtlPropertieContract', '', 'closeWindow("ModalConfirm");list();cleanForm("ModalNew");limpiarMultimedia();');
 }
 
+function loadContractTypeCheckbox() {
+    Execute(scanInfo('loadCheckboxContractType', false),
+            'General/CtlGeneral',
+            '',
+            'BuildCheckbox(info,"FormContainerCheckboxContractType", "ContractType");');
+    /*BuildCheckbox("Info que llega","Id del contenedor", "Nombre de los checks");')*/
+}
+
 
 /**
  * Se limpia o reinicia todos los elementos involucrados en los videos e imagenes
@@ -116,8 +144,15 @@ function limpiarMultimedia() {
 }
 
 
+function agregarDeudorContrato() {
+    var datosDeudor = $("#selDebtor option:selected").text();
+    var cedulaDeudor = (datosDeudor.split("-"))[0];
+    var nombreDeudor = (datosDeudor.split("-"))[1];
 
+    var label = "<label id='deudor" + cedulaDeudor + "' class='dinamicLabelData'> " + nombreDeudor + "</label>";
 
+    $("#listDebtor").html($("#listDebtor").html() + "<br>" + label);
+}
 
 
 
