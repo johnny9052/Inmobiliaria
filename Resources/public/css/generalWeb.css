@@ -6,11 +6,45 @@
 
 
 .textoMenu{
-    color: black;    
+    color: #3F5666;    
     font-weight: bold;
-    font-family: 'Source Sans Pro', sans-serif !important;
+    font-family: 'Source Sans Pro', sans-serif !important;        
 }
 
 .textoMenu:hover{
     color: #00adee !important;    
+}
+
+
+.textoContenido{
+    color: rgba(0,0,0,60);
+    font-weight: normal; /* 100, 200, 300, ... 900, normal, bold, bolder, lighter */
+}
+
+.textoContenidoBlanco{    
+    font-weight: normal; /* 100, 200, 300, ... 900, normal, bold, bolder, lighter */
+}
+
+
+.titulosPrincipales{
+    font-weight: bold;
+    font-family: 'Source Sans Pro', sans-serif !important;        
+}
+
+
+
+.titulosSecundarios{        
+    font-family: 'Source Sans Pro Semibold', sans-serif !important;        
+}
+
+
+.textoVinietas{
+    font-weight: lighter; /* 100, 200, 300, ... 900, normal, bold, bolder, lighter */
+}
+
+
+.liSinEspacio{
+    list-style-type: none;
+    margin: -5px !important;
+    padding: -5px !important;
 }
