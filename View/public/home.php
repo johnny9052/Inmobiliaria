@@ -37,7 +37,7 @@
 
 <!-- INICIO SECCION CENTRAL-->
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-    <h3>NUESTRA SECCIÓN INMOBILIARIA EN COLOMBIA</h3>
+    <h3 class="titulosPrincipales">NUESTRA SECCIÓN INMOBILIARIA EN COLOMBIA</h3>
     <small>Encuentra tu inmueble, a continuación selecciona la región en donde quieres buscar</small>
 </div>
 <!-- FIN SECCION CENTRAL-->

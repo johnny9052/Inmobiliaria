@@ -56,7 +56,7 @@ $status = (getInfo('status') === "") ? 21 : getInfo('status');
 $kitchenType = getInfo('kitchenType');
 $kitchenStructure = getInfo('kitchenStructure');
 $floorType = getInfo('floorType');
-$client = (getInfo('client') === "") ? $_SESSION["identificationPublicHexagon"] : getInfo('client');
+$client = (getInfo('client') === "") ? ((isset($_SESSION["identificationPublicHexagon"]) ? $_SESSION["identificationPublicHexagon"] : "")) : getInfo('client');
 $publicationDate = getInfo('publicationDate');
 $receptionDate = getInfo('receptionDate');
 $outstandingType = getInfo('outstandingType');

@@ -10,7 +10,7 @@
                     <div class="col-md-12">
                         <div class="box box-primary collapsed-box">
                             <div class="box-header with-border">
-                                <h3 class="box-title">Filtros de busqueda basicos</h3>
+                                <h3 class="box-title">Filtros de búsqueda básicos</h3>
 
                                 <div class="box-tools pull-right">
                                     <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
@@ -26,16 +26,14 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="" class="fa fa-map-marker"></label>
-                                            &nbsp;&nbsp;
                                             <label>Departamento</label>
-                                            <div>
+                                            <table>
                                                 <select id="selState" name="state" 
                                                         class="form-control select2" style="width: 100%;"  
                                                         onchange="loadCity(this.value);actualizarMucipioMapa();">
                                                     <option value="-1" selected> -- SELECCIONE --</option>                            
                                                 </select>
-                                            </div>
+                                            </table>
                                         </div>
                                     </div>     
 
