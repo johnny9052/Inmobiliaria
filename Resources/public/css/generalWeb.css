@@ -48,3 +48,20 @@
     margin: -5px !important;
     padding: -5px !important;
 }
+
+
+
+.imagenesListadoInmueblesContenedor{
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+.valorInmuebleListaPublica{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: #00adee;
+    width: 50%;
+    color: white;
+}

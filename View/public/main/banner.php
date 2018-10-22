@@ -16,49 +16,35 @@
                 <a class="p-2" href="index.php?page=searchPropertie"><font class="textoMenu">Buscar inmueble</font></a>
                 <a class="p-2" href="index.php?page=about"><font class="textoMenu">Acerca de</font></a>                
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </li>
 
-                    </ul>
-                </div>
+
+
 
                 <?php
                 if (isset($_SESSION['namePublicHexagon'])) {
                     ?>      
 
-
-
-                    <a href = "#" class = "p-2 text-dark">
-                        <font class="textoMenu"><i class = "fa fa-user">&nbsp</i>
-                        Bienvenido <?php echo $_SESSION['emailPublicHexagon'] ?></font>
+                    <a class="p-2" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <font class="textoMenu"> Bienvenido <?php echo $_SESSION['emailPublicHexagon'] ?> </font>
                     </a>
 
 
-                    <a href="index.php?page=managementPropertie" class="p-2 text-dark">
-                        <font class="textoMenu"><i class="fa fa-child">&nbsp</i> 
-                        Gestion inmuebles</font>
-                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="index.php?page=managementPropertie">
+                            <font class="textoMenu"><i class="fa fa-home">&nbsp</i> 
+                            Gestion inmuebles</font>
+                        </a>
+                        <a class="dropdown-item" href="index.php?page=pqrs">
+                            <font class="textoMenu"><i class="fa fa-user">&nbsp</i> 
+                            PQRS</font>
+                        </a>
+                        
+                        <a class="dropdown-item" onclick="LogOut();">
+                            <font class="textoMenu"><i class="fa fa-sign-out"></i>&nbsp Salir</font>                 
+                        </a>
+                    </div>
 
-                    <a href="index.php?page=pqrs" class="p-2 text-dark">
-                        <font class="textoMenu"><i class="fa fa-child">&nbsp</i> 
-                        PQRS</font>
-                    </a>
 
-
-                    <a href = "#" class = "p-2 text-dark" onclick="LogOut();">
-                        <font class="textoMenu"><i class="fa fa-sign-out"></i>   </font>                 
-                    </a>
                     <?php
                 } else {
                     ?>   

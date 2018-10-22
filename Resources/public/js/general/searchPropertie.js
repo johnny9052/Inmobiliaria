@@ -12,7 +12,7 @@ $(window).on("load", function (e) {
     loadAreaMaxima();
 });
 
-var registrosPagina = 3;
+var registrosPagina = 6;
 var totalRegistros = 0;
 var totalPaginacion = 0;
 var objectToPagination;
@@ -22,9 +22,9 @@ function loadValorMaximo() {
     Execute(scanInfo('loadPrecioMaximoInmueble', false), 'General/CtlGeneral', '', 'cargarValorMaximo(info)', '', '', 'System/');
 }
 
-function cargarValorMaximo(info) {    
+function cargarValorMaximo(info) {
     $("#rngValorMaximoInmueble").prop('max', info[0].precio);
-    $("#lblValorMaxPosible").html("$ "+parseFloat(info[0].precio).toLocaleString('en'));
+    $("#lblValorMaxPosible").html("$ " + parseFloat(info[0].precio).toLocaleString('en'));
 }
 
 
@@ -32,7 +32,7 @@ function loadAreaMaxima() {
     Execute(scanInfo('loadAreaMaximaInmueble', false), 'General/CtlGeneral', '', 'cargarAreaMaxima(info)', '', '', 'System/');
 }
 
-function cargarAreaMaxima(info) {    
+function cargarAreaMaxima(info) {
     $("#rngAreaInmueble").prop('max', info[0].area);
     $("#lblAreaMaxPosible").html(info[0].area + " mts2");
 }
@@ -104,10 +104,16 @@ function buildListPropertie(info) {
 
         var totalIteracion = (info.length > registrosPagina) ? registrosPagina : info.length;
 
+        var contLinea = 0;
         for (f = 0; f < totalIteracion; f++) {
-
             listado = listado + construirRegistroPaginacion(f);
+            contLinea++;
 
+            /*Cada tres registros coloca una linea divisoria*/
+            if (contLinea === 3) {
+                listado += "<div class='col-md-12'><hr></div>";
+                contLinea = 0;
+            }
         }
 
         $("#lstProperties").html(listado);
@@ -150,17 +156,16 @@ function construirRegistroPaginacion(pos) {
 
     /*Medidas originales, a col-md-4 y 100 x 225*/
     /*Medidas de prueba, a col-md-3 y 100 x 175*/
-    return "<div class='col-md-4'>\n\
-                                    <div class='card mb-4 box-shadow'>\n\
+    return "<div class='col-md-4 seleccionable' onclick='viewInfoPropertie(" + id + ");'>\n\
+                                    <div class='mb-4 imagenesListadoInmueblesContenedor'>\n\
                                         <img src='" + imagen + "'  \n\
                                              width='100' height='225'  \n\
-                                             data-src='holder.js/100px225?theme=social&bg=55595c&fg=eceeef&text=Thumbnail' \n\
                                              alt='Card image cap' \n\
                                              class='card-img-top' >\n\
+                                        <div class='valorInmuebleListaPublica titulosSecundarios'>" + "$" + precio + "</div>\n\
                                         <div class='card-body'>      \n\
                                             <h4 class='card-text'>" + barrio + " - " + zona + " - " + ciudad + "</h4>\n\
-                                            <h5 class='card-text'>" + oferta + " - $" + precio + "</h5>   \n\
-                                            <small class='text-muted'>   \n\
+                                                <small class='text-muted'>   \n\
                                                 <label for='chkChimenea' class='fa fa-home'></label> \n\
                                                 <label for='chkChimenea'>" + tipoinmueble + "</label>&nbsp;&nbsp;\n\
                                                 <label for='chkChimenea' class='fa fa-bed'></label> \n\
@@ -170,12 +175,38 @@ function construirRegistroPaginacion(pos) {
                                                 <label for='chkChimenea' class='fa fa-area-chart'></label>\n\
                                                 <label for='chkChimenea'>" + area + " m<sup>2</sup></label>&nbsp;&nbsp;&nbsp;\n\
                                             </small>                            \n\
-                                            <div> \n\
-                                                <button type='button' class='btn btn-block btn-primary btn-lg' onclick='viewInfoPropertie(" + id + ");'>Ver inmueble</button> \n\
-                                            </div>\n\
                                         </div> \n\
                                     </div>\n\
                                  </div>";
+
+
+
+//    return "<div class='col-md-4'>\n\
+//                                    <div class='card mb-4 box-shadow'>\n\
+//                                        <img src='" + imagen + "'  \n\
+//                                             width='100' height='225'  \n\
+//                                             data-src='holder.js/100px225?theme=social&bg=55595c&fg=eceeef&text=Thumbnail' \n\
+//                                             alt='Card image cap' \n\
+//                                             class='card-img-top' >\n\
+//                                        <div class='card-body'>      \n\
+//                                            <h4 class='card-text'>" + barrio + " - " + zona + " - " + ciudad + "</h4>\n\
+//                                            <h5 class='card-text'>" + oferta + " - $" + precio + "</h5>   \n\
+//                                            <small class='text-muted'>   \n\
+//                                                <label for='chkChimenea' class='fa fa-home'></label> \n\
+//                                                <label for='chkChimenea'>" + tipoinmueble + "</label>&nbsp;&nbsp;\n\
+//                                                <label for='chkChimenea' class='fa fa-bed'></label> \n\
+//                                                <label for='chkChimenea'>" + habitaciones + " Hab.</label>&nbsp;&nbsp;&nbsp;\n\
+//                                                <label for='chkChimenea' class='fa fa-automobile'></label>\n\
+//                                                <label for='chkChimenea'>" + parqueaderos + " Parq.</label>&nbsp;&nbsp;&nbsp;\n\
+//                                                <label for='chkChimenea' class='fa fa-area-chart'></label>\n\
+//                                                <label for='chkChimenea'>" + area + " m<sup>2</sup></label>&nbsp;&nbsp;&nbsp;\n\
+//                                            </small>                            \n\
+//                                            <div> \n\
+//                                                <button type='button' class='btn btn-block btn-primary btn-lg' onclick='viewInfoPropertie(" + id + ");'>Ver inmueble</button> \n\
+//                                            </div>\n\
+//                                        </div> \n\
+//                                    </div>\n\
+//                                 </div>";
 }
 
 
