@@ -43,6 +43,10 @@ function ExecuteAction($action, $obj, $dao, $specific = null) {
             $dao->ListAllNoTable($obj);
             break;
 
+        case "listNoTableByFixedContidion":
+            $dao->ListAllNoTableByFixedCondition($obj);
+            break;
+
         /* END Transaction CRUD */
 
 
