@@ -2,21 +2,17 @@ $(window).on("load", function (e) {
     loadPQRSType();
 });
 
-
-
-
 function loadPQRSType() {
-    Execute(scanInfo('loadPQRSType', false), 'General/CtlGeneral', '', 'buildSelect(info,"selState");');
+    Execute(scanInfo('loadPQRSType', false), 'General/CtlGeneral', '', 'buildSelect(info,"selPRQSType");', '', '', 'System/');
 }
 
-function sendContact() {
+function savePQRS() {
     if (validateForm() === true) {
-        Execute(scanInfo('search', true), 'Contact/CtlContact', '', 'showDataSendContact();');
+        Execute(scanInfo('save', true), 'PQRSClient/CtlPQRSClient', '', 'showDataSavePQRS();', '', '', 'System/');
     }
 }
 
-
-function showDataSendContact() {
+function showDataSavePQRS() {
     showToast("Mensaje enviado, pronto te contactaremos", "sucess");
-    cleanForm();
+    cleanForm('FormContainer');
 }

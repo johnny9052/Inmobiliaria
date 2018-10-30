@@ -22,7 +22,8 @@ class PropertieDAO {
      * @version 0.1
      */
     public function Save(PropertieDTO $obj) {
-        $query = $this->repository->buildQuerySimply("savepropertie", array((int) $obj->getId(),
+        $query = $this->repository->buildQuerySimply("savepropertie", array(
+            (int) $obj->getId(),
             (float) $obj->getPrecio(), (float) $obj->getAdministrationCost(),
             (int) $obj->getRoom(), (int) $obj->getBath(),
             (int) $obj->getParking(), (float) $obj->getTotalArea(),
@@ -85,7 +86,6 @@ class PropertieDAO {
      */
     public function Search(PropertieDTO $obj) {
         $query = $this->repository->buildQuery("searchpropertie", array((int) $obj->getId()));
-        //echo $query;
         $this->repository->Execute($query);
     }
 
@@ -194,6 +194,23 @@ class PropertieDAO {
             (int) $obj->getRoom(),
             (int) $obj->getBath(),
             (int) $obj->getParking()
+        ));
+
+        //echo $query;
+        $this->repository->Execute($query);
+    }
+
+    /**
+     * Ejecuta un listar en la base de datos que tiene una condicion fija y 
+     * especifica en su implementacion, pero sin organizarlo en una tabla
+     * @param PropertieDTO $obj     
+     * @return void      
+     * @author Johnny Alexander Salazar
+     * @version 0.1
+     */
+    public function ListAllNoTableByFixedCondition(PropertieDTO $obj) {
+        $query = $this->repository->buildQuery("listfeaturedpropertie", array(
+            (int) $obj->getIdUser()
         ));
 
         //echo $query;

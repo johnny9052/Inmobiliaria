@@ -43,6 +43,10 @@ function ExecuteAction($action, $obj, $dao, $specific = null) {
             $dao->ListAllNoTable($obj);
             break;
 
+        case "listNoTableByFixedContidion":
+            $dao->ListAllNoTableByFixedCondition($obj);
+            break;
+
         /* END Transaction CRUD */
 
 
@@ -142,6 +146,15 @@ function base64_to_file($base64_string, $output_file) {
  */
 function getInfo($name) {
     return (isset($_REQUEST[$name]) ? $_REQUEST[$name] : "");
+}
+
+/**
+ * Obtiene una variable de sesion, especificandole el nombre
+ * @author Johnny Alexander Salazar
+ * @version 0.1
+ */
+function getInfoSesion($name) {
+    return (isset($_SESSION[$name]) ? $_SESSION[$name] : "");
 }
 
 /**

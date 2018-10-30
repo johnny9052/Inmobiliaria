@@ -91,9 +91,68 @@ and open the template in the editor.
 
 
             <!-----------------CARACTERSITICAS PLUS-------------------------->
+            <!--            <div id="divIconPlusContainer">
+                            <div class="row">
+                                <div class="col-1">            
+                                </div>
+            
+                                <div class="col-10" id="divIconosPlus">            
+                                    <div class="row text-center">
+                                        <div class="col-md-3 col-sm-6 col-xs-12">
+                                            <div class="info-box bg-aqua">
+                                                <span class="info-box-icon"><i class="fa fa-bed"></i></span>
+            
+                                                <div class="info-box-content text-center">
+                                                    <span class="info-box-text">Habitaciones</span>
+                                                    <span class="info-box-number" id="lblRoom"></span>                          
+                                                </div>                        
+                                            </div>                    
+                                        </div>
+            
+                                        <div class="col-md-3 col-sm-6 col-xs-12">
+                                            <div class="info-box bg-aqua">
+                                                <span class="info-box-icon"><i class="fa fa-bath"></i></span>
+            
+                                                <div class="info-box-content text-center">
+                                                    <span class="info-box-text">Baños</span>
+                                                    <span class="info-box-number" id="lblBath"></span>
+                                                </div>                        
+                                            </div>                    
+                                        </div>
+            
+                                        <div class="col-md-3 col-sm-6 col-xs-12">
+                                            <div class="info-box bg-aqua">
+                                                <span class="info-box-icon"><i class="fa fa-automobile"></i></span>
+                                                <div class="info-box-content text-center">
+                                                    <span class="info-box-text">Parqueaderos</span>
+                                                    <span class="info-box-number" id="lblParking"></span>
+                                                </div>                        
+                                            </div>                    
+                                        </div>
+            
+                                        <div class="col-md-3 col-sm-6 col-xs-12">
+                                            <div class="info-box bg-aqua">
+                                                <span class="info-box-icon"><i class="fa fa-area-chart"></i></span>
+                                                <div class="info-box-content text-center">
+                                                    <span class="info-box-text">Area total</span>
+                                                    <span class="info-box-number" id="lblTotalArea"></span> 
+                                                </div>
+                                            </div>
+                                        </div>                
+                                    </div>           
+                                </div>
+            
+            
+                                <div class="col-1">            
+                                </div>
+                            </div>
+                        </div>-->
+
+
+
             <div id="divIconPlusContainer">
                 <div class="row">
-                    <div class="col-1">            
+                    <div class="col-1">                                                                                    
                     </div>
 
                     <div class="col-10" id="divIconosPlus">            
@@ -146,13 +205,11 @@ and open the template in the editor.
                     <div class="col-1">            
                     </div>
                 </div>
-
-
-
             </div>
+            <!-------------END CARACTERSITICAS PLUS-------------------------->
 
         </div>
-        <!-------------END CARACTERSITICAS PLUS-------------------------->
+
 
 
         <div class="row">

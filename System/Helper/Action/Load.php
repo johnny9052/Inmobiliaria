@@ -14,6 +14,7 @@ function ExecuteActionLoad($action, $obj, $dao) {
         case "loadRol":
             $dao->LoadSelect($obj, "loadrol");
             break;
+
         
         case "loadTipoPqrs":
             $dao->LoadSelect($obj, "loadpqrstype");
@@ -196,6 +197,12 @@ function ExecuteActionLoad($action, $obj, $dao) {
             break;
 
 
+        case "loadPQRSType":
+            $dao->LoadSelect($obj, "loadpqrstype");
+            break;
+
+
+
         /* End load selects */
 
 
@@ -204,7 +211,7 @@ function ExecuteActionLoad($action, $obj, $dao) {
         case "loadCheckboxClientType":
             $dao->LoadCheckbox($obj, "loadclientType");
             break;
-        
+
         case "loadCheckboxContractType":
             $dao->LoadCheckbox($obj, "loadcontractType");
             break;

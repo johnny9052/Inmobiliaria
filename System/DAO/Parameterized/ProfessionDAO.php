@@ -22,8 +22,11 @@ class ProfessionDAO {
      * @version 0.1
      */
     public function Save(ProfessionDTO $obj) {
-        $query = $this->repository->buildQuerySimply("saveprofession", array((int) $obj->getId(),
-            (string) $obj->getName(), (int) $obj->getProfessionNivel()));
+        $query = $this->repository->buildQuerySimply("saveprofession", array(
+            (int) $obj->getId(),
+            (string) $obj->getName(),
+            (int) $obj->getProfessionNivel())
+        );
         $this->repository->ExecuteTransaction($query);
     }
 
