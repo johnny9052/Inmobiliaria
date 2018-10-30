@@ -23,20 +23,20 @@ $(window).on("load", function (e) {
     /*Se obtiene un posible filtro de busqueda, si es que existe*/
     var id = getUrlParameter('idFilter');
     list(id);
-//    loadDepartment();
-//    loadCity(-1);
-//    loadNeighborhood(-1);
-//    loadStratum();
-//    loadPropertieType();
-//    loadOfferType();
-//    loadCurtainType();
-//    loadVigilanceType();
-//    loadZone();    
-//    loadViewType();
-//    loadKitchenType();
-//    loadKitchenStructure();
-//    loadFloorType();
-//    loadOutstandingType();
+    loadDepartment();
+    loadCity(-1);
+    loadNeighborhood(-1);
+    loadStratum();
+    loadPropertieType();
+    loadOfferType();
+    loadCurtainType();
+    loadVigilanceType();
+    loadZone();
+    loadViewType();
+    loadKitchenType();
+    loadKitchenStructure();
+    loadFloorType();
+    loadOutstandingType();
 });
 
 

@@ -49,6 +49,8 @@ and open the template in the editor.
                                         <a class="btn btn-social-icon btn-primary" onclick="executeSubmit('frmPDF');"><i class="fa fa-print" style="color: white"></i></a>
                                         <a class="btn btn-social-icon btn-primary" onclick="executeSubmit('frmCSV');"><i class="fa fa-file-excel-o" style="color: white"></i></a>
                                     </div>
+                                    
+                                    <br>
 
                                     <div class="col-md-8  col-xs-12">
                                         <div class="progress progress-sm active">
