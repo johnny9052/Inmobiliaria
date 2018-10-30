@@ -15,6 +15,10 @@ function ExecuteActionLoad($action, $obj, $dao) {
             $dao->LoadSelect($obj, "loadrol");
             break;
         
+        case "loadTipoPqrs":
+            $dao->LoadSelect($obj, "loadpqrstype");
+            break;
+        
         case "loadDebtor":
             $dao->LoadSelect($obj, "loaddebtor");
             break;

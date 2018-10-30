@@ -56,7 +56,7 @@
             </div>            
             <div class="col-lg-3 col-md-6 col-sm-12">
                 <img class="" src="Resources/public/image/Quindio.jpg" alt="Generic placeholder image" width="240" height="140">
-                <label>Quindio</label>
+                <label>Quindío</label>
                 <br>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">

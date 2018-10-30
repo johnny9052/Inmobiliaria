@@ -35,8 +35,29 @@
 }
 
 .tableEspacios { 
-border-spacing: 0;
-border-collapse: collapse;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+.tableBuscador{
+    width: 90%;
+}
+
+.tdImageSearch{
+    width: 10%;
+}
+
+.tdSelectSearch{
+    width: 90%;
+}
+
+.tdCheckSearch{
+    align-items: flex-start;
+    width: 5%;
+}
+
+.tdTextSearch{
+    width: 60%;
 }
 
 .textoContenido{
@@ -70,5 +91,21 @@ border-collapse: collapse;
     list-style-type: none;
     margin: -5px !important;
     padding: -5px !important;
+}
 
+
+
+.imagenesListadoInmueblesContenedor{
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+.valorInmuebleListaPublica{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: #00adee;
+    width: 50%;
+    color: white;
 }
