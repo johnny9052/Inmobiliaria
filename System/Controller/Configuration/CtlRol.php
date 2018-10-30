@@ -1,17 +1,17 @@
 <?php
 
-/*IMPORTS*/
+/* IMPORTS */
 require '../../DTO/Configuration/RolDTO.php';
 require '../../DAO/Configuration/RolDAO.php';
 include '../../Helper/Action/Action.php';
 
-/*RECEPCION DE DATOS*/
-$action = (isset($_REQUEST['action']) ? $_REQUEST['action'] : "");
-$id = (isset($_POST['id']) ? $_POST['id'] : "");
-$name = (isset($_POST['name']) ? $_POST['name'] : "");
-$description = (isset($_POST['description']) ? $_POST['description'] : "");
+/* RECEPCION DE DATOS */
+$action = getInfo('action');
+$id = getInfo('id');
+$name = getInfo('name');
+$description = getInfo('description');
 
-/*DEFINICION DE OBJETOS*/
+/* DEFINICION DE OBJETOS */
 $obj = new RolDTO($id, $name, $description);
 $dao = new RolDAO();
 

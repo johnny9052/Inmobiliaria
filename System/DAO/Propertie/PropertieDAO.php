@@ -22,7 +22,8 @@ class PropertieDAO {
      * @version 0.1
      */
     public function Save(PropertieDTO $obj) {
-        $query = $this->repository->buildQuerySimply("savepropertie", array((int) $obj->getId(),
+        $query = $this->repository->buildQuerySimply("savepropertie", array(
+            (int) $obj->getId(),
             (float) $obj->getPrecio(), (float) $obj->getAdministrationCost(),
             (int) $obj->getRoom(), (int) $obj->getBath(),
             (int) $obj->getParking(), (float) $obj->getTotalArea(),
@@ -84,8 +85,7 @@ class PropertieDAO {
      * @version 0.1
      */
     public function Search(PropertieDTO $obj) {
-        $query = $this->repository->buildQuery("searchpropertie", array((int) $obj->getId()));
-        //echo $query;
+        $query = $this->repository->buildQuery("searchpropertie", array((int) $obj->getId()));        
         $this->repository->Execute($query);
     }
 

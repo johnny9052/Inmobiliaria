@@ -64,4 +64,90 @@
     background-color: #00adee;
     width: 50%;
     color: white;
+    font-size: 23px;
+}
+
+
+.textoCaracteristicasInmueble{
+    color: gray;    
+    font-family: 'Source Sans Pro', sans-serif !important;    
+    font-size: 30px !important;
+}
+
+
+.EspaciadoCaracteristicasInmueblePequenio{
+    margin-right: 10px;
+    margin-left: 60px;
+}
+
+
+
+/******ESTILOS CHECKBOX CARCTERISTICAS INMUEBLE********/
+
+/* The container */
+.containerCheckbox {   
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin-top: 20px;
+
+}
+
+/* Hide the browser's default checkbox */
+.containerCheckbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;     
+}
+
+/* Create a custom checkbox */
+.checkmarkcheckbox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 38px;
+    width: 38px;
+    background-color: white;
+    border-style: groove;
+    border-radius: 5px;
+}
+
+
+.containerCheckbox input:checked ~ .checkmarkcheckbox {
+    background-color: white;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmarkcheckbox:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.containerCheckbox input:checked ~ .checkmarkcheckbox:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.containerCheckbox .checkmarkcheckbox:after {
+    left: 9px;
+    top: 5px;
+    width: 12px;
+    height: 17px;
+    border: solid black;    
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+
 }

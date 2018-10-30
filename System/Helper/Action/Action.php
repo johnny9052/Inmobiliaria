@@ -145,6 +145,15 @@ function getInfo($name) {
 }
 
 /**
+ * Obtiene una variable de sesion, especificandole el nombre
+ * @author Johnny Alexander Salazar
+ * @version 0.1
+ */
+function getInfoSesion($name) {
+    return (isset($_SESSION[$name]) ? $_SESSION[$name] : "");
+}
+
+/**
  * Crea todos los archivos que se le especifique
  * @param String $prefixFile Prefijo de las variables que contienen la informacion 
  * de los archivos

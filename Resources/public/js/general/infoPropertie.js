@@ -176,63 +176,139 @@ function addIconsPlus(
         text3, value3, typeIcon3,
         text4, value4, typeIcon4) {
 
+
+
+
     var iconsPlus = "<div class='row'>\n\
-                        <div class='col-1'></div>\n\
-                        <div class='col-10'>\n\
-                            <div class='row text-center'>\n\
-                                <div class='col-md-3 col-sm-6 col-xs-12'> \n\
-                                    <div class='info-box " + ((value1 === "0") ? "bg-gray" : "bg-aqua") + "'>\n\
-                                        <span class='info-box-icon'><i class='fa fa-" + typeIcon1 + "'></i></span>\n\
-                                        <div class='info-box-content text-center'>\n\
-                                            <span class='info-box-text'>" + text1 + "</span>\n\
-                                            <span class='info-box-number'>" + ((value1 === "0") ? "No" : "Si") + "</span>\n\
-                                        </div>   \n\
-                                    </div>\n\
+                        <div class='col-2'></div>\n\
+                        <div class='col-8'>\n\
+                            <div class='row'>\n\
+                                <div class='col-md-6 col-sm-6 col-xs-12'> \n\
+                                            <label class='containerCheckbox'>\n\
+                                                <i class='fa fa-" + typeIcon1 + " EspaciadoCaracteristicasInmueblePequenio'></i>\n\
+                                                <label class='textoCaracteristicasInmueble espaciadoCaracteristicasInmueble'>" + text1 + "</label>\n\
+                                                 \n\
+                                                <input class='espaciadoCaracteristicasInmueble' disabled='disabled' type='checkbox'" + ((value1 === "0") ? "" : "checked") + ">\n\
+                                                <span class='checkmarkcheckbox'></span>\n\
+                                            </label>\n\
                                 </div>";
 
-
     if (text2 !== "") {
-        iconsPlus = iconsPlus + "<div class='col-md-3 col-sm-6 col-xs-12'>\n\
-                                    <div class='info-box " + ((value2 === "0") ? "bg-gray" : "bg-aqua") + "'>\n\
-                                        <span class='info-box-icon'>\n\
-                                            <i class='fa fa-" + typeIcon2 + "'></i>\n\
-                                        </span>\n\
-                                        <div class='info-box-content text-center'>\n\
-                                            <span class='info-box-text'>" + text2 + "</span>\n\
-                                            <span class='info-box-number'>" + ((value2 === "0") ? "No" : "Si") + "</span>\n\
-                                        </div>\n\
-                                    </div>\n\
-                                 </div>";
+        iconsPlus = iconsPlus + "<div class='col-md-6 col-sm-6 col-xs-12'> \n\
+                                            <label class='containerCheckbox'>\n\
+                                                <i class='fa fa-" + typeIcon2 + " EspaciadoCaracteristicasInmueblePequenio'></i>\n\
+                                                <label class='textoCaracteristicasInmueble espaciadoCaracteristicasInmueble'>" + text2 + "</label>\n\
+                                                 \n\
+                                                <input class='espaciadoCaracteristicasInmueble' disabled='disabled' type='checkbox'" + ((value2 === "0") ? "" : "checked") + ">\n\
+                                                <span class='checkmarkcheckbox'></span>\n\
+                                            </label>\n\
+                                </div>";
+
     }
 
+
+    iconsPlus = iconsPlus + "</div>\n\
+                        </div>\n\
+                        <div class='col-2'></div>\n\
+                    </div>";
+
+
     if (text3 !== "") {
-        iconsPlus = iconsPlus + "<div class='col-md-3 col-sm-6 col-xs-12'>\n\
-                                    <div class='info-box " + ((value3 === "0") ? "bg-gray" : "bg-aqua") + "'>\n\
-                                        <span class='info-box-icon'>\n\
-                                            <i class='fa fa-" + typeIcon3 + "'></i>\n\
-                                        </span>\n\
-                                        <div class='info-box-content text-center'>\n\
-                                            <span class='info-box-text'>" + text3 + "</span>\n\
-                                            <span class='info-box-number'>" + ((value3 === "0") ? "No" : "Si") + "</span>\n\
-                                        </div>\n\
-                                    </div>\n\
-                                 </div>";
+        iconsPlus = iconsPlus + "<div class='row'>\n\
+                        <div class='col-2'></div>\n\
+                        <div class='col-8'>\n\
+                            <div class='row'>\n\
+                               <div class='col-md-6 col-sm-6 col-xs-12'> \n\
+                                            <label class='containerCheckbox'>\n\
+                                                <i class='fa fa-" + typeIcon3 + " EspaciadoCaracteristicasInmueblePequenio'></i>\n\
+                                                <label class='textoCaracteristicasInmueble espaciadoCaracteristicasInmueble'>" + text3 + "</label>\n\
+                                                 \n\
+                                                <input class='espaciadoCaracteristicasInmueble' disabled='disabled' type='checkbox'" + ((value3 === "0") ? "" : "checked") + ">\n\
+                                                <span class='checkmarkcheckbox'></span>\n\
+                                            </label>\n\
+                                </div>";
+
     }
 
     if (text4 !== "") {
-        iconsPlus = iconsPlus + "<div class='col-md-3 col-sm-6 col-xs-12'>\n\
-                                    <div class='info-box " + ((value4 === "0") ? "bg-gray" : "bg-aqua") + "'>\n\
-                                        <span class='info-box-icon'>\n\
-                                            <i class='fa fa-" + typeIcon4 + "'></i>\n\
-                                        </span>\n\
-                                        <div class='info-box-content text-center'>\n\
-                                            <span class='info-box-text'>" + text4 + "</span>\n\
-                                            <span class='info-box-number'>" + ((value4 === "0") ? "No" : "Si") + "</span>\n\
-                                        </div>\n\
-                                    </div>\n\
-                                 </div>";
+        iconsPlus = iconsPlus + "<div class='col-md-6 col-sm-6 col-xs-12'> \n\
+                                            <label class='containerCheckbox'>\n\
+                                                <i class='fa fa-" + typeIcon4 + " EspaciadoCaracteristicasInmueblePequenio'></i>\n\
+                                                <label class='textoCaracteristicasInmueble espaciadoCaracteristicasInmueble'>" + text4 + "</label>\n\
+                                                 \n\
+                                                <input class='espaciadoCaracteristicasInmueble' disabled='disabled' type='checkbox'" + ((value4 === "0") ? "" : "checked") + ">\n\
+                                                <span class='checkmarkcheckbox'></span>\n\
+                                            </label>\n\
+                                </div>";
     }
-    iconsPlus = iconsPlus + "</div></div><div class='col-1'></div></div>";
+
+    if (text3 !== "" || text4 !== "") {
+        iconsPlus = iconsPlus + "</div>\n\
+                        </div>\n\
+                        <div class='col-2'></div>\n\
+                    </div>";
+    }
+
+
+
+
+//    var iconsPlus = "<div class='row'>\n\
+//                        <div class='col-1'></div>\n\
+//                        <div class='col-10'>\n\
+//                            <div class='row text-center'>\n\
+//                                <div class='col-md-3 col-sm-6 col-xs-12'> \n\
+//                                    <div class='info-box " + ((value1 === "0") ? "bg-gray" : "bg-aqua") + "'>\n\
+//                                        <span class='info-box-icon'><i class='fa fa-" + typeIcon1 + "'></i></span>\n\
+//                                        <div class='info-box-content text-center'>\n\
+//                                            <span class='info-box-text'>" + text1 + "</span>\n\
+//                                            <span class='info-box-number'>" + ((value1 === "0") ? "No" : "Si") + "</span>\n\
+//                                        </div>   \n\
+//                                    </div>\n\
+//                                </div>";
+//
+//
+//    if (text2 !== "") {
+//        iconsPlus = iconsPlus + "<div class='col-md-3 col-sm-6 col-xs-12'>\n\
+//                                    <div class='info-box " + ((value2 === "0") ? "bg-gray" : "bg-aqua") + "'>\n\
+//                                        <span class='info-box-icon'>\n\
+//                                            <i class='fa fa-" + typeIcon2 + "'></i>\n\
+//                                        </span>\n\
+//                                        <div class='info-box-content text-center'>\n\
+//                                            <span class='info-box-text'>" + text2 + "</span>\n\
+//                                            <span class='info-box-number'>" + ((value2 === "0") ? "No" : "Si") + "</span>\n\
+//                                        </div>\n\
+//                                    </div>\n\
+//                                 </div>";
+//    }
+//
+//    if (text3 !== "") {
+//        iconsPlus = iconsPlus + "<div class='col-md-3 col-sm-6 col-xs-12'>\n\
+//                                    <div class='info-box " + ((value3 === "0") ? "bg-gray" : "bg-aqua") + "'>\n\
+//                                        <span class='info-box-icon'>\n\
+//                                            <i class='fa fa-" + typeIcon3 + "'></i>\n\
+//                                        </span>\n\
+//                                        <div class='info-box-content text-center'>\n\
+//                                            <span class='info-box-text'>" + text3 + "</span>\n\
+//                                            <span class='info-box-number'>" + ((value3 === "0") ? "No" : "Si") + "</span>\n\
+//                                        </div>\n\
+//                                    </div>\n\
+//                                 </div>";
+//    }
+//
+//    if (text4 !== "") {
+//        iconsPlus = iconsPlus + "<div class='col-md-3 col-sm-6 col-xs-12'>\n\
+//                                    <div class='info-box " + ((value4 === "0") ? "bg-gray" : "bg-aqua") + "'>\n\
+//                                        <span class='info-box-icon'>\n\
+//                                            <i class='fa fa-" + typeIcon4 + "'></i>\n\
+//                                        </span>\n\
+//                                        <div class='info-box-content text-center'>\n\
+//                                            <span class='info-box-text'>" + text4 + "</span>\n\
+//                                            <span class='info-box-number'>" + ((value4 === "0") ? "No" : "Si") + "</span>\n\
+//                                        </div>\n\
+//                                    </div>\n\
+//                                 </div>";
+//    }
+//    iconsPlus = iconsPlus + "</div></div><div class='col-1'></div></div>";
 
     return iconsPlus;
 
