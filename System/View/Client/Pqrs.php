@@ -107,7 +107,7 @@ and open the template in the editor.
                                     &nbsp;&nbsp;
                                     <label>Tipo</label>
                                     <div>
-                                        <select id="selTypePQRS" name="rol" required class="form-control select2" style="width: 100%;" disabled
+                                        <select id="selTypePQRS" name="typePQRS" required class="form-control select2" style="width: 100%;" disabled
                                             <option value="-1" selected> -- SELECCIONE --</option>                            
                                         </select>
                                     </div>
@@ -121,7 +121,7 @@ and open the template in the editor.
                                     <label for="txtDatePQRS">Fecha</label>   
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-info"></i></span>
-                                        <input id="txtDatePQRS" name="firstName" class="form-control" type="text" value="" autocomplete="off" required
+                                        <input id="txtDatePQRS" name="datePQRS" class="form-control" type="text" value="" autocomplete="off" required
                                                placeholder="Fecha PQRS"  disabled>
                                     </div>
                                 </div>
@@ -131,7 +131,7 @@ and open the template in the editor.
                                     <label for="txtTimePQRS">Hora</label>   
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-info"></i></span>
-                                        <input id="txtTimePQRS" name="firstName" class="form-control" type="text" value="" autocomplete="off" required
+                                        <input id="txtTimePQRS" name="timePQRS" class="form-control" type="text" value="" autocomplete="off" required
                                                placeholder="Hora PQRS" disabled>
                                     </div>
                                 </div>
@@ -144,7 +144,7 @@ and open the template in the editor.
                                     <label for="" class="fa fa-info"></label>
                                     &nbsp;&nbsp;
                                     <label>Descripción PQRS</label>
-                                    <textarea id="txtDescription" name="description" class="form-control" rows="3" placeholder="Descripcion" disabled></textarea>
+                                    <textarea id="txtDescription" name="descriptionPQRS" class="form-control" rows="3" placeholder="Descripcion" disabled></textarea>
                                 </div>
                             </div>                       
                         </div>
@@ -155,7 +155,7 @@ and open the template in the editor.
                                     <label for="" class="fa fa-info"></label>
                                     &nbsp;&nbsp;
                                     <label>Respuesta</label>
-                                    <textarea id="txtResponse" name="description" class="form-control" rows="3" placeholder="Respuesta"></textarea>
+                                    <textarea id="txtResponse" name="givenResponse" class="form-control" rows="3" placeholder="Respuesta"></textarea>
                                 </div>
                             </div>                       
                         </div>

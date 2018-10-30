@@ -48,9 +48,7 @@ class PqrsDAO {
      */
     public function Update(PqrsDTO $obj) {
         $query = $this->repository->buildQuerySimply("updatepqrs", array((int) $obj->getId(),
-            (string) $obj->getDatePQRS(), (string) $obj->getTimePQRS(),
-            (string) $obj->getDescriptionPQRS(), (string) $obj->getGivenResponse(),
-            (int) $obj->getTypePQRS()));
+            (string) $obj->getGivenResponse()));
         $this->repository->ExecuteTransaction($query);
     }
 }
