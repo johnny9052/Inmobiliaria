@@ -18,102 +18,16 @@
             <table width="100%">
                 <tr>
                     <td><h3>Destacados</h3></td>
-                    
-                    <td class="tituloDestacado">
-                        <img src="Resources/public/image/iconoAnterior.PNG" alt="1" width="30"/>
-                        <img src="Resources/public/image/iconoSiguiente.PNG" alt="1" width="30"/>
+
+                    <td id="segmentoPaginadorDestacado" class="tituloDestacado">
+                        <img src="Resources/public/image/iconoAnterior.PNG" alt="1" width="30" onclick="repaginarDestacado(-2)"/>
+                        <img src="Resources/public/image/iconoSiguiente.PNG" alt="1" width="30" onclick="repaginarDestacado(2)"/>
                     </td>
                 </tr>
             </table>
             <hr>
 
             <table id="tblInmueblesDestacados">
-                <tr>
-                    <td>
-                        <table>
-                            <tr>
-                                <td>
-                                    <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="70" height="70">                        
-                                </td>
-                                <td>
-                                    &nbsp; &nbsp;
-                                </td>
-                                <td>
-                                    <table class="tableEspacios">
-                                        <tr class="informacionInmuebleDestacado">
-                                            <td>
-                                                <h6 class="informacionInmuebleDestacado">Armenia loft</h6>
-                                            </td>
-                                        </tr>
-                                        <tr class="informacionInmuebleDestacado">
-                                            <td >
-                                                <h6 class="informacionInmuebleDestacado">Laureles</h6>
-                                                <img src="Resources/public/image/LineaDivisora2.PNG" width="55"/>
-                                            </td>
-                                        </tr>
-                                        <tr class="informacionInmuebleDestacado">
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr class="informacionInmuebleDestacado">
-                                            <td></td>
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                        </table>
-
-
-                        <br>
-                        <small class="textoContenido">Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</small>                        
-                    </td>
-                    
-                    
-                    <td>
-                        &nbsp; &nbsp; &nbsp; 
-                    </td>
-                    
-                    
-                    
-                    <td>
-                        <table>
-                            <tr>
-                                <td>
-                                    <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="70" height="70">                        
-                                </td>
-                                <td>
-                                    &nbsp; &nbsp;
-                                </td>
-                                <td>
-                                    <table class="tableEspacios">
-                                        <tr class="informacionInmuebleDestacado">
-                                            <td>
-                                                <h6 class="informacionInmuebleDestacado">Armenia loft</h6>
-                                            </td>
-                                        </tr>
-                                        <tr class="informacionInmuebleDestacado">
-                                            <td >
-                                                <h6 class="informacionInmuebleDestacado">Laureles</h6>
-                                                <img src="Resources/public/image/LineaDivisora2.PNG" width="55"/>
-                                            </td>
-                                        </tr>
-                                        <tr class="informacionInmuebleDestacado">
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr class="informacionInmuebleDestacado">
-                                            <td></td>
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                        </table>
-                        <br>                        
-                        <small class="textoContenido">Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</small>
-
-
-                    </td>
-                </tr>
             </table>
 
 

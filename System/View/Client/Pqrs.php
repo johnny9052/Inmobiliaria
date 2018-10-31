@@ -95,6 +95,8 @@ and open the template in the editor.
                             <div class="col-md-12">
                                 <div class="form-group">                                                                        
                                     <input id="txtId" name="id" class="form-control identificator"  type="hidden" value="">
+                                    <input id="txtNombre" name="name" class="form-control identificator"  type="hidden" value="">
+                                    <input id="txtCorreo" name="email" class="form-control identificator"  type="hidden" value="">
                                 </div>
                             </div>
                         </div>
@@ -108,13 +110,13 @@ and open the template in the editor.
                                     <label>Tipo</label>
                                     <div>
                                         <select id="selTypePQRS" name="typePQRS" required class="form-control select2" style="width: 100%;" disabled
-                                            <option value="-1" selected> -- SELECCIONE --</option>                            
+                                                <option value="-1" selected> -- SELECCIONE --</option>                            
                                         </select>
                                     </div>
                                 </div>
                             </div>  
                         </div>
-                        
+
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -137,7 +139,7 @@ and open the template in the editor.
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
@@ -170,7 +172,7 @@ and open the template in the editor.
                             </div>                       
                         </div>
 
-                        
+
 
 
                     </div>
