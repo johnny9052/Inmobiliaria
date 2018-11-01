@@ -34,11 +34,15 @@
                             <font class="textoMenu"><i class="fa fa-home">&nbsp</i> 
                             Gestion inmuebles</font>
                         </a>
-                        <a class="dropdown-item" href="index.php?page=pqrs">
+                        <a class="dropdown-item" href="index.php?page=infoUser">
                             <font class="textoMenu"><i class="fa fa-user">&nbsp</i> 
+                            Mi informacion</font>
+                        </a>
+                        <a class="dropdown-item" href="index.php?page=pqrs">
+                            <font class="textoMenu"><i class="fa fa-edit">&nbsp</i> 
                             PQRS</font>
                         </a>
-                        
+
                         <a class="dropdown-item" onclick="LogOut();">
                             <font class="textoMenu"><i class="fa fa-sign-out"></i>&nbsp Salir</font>                 
                         </a>
