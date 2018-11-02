@@ -25,8 +25,7 @@ class PQRSClientDAO {
         $query = $this->repository->buildQuerySimply("savepqrsclient", array(
             (int) $obj->getPqrstype(),
             (string) $obj->getDescription(), (string) $obj->getFecha(),
-            (string) $obj->getHora(), (string) $obj->getName(),
-            (string) $obj->getEmail()
+            (string) $obj->getHora(), (int) $obj->getIdUser()
         ));
 
         //echo $query;

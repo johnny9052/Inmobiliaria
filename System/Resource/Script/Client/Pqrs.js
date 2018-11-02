@@ -31,6 +31,10 @@ function showData(info) {
     $("#txtTimePQRS").val(info[0].horaPQRS);
     $("#txtDescription").val(info[0].descripcionPQRS);
     $("#txtResponse").val(info[0].respuestaDada);
+    
+    $("#txtNombre").val(info[0].nombre);
+    $("#txtCorreo").val(info[0].correo);
+    
     refreshSelect("selTypePQRS", info[0].idtipopqrs);
     refreshSelect("selClient", info[0].cliente);
 

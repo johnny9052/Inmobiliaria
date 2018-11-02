@@ -95,6 +95,8 @@ and open the template in the editor.
                             <div class="col-md-12">
                                 <div class="form-group">                                                                        
                                     <input id="txtId" name="id" class="form-control identificator"  type="hidden" value="">
+                                    <input id="txtNombre" name="name" class="form-control identificator"  type="hidden" value="">
+                                    <input id="txtCorreo" name="email" class="form-control identificator"  type="hidden" value="">
                                 </div>
                             </div>
                         </div>

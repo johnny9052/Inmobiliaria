@@ -528,7 +528,12 @@ class Repository {
     public function sendEmail($email, $titulo, $mensaje, $numeroTelefonico) {
         $mensaje = $mensaje . '------ Responder al correo: ' . $email . ' o al numero telefonico ' . $numeroTelefonico;
         mail($this->emailSystem, 'Mensaje de: ' . $titulo, $mensaje);
-        echo $mensaje . ' ' . $titulo;
+        //echo $mensaje . ' ' . $titulo;
+    }
+
+    public function sendEmailPQRS($email, $titulo, $mensaje) {
+        mail($email, $titulo, $mensaje);
+        //echo $mensaje . ' ' . $titulo;
     }
 
     /**

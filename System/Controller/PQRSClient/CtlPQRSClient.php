@@ -24,10 +24,9 @@ $fecha = $anio . '-' . $mes . '-' . $dia;
 
 $hora = date('H:i');
 
-$iduser = getInfo('identificationPublicHexagon');
-$name = getInfo('namePublicHexagon');
-$email = getInfo('emailPublicHexagon');
-
+$iduser = getInfoSesion('identificationPublicHexagon');
+$name = getInfoSesion('namePublicHexagon');
+$email = getInfoSesion('emailPublicHexagon');
 
 /* DEFINICION DE OBJETOS */
 $obj = new PQRSClientDTO($pqrstype, $description, $fecha, $hora, $name, $email, $iduser);

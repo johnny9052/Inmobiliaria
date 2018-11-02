@@ -5,7 +5,7 @@ DROP FUNCTION IF EXISTS savepqrsclient;
 
 DELIMITER //
 CREATE FUNCTION savepqrsclient (vpqrstype INT, vdescription VARCHAR(200), vfecha VARCHAR(20),
-                                vhora VARCHAR(20), vname VARCHAR(20), vemail VARCHAR(20)) RETURNS int(1)
+                                vhora VARCHAR(20), vidclient INT) RETURNS int(1)
     READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena un pqrs del cliente'
@@ -15,12 +15,14 @@ BEGIN
     insert into pqrs(fechaPQRS, 
                         horaPQRS,
                         descripcionPQRS,
-                        idtipopqrs
+                        idtipopqrs, 
+                        idusuario
                         )
                         VALUES (vfecha,
                                 vhora,
                                 vdescription,
-                                vpqrstype
+                                vpqrstype,
+                                vidclient
                                 );
 			       
 				
