@@ -10,14 +10,16 @@ class PqrsDTO extends BaseDTO {
     private $descriptionPQRS;
     private $givenResponse;
     private $typePQRS;
+    private $client;
 
-    function __construct($id, $datePQRS, $timePQRS, $descriptionPQRS, $givenResponse, $typePQRS) {
+    function __construct($id, $datePQRS, $timePQRS, $descriptionPQRS, $givenResponse, $typePQRS, $client) {
         $this->id = $id;
         $this->datePQRS = $datePQRS;
         $this->timePQRS = $timePQRS;
         $this->descriptionPQRS = $descriptionPQRS;
         $this->givenResponse = $givenResponse;
         $this->typePQRS = $typePQRS;
+        $this->client = $client;
     }
     
     function getId() {
@@ -44,6 +46,10 @@ class PqrsDTO extends BaseDTO {
         return $this->typePQRS;
     }
 
+    function getClient() {
+        return $this->client;
+    }
+
     function setId($id) {
         $this->id = $id;
     }
@@ -68,6 +74,8 @@ class PqrsDTO extends BaseDTO {
         $this->typePQRS = $typePQRS;
     }
 
-
+    function setClient($client) {
+        $this->client = $client;
+    }
 
 }

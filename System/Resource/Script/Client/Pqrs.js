@@ -2,6 +2,7 @@
 $(window).on("load", function (e) {
     list();
     loadTipoPqrs();
+    loadClient();
 });
 
 
@@ -9,6 +10,9 @@ function loadTipoPqrs() {
     Execute(scanInfo('loadTipoPqrs', false), 'General/CtlGeneral', '', 'buildSelect(info,"selTypePQRS");');
 }
 
+function loadClient() {
+    Execute(scanInfo('loadClient', false), 'General/CtlGeneral', '', 'buildSelect(info,"selClient");');
+}
 
 function list() {
     Execute(scanInfo('list'), 'Client/CtlPqrs', '', 'buildPaginator(info);');
@@ -28,6 +32,7 @@ function showData(info) {
     $("#txtDescription").val(info[0].descripcionPQRS);
     $("#txtResponse").val(info[0].respuestaDada);
     refreshSelect("selTypePQRS", info[0].idtipopqrs);
+    refreshSelect("selClient", info[0].cliente);
 
     openWindow();
     showButton(false);

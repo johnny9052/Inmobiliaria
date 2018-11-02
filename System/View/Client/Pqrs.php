@@ -101,26 +101,38 @@ and open the template in the editor.
 
 
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="" class="fa fa-user-secret"></label>
+                                    <label for="" class="fa fa-list"></label>
                                     &nbsp;&nbsp;
                                     <label>Tipo</label>
                                     <div>
                                         <select id="selTypePQRS" name="typePQRS" required class="form-control select2" style="width: 100%;" disabled
-                                            <option value="-1" selected> -- SELECCIONE --</option>                            
+                                                <option value="-1" selected> -- SELECCIONE --</option>                            
                                         </select>
                                     </div>
                                 </div>
                             </div>  
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="" class="fa fa-black-tie"></label>
+                                    &nbsp;&nbsp;
+                                    <label>Cliente</label>
+                                    <div>
+                                        <select id="selClient" name="client" required class="form-control select2" style="width: 100%;" disabled
+                                                <option value="-1" selected> -- SELECCIONE --</option>                            
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        
+
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="txtDatePQRS">Fecha</label>   
                                     <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-info"></i></span>
+                                        <span class="input-group-addon"><i class="fa fa-calendar-check-o"></i></span>
                                         <input id="txtDatePQRS" name="datePQRS" class="form-control" type="text" value="" autocomplete="off" required
                                                placeholder="Fecha PQRS"  disabled>
                                     </div>
@@ -130,18 +142,18 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <label for="txtTimePQRS">Hora</label>   
                                     <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-info"></i></span>
+                                        <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
                                         <input id="txtTimePQRS" name="timePQRS" class="form-control" type="text" value="" autocomplete="off" required
                                                placeholder="Hora PQRS" disabled>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="" class="fa fa-info"></label>
+                                    <label for="" class="fa fa-commenting"></label>
                                     &nbsp;&nbsp;
                                     <label>Descripción PQRS</label>
                                     <textarea id="txtDescription" name="descriptionPQRS" class="form-control" rows="3" placeholder="Descripcion" disabled></textarea>
@@ -152,7 +164,7 @@ and open the template in the editor.
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="" class="fa fa-info"></label>
+                                    <label for="" class="fa fa-comments"></label>
                                     &nbsp;&nbsp;
                                     <label>Respuesta</label>
                                     <textarea id="txtResponse" name="givenResponse" class="form-control" rows="3" placeholder="Respuesta"></textarea>
@@ -170,7 +182,7 @@ and open the template in the editor.
                             </div>                       
                         </div>
 
-                        
+
 
 
                     </div>

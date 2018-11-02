@@ -13,9 +13,10 @@ $timePQRS = getInfo('timePQRS');
 $descriptionPQRS = getInfo('descriptionPQRS');
 $givenResponse = getInfo('givenResponse');
 $typePQRS = getInfo('typePQRS');
+$client = getInfo('client');
 
 /* DEFINICION DE OBJETOS */
-$obj = new PqrsDTO($id, $datePQRS, $timePQRS, $descriptionPQRS, $givenResponse, $typePQRS);
+$obj = new PqrsDTO($id, $datePQRS, $timePQRS, $descriptionPQRS, $givenResponse, $typePQRS, $client);
 $dao = new PqrsDAO();
 
 /* CONTROL DE ACCIONES */

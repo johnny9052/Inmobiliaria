@@ -201,9 +201,9 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-md-6">   
+                                    <div class="col-md-12">   
                                         <br>
-                                        <button id="btnSave" onclick="listProperties();" type ="button" class="btn btn-primary">Listar</button>
+                                        <button  id="btnSave" onclick="listProperties();" type ="button" class="btn btn-primary">Listar</button>
                                     </div>
                                 </div>
 
@@ -375,7 +375,7 @@
 
 
                                 <div class="row">
-                                    <div class="col-md-6">                                           
+                                    <div class="col-md-12">                                           
                                         <button id="btnSave" onclick="listProperties();" type ="button" class="btn btn-primary">Listar</button>
                                     </div>
                                 </div>
