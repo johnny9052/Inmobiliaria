@@ -110,7 +110,7 @@ function buildListPropertie(info) {
             contLinea++;
 
             /*Cada tres registros coloca una linea divisoria*/
-            if (contLinea === 3) {
+            if (contLinea === 4) {
                 listado += "<div class='col-md-12'><hr></div>";
                 contLinea = 0;
             }
@@ -156,7 +156,7 @@ function construirRegistroPaginacion(pos) {
 
     /*Medidas originales, a col-md-4 y 100 x 225*/
     /*Medidas de prueba, a col-md-3 y 100 x 175*/
-    return "<div class='col-md-4 seleccionable' onclick='viewInfoPropertie(" + id + ");'>\n\
+    return "<div class='col-md-3 seleccionable' onclick='viewInfoPropertie(" + id + ");'>\n\
                                     <div class='mb-4 imagenesListadoInmueblesContenedor'>\n\
                                         <img src='" + imagen + "'  \n\
                                              width='100' height='225'  \n\

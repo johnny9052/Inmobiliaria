@@ -1,8 +1,8 @@
 <!-- INICIO DEL CARRUSEL-->
 
 <div class="row">
-    <div class="col-md-2 col-sm-1 col-xs-12"></div>
-    <div class="col-md-8 col-sm-10 col-xs-12" id="containercarusel">
+    <div class="col-md-1 col-sm-1 col-xs-12"></div>
+    <div class="col-md-10 col-sm-10 col-xs-12" id="containercarusel">
         <div id="divcarusel" class="carousel slide" data-ride="carousel">
             <ul class="carousel-indicators" id="paginatorcarusel">	
                 <li data-target="#divcarusel" data-slide-to="0" class="active"></li>
@@ -29,7 +29,7 @@
             </a>
         </div>
     </div>
-    <div class="col-md-2 col-sm-1 col-xs-12"></div>
+    <div class="col-md-1 col-sm-1 col-xs-12"></div>
 </div>
 <!-- FIN DEL CARRUSEL-->
 
@@ -85,34 +85,41 @@ include("View/public/main/videoTourDestacados.php");
 
 
 <div class="row">
-    <div class="col-md-2 col-sm-1 col-xs-12"></div>
-    <div class="col-md-8 col-sm-10 col-xs-12">
+    <div class="col-md-1 col-sm-1 col-xs-12"></div>
+    <div class="col-md-10 col-sm-10 col-xs-12">
         <hr>
     </div>
-    <div class="col-md-2 col-sm-1 col-xs-12"></div>
+    <div class="col-md-1 col-sm-1 col-xs-12"></div>
 </div>
 
 <div class="row">
 
-    <div class="col-md-2 col-sm-1 col-xs-12">
+    <div class="col-md-1 col-sm-1 col-xs-12">
 
     </div>
-    <div class="col-md-2 col-sm-1 col-xs-12">
-        <img src="Resources/public/image/patrocinio1.PNG" alt=""/>
+
+    <div class="col-md-10 col-sm-1 col-xs-12">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-1 col-xs-12">
+                    <img src="Resources/public/image/patrocinio1.PNG" alt=""/>
+                </div>
+
+                <div class="col-md-3 col-sm-1 col-xs-12">
+                    <img src="Resources/public/image/socio1.PNG" alt=""/>
+                </div>
+
+                <div class="col-md-3 col-sm-1 col-xs-12">
+                    <img src="Resources/public/image/patrocinio1.PNG" alt=""/>
+                </div>
+
+                <div class="col-md-3 col-sm-1 col-xs-12">
+                    <img src="Resources/public/image/socio1.PNG" alt=""/>
+                    <br><br><br>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="col-md-2 col-sm-1 col-xs-12">
-        <img src="Resources/public/image/socio1.PNG" alt=""/>
-    </div>
-
-    <div class="col-md-2 col-sm-1 col-xs-12">
-        <img src="Resources/public/image/patrocinio1.PNG" alt=""/>
-    </div>
-
-    <div class="col-md-2 col-sm-1 col-xs-12">
-        <img src="Resources/public/image/socio1.PNG" alt=""/>
-        <br><br><br>
-    </div>
-
-    <div class="col-md-2 col-sm-1 col-xs-12"></div>
+    <div class="col-md-1 col-sm-1 col-xs-12"></div>
 </div>

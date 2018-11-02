@@ -13,7 +13,7 @@ BEGIN
 		pqr.respuestaDada as respuestaDada,
 		pqr.idtipopqrs as idtipopqrs,
 		tip.idtipopqrs as tipopqrs, 
-                cli.`idCliente` as idcliente,
+                cli.`idCliente` as cliente,
                 CONCAT(cli.`primerNombreCliente`, ' ', cli.`primerApellidoCliente`) as nombre, 
                 cli.`correoCliente` as correo
 	FROM pqrs as pqr 
