@@ -11,7 +11,11 @@ CREATE FUNCTION loadimagepropertie (vid INT) RETURNS varchar(200)
 BEGIN 
     
     DECLARE vimagen varchar(200) DEFAULT '';      
-    SET vimagen = (select CAST(img.rutaImagen AS CHAR) as imagen  from imageninmueble as img where img.`idInmueble` = vid limit 1);
+    SET vimagen = (select CAST(img.rutaImagen AS CHAR) as imagen  
+                   from imageninmueble as img 
+                   where img.`idInmueble` = vid
+                   order by  img.rutaImagen asc 
+                   limit 1);
     RETURN vimagen;
 	
 

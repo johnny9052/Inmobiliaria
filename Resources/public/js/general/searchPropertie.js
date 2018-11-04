@@ -11,13 +11,10 @@ $(window).on("load", function (e) {
     loadValorMaximo();
     loadAreaMaxima();
 });
-
-var registrosPagina = 6;
+var registrosPagina = 8;
 var totalRegistros = 0;
 var totalPaginacion = 0;
 var objectToPagination;
-
-
 function loadValorMaximo() {
     Execute(scanInfo('loadPrecioMaximoInmueble', false), 'General/CtlGeneral', '', 'cargarValorMaximo(info)', '', '', 'System/');
 }
@@ -75,15 +72,11 @@ function listProperties() {
     var infoPlus = {
         temp: new Array()
     };
-
     var valorMax = $("#lblvalorMaxInmueble").html();
     var areaMax = $("#lblAreaInmueble").html();
-
     /*Se añaden como datos adicionales*/
     infoPlus.temp.push({datos: ["valorMax", replaceText(valorMax, ",", "")]});
     infoPlus.temp.push({datos: ["areaMax", areaMax]});
-
-
     Execute(scanInfo('listNoTable', true, '', infoPlus.temp), 'Propertie/CtlPropertie', '', 'buildListPropertie(info);', '', '', 'System/');
 }
 
@@ -91,24 +84,19 @@ function listProperties() {
 function buildListPropertie(info) {
 
     console.log(info);
-
     var listado = "";
-
     showLoadBar(true);
-
     if (info.length > 0) {
+
 
         totalRegistros = info.length;
         totalPaginacion = Math.ceil(totalRegistros / registrosPagina);
         objectToPagination = info;
-
         var totalIteracion = (info.length > registrosPagina) ? registrosPagina : info.length;
-
         var contLinea = 0;
         for (f = 0; f < totalIteracion; f++) {
             listado = listado + construirRegistroPaginacion(f);
             contLinea++;
-
             /*Cada tres registros coloca una linea divisoria*/
             if (contLinea === 4) {
                 listado += "<div class='col-md-12'><hr></div>";
@@ -153,7 +141,6 @@ function construirRegistroPaginacion(pos) {
     var parqueaderos = objectToPagination[pos].parqueaderos;
     var area = objectToPagination[pos].area;
     var tipoinmueble = objectToPagination[pos].tipoinmueble;
-
     /*Medidas originales, a col-md-4 y 100 x 225*/
     /*Medidas de prueba, a col-md-3 y 100 x 175*/
     return "<div class='col-md-3 seleccionable' onclick='viewInfoPropertie(" + id + ");'>\n\
@@ -162,10 +149,10 @@ function construirRegistroPaginacion(pos) {
                                              width='100' height='225'  \n\
                                              alt='Card image cap' \n\
                                              class='card-img-top' >\n\
-                                        <div class='valorInmuebleListaPublica titulosSecundarios'>" + "$" + precio + "</div>\n\
                                         <div class='card-body'>      \n\
-                                            <h4 class='card-text'>" + barrio + " - " + zona + " - " + ciudad + "</h4>\n\
-                                                <small class='text-muted'>   \n\
+                                            <h5 class='card-text titulosPrincipales'>" + ((barrio.length > 20) ? (barrio.substring(0, 22) + "..") : barrio) + "</h5>\n\
+                                            <h5 class='card-text titulosPrincipales'>" + oferta + "</h5>\n\
+                                            <small class='text-muted'>   \n\
                                                 <label for='chkChimenea' class='fa fa-home'></label> \n\
                                                 <label for='chkChimenea'>" + tipoinmueble + "</label>&nbsp;&nbsp;\n\
                                                 <label for='chkChimenea' class='fa fa-bed'></label> \n\
@@ -174,13 +161,13 @@ function construirRegistroPaginacion(pos) {
                                                 <label for='chkChimenea'>" + parqueaderos + " Parq.</label>&nbsp;&nbsp;&nbsp;\n\
                                                 <label for='chkChimenea' class='fa fa-area-chart'></label>\n\
                                                 <label for='chkChimenea'>" + area + " m<sup>2</sup></label>&nbsp;&nbsp;&nbsp;\n\
-                                            </small>                            \n\
+                                            </small>\n\
+                                            <div> \n\
+                                                <button type='button' class='btn btn-block btn-primary btn-lg'>$ " + parseInt(precio).toLocaleString() + "</button> \n\
+                                            </div>\n\
                                         </div> \n\
                                     </div>\n\
                                  </div>";
-
-
-
 //    return "<div class='col-md-4'>\n\
 //                                    <div class='card mb-4 box-shadow'>\n\
 //                                        <img src='" + imagen + "'  \n\
@@ -214,7 +201,6 @@ function construirRegistroPaginacion(pos) {
 function configurarPaginador(posSeleccionada) {
 
     var paginador = "";
-
     for (var x = 1; x <= totalPaginacion; x++) {
         paginador = paginador + "<button id='pag" + (x - 1) + "' type='button' class='btn " + ((posSeleccionada === x) ? "btn-primary" : "btn-default") + " pag' onclick='repaginar(" + (x - 1) + ");'>" + x + "</button>";
     }
@@ -224,27 +210,24 @@ function configurarPaginador(posSeleccionada) {
 
 
 function repaginar(posSeleccionada) {
+    
+    moverScrollView("divMoveToAfterFilterRepaginar");
+
 
     showLoadBar(true);
-
     var listado = "";
-
     $(".pag").removeClass("btn-primary");
     $(".pag").addClass("btn-default");
     $("#pag" + posSeleccionada).addClass("btn-primary");
-
     var posInicial = posSeleccionada * registrosPagina;
     var posFinal = ((posInicial + registrosPagina) > totalRegistros) ? totalRegistros : (posInicial + registrosPagina);
-
     for (f = posInicial; f <= posFinal - 1; f++) {
 
         listado = listado + construirRegistroPaginacion(f);
     }
 
     $("#lstProperties").html(listado);
-
     showLoadBar(false);
-
 }
 
 
@@ -261,3 +244,8 @@ function viewInfoPropertie(id) {
 function changeValueRange(idRange, idLbl) {
     $("#" + idLbl).html(parseFloat($("#" + idRange).val()).toLocaleString('en'));
 }
+
+
+
+
+

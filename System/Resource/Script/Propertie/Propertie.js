@@ -213,7 +213,7 @@ function showData(info) {
     refreshSelect("selCurtainType", info[0].id_tipo_cortina);
     refreshSelect("selVigilanceType", info[0].id_tipo_vigilancia);
     refreshSelect("selZone", info[0].id_zona);
-    refreshSelect("selStatus", info[0].estado);    
+    refreshSelect("selStatus", info[0].estado);
     refreshSelect("selViewType", info[0].id_tipo_vista);
     refreshSelect("selKitchenType", info[0].id_tipo_cocina);
     refreshSelect("selKitchenStructure", info[0].id_estructura_cocina);
@@ -355,6 +355,16 @@ function limpiarMultimedia() {
     objFilePropertie.listFileURL = new Array();
     objURLVideosPropertie.listElements = new Array();
     $("#lstVideosAgregados").html("");
+    $("#lstImagenesAgregadas").html("");
+    $("#lstImagenesAgregadas2").html("");
+    $("#fileImagen").val('');
+}
+
+
+function eliminarTodasLasImagenes() {
+    objFilePropertie.listFileBase64 = new Array();
+    objFilePropertie.listFileName = new Array();
+    objFilePropertie.listFileURL = new Array();
     $("#lstImagenesAgregadas").html("");
     $("#lstImagenesAgregadas2").html("");
     $("#fileImagen").val('');

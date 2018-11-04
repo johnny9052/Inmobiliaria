@@ -7,7 +7,7 @@
         <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto">
             <h3 class="titulosPrincipales">Video Tour</h3>            
             <iframe 
-                width="400" height="285" src="https://www.youtube.com/embed/6KpqL5Ke8nU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>                    
+                width="100%" height="285px"  src="https://www.youtube.com/embed/6KpqL5Ke8nU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>                    
             </iframe>
 
         </div>
@@ -20,8 +20,8 @@
                     <td><h3>Destacados</h3></td>
 
                     <td id="segmentoPaginadorDestacado" class="tituloDestacado">
-                        <img src="Resources/public/image/iconoAnterior.PNG" alt="1" width="30" onclick="repaginarDestacado(-2)"/>
-                        <img src="Resources/public/image/iconoSiguiente.PNG" alt="1" width="30" onclick="repaginarDestacado(2)"/>
+                        <img class="seleccionable" src="Resources/public/image/iconoAnterior.PNG" alt="1" width="30" onclick="repaginarDestacado(-2)"/>
+                        <img class="seleccionable" src="Resources/public/image/iconoSiguiente.PNG" alt="1" width="30" onclick="repaginarDestacado(2)"/>
                     </td>
                 </tr>
             </table>

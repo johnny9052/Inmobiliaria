@@ -93,7 +93,7 @@ function showData(info) {
     /*INFO ESTATICA*/
 
 
-    var characteristics = addCharacteristics("Precio", "$ " + info[0].precio);
+    var characteristics = addCharacteristics("Precio", "$ " + parseInt(info[0].precio).toLocaleString());
     characteristics += addCharacteristics("Costo administracion", "$ " + info[0].costo_administracion);
     characteristics += addCharacteristics("Area sin balcones", info[0].area_sin_balcones);
     characteristics += addCharacteristics("Año de construccion", info[0].anio_de_construccion);
@@ -345,7 +345,9 @@ function loadVideosPropertie(id) {
 function almacenarVideos(info, obj, id) {
     /*Se agregan todos los datos a la lista, y se pintan*/
     for (var x = 0; x < info.length; x++) {
-        obj.listElements.push(info[x].dinamic_data);
+        if (info[x].dinamic_data !== "") {
+            obj.listElements.push(info[x].dinamic_data);
+        }
     }
 
     loadImagesPropertie(id);

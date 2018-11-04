@@ -857,8 +857,10 @@ and open the template in the editor.
                             <div class="col-md-12">
                                 <label for="fileImagen">Imagenes del inmueble</label>
                                 <input type="file" accept=".JPEG,.PNG,.jpg"  id="fileImagen" name="urlImage" multiple 
-                                       onchange="processMultipleFile('fileImagen', objFilePropertie, 'lstImagenesAgregadas', 'lstImagenesAgregadas2');"><br>                            
-                            </div>
+                                       onchange="processMultipleFile('fileImagen', objFilePropertie, 'lstImagenesAgregadas', 'lstImagenesAgregadas2');">
+                                <br>                                                            
+                                <button id="btnAddVideo" onclick="eliminarTodasLasImagenes();" type ="button" class="btn btn-primary">Eliminar imagenes</button>
+                            </div>                            
                         </div>
 
 
