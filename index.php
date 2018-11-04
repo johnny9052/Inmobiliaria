@@ -45,12 +45,12 @@ session_start();
         <link href="System/Resource/plugins/bootstrap-slider/slider.css" rel="stylesheet" type="text/css"/>
 
         <link href="System/Resource/Style/General.css" rel="stylesheet" type="text/css"/>
-        
+
         <!-- ESTILOS VISUALES DE LA PAGINA WEB-->
         <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
         <link href="Resources/public/css/generalWeb.css" rel="stylesheet" type="text/css"/>        
         <!-- END ESTILOS VISUALES DE LA PAGINA WEB-->
-        
+
         <link href="System/Resource/Style/hexagono.css" rel="stylesheet" type="text/css"/>
 
 
@@ -99,7 +99,17 @@ session_start();
 
 
         if (isset($_GET['page'])) {
-            include("View/public/" . $_GET['page'] . ".php");
+
+            if (($_GET['page'] === 'infoUser' || $_GET['page'] === 'managementPropertie' ||
+                    $_GET['page'] === 'pqrs')) {
+                if (isset($_SESSION['identificationPublicHexagon'])) {
+                    include("View/public/" . $_GET['page'] . ".php");
+                } else {
+                    include("View/public/home.php");
+                }
+            } else {
+                include("View/public/" . $_GET['page'] . ".php");
+            }
         } else {
             include("View/public/home.php");
         }
