@@ -93,7 +93,7 @@ function showData(info) {
     /*INFO ESTATICA*/
 
 
-    var characteristics = addCharacteristics("Precio", "$ " + info[0].precio);
+    var characteristics = addCharacteristics("Precio", "$ " + parseInt(info[0].precio).toLocaleString());
     characteristics += addCharacteristics("Costo administracion", "$ " + info[0].costo_administracion);
     characteristics += addCharacteristics("Area sin balcones", info[0].area_sin_balcones);
     characteristics += addCharacteristics("Año de construccion", info[0].anio_de_construccion);
@@ -345,7 +345,9 @@ function loadVideosPropertie(id) {
 function almacenarVideos(info, obj, id) {
     /*Se agregan todos los datos a la lista, y se pintan*/
     for (var x = 0; x < info.length; x++) {
-        obj.listElements.push(info[x].dinamic_data);
+        if (info[x].dinamic_data !== "") {
+            obj.listElements.push(info[x].dinamic_data);
+        }
     }
 
     loadImagesPropertie(id);
@@ -373,15 +375,28 @@ function buildCarusel(info, obj) {
     }
 
     for (var y = 0; y < obj.listFileName.length; y++) {
-        imgcarusel += "<div class='carousel-item " + ((y === 0) ? 'active' : '') + "'><img src='System/" + obj.listFileURL[y] + "' alt='" + cleanNameFile(obj.listFileName[y]) + "'></div>";
-        imgMiniaturaCarusel += "<span data-target='#divcarusel' data-slide-to='" + y + "'><img class='seleccionable' src='System/" + obj.listFileURL[y] + "' alt='" + cleanNameFile(obj.listFileName[y]) + "' height='40' width='40'></span>&nbsp;";
+        imgcarusel += "<div class='carousel-item " + ((y === 0) ? 'active' : '') + "'>\n\
+                                <img src='System/" + obj.listFileURL[y] + "' alt='" + cleanNameFile(obj.listFileName[y]) + "' style='max-width: 900px; max-height: 500px;'>\n\
+                        </div>";
+        
+        imgMiniaturaCarusel += "<span data-target='#divcarusel' data-slide-to='" + y + "'>\n\
+                                    <img class='seleccionable' src='System/" + obj.listFileURL[y] + "' alt='" + cleanNameFile(obj.listFileName[y]) + "' height='40' width='40'>\n\
+                                </span>&nbsp;";
         paginatorcarusel += "<li data-target='#divcarusel' data-slide-to='" + y + "' class='" + ((y === 0) ? 'active' : '') + "'></li>";
         positionCarusel++;
     }
 
 
     for (var z = 0; z < objURLVideosPropertie.listElements.length; z++) {
-        imgcarusel += "<div class='carousel-item'><div class='auto-resizable-iframe'><div><iframe frameborder='0' allowfullscreen='' src='" + (objURLVideosPropertie.listElements[z]).replace("watch?v=", "embed/") + "'></iframe></div></div></div>";
+        imgcarusel += "<div class='carousel-item'>\n\
+                        <div class='auto-resizable-iframe'>\n\
+                            <div>\n\
+                                <iframe frameborder='0' allowfullscreen='' src='" + (objURLVideosPropertie.listElements[z]).replace("watch?v=", "embed/") + "'>\n\
+                                </iframe>\n\
+                            </div>\n\
+                        </div>\n\
+                      </div>";
+        
         imgMiniaturaCarusel += "<span data-target='#divcarusel' data-slide-to='" + positionCarusel + "'><img class='seleccionable' src='System/Resource/Multimedia/Images/videocarusel.png' alt='Video' height='40' width='40'></span>&nbsp;";
         paginatorcarusel += "<li data-target='#divcarusel' data-slide-to='" + positionCarusel + "'></li>";
         positionCarusel++;
@@ -395,10 +410,16 @@ function buildCarusel(info, obj) {
     car += paginatorcarusel;
     car += "</ul>";
 
-    car += "<div class='carousel-inner' id='imagesCarusel' style='max-width: 1100px; max-height: 450px'>";
+    car += "<div class='carousel-inner' id='imagesCarusel'>";
     car += imgcarusel;
     car += "</div>";
-    car += "<a class='carousel-control-prev' href='#divcarusel' data-slide='prev'><span class='carousel-control-prev-icon'></span></a><a class='carousel-control-next' href='#divcarusel' data-slide='next'><span class='carousel-control-next-icon'></span></a>";
+    /*Botones de atras y siguiente*/
+    car += "<a class='carousel-control-prev' href='#divcarusel' data-slide='prev'>\n\
+                <span class='carousel-control-prev-icon'></span>\n\
+            </a>\n\
+            <a class='carousel-control-next' href='#divcarusel' data-slide='next'>\n\
+                <span class='carousel-control-next-icon'></span>\n\
+            </a>";
     car += "</div>";
 
     console.log(car);

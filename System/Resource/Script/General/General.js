@@ -1280,9 +1280,11 @@ function prepareDinamicData(nameData, obj) {
  * @version 0.2
  */
 function listDinamicData(info, obj, idDiv, prefix) {
-    /*Se agregan todos los datos a la lista, y se pintan*/
+    /*Se agregan todos los datos a la lista, y se pintan*/   
     for (var x = 0; x < info.length; x++) {
-        obj.listElements.push(info[x].dinamic_data);
+        if (info[x].dinamic_data !== "") {
+            obj.listElements.push(info[x].dinamic_data);
+        }
     }
 
     pintarDinamicData(idDiv, obj, prefix);
@@ -1522,9 +1524,10 @@ function processMultipleFile(idInputFile, obj, idColumnOne, idColumnTwo) {
 
         /*Si se pudo obtener algun archivo*/
         if (file !== undefined) {
-
-            var nombreArchivo = ((file.name).split("."))[0];
-
+            /*Se determina el nombre del archivo, antecediendo el numero del archivo, si existen archivos 
+             * previos se obtiene su cantidad, y se sigue aumentando, sino, solo te toma el valor i del 
+             * archivo*/
+            var nombreArchivo = "File" + ((obj.listFileName.length > 0) ? obj.listFileName.length + 1 + i : i) + ((file.name).split("."))[0];
             if (i % 2 === 0) {
                 /*Se arma la cadena,tomando como referencias el nombre del archivo sin 
                  * espacios ni caracteres especiales*/
@@ -1913,4 +1916,23 @@ function scanDataLabelDinamic(nameData, prefixLabel, split = false, charactersSp
     });
 
     return temp;
+}
+
+
+
+
+
+
+/**
+ * Mueve la vista de la pagina web a un punto determinado 
+ * @param {String} eleID id del elemento que se enfocara en la pagina web
+ * @returns {void} 
+ * @author Johnny Alexander Salazar
+ * @version 0.1
+ */
+function moverScrollView(eleID) {
+    var e = document.getElementById(eleID);
+    if (!!e && e.scrollIntoView) {
+        e.scrollIntoView();
+    }
 }

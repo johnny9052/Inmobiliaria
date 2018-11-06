@@ -30,7 +30,7 @@ and open the template in the editor.
             <!-----------------CARRUSEL----------------------------------->
             <div class="row">
                 <div class="col-md-2 col-sm-1 col-xs-12"></div>
-                <div class="col-md-8 col-sm-10 col-xs-12" id="containercarusel">
+                <div class="col-md-8 col-sm-10 col-xs-12 center-block" id="containercarusel" style="float:none;">
 
                 </div>
                 <div class="col-md-2 col-sm-1 col-xs-12"></div>

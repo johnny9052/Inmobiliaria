@@ -18,7 +18,7 @@ function buildListFeaturedProperties(info) {
     showLoadBar(true);
     if (info.length > 0) {
 
-        totalRegistros = info.length;
+        totalRegistrosDestacado = info.length;
         objectToPaginationDestacado = info;
         var totalIteracion = (info.length > registrosPaginaDestacado) ? registrosPaginaDestacado : info.length;
 
@@ -70,7 +70,7 @@ function construirRegistroPaginacionDestacado(pos) {
     var linderos = objectToPaginationDestacado[pos].linderos;
 
 
-    return "<td class='seleccionable' onclick='viewInfoFeaturedPropertie(" + id + ");'>\n\
+    return "<td class='seleccionable' onclick='viewInfoFeaturedPropertie(" + id + ");' width='50%'>\n\
                     <table>\n\
                         <tr>\n\
                             <td>\n\
@@ -105,7 +105,7 @@ function construirRegistroPaginacionDestacado(pos) {
                         </tr>\n\
                     </table>\n\
                     <br>\n\
-                    <small class='textoContenido'>" + linderos + "</small>\n\
+                    <small class='textoContenido'>" + ((linderos.length > 500) ? linderos.substring(0, 500) : rellenarEspaciosTexto(linderos, 500)) + "</small>\n\
                 </td>\n\
                 <td>\n\
                     &nbsp; &nbsp; &nbsp;\n\
@@ -149,3 +149,20 @@ function repaginarDestacado(cambioPosicion) {
     showLoadBar(false);
 
 }
+
+
+
+
+function rellenarEspaciosTexto(cadena, tamanio) {
+
+    numeroEspacios = (cadena.length > tamanio) ? 0 : (tamanio - cadena.length);
+
+    while (numeroEspacios > 0) {
+        cadena += " &nbsp; ";
+        numeroEspacios--;
+    }
+
+    return cadena;
+}
+
+

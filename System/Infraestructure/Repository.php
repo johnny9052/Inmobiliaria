@@ -456,12 +456,16 @@ class Repository {
 
     public function BuildPDF($content, $nameFile) {
 
+//        require_once('../../Resource/html2pdf/html2pdf.class.php'); // Se carga la libreria
+//
+//        ob_start(); //Habilita el buffer para la salida de datos 
+//        ob_get_clean(); //Limpia lo que actualmente tenga el buffer
 
         $cadenaHTML = "<page backtop='40mm' backbottom='30mm' backleft='20mm' backright='20mm' footer='date;page'>";
         $cadenaHTML .= '<link href="../../Resource/Style/estilosPDF.css" type="text/css" rel="stylesheet">';
 
 
-        $cadenaHTML .= " <page_header>
+         $cadenaHTML .= " <page_header>
                                 <table style='width: 100%;'>
                                     <tr>
                                         <td>
@@ -481,11 +485,18 @@ class Repository {
                                 </table>
                             </page_footer>";
 
+
         $cadenaHTML .= $content;
 
         $cadenaHTML .= "</page>";
 
 
+//        //formato del pdf (posicion (P=vertical L=horizontal), tamaño del pdf, lenguaje)
+//        $html2pdf = new HTML2PDF('P', 'A4', 'es');
+//        $html2pdf->WriteHTML($content); //Lo que tenga content lo pasa a pdf
+//        ob_end_clean(); // se limpia nuevamente el buffer
+//        $html2pdf->Output($nameFile . '.pdf'); //se genera el pdf, generando por defecto el nombre indicado para guardar
+        
         try {
             /* El true indica si es o no unicode */
             $html2pdf = new Html2Pdf('P', 'A4', 'es', 'true', 'UTF-8');

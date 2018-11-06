@@ -7,7 +7,8 @@ BEGIN
  	
 	SELECT rutaImagen as url_file              
 	FROM imageninmueble   
-	where idInmueble = vid;	
+	where idInmueble = vid
+        ORDER By rutaImagen asc;	
 	
 END//
 

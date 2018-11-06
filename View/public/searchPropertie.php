@@ -203,7 +203,7 @@
                                 <div class="row">
                                     <div class="col-md-12">   
                                         <br>
-                                        <button  id="btnSave" onclick="listProperties();" type ="button" class="btn btn-primary">Listar</button>
+                                        <button  id="btnSave" onclick="listProperties();moverScrollView('divMoveToAfterFilter');" type ="button" class="btn btn-primary">Listar</button>
                                     </div>
                                 </div>
 
@@ -224,7 +224,7 @@
                     <div class="col-md-12">
                         <div class="box box-primary collapsed-box">
                             <div class="box-header with-border">
-                                <h3 class="box-title">Otros filtros de busqueda</h3>
+                                <h3 class="box-title" id="divMoveToAfterFilterRepaginar">Otros filtros de busqueda</h3>
 
                                 <div class="box-tools pull-right">
                                     <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
@@ -376,7 +376,7 @@
 
                                 <div class="row">
                                     <div class="col-md-12">                                           
-                                        <button id="btnSave" onclick="listProperties();" type ="button" class="btn btn-primary">Listar</button>
+                                        <button id="btnSave" onclick="listProperties();moverScrollView('divMoveToAfterFilter');" type ="button" class="btn btn-primary">Listar</button>
                                     </div>
                                 </div>
 
@@ -391,13 +391,9 @@
                 </div>                              
             </div>
 
-
-
-
-
             <br>
 
-            <div class="row">
+            <div class="row" id="divMoveToAfterFilter">
                 <div class="col-md-12  col-xs-6">
                     <div class="progress">
                         <div class="progress-bar progress-bar-striped progress-bar-animated" 
@@ -407,6 +403,9 @@
                 </div>
             </div>
 
+            <br>
+            <br>
+            
             <div class="row" id="lstProperties">
 
             </div>
