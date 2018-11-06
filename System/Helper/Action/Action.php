@@ -103,6 +103,11 @@ function ExecuteAction($action, $obj, $dao, $specific = null) {
         case "loadImage":
             $dao->LoadImage($obj);
             break;
+        
+        case "SearchEventsClient":
+            $dao->SearchEventsClient($obj);
+            break;
+        
 
 
         /* Other transactions */
