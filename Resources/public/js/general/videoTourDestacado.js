@@ -1,14 +1,24 @@
 /* Funciones jQuery */
 $(window).on("load", function (e) {
     listFeaturedProperties();
+    executeWithTime('repaginacionAutomatica();', 3000);
 });
 var registrosPaginaDestacado = 2;
 var totalRegistrosDestacado = 0;
 var posicionActualPaginacionDestacado = 0;
 var objectToPaginationDestacado;
+
+
+var repaginarAutomaticamente = true;
+
 function listFeaturedProperties() {
     Execute(scanInfo('listNoTableByFixedContidion', false, '', ''), 'Propertie/CtlPropertie', '', 'buildListFeaturedProperties(info);', '', '', 'System/');
 }
+
+
+
+
+
 
 
 function buildListFeaturedProperties(info) {
@@ -134,8 +144,7 @@ function repaginarDestacado(cambioPosicion) {
     }
 
     var posInicial = posicionActualPaginacionDestacado;
-    var posFinal = (objectToPaginationDestacado.length < posicionActualPaginacionDestacado + 2) ? objectToPaginationDestacado.length : posicionActualPaginacionDestacado + 2;
-
+    var posFinal = (objectToPaginationDestacado.length < posicionActualPaginacionDestacado + 2) ? objectToPaginationDestacado.length : posicionActualPaginacionDestacado + 2;    
     var listado = "<tr>";
 
     for (f = posInicial; f < posFinal; f++) {
@@ -166,3 +175,16 @@ function rellenarEspaciosTexto(cadena, tamanio) {
 }
 
 
+
+
+function repaginacionAutomatica() {
+
+    if (repaginarAutomaticamente) {
+
+        if ((posicionActualPaginacionDestacado + 2) === objectToPaginationDestacado.length) {
+            posicionActualPaginacionDestacado = 0;
+        }
+        repaginarDestacado(2);
+        executeWithTime('repaginacionAutomatica();', 3000);
+    }
+}

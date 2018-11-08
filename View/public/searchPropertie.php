@@ -1,7 +1,9 @@
 <br><br>
 
 <script src="Resources/public/js/general/searchpropertie.js" type="text/javascript"></script>
-<div class="row">
+
+
+<div class="row" style="padding-bottom: 0px !important;">
     <div class="col-md-1 col-sm-1 col-xs-12"></div>
     <div class="col-md-10 col-sm-10 col-xs-12" id="containercarusel">
         <div id="divcarusel" class="carousel slide" data-ride="carousel">
@@ -28,14 +30,56 @@
             <a class="carousel-control-next" href="#divcarusel" data-slide="next">
                 <span class="carousel-control-next-icon"></span>
             </a>
+
+
+            <div class="filtroBusquedaBanner">
+                <div class="row" style="padding-bottom: 0px !important;">
+
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+
+                        <table>
+                            <tr>
+                                <td>
+                                    <button type="button" onclick="rapidSearch('arriendo');" class="btn btn-block btn-primary btn-lg transparencia botonFiltroBusquedaBanner">Arriendo</button>
+                                </td>
+                                <td>
+                                    <button type="button" onclick="rapidSearch('venta');" class="btn btn-block btn-primary btn-lg transparencia botonFiltroBusquedaBanner">Venta</button>
+                                </td>
+
+                                <td>
+                                    <button type="button" onclick="rapidSearch('vacacional');" class="btn btn-block btn-primary btn-lg transparencia botonFiltroBusquedaBanner">Vacacional</button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="3" >
+                                    <table style="width: 100%">
+                                        <tr>
+                                            <td style="width: 80%;">
+                                                <input id="txtSearchNeighborhoodCity" name="txtSearchNeighborhoodCity" 
+                                                       class="form-control" type="text" value="" autocomplete="off"
+                                                       placeholder="Ingrese el nombre del barrio o la ciudad" style="float: left"> 
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-block btn-primary btn-lg transparencia" onclick="rapidSearch('');">Buscar</button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>                    
+                </div>
+            </div>
         </div>
     </div>
     <div class="col-md-1 col-sm-1 col-xs-12"></div>
 </div>
 
-<main role="main">
-    <br>
-    <br>
+
+<main role="main" style="padding-top: 0px !important;">
+    
     <div class="album py-5 ">
         <div class="container">
             <div id="FormContainer">
@@ -425,6 +469,7 @@
             </div>
 
             <br>
+            <br>
 
             <div class="row" id="divMoveToAfterFilter">
                 <div class="col-md-12  col-xs-6">
@@ -438,7 +483,7 @@
 
             <br>
             <br>
-            
+
             <div class="row" id="lstProperties">
 
             </div>

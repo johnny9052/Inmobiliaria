@@ -74,9 +74,11 @@ function listProperties() {
     };
     var valorMax = $("#lblvalorMaxInmueble").html();
     var areaMax = $("#lblAreaInmueble").html();
+    var nombreCiudadBarrio = $("#txtSearchNeighborhoodCity").val();
     /*Se añaden como datos adicionales*/
     infoPlus.temp.push({datos: ["valorMax", replaceText(valorMax, ",", "")]});
     infoPlus.temp.push({datos: ["areaMax", areaMax]});
+    infoPlus.temp.push({datos: ["nombreCiudadBarrio", nombreCiudadBarrio]});
     Execute(scanInfo('listNoTable', true, '', infoPlus.temp), 'Propertie/CtlPropertie', '', 'buildListPropertie(info);', '', '', 'System/');
 }
 
@@ -141,31 +143,33 @@ function construirRegistroPaginacion(pos) {
     var parqueaderos = objectToPagination[pos].parqueaderos;
     var area = objectToPagination[pos].area;
     var tipoinmueble = objectToPagination[pos].tipoinmueble;
-    /*Medidas originales, a col-md-4 y 100 x 225*/
-    /*Medidas de prueba, a col-md-3 y 100 x 175*/
     return "<div class='col-md-3 seleccionable' onclick='viewInfoPropertie(" + id + ");'>\n\
                                     <div class='mb-4 imagenesListadoInmueblesContenedor'>\n\
                                         <a href='?page=infoPropertie&&id=" + id + "'><img src='" + imagen + "'  \n\
                                              width='100' height='225'  \n\
                                              alt='Card image cap' \n\
                                              class='card-img-top' ></a>\n\
-                                        <div class='card-body'>      \n\
+                                        <div class='ofertaInmuebleListaPublica'>\n\
+                                            <img class='imangenOfertaInmuebleListaPublica' src='Resources/public/image/" + ((oferta === "Venta") ? "venta" : "arriendo") + ".png' width='100' height='100'>\n\
+                                        </div>\n\
+                                        <div class='card-body' style='padding-bottom: 0px;padding-top: 5px;'>      \n\
                                             <h5 class='card-text titulosPrincipales'>" + ((barrio.length > 20) ? (barrio.substring(0, 22) + "..") : barrio) + "</h5>\n\
-                                            <h5 class='card-text titulosPrincipales'>" + oferta + "</h5>\n\
                                             <small class='text-muted'>   \n\
                                                 <label for='chkChimenea' class='fa fa-home'></label> \n\
                                                 <label for='chkChimenea'>" + tipoinmueble + "</label>&nbsp;&nbsp;\n\
                                                 <label for='chkChimenea' class='fa fa-bed'></label> \n\
-                                                <label for='chkChimenea'>" + habitaciones + " Hab.</label>&nbsp;&nbsp;&nbsp;\n\
+                                                <label for='chkChimenea'>" + habitaciones + " Hab.</label>&nbsp;&nbsp;&nbsp;<br>\n\
                                                 <label for='chkChimenea' class='fa fa-automobile'></label>\n\
                                                 <label for='chkChimenea'>" + parqueaderos + " Parq.</label>&nbsp;&nbsp;&nbsp;\n\
                                                 <label for='chkChimenea' class='fa fa-area-chart'></label>\n\
                                                 <label for='chkChimenea'>" + area + " m<sup>2</sup></label>&nbsp;&nbsp;&nbsp;\n\
                                             </small>\n\
-                                            <div> \n\
-                                                <a href='?page=infoPropertie&&id=" + id + "'><button type='button' class='btn btn-block btn-primary btn-lg'>$ " + parseInt(precio).toLocaleString() + "</button></a> \n\
-                                            </div>\n\
                                         </div> \n\
+                                        <div> \n\
+                                            <a href='?page=infoPropertie&&id=" + id + "'>\n\
+                                                <button type='button' class='btn btn-block btn-primary btn-lg'>$ " + parseInt(precio).toLocaleString() + "</button>\n\
+                                            </a> \n\
+                                        </div>\n\
                                     </div>\n\
                                  </div>";
 //    return "<div class='col-md-4'>\n\
@@ -210,10 +214,8 @@ function configurarPaginador(posSeleccionada) {
 
 
 function repaginar(posSeleccionada) {
-    
+
     moverScrollView("divMoveToAfterFilterRepaginar");
-
-
     showLoadBar(true);
     var listado = "";
     $(".pag").removeClass("btn-primary");
@@ -247,5 +249,27 @@ function changeValueRange(idRange, idLbl) {
 
 
 
+function rapidSearch(type) {
 
+    switch (type) {
 
+        case "venta":
+            $("#selOfferType").val(16);
+            break;
+
+        case "arriendo":
+            $("#selOfferType").val(15);
+            break;
+
+        case "vacacional":
+            $("#selOfferType").val(17);
+            break;
+
+        default:
+
+            break;
+    }
+
+    listProperties();
+    moverScrollView('divMoveToAfterFilterRepaginar');
+}

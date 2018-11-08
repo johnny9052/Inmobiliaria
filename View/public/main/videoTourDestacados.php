@@ -20,8 +20,8 @@
                     <td><h3>Destacados</h3></td>
 
                     <td id="segmentoPaginadorDestacado" class="tituloDestacado">
-                        <img class="seleccionable" src="Resources/public/image/iconoAnterior.PNG" alt="1" width="30" onclick="repaginarDestacado(-2)"/>
-                        <img class="seleccionable" src="Resources/public/image/iconoSiguiente.PNG" alt="1" width="30" onclick="repaginarDestacado(2)"/>
+                        <img class="seleccionable" src="Resources/public/image/iconoAnterior.PNG" alt="1" width="30" onclick="repaginarDestacado(-2);repaginarAutomaticamente = false;"/>
+                        <img class="seleccionable" src="Resources/public/image/iconoSiguiente.PNG" alt="1" width="30" onclick="repaginarDestacado(2);repaginarAutomaticamente = false;"/>
                     </td>
                 </tr>
             </table>

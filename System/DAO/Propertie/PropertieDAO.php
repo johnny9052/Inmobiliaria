@@ -193,7 +193,8 @@ class PropertieDAO {
             (int) $obj->getPiscina(),
             (int) $obj->getRoom(),
             (int) $obj->getBath(),
-            (int) $obj->getParking()
+            (int) $obj->getParking(),
+            (string) $obj->getNombreCiudadBarrio()
         ));
 
         //echo $query;
@@ -357,7 +358,7 @@ class PropertieDAO {
               65 estcoc.`nombreEstructuraCocina` as nombre_estructura_cocina,
               66 tipis.`nombreTipoPiso` as nombre_tipo_piso,
               67 tipdest.`nombreDestacado` as nombre_tipo_destacado
-              68 loadimagepropertie(inm.idinmueble) as imagen   
+              68 loadimagepropertie(inm.idinmueble) as imagen
              * */
 
             $cadenaHTML .= "<table style='width:100%;'>";
@@ -429,8 +430,8 @@ class PropertieDAO {
         } else {
             $cadenaHTML = "<label>No hay registros en la base de datos</label>";
         }
-        
-        
+
+
 
         $this->repository->BuildPDF($cadenaHTML, $vec[0][1]);
     }

@@ -6,7 +6,7 @@ DELIMITER //
 CREATE PROCEDURE listpropertiepublic(viduser int,vstate int, vareamax int, vvalorMax int, 
              vcity int, vbarrio int, vzone int, vpropertietype int, 
             voffertype int, vestrato int, vascensor int, vpiscina int, vroom int, 
-            vbath int, vparking int)
+            vbath int, vparking int, vnombrebarriociudad varchar(50))
 COMMENT 'Procedimiento que lista los inmuebles para la pagina web'
 BEGIN
 
@@ -37,6 +37,7 @@ BEGIN
           (case when vroom>-1 then inm.habitaciones = vroom  ELSE TRUE END ) AND 
           (case when vbath>-1 then inm.banos = vbath  ELSE TRUE END ) AND 
           (case when vparking>-1 then inm.parqueaderos = vparking  ELSE TRUE END ) AND
+          (case when vnombrebarriociudad<>'' then (ciud.nombreCiudad LIKE concat('%',vnombrebarriociudad,'%') OR bar.nombreBarrio LIKE concat('%',vnombrebarriociudad,'%') ) ELSE TRUE END ) AND          
           inm.estado_idestado = 22
    order by inm.`fechaRecepcion`;
 END//
