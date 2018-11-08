@@ -145,10 +145,10 @@ function construirRegistroPaginacion(pos) {
     /*Medidas de prueba, a col-md-3 y 100 x 175*/
     return "<div class='col-md-3 seleccionable' onclick='viewInfoPropertie(" + id + ");'>\n\
                                     <div class='mb-4 imagenesListadoInmueblesContenedor'>\n\
-                                        <img src='" + imagen + "'  \n\
+                                        <a href='?page=infoPropertie&&id=" + id + "'><img src='" + imagen + "'  \n\
                                              width='100' height='225'  \n\
                                              alt='Card image cap' \n\
-                                             class='card-img-top' >\n\
+                                             class='card-img-top' ></a>\n\
                                         <div class='card-body'>      \n\
                                             <h5 class='card-text titulosPrincipales'>" + ((barrio.length > 20) ? (barrio.substring(0, 22) + "..") : barrio) + "</h5>\n\
                                             <h5 class='card-text titulosPrincipales'>" + oferta + "</h5>\n\
@@ -163,7 +163,7 @@ function construirRegistroPaginacion(pos) {
                                                 <label for='chkChimenea'>" + area + " m<sup>2</sup></label>&nbsp;&nbsp;&nbsp;\n\
                                             </small>\n\
                                             <div> \n\
-                                                <button type='button' class='btn btn-block btn-primary btn-lg'>$ " + parseInt(precio).toLocaleString() + "</button> \n\
+                                                <a href='?page=infoPropertie&&id=" + id + "'><button type='button' class='btn btn-block btn-primary btn-lg'>$ " + parseInt(precio).toLocaleString() + "</button></a> \n\
                                             </div>\n\
                                         </div> \n\
                                     </div>\n\

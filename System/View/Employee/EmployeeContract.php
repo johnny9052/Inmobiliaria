@@ -101,7 +101,8 @@ and open the template in the editor.
         <div class="modal fade" id="ModalNew" >
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header">                       
+                    <div class="modal-header">
+                        <button onclick="closeWindow();" type="button" class="btn btn-default pull-right" data-dismiss="modal">X</button>
                         <h4 class="modal-title">Gestión contrato empleado</h4>
                     </div>
 

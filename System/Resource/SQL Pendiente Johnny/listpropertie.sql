@@ -7,6 +7,8 @@ CREATE PROCEDURE listpropertie(idfilter int)
 COMMENT 'Procedimiento que lista los inmuebles'
 BEGIN
     select inm.idinmueble as id, 
+            CONCAT(cli.primerNombreCliente, ' ', cli.segundoNombreCliente, ' ', 
+                    cli.primerApellidoCliente , ' ', cli.segundoApellidoCliente) as nombre,
            inm.`matriculaInmobiliaria` as matricula, 
            tip_inm.`nombreTipoInmueble` as tipo,
            tip_ofer.`nombreTipoOferta` as oferta, 
@@ -16,6 +18,7 @@ BEGIN
            inm.`fechaRecepcion` as fecha, 
            est.`nombreEstado` as estado
    from inmuebles as inm 
+        inner join clientes as cli on inm.clientes_cedulaCliente = cli.`idCliente` 
         inner join tiposinmuebles as tip_inm on inm.`tiposInmuebles_idtipoInmueble` = tip_inm.`idtipoInmueble` 
         inner join tiposofertas as tip_ofer on inm.`tiposOfertas_idtipoOferta` = tip_ofer.`idtipoOferta` 
         inner join ciudades as ciud on inm.ciudades_idciudad = ciud.idciudad 

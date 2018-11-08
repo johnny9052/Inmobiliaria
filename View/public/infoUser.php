@@ -20,6 +20,26 @@ and open the template in the editor.
         <br>
         <br>
 
+        <section class="content-header">
+
+        </section>
+
+        <div class="row">
+            <div class="col-md-1">
+
+            </div>
+            <div class="col-md-10 content-header">
+                <h1>
+                    Actualizar datos                    
+                </h1>
+
+                <ol class="breadcrumb">
+                    <li><a href="#"><i class="fa fa-cube"></i> Perfil</a></li>
+                    <li class="active">Actualizar datos</li>
+                </ol>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-10">
@@ -36,16 +56,29 @@ and open the template in the editor.
         <div class="" id="FormContainer">
 
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
                     <div class="form-group">                                                                        
                         <input id="txtId" name="id" class="form-control identificator"  type="hidden" value="<?php echo isset($_SESSION["identificationPublicHexagon"]) ? $_SESSION["identificationPublicHexagon"] : ""; ?>">
                     </div>
                 </div>
             </div>
-
+            
             <div class="row">
+                <div class="col-md-1">
+
+                </div>
+                <div class="col-md-10">
+                    <!-- general form elements -->
+                    <div class="box box-success">               
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="row" box box-success>
                 <div class="col-md-1"></div>
-                <div class="col-md-5">
+                <div class="col-md-5" box-header with-border>
                     <div class="form-group">
                         <label for="" class="fa fa-id-card"></label>
                         &nbsp;&nbsp;

@@ -14,25 +14,42 @@ and open the template in the editor.
         <link href="System/Resource/Style/mapSearch.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        
 
 
         <section class="content-header">
-            <h1>
-                Inmuebles                    
-            </h1>
 
-            <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-cube"></i> Inmuebles</a></li>
-                <li class="active">Inmuebles</li>
-            </ol>
         </section>
 
         <!-- ***************CONTENIDO**************** -->
 
         <section class="content">
+            <div class="row">
+                <div class="col-md-1">
+
+                </div>
+                <div class="col-md-10 content-header">
+                    <h1>
+                        Inmuebles                    
+                    </h1>
+
+                    <ol class="breadcrumb">
+                        <li><a href="#"><i class="fa fa-cube"></i> Gestiona</a></li>
+                        <li class="active">Inmuebles</li>
+                    </ol>
+                </div>
+            </div>
 
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-1">
+
+                </div>
+                <div class="col-md-10">
                     <!-- general form elements -->
                     <div class="box box-success">
                         <div class="box-header with-border">
@@ -49,7 +66,7 @@ and open the template in the editor.
                                         <a class="btn btn-social-icon btn-primary" onclick="executeSubmit('frmPDF');"><i class="fa fa-print" style="color: white"></i></a>
                                         <a class="btn btn-social-icon btn-primary" onclick="executeSubmit('frmCSV');"><i class="fa fa-file-excel-o" style="color: white"></i></a>
                                     </div>
-                                    
+
                                     <br>
 
                                     <div class="col-md-8  col-xs-12">
@@ -91,7 +108,7 @@ and open the template in the editor.
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">                       
-                        <h4 class="modal-title">Gestion registro</h4>                        
+                        <h4 class="modal-title">Gestión registro</h4>                        
                     </div>
 
                     <div class="modal-body" id="FormContainer">

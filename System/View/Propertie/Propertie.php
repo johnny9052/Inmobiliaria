@@ -88,7 +88,8 @@ and open the template in the editor.
         <div class="modal fade" id="ModalNew" >
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header">                       
+                    <div class="modal-header">
+                        <button onclick="closeWindow();" type="button" class="btn btn-default pull-right" data-dismiss="modal">X</button>
                         <h4 class="modal-title">Gestion registro</h4>                        
                     </div>
 
@@ -101,7 +102,90 @@ and open the template in the editor.
                                 </div>
                             </div>
                         </div>
-
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="txtMatriculaInmobiliaria">Matricula inmobiliaria</label>  
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-hashtag"></i></span>
+                                        <input id="txtMatriculaInmobiliaria" name="matriculaInmobiliaria" 
+                                               class="form-control" type="text" value="" 
+                                               autocomplete="off" required
+                                               placeholder="Matricula inmobiliaria">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="" class="fa fa-user"></label>
+                                    &nbsp;&nbsp;
+                                    <label>Cliente</label>
+                                    <div>
+                                        <select id="selClient" name="client" 
+                                                class="form-control select2" style="width: 100%;" required>
+                                            <option value="-1" selected> -- SELECCIONE --</option>                            
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="" class="fa fa-circle"></label>
+                                    &nbsp;&nbsp;
+                                    <label>Estado</label>
+                                    <div>
+                                        <select id="selStatus" name="status" required class="form-control select2" style="width: 100%;">
+                                            <option value="-1" selected> -- SELECCIONE --</option>                            
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="" class="fa fa-home"></label>
+                                    &nbsp;&nbsp;
+                                    <label>Tipo inmueble</label>
+                                    <div>
+                                        <select id="selPropertieType" name="propertieType" required class="form-control select2" style="width: 100%;">
+                                            <option value="-1" selected> -- SELECCIONE --</option>                            
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="" class="fa fa-star"></label>
+                                    &nbsp;&nbsp;
+                                    <label>Tipo de destacado</label>
+                                    <div>
+                                        <select id="selOutstandingType" name="outstandingType" 
+                                                class="form-control select2" style="width: 100%;" required>
+                                            <option value="-1" selected> -- SELECCIONE --</option>                            
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="txtAvaluoCatastral">Avaluo catastral</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
+                                        <input id="txtAvaluoCatastral" name="avaluoCatastral" 
+                                               class="form-control" type="number" value="" 
+                                               autocomplete="off" required
+                                               placeholder="Avaluo catastral">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            
 
                         <div class="row">
                             <div class="col-md-6">
@@ -126,10 +210,34 @@ and open the template in the editor.
                                 </div>
                             </div>    
                         </div>
-
-
-
-
+                        <div class="row">
+                            <div class="col-md-6">                                
+                                <div class="form-group">
+                                    <label>Fecha de recepcion</label>
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" name="receptionDate" 
+                                               required class="form-control pull-right dateAction" 
+                                               id="txtReceptionDate">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">                                
+                                <div class="form-group">
+                                    <label>Fecha de publicacion</label>
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" name="publicationDate" 
+                                               required class="form-control pull-right dateAction" 
+                                               id="txtPublicationDate">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="row">
                             <div class="col-md-6">
@@ -559,20 +667,21 @@ and open the template in the editor.
                                         </select>
                                     </div>
                                 </div>
-                            </div>     
-
+                            </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="" class="fa fa-home"></label>
+                                    <label for="" class="fa fa-circle-thin"></label>
                                     &nbsp;&nbsp;
-                                    <label>Tipo inmueble</label>
+                                    <label>Tipo de piso</label>
                                     <div>
-                                        <select id="selPropertieType" name="propertieType" required class="form-control select2" style="width: 100%;">
+                                        <select id="selFloorType" name="floorType" 
+                                                class="form-control select2" style="width: 100%;" required>
                                             <option value="-1" selected> -- SELECCIONE --</option>                            
                                         </select>
                                     </div>
                                 </div>
-                            </div>     
+                            </div>
+     
                         </div>
 
 
@@ -657,26 +766,7 @@ and open the template in the editor.
                                         </select>
                                     </div>
                                 </div>
-                            </div>  
-
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="" class="fa fa-circle"></label>
-                                    &nbsp;&nbsp;
-                                    <label>Estado</label>
-                                    <div>
-                                        <select id="selStatus" name="status" required class="form-control select2" style="width: 100%;">
-                                            <option value="-1" selected> -- SELECCIONE --</option>                            
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>     
-                        </div>
-
-
-
-
-                        <div class="row">
+                            </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="selKitchenType" class="fa fa-cutlery"></label>
@@ -689,8 +779,10 @@ and open the template in the editor.
                                         </select>
                                     </div>
                                 </div>
-                            </div>  
+                            </div> 
+                        </div>
 
+                        <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="" class="fa fa-cutlery"></label>
@@ -706,138 +798,16 @@ and open the template in the editor.
                             </div>  
                         </div>
 
-
-
-
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="" class="fa fa-circle-thin"></label>
-                                    &nbsp;&nbsp;
-                                    <label>Tipo de piso</label>
-                                    <div>
-                                        <select id="selFloorType" name="floorType" 
-                                                class="form-control select2" style="width: 100%;" required>
-                                            <option value="-1" selected> -- SELECCIONE --</option>                            
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>  
-
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="" class="fa fa-user"></label>
-                                    &nbsp;&nbsp;
-                                    <label>Cliente</label>
-                                    <div>
-                                        <select id="selClient" name="client" 
-                                                class="form-control select2" style="width: 100%;" required>
-                                            <option value="-1" selected> -- SELECCIONE --</option>                            
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>  
-                        </div>
-
-
-
-
-
-                        <div class="row">
-
-                            <div class="col-md-6">                                
-                                <div class="form-group">
-                                    <label>Fecha de publicacion</label>
-                                    <div class="input-group date">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-calendar"></i>
-                                        </div>
-                                        <input type="text" name="publicationDate" 
-                                               required class="form-control pull-right dateAction" 
-                                               id="txtPublicationDate">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">                                
-                                <div class="form-group">
-                                    <label>Fecha de recepcion</label>
-                                    <div class="input-group date">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-calendar"></i>
-                                        </div>
-                                        <input type="text" name="receptionDate" 
-                                               required class="form-control pull-right dateAction" 
-                                               id="txtReceptionDate">
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-
-
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="" class="fa fa-star"></label>
-                                    &nbsp;&nbsp;
-                                    <label>Tipo de destacado</label>
-                                    <div>
-                                        <select id="selOutstandingType" name="outstandingType" 
-                                                class="form-control select2" style="width: 100%;" required>
-                                            <option value="-1" selected> -- SELECCIONE --</option>                            
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>  
-                        </div>
-
-
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="" class="fa fa-info"></label>
                                     &nbsp;&nbsp;
-                                    <label>Linderos</label>
+                                    <label>Descripción</label>
                                     <textarea id="txtLinderos" name="linderos" class="form-control" rows="3" placeholder="Linderos"></textarea>
                                 </div>
                             </div>                       
                         </div>
-
-
-
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="txtMatriculaInmobiliaria">Matricula inmobiliaria</label>  
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-hashtag"></i></span>
-                                        <input id="txtMatriculaInmobiliaria" name="matriculaInmobiliaria" 
-                                               class="form-control" type="text" value="" 
-                                               autocomplete="off" required
-                                               placeholder="Matricula inmobiliaria">
-                                    </div>
-                                </div>
-                            </div>                       
-
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="txtAvaluoCatastral">Avaluo catastral</label>
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
-                                        <input id="txtAvaluoCatastral" name="avaluoCatastral" 
-                                               class="form-control" type="number" value="" 
-                                               autocomplete="off" required
-                                               placeholder="Avaluo catastral">
-                                    </div>
-                                </div>
-                            </div>   
-                        </div>
-
 
                         <div class="row">
                             <div class="col-md-12">

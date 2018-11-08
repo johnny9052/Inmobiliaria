@@ -1,6 +1,27 @@
 .bannerMenu{
     text-align: right;
-    padding-bottom: 20px;
+    padding-bottom: 15px;
+}
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+    width: 5px;
+}
+
+.fa-twitter{
+    background: #55ACEE;
+    color: white !important;
+}
+
+.fa-instagram{
+    background: #3f729b;
+    color: white !important;
+}
+
+.fa-linkedin{
+    background: #0077B5;
+    color: white !important;
 }
 
 .profile-user-img {
@@ -14,6 +35,9 @@
   border-radius: 50%;
 }
 
+.pull-left {
+  float: left !important;
+}
 
 .textoMenu{
     color: #3F5666;    
@@ -35,6 +59,23 @@
     text-align: left;
     align-content: left;
     vertical-align: middle;
+}
+
+.left {
+    position: inherit;
+    left: -20px;
+    padding: 7px;
+}
+
+.right{
+    display: table-cell;
+    vertical-align: baseline;
+    margin-top: 1em;
+    position: inherit;
+    right: 0px;
+    align-content: flex-end;
+    vertical-align: inherit;
+    padding: 10px;
 }
 
 .informacionInmuebleDestacado{
@@ -75,6 +116,18 @@
     font-weight: normal; /* 100, 200, 300, ... 900, normal, bold, bolder, lighter */
 }
 
+.textoContenidoConsignar{
+    color: rgba(0,0,0,60);
+    font-weight: normal; /* 100, 200, 300, ... 900, normal, bold, bolder, lighter */
+    text-align: justify;
+}
+
+.textoContenidoCentrado{
+    color: rgba(0,0,0,60);
+    font-weight: normal; /* 100, 200, 300, ... 900, normal, bold, bolder, lighter */
+    text-align: center;
+}
+
 .textoContenidoBlanco{    
     font-weight: normal; /* 100, 200, 300, ... 900, normal, bold, bolder, lighter */
 }
@@ -102,8 +155,6 @@
     margin: -5px !important;
     padding: -5px !important;
 }
-
-
 
 .imagenesListadoInmueblesContenedor{
     position: relative;
@@ -204,4 +255,8 @@
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 
+}
+
+.bg-hexagono {
+  background-color: #3F5666 !important;
 }

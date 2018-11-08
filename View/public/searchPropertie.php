@@ -1,4 +1,37 @@
+<br><br>
+
 <script src="Resources/public/js/general/searchpropertie.js" type="text/javascript"></script>
+<div class="row">
+    <div class="col-md-1 col-sm-1 col-xs-12"></div>
+    <div class="col-md-10 col-sm-10 col-xs-12" id="containercarusel">
+        <div id="divcarusel" class="carousel slide" data-ride="carousel">
+            <ul class="carousel-indicators" id="paginatorcarusel">	
+                <li data-target="#divcarusel" data-slide-to="0" class="active"></li>
+                <li data-target="#divcarusel" data-slide-to="1" class=""></li>
+                <li data-target="#divcarusel" data-slide-to="2" class=""></li>                
+            </ul>
+
+            <div class="carousel-inner" id="imagesCarusel" style="max-width: 1100px; max-height: 450px">
+                <div class="carousel-item active">
+                    <img src="Resources/public/image/ImagenSlidePrincipal.PNG" alt="Hexagono">
+                </div>  
+                <div class="carousel-item ">
+                    <img src="Resources/public/image/ImagenSlideArriendo.PNG" alt="Arriendos">
+                </div>
+                <div class="carousel-item ">
+                    <img src="Resources/public/image/ImagenSlideVacacional.PNG" alt="vacacional">
+                </div>              
+            </div>
+            <a class="carousel-control-prev" href="#divcarusel" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#divcarusel" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        </div>
+    </div>
+    <div class="col-md-1 col-sm-1 col-xs-12"></div>
+</div>
 
 <main role="main">
     <br>

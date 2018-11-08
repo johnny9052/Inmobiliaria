@@ -21,8 +21,35 @@ and open the template in the editor.
         <br>    
         <br>
         <br>
-        <br>            
-        <br>   
+
+
+        <div class="row">
+            <div class="col-md-1">
+
+            </div>
+            <div class="col-md-10 content-header">
+                <h1>
+                    Generar PQRS                    
+                </h1>
+
+                <ol class="breadcrumb">
+                    <li><a href="#"><i class="fa fa-cube"></i> Perfil</a></li>
+                    <li class="active">PQRS</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1">
+
+            </div>
+            <div class="col-md-10">
+                <!-- general form elements -->
+                <div class="box box-success">               
+                </div>
+            </div>
+        </div>
+
         <section id="FormContainer">
             <div class="row">
                 <div class="col-md-3 col-sm-3 col-xs-12"></div>
