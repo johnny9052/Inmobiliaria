@@ -40,14 +40,14 @@
                         <table>
                             <tr>
                                 <td>
-                                    <button type="button" onclick="rapidSearch('arriendo');" class="btn btn-block btn-primary btn-lg transparencia botonFiltroBusquedaBanner">Arriendo</button>
+                                    <button id="btnArriendoFiltroSearch" type="button" onclick="changeValuerapidSearch('15', this.id);" class="btn btn-block btn-primary btn-lg transparencia botonFiltroBusquedaBanner">Arriendo</button>
                                 </td>
                                 <td>
-                                    <button type="button" onclick="rapidSearch('venta');" class="btn btn-block btn-primary btn-lg transparencia botonFiltroBusquedaBanner">Venta</button>
+                                    <button id="btnVentaFiltroSearch" type="button" onclick="changeValuerapidSearch('16', this.id);" class="btn btn-block btn-primary btn-lg transparencia botonFiltroBusquedaBanner">Venta</button>
                                 </td>
 
                                 <td>
-                                    <button type="button" onclick="rapidSearch('vacacional');" class="btn btn-block btn-primary btn-lg transparencia botonFiltroBusquedaBanner">Vacacional</button>
+                                    <button id="btnVacacionalFiltroSearch" type="button" onclick="changeValuerapidSearch('17', this.id);" class="btn btn-block btn-primary btn-lg transparencia botonFiltroBusquedaBanner">Vacacional</button>
                                 </td>
                             </tr>
 
@@ -62,6 +62,15 @@
                                             </td>
                                             <td>
                                                 <button type="button" class="btn btn-block btn-primary btn-lg transparencia" onclick="rapidSearch('');">Buscar</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <div class="progress progress-sm active">
+                                                    <div class="progress-bar progress-bar-primary progress-bar-striped" role="progressbar" aria-valuenow="100" aria-valuemin="100" aria-valuemax="100" style="width: 100%">
+                                                        <span class="sr-only">100% Complete</span>
+                                                    </div>
+                                                </div>
                                             </td>
                                         </tr>
                                     </table>
@@ -79,7 +88,7 @@
 
 
 <main role="main" style="padding-top: 0px !important;">
-    
+
     <div class="album py-5 ">
         <div class="container">
             <div id="FormContainer">

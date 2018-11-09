@@ -189,6 +189,14 @@
     width: 150px;
 }
 
+.botonFiltroBusquedaBanner:hover{
+    background-color: gray;
+}
+
+
+.botonSeleccionado{
+    background-color: gray;
+}
 
 
 

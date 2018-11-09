@@ -1,6 +1,6 @@
 
 <br><br>
-<script src="Resources/public/js/general/searchpropertie.js" type="text/javascript"></script>
+<script src="Resources/public/js/general/home.js" type="text/javascript"></script>
 <!-- INICIO DEL CARRUSEL-->
 <div class="row">
     <div class="col-md-1 col-sm-1 col-xs-12"></div>
@@ -37,14 +37,14 @@
                         <table>
                             <tr>
                                 <td>
-                                    <button type="button" onclick="rapidSearch('arriendo');" class="btn btn-block btn-primary btn-lg transparencia botonFiltroBusquedaBanner">Arriendo</button>
+                                    <button id="btnArriendoFiltroHome" type="button" onclick="cambiarTipoOferta('arriendo', this.id);" class="btn btn-block btn-primary btn-lg transparencia botonFiltroBusquedaBanner">Arriendo</button>
                                 </td>
                                 <td>
-                                    <button type="button" onclick="rapidSearch('venta');" class="btn btn-block btn-primary btn-lg transparencia botonFiltroBusquedaBanner">Venta</button>
+                                    <button id="btnVentaFiltroHome" type="button" onclick="cambiarTipoOferta('venta', this.id);" class="btn btn-block btn-primary btn-lg transparencia botonFiltroBusquedaBanner">Venta</button>
                                 </td>
 
                                 <td>
-                                    <button type="button" onclick="rapidSearch('vacacional');" class="btn btn-block btn-primary btn-lg transparencia botonFiltroBusquedaBanner">Vacacional</button>
+                                    <button id="btnVacacionalFiltroHome" type="button" onclick="cambiarTipoOferta('vacacional', this.id);" class="btn btn-block btn-primary btn-lg transparencia botonFiltroBusquedaBanner">Vacacional</button>
                                 </td>
                             </tr>
 
@@ -58,7 +58,7 @@
                                                        placeholder="Ingrese el nombre del barrio o la ciudad" style="float: left"> 
                                             </td>
                                             <td>
-                                                <button type="button" class="btn btn-block btn-primary btn-lg transparencia" onclick="rapidSearch('');">Buscar</button>
+                                                <button type="button" class="btn btn-block btn-primary btn-lg transparencia" onclick="rapidSearch();">Buscar</button>
                                             </td>
                                         </tr>
                                     </table>
