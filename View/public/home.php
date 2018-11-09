@@ -1,6 +1,7 @@
-<!-- INICIO DEL CARRUSEL-->
-<br><br>
 
+<br><br>
+<script src="Resources/public/js/general/searchpropertie.js" type="text/javascript"></script>
+<!-- INICIO DEL CARRUSEL-->
 <div class="row">
     <div class="col-md-1 col-sm-1 col-xs-12"></div>
     <div class="col-md-10 col-sm-10 col-xs-12" id="containercarusel">
@@ -13,13 +14,13 @@
 
             <div class="carousel-inner" id="imagesCarusel" style="max-width: 1100px; max-height: 450px">
                 <div class="carousel-item active">
-                    <img src="Resources/public/image/ImagenSlidePrincipal.PNG" alt="Hexagono">
+                    <img src="Resources/public/image/banner1.jpg" alt="Hexagono">
                 </div>  
                 <div class="carousel-item ">
-                    <img src="Resources/public/image/ImagenSlideArriendo.PNG" alt="Arriendos">
+                    <img src="Resources/public/image/banner2.jpg" alt="Arriendos">
                 </div>
                 <div class="carousel-item ">
-                    <img src="Resources/public/image/ImagenSlideVacacional.PNG" alt="vacacional">
+                    <img src="Resources/public/image/banner3.jpg" alt="vacacional">
                 </div>              
             </div>
             <a class="carousel-control-prev" href="#divcarusel" data-slide="prev">
@@ -28,6 +29,46 @@
             <a class="carousel-control-next" href="#divcarusel" data-slide="next">
                 <span class="carousel-control-next-icon"></span>
             </a>
+            <div class="filtroBusquedaBanner">
+                <div class="row" style="padding-bottom: 0px !important;">
+
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+
+                        <table>
+                            <tr>
+                                <td>
+                                    <button type="button" onclick="rapidSearch('arriendo');" class="btn btn-block btn-primary btn-lg transparencia botonFiltroBusquedaBanner">Arriendo</button>
+                                </td>
+                                <td>
+                                    <button type="button" onclick="rapidSearch('venta');" class="btn btn-block btn-primary btn-lg transparencia botonFiltroBusquedaBanner">Venta</button>
+                                </td>
+
+                                <td>
+                                    <button type="button" onclick="rapidSearch('vacacional');" class="btn btn-block btn-primary btn-lg transparencia botonFiltroBusquedaBanner">Vacacional</button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="3" >
+                                    <table style="width: 100%">
+                                        <tr>
+                                            <td style="width: 80%;">
+                                                <input id="txtSearchNeighborhoodCity" name="txtSearchNeighborhoodCity" 
+                                                       class="form-control" type="text" value="" autocomplete="off"
+                                                       placeholder="Ingrese el nombre del barrio o la ciudad" style="float: left"> 
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-block btn-primary btn-lg transparencia" onclick="rapidSearch('');">Buscar</button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>                    
+                </div>
+            </div>
         </div>
     </div>
     <div class="col-md-1 col-sm-1 col-xs-12"></div>

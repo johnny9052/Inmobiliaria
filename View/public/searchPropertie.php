@@ -15,14 +15,14 @@
 
             <div class="carousel-inner" id="imagesCarusel" style="max-width: 1100px; max-height: 450px">
                 <div class="carousel-item active">
-                    <img src="Resources/public/image/ImagenSlidePrincipal.PNG" alt="Hexagono">
+                    <img src="Resources/public/image/banner1.jpg" alt="Hexagono">
                 </div>  
                 <div class="carousel-item ">
-                    <img src="Resources/public/image/ImagenSlideArriendo.PNG" alt="Arriendos">
+                    <img src="Resources/public/image/banner2.jpg" alt="Arriendos">
                 </div>
                 <div class="carousel-item ">
-                    <img src="Resources/public/image/ImagenSlideVacacional.PNG" alt="vacacional">
-                </div>              
+                    <img src="Resources/public/image/banner3.jpg" alt="vacacional">
+                </div>             
             </div>
             <a class="carousel-control-prev" href="#divcarusel" data-slide="prev">
                 <span class="carousel-control-prev-icon"></span>
