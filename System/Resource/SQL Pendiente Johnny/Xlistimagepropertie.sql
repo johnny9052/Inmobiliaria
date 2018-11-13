@@ -5,10 +5,10 @@ CREATE  PROCEDURE listimagepropertie(vid int)
     COMMENT 'Procedimiento que carga las imagenes asociados a un inmueble'
 BEGIN
  	
-	SELECT rutaImagen as url_file              
-	FROM imageninmueble   
-	where idInmueble = vid
-        ORDER By rutaImagen asc;	
+	SELECT img.rutaImagen as url_file, img.`idInmueble` as id_inmueble             
+	FROM imageninmueble  as img
+	where img.idInmueble = vid
+        ORDER By img.rutaImagen asc;	
 	
 END//
 

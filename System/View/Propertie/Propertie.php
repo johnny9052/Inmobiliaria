@@ -629,7 +629,7 @@ and open the template in the editor.
                                     &nbsp;&nbsp;
                                     <label>Barrio</label>
                                     <div>
-                                        <select id="selBarrio" name="barrio" required class="form-control select2" style="width: 100%;">
+                                        <select id="selBarrio" name="barrio" class="form-control select2" style="width: 100%;">
                                             <option value="-1" selected> -- SELECCIONE --</option>                            
                                         </select>
                                     </div>

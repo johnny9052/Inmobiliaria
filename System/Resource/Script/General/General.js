@@ -226,8 +226,12 @@ function Execute(dataSend, url, before, success, idModalOpenFinish, msgNoAction,
                 case undefined:
                 default :
                     /*En el caso de que sea un listar info, buscar o pintar menu*/
+                    
+                    //alert("Debo organizar datos");
+                    
                     if (dataSend.action === "list" || dataSend.action === "listfilter" ||
                             dataSend.action === "listbyuser" ||
+                            dataSend.action === "listbydata" ||
                             dataSend.action === "menu" || dataSend.action === "search"
                             || dataSend.action === "detail" || dataSend.action.indexOf("load") > -1) {
                         if (success !== "") {
@@ -1143,6 +1147,11 @@ function organizarArchivoCargadoDesdeBD(name, obj, public = false) {
     }
     return nombreLimpio;
 }
+
+
+
+
+
 
 
 

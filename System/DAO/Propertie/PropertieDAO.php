@@ -624,4 +624,9 @@ class PropertieDAO {
         $this->repository->ExecuteTransaction($query);
     }
 
+    public function ListByData(PropertieDTO $obj) {
+        $query = $this->repository->buildQuery("searchpropertiebyclient", array((int) $obj->getClient()));        
+        $this->repository->Execute($query);
+    }
+
 }

@@ -39,6 +39,11 @@ function ExecuteAction($action, $obj, $dao, $specific = null) {
             $dao->ListByUser($obj);
             break;
 
+        case "listbydata":
+            $dao->ListByData($obj);
+            break;
+
+           
         case "listNoTable":
             $dao->ListAllNoTable($obj);
             break;
@@ -103,11 +108,12 @@ function ExecuteAction($action, $obj, $dao, $specific = null) {
         case "loadImage":
             $dao->LoadImage($obj);
             break;
-        
+
         case "SearchEventsClient":
             $dao->SearchEventsClient($obj);
             break;
-        
+
+
 
 
         /* Other transactions */
