@@ -7,10 +7,31 @@ $(window).on("load", function (e) {
     loadPropertieType();
     loadOfferType();
     loadStratum();
-    listProperties();
+       
+    if (getUrlParameter("typeOffer") !== undefined || getUrlParameter("nameNeighborhoodCity") !== undefined) {
+
+        if (getUrlParameter("nameNeighborhoodCity") !== "") {
+            $("#txtSearchNeighborhoodCity").val(getUrlParameter("nameNeighborhoodCity"));
+        }
+
+        if (getUrlParameter("typeOffer") !== undefined) {
+            rapidSearch(getUrlParameter("typeOffer"));
+        } else {
+            rapidSearch("");
+        }
+        
+        showToast('Cargando... por favor espere');
+
+    } else {        
+        listProperties();
+    }
+
+
     loadValorMaximo();
     loadAreaMaxima();
 });
+
+
 var registrosPagina = 8;
 var totalRegistros = 0;
 var totalPaginacion = 0;
@@ -79,7 +100,9 @@ function listProperties() {
     infoPlus.temp.push({datos: ["valorMax", replaceText(valorMax, ",", "")]});
     infoPlus.temp.push({datos: ["areaMax", areaMax]});
     infoPlus.temp.push({datos: ["nombreCiudadBarrio", nombreCiudadBarrio]});
-    Execute(scanInfo('listNoTable', true, '', infoPlus.temp), 'Propertie/CtlPropertie', '', 'buildListPropertie(info);', '', '', 'System/');
+    Execute(scanInfo('listNoTable', true, '', infoPlus.temp), 'Propertie/CtlPropertie', '', 'buildListPropertie(info);executeWithTime("closeWindow(\'modal-default\');",1000);', '', '', 'System/');
+    
+    
 }
 
 
@@ -248,28 +271,47 @@ function changeValueRange(idRange, idLbl) {
 }
 
 
+function changeValuerapidSearch(valor, id) {
+    $(".botonFiltroBusquedaBanner").removeClass("botonSeleccionado");
+    if ($('#selOfferType').val() === valor) {
+        $('#selOfferType').val(-1);
+    } else {
+        $("#" + id).addClass("botonSeleccionado");
+        $('#selOfferType').val(valor);
+    }
+}
+
 
 function rapidSearch(type) {
 
-    switch (type) {
 
-        case "venta":
-            $("#selOfferType").val(16);
-            break;
 
-        case "arriendo":
-            $("#selOfferType").val(15);
-            break;
+    if ((type !== "" && $("#selOfferType option").length > 1) || type === "") {
+        switch (type) {
 
-        case "vacacional":
-            $("#selOfferType").val(17);
-            break;
+            case "venta":
+                $("#btnVentaFiltroSearch").addClass("botonSeleccionado");
+                $("#selOfferType").val(16);
+                break;
 
-        default:
+            case "arriendo":
+                $("#btnArriendoFiltroSearch").addClass("botonSeleccionado");
+                $("#selOfferType").val(15);
+                break;
 
-            break;
+            case "vacacional":
+                $("#btnVacacionalFiltroSearch").addClass("botonSeleccionado");
+                $("#selOfferType").val(17);
+                break;
+
+            default:
+
+                break;
+        }
+
+        listProperties();
+        moverScrollView('divMoveToAfterFilterRepaginar');
+    } else {
+        executeWithTime("rapidSearch('" + type + "')", 1000);
     }
-
-    listProperties();
-    moverScrollView('divMoveToAfterFilterRepaginar');
 }
