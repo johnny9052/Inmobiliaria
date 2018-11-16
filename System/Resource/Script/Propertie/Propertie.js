@@ -223,6 +223,12 @@ function showData(info) {
     $("#txtPublicationDate").val(info[0].fecha_publicacion);
     $("#txtReceptionDate").val(info[0].fecha_recepcion);
     $("#txtLinderos").val(info[0].linderos_inmbueble);
+
+    $("#txtDireccionCarrera").val(info[0].direccion_carrera);
+    $("#txtDireccionCalle").val(info[0].direccion_calle);
+    $("#txtDireccionNumero").val(info[0].direccion_numero);
+    $("#txtDireccionInformacionAdicional").val(info[0].direccion_info_adicional);
+
     $("#txtMatriculaInmobiliaria").val(info[0].matricula_inmobiliaria);
     $("#txtAvaluoCatastral").val(info[0].avaluo_catastral);
     /*Se añade el punto del gps*/

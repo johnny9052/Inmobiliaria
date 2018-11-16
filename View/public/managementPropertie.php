@@ -19,7 +19,7 @@ and open the template in the editor.
         <br>
         <br>
         <br>
-        
+
 
 
         <section class="content-header">
@@ -820,11 +820,69 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <label for="" class="fa fa-info"></label>
                                     &nbsp;&nbsp;
-                                    <label>Linderos</label>
+                                    <label>Descripcion</label>
                                     <textarea id="txtLinderos" name="linderos" class="form-control" rows="3" placeholder="Linderos"></textarea>
                                 </div>
                             </div>                       
                         </div>
+
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="txtDireccionCarrera">Carrera</label>  
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
+                                        <input id="txtDireccionCarrera" name="direccionCarrera" 
+                                               class="form-control" type="text" value="" 
+                                               autocomplete="off" required
+                                               placeholder="Carrera del inmueble">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="txtDireccionCalle">Calle</label>  
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
+                                        <input id="txtDireccionCalle" name="direccionCalle" 
+                                               class="form-control" type="text" value="" 
+                                               autocomplete="off" required
+                                               placeholder="Calle del inmueble">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="txtDireccionNumero">Numero</label>  
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
+                                        <input id="txtDireccionNumero" name="direccionNumero" 
+                                               class="form-control" type="text" value="" 
+                                               autocomplete="off" required
+                                               placeholder="Numero del inmueble">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="txtDireccionInformacionAdicional">Informacion Adicional</label>  
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
+                                        <input id="txtDireccionInformacionAdicional" name="direccionInformacionAdicional" 
+                                               class="form-control" type="text" value="" 
+                                               autocomplete="off" required
+                                               placeholder="InformacionAdicional del inmueble">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
 
 
 

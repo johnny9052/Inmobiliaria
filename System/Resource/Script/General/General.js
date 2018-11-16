@@ -226,9 +226,9 @@ function Execute(dataSend, url, before, success, idModalOpenFinish, msgNoAction,
                 case undefined:
                 default :
                     /*En el caso de que sea un listar info, buscar o pintar menu*/
-                    
+
                     //alert("Debo organizar datos");
-                    
+
                     if (dataSend.action === "list" || dataSend.action === "listfilter" ||
                             dataSend.action === "listbyuser" ||
                             dataSend.action === "listbydata" ||
@@ -571,7 +571,8 @@ function validateForm(form, modal) {
         if (elemento.type === "select-one") {
             if (elemento.value === "-1" && $(elemento).prop('required')) { //es valido?                   
                 $(elemento).parent().siblings('label').addClass("colorCampoError");
-                status = false; // si no es valido retorne falso                               
+                status = false; // si no es valido retorne falso   
+                console.log("El campo invalido es " + elemento.id);
             } else {
                 $(elemento).parent().siblings('label').removeClass("colorCampoError");
             }
@@ -584,7 +585,8 @@ function validateForm(form, modal) {
                 /*Es necesario el doble parent por el icono de las cajas de texto, 
                  * si se van a quitar los iconos solo seria 1 .parent()*/
                 $(elemento).parent().siblings('label').addClass("colorCampoError");
-                status = false; // si no es valido retorne falso                               
+                status = false; // si no es valido retorne falso    
+                console.log("El campo invalido es " + elemento.id);
             } else {
                 /*Es necesario el doble parent por el icono de las cajas de texto, 
                  * si se van a quitar los iconos solo seria 1 .parent()*/
@@ -1289,7 +1291,7 @@ function prepareDinamicData(nameData, obj) {
  * @version 0.2
  */
 function listDinamicData(info, obj, idDiv, prefix) {
-    /*Se agregan todos los datos a la lista, y se pintan*/   
+    /*Se agregan todos los datos a la lista, y se pintan*/
     for (var x = 0; x < info.length; x++) {
         if (info[x].dinamic_data !== "") {
             obj.listElements.push(info[x].dinamic_data);

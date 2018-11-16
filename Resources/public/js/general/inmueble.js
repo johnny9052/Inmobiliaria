@@ -224,6 +224,12 @@ function showData(info) {
     $("#txtLinderos").val(info[0].linderos_inmbueble);
     $("#txtMatriculaInmobiliaria").val(info[0].matricula_inmobiliaria);
     $("#txtAvaluoCatastral").val(info[0].avaluo_catastral);
+
+    $("#txtDireccionCarrera").val(info[0].direccion_carrera);
+    $("#txtDireccionCalle").val(info[0].direccion_calle);
+    $("#txtDireccionNumero").val(info[0].direccion_numero);
+    $("#txtDireccionInformacionAdicional").val(info[0].direccion_info_adicional);
+
     /*Se añade el punto del gps*/
     addMarker(new google.maps.LatLng(info[0].latitud, info[0].longitud));
     /*Se cargan las imagenes y videos*/
