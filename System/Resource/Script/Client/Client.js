@@ -1,4 +1,13 @@
 /* Funciones jQuery */
+
+var objImageClient = {
+    listFileBase64: new Array(),
+    listFileName: new Array(),
+    listFileURL: new Array(),
+    listFileNameDeleted: new Array()
+};
+
+
 $(window).on("load", function (e) {
     list();
     loadTipoIdentificacion();
@@ -11,7 +20,23 @@ $(window).on("load", function (e) {
     loadMaritalStatus();
     loadPersonType();
     loadClientTypeCheckbox();
+
+    if (getUrlParameter('idFilter') !== undefined) {
+        showToast('Cargando... por favor espere');
+        executeWithTime("profileClientAction();", '2000');
+    }
 });
+
+
+function profileClientAction() {
+    var idClient = getUrlParameter('idFilter');
+
+    if (idClient !== undefined) {
+        $("#txtId").val(idClient);
+        searchIntoModal();
+    }
+
+}
 
 
 function loadTipoIdentificacion() {
@@ -64,13 +89,33 @@ function loadClientTypeCheckbox() {
     /*BuildCheckbox("Info que llega","Id del contenedor", "Nombre de los checks");')*/
 }
 
+function mostrarMensaje() {
+    showToast("Almacenado correctamente", "success", "ModalNew");
+    showButtonEmployee(false);
+}
+
 
 function save() {
     if (validateForm() === true) {
-        Execute(scanInfo('save', true, '', [{datos: scanCheckboxDinamic("typesClientSelecteds", "ClientType")}]),
+        /*Se define el array de datos adicionales como un objeto, debido a que 
+         * es necesario pasarlo por referencia para el llenado de los archivos*/
+        var infoPlus = {
+            temp: new Array()
+        };
+
+        /*Se manda por referencia el objeto de la info adicional donde se añadiran 
+         * los archivos, junto el el objeto que tiene la informacion real de
+         * todos los archivos*/
+
+        addFileNameAndEncodingAndDeletedFiles(infoPlus, objImageClient, 'ClientImage');
+        infoPlus.temp.push({datos: scanCheckboxDinamic("typesClientSelecteds", "ClientType")});
+
+
+        Execute(scanInfo('save', true, '', infoPlus.temp),
                 'Client/CtlClient',
                 '',
-                'closeWindow();list();');
+                'closeWindow();list();mostrarMensaje();', '', 'Ha superado el tamaño maximo de las imagenes', '', true);
+
     }
 }
 
@@ -81,11 +126,18 @@ function list() {
 
 function search(id) {
     $("#txtId").val(id);
+    redirectInfoFilter('Client/ProfileClient');
+}
+
+
+function searchIntoModal() {
     Execute(scanInfo('search', true),
             'Client/CtlClient',
             '',
-            'showData(info);CheckCheckboxChecked("loadClientTypeSelected","ClientType");');
+            'executeWithTime("closeWindow(\'modal-default\');",500);showData(info);CheckCheckboxChecked("loadClientTypeSelected","ClientType");');
+
 }
+
 
 
 function showData(info) {
@@ -112,6 +164,15 @@ function showData(info) {
     refreshSelect("selStateExpedition", info[0].departamento_expedicion);
     refreshSelect("selStateResidence", info[0].departamento_residencia);
 
+    var nombreArchivoFoto = "";
+
+    if (info[0].foto_cliente !== null) {
+        nombreArchivoFoto = organizarArchivoCargadoDesdeBD(info[0].foto_cliente, objImageClient);
+    }
+    $("#lstArchivoFoto").html(imageDownloadFile("jpg", objImageClient.listFileURL[objImageClient.listFileName.indexOf(nombreArchivoFoto)], nombreArchivoFoto));
+
+
+
     openWindow();
     showButton(false);
 }
@@ -119,14 +180,59 @@ function showData(info) {
 
 function update() {
     if (validateForm() === true) {
-        Execute(scanInfo('update', true, '', [{datos: scanCheckboxDinamic("typesClientSelecteds", "ClientType")}]),
+        /*Se define el array de datos adicionales como un objeto, debido a que 
+         * es necesario pasarlo por referencia para el llenado de los archivos*/
+        var infoPlus = {
+            temp: new Array()
+        };
+
+        /*Se manda por referencia el objeto de la info adicional donde se añadiran 
+         * los archivos, junto el el objeto que tiene la informacion real de
+         * todos los archivos*/
+
+        addFileNameAndEncodingAndDeletedFiles(infoPlus, objImageClient, 'ClientImage');
+        infoPlus.temp.push({datos: scanCheckboxDinamic("typesClientSelecteds", "ClientType")});
+
+        Execute(scanInfo('update', true, '', infoPlus.temp),
                 'Client/CtlClient',
                 '',
-                'closeWindow();list();');
+                'closeWindow();list();limpiarMultimedia();', '', 'Ha superado el tamaño maximo de las imagenes');
+
     }
 }
 
 
 function deleteInfo() {
-    Execute(scanInfo('delete', true), 'Client/CtlClient', '', 'closeWindow("ModalConfirm");list();cleanForm("ModalNew");');
+
+    /*Se define el array de datos adicionales como un objeto, debido a que 
+     * es necesario pasarlo por referencia para el llenado de los archivos*/
+    var infoPlus = {
+        temp: new Array()
+    };
+
+    /*Se manda por referencia el objeto de la info adicional donde se añadiran 
+     * los archivos, junto el el objeto que tiene la informacion real de
+     * todos los archivos*/
+
+    addAllFileNameDeleted(infoPlus, objImageClient, 'ClientImage');
+
+    Execute(scanInfo('delete', true, '', infoPlus.temp), 'Client/CtlClient', '', 'closeWindow("ModalConfirm");list();cleanForm("ModalNew");limpiarMultimedia();');
+}
+
+
+/**
+ * Se limpia o reinicia todos los elementos involucrados en los videos e imagenes
+ * @returns {void}
+ * @author Johnny Alexander Salazar
+ * @version 0.1
+ */
+function limpiarMultimedia() {
+    objImageClient = new Array();
+    objImageClient.listFileName = new Array();
+    objImageClient.listFileURL = new Array();
+    objImageClient.listFileBase64 = new Array();
+    objImageClient.listFileNameDeleted = new Array();
+
+    $("#lstArchivoFoto").html("");
+
 }

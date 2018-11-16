@@ -120,7 +120,7 @@ and open the template in the editor.
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">                                                                        
-                                                    <input id="txtId" name="id" class="form-control identificator"  type="hidden" value="">
+                                                    <input id="txtId" name="id" class="form-control text-capitalize identificator"  type="hidden" value="">
                                                 </div>
                                             </div>
                                         </div>
@@ -132,7 +132,7 @@ and open the template in the editor.
                                                     &nbsp;&nbsp;
                                                     <label>Tipo documento</label>
                                                     <div>
-                                                        <select id="selDocumentType" name="documentType" required class="form-control select2" style="width: 100%;">
+                                                        <select id="selDocumentType" name="documentType" required class="form-control text-capitalize select2" style="width: 100%;">
                                                             <option value="-1" selected> -- SELECCIONE --</option>                            
                                                         </select>
                                                     </div>
@@ -144,7 +144,7 @@ and open the template in the editor.
                                                     <label for="txtDocumentNumber">Cedula</label>    
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><i class="fa fa-id-card"></i></span>
-                                                        <input id="txtDocumentNumber" name="documentNumber" class="form-control" type="number" value="" autocomplete="off" required
+                                                        <input id="txtDocumentNumber" name="documentNumber" class="form-control text-capitalize" type="number" value="" autocomplete="off" required
                                                                placeholder="Numero de cedula">
                                                     </div>
                                                 </div>
@@ -159,7 +159,7 @@ and open the template in the editor.
                                                         <div class="input-group-addon">
                                                             <i class="fa fa-calendar"></i>
                                                         </div>
-                                                        <input type="text" name="expeditionDate" required class="form-control pull-right dateAction" id="txtExpeditionDate">
+                                                        <input type="text" name="expeditionDate" required class="form-control text-capitalize pull-right dateAction" id="txtExpeditionDate">
                                                     </div>
                                                 </div>
                                             </div>
@@ -170,7 +170,7 @@ and open the template in the editor.
                                                     <label>Departamento de expedicion</label>
                                                     <div>
                                                         <select id="selStateExpedition" name="stateExpedition" 
-                                                                class="form-control select2" style="width: 100%;"  
+                                                                class="form-control text-capitalize select2" style="width: 100%;"  
                                                                 onchange="loadCity(this.value)">
                                                             <option value="-1" selected> -- SELECCIONE --</option>                            
                                                         </select>
@@ -186,7 +186,7 @@ and open the template in the editor.
                                                     &nbsp;&nbsp;
                                                     <label>Municipio de expedicion</label>
                                                     <div>
-                                                        <select id="selCityExpedition" name="cityExpedition" required class="form-control select2" style="width: 100%;">
+                                                        <select id="selCityExpedition" name="cityExpedition" required class="form-control text-capitalize select2" style="width: 100%;">
                                                             <option value="-1" selected> -- SELECCIONE --</option>                            
                                                         </select>
                                                     </div>
@@ -200,7 +200,7 @@ and open the template in the editor.
                                                     <label for="txtFirstName">Primer nombre</label>   
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><i class="fa fa-info"></i></span>
-                                                        <input id="txtFirstName" name="firstName" class="form-control" type="text" value="" autocomplete="off" required
+                                                        <input id="txtFirstName" name="firstName" class="form-control text-capitalize" type="text" value="" autocomplete="off" required
                                                                placeholder="Primer nombre">
                                                     </div>
                                                 </div>
@@ -211,7 +211,7 @@ and open the template in the editor.
                                                     <label for="txtName">Segundo nombre</label>  
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><i class="fa fa-info"></i></span>
-                                                        <input id="txtSecondName" name="secondName" class="form-control" type="text" value="" autocomplete="off"
+                                                        <input id="txtSecondName" name="secondName" class="form-control text-capitalize" type="text" value="" autocomplete="off"
                                                                placeholder="Segundo nombre">
                                                     </div>
                                                 </div>
@@ -224,7 +224,7 @@ and open the template in the editor.
                                                     <label for="txtFirstLastName">Primer apellido</label>  
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><i class="fa fa-info"></i></span>
-                                                        <input id="txtFirstLastName" name="firstLastName" class="form-control" type="text" value="" autocomplete="off" required
+                                                        <input id="txtFirstLastName" name="firstLastName" class="form-control text-capitalize" type="text" value="" autocomplete="off" required
                                                                placeholder="Primer apellido">
                                                     </div>
                                                 </div>
@@ -235,7 +235,7 @@ and open the template in the editor.
                                                     <label for="txtName">Segundo apellido</label>
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><i class="fa fa-info"></i></span>                                    
-                                                        <input id="txtSecondLastName" name="secondLastName" class="form-control" type="text" value="" autocomplete="off" 
+                                                        <input id="txtSecondLastName" name="secondLastName" class="form-control text-capitalize" type="text" value="" autocomplete="off" 
                                                                placeholder="Segundo apellido">
                                                     </div>
                                                 </div>
@@ -248,7 +248,7 @@ and open the template in the editor.
                                                     <label for="txtAddressOffice">Dirección laboral</label> 
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><i class="fa fa-address-card"></i></span>          
-                                                        <input id="txtAddressOffice" name="addressOffice" class="form-control" type="text" value="" autocomplete="off" required
+                                                        <input id="txtAddressOffice" name="addressOffice" class="form-control text-capitalize" type="text" value="" autocomplete="off" required
                                                                placeholder="Dirección laboral">
                                                     </div>
                                                 </div>
@@ -261,7 +261,7 @@ and open the template in the editor.
                                                     <label for="txtOfficePhone">Teléfono laboral</label>
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><i class="fa fa-phone"></i></span>                                              
-                                                        <input id="txtOfficePhone" name="officePhone" class="form-control" type="number" value="" autocomplete="off" required
+                                                        <input id="txtOfficePhone" name="officePhone" class="form-control text-capitalize" type="number" value="" autocomplete="off" required
                                                                max="9999999999" maxlength="10" placeholder="Teléfono laboral(Max 10 digitos)">
                                                     </div>
                                                 </div>
@@ -271,7 +271,7 @@ and open the template in the editor.
                                                     <label for="txtHomePhone">Telefono residencia</label>
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><i class="fa fa-phone"></i></span>                                              
-                                                        <input id="txtHomePhone" name="homePhone" class="form-control" type="number" value="" autocomplete="off" required
+                                                        <input id="txtHomePhone" name="homePhone" class="form-control text-capitalize" type="number" value="" autocomplete="off" required
                                                                max="9999999999" maxlength="10" placeholder="Telefono residencia (Max 10 digitos)">
                                                     </div>
                                                 </div>
@@ -284,7 +284,7 @@ and open the template in the editor.
                                                     <label for="txtMobilePhone">Teléfono celular</label>          
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><i class="fa fa-mobile-phone"></i></span>          
-                                                        <input id="txtMobilePhone" name="mobilePhone" class="form-control" type="number" value="" autocomplete="off" required
+                                                        <input id="txtMobilePhone" name="mobilePhone" class="form-control text-capitalize" type="number" value="" autocomplete="off" required
                                                                max="9999999999" maxlength="10" placeholder="Teléfono celular (Max 10 digitos)">
                                                     </div>
                                                 </div>
@@ -306,7 +306,7 @@ and open the template in the editor.
                                                     <label for="txtAddress">Dirección residencia</label> 
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><i class="fa fa-address-card"></i></span>          
-                                                        <input id="txtAddress" name="address" class="form-control" type="text" value="" autocomplete="off" required
+                                                        <input id="txtAddress" name="address" class="form-control text-capitalize" type="text" value="" autocomplete="off" required
                                                                placeholder="Dirección residencia">
                                                     </div>
                                                 </div>
@@ -320,7 +320,7 @@ and open the template in the editor.
                                                     &nbsp;&nbsp;
                                                     <label>Estado civil</label>
                                                     <div>
-                                                        <select id="selMaritalStatus" name="maritalStatus" required class="form-control select2" style="width: 100%;">
+                                                        <select id="selMaritalStatus" name="maritalStatus" required class="form-control text-capitalize select2" style="width: 100%;">
                                                             <option value="-1" selected> -- SELECCIONE --</option>                            
                                                         </select>
                                                     </div>
@@ -333,7 +333,7 @@ and open the template in the editor.
                                                     <label>Departamento de residencia</label>
                                                     <div>                                        
                                                         <select id="selStateResidence" name="stateResidence"  
-                                                                class="form-control select2" style="width: 100%;" 
+                                                                class="form-control text-capitalize select2" style="width: 100%;" 
                                                                 onchange="loadCityResidence(this.value);">
                                                             <option value="-1" selected> -- SELECCIONE --</option>                            
                                                         </select>
@@ -349,7 +349,7 @@ and open the template in the editor.
                                                     &nbsp;&nbsp;
                                                     <label>Municipio de residencia</label>
                                                     <div>
-                                                        <select id="selCityResidence" name="cityResidence" required class="form-control select2" style="width: 100%;">
+                                                        <select id="selCityResidence" name="cityResidence" required class="form-control text-capitalize select2" style="width: 100%;">
                                                             <option value="-1" selected> -- SELECCIONE --</option>                            
                                                         </select>
                                                     </div>
@@ -360,7 +360,7 @@ and open the template in the editor.
                                                     <label for="txtMonthlyIncome">Ingresos Mensuales</label>   
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><i class="fa fa-money"></i></span>
-                                                        <input id="txtMonthlyIncome" name="monthlyIncome" class="form-control" type="number" value="" autocomplete="off" required
+                                                        <input id="txtMonthlyIncome" name="monthlyIncome" class="form-control text-capitalize" type="number" value="" autocomplete="off" required
                                                                placeholder="Ingresos Mensuales">
                                                     </div>
                                                 </div>

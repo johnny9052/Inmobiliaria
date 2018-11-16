@@ -116,7 +116,7 @@ and open the template in the editor.
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">                                                                        
-                                                    <input id="txtId" name="id" class="form-control identificator"  type="hidden" value="">
+                                                    <input id="txtId" name="id" class="form-control text-capitalize identificator"  type="hidden" value="">
                                                 </div>
                                             </div>
                                         </div>
@@ -128,7 +128,7 @@ and open the template in the editor.
                                                     <label>Cliente</label>
                                                     <div>
                                                         <select id="selClient" name="client" 
-                                                                class="form-control select2" style="width: 100%;" required>
+                                                                class="form-control text-capitalize select2" style="width: 100%;" required>
                                                             <option value="-1" selected> -- SELECCIONE --</option>                            
                                                         </select>
                                                     </div>
@@ -139,7 +139,7 @@ and open the template in the editor.
                                                     <label for="txtDocumentNumber">Cedula</label>    
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><i class="fa fa-id-card"></i></span>
-                                                        <input id="txtDocumentNumber" name="documentNumber" class="form-control" type="number" value="" autocomplete="off" required
+                                                        <input id="txtDocumentNumber" name="documentNumber" class="form-control text-capitalize" type="number" value="" autocomplete="off" required
                                                                placeholder="Numero de cedula">
                                                     </div>
                                                 </div>
@@ -154,7 +154,7 @@ and open the template in the editor.
                                                         <div class="input-group-addon">
                                                             <i class="fa fa-calendar"></i>
                                                         </div>
-                                                        <input type="text" name="expeditionDate" required class="form-control pull-right dateAction" id="txtExpeditiondate">
+                                                        <input type="text" name="expeditionDate" required class="form-control text-capitalize pull-right dateAction" id="txtExpeditiondate">
                                                     </div>
                                                 </div>
                                             </div>
@@ -176,7 +176,7 @@ and open the template in the editor.
                                                     <label for="txtFirstName">Nombres</label>   
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><i class="fa fa-info"></i></span>
-                                                        <input id="txtFirstName" name="firstName" class="form-control" type="text" value="" autocomplete="off" required
+                                                        <input id="txtFirstName" name="firstName" class="form-control text-capitalize" type="text" value="" autocomplete="off" required
                                                                placeholder="Primer nombre">
                                                     </div>
                                                 </div>
@@ -187,7 +187,7 @@ and open the template in the editor.
                                                     <label for="txtFirstLastName">Apellidos</label>  
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><i class="fa fa-info"></i></span>
-                                                        <input id="txtFirstLastName" name="firstLastName" class="form-control" type="text" value="" autocomplete="off" required
+                                                        <input id="txtFirstLastName" name="firstLastName" class="form-control text-capitalize" type="text" value="" autocomplete="off" required
                                                                placeholder="Primer apellido">
                                                     </div>
                                                 </div>
@@ -200,7 +200,7 @@ and open the template in the editor.
                                                     <label for="txtMobilePhone">Teléfono celular</label>          
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><i class="fa fa-mobile-phone"></i></span>          
-                                                        <input id="txtMobilePhone" name="mobilePhone" class="form-control" type="number" value="" autocomplete="off" required
+                                                        <input id="txtMobilePhone" name="mobilePhone" class="form-control text-capitalize" type="number" value="" autocomplete="off" required
                                                                max="9999999999" maxlength="10" placeholder="Telefono celular (Max 10 digitos)">
                                                     </div>
                                                 </div>
@@ -210,7 +210,7 @@ and open the template in the editor.
                                                     <label for="txtCompany">Empresa</label>  
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><i class="fa fa-info"></i></span>
-                                                        <input id="txtCompany" name="company" class="form-control" type="text" value="" autocomplete="off"
+                                                        <input id="txtCompany" name="company" class="form-control text-capitalize" type="text" value="" autocomplete="off"
                                                                placeholder="Empresa">
                                                     </div>
                                                 </div>
@@ -224,7 +224,7 @@ and open the template in the editor.
                                                     <label for="txtAddress">Dirección Laboral</label> 
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><i class="fa fa-address-card"></i></span>          
-                                                        <input id="txtAddress" name="address" class="form-control" type="text" value="" autocomplete="off"
+                                                        <input id="txtAddress" name="address" class="form-control text-capitalize" type="text" value="" autocomplete="off"
                                                                placeholder="Direccion laboral">
                                                     </div>
                                                 </div>
@@ -237,7 +237,7 @@ and open the template in the editor.
                                                     <label for="txtOfficePhone">Telefono fijo</label>
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><i class="fa fa-phone"></i></span>                                              
-                                                        <input id="txtOfficePhone" name="officePhone" class="form-control" type="number" value="" autocomplete="off"
+                                                        <input id="txtOfficePhone" name="officePhone" class="form-control text-capitalize" type="number" value="" autocomplete="off"
                                                                max="9999999999" maxlength="10" placeholder="Telefono fijo (Max 10 digitos)">
                                                     </div>
                                                 </div>
@@ -247,7 +247,7 @@ and open the template in the editor.
                                                     <label for="txtSalary">Salario</label>   
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
-                                                        <input id="txtSalary" name="salary" class="form-control" type="number" value="" autocomplete="off"
+                                                        <input id="txtSalary" name="salary" class="form-control text-capitalize" type="number" value="" autocomplete="off"
                                                                placeholder="Costo de administracion">
                                                     </div>
                                                 </div>

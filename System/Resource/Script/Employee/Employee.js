@@ -382,7 +382,7 @@ function showData(info) {
     refreshSelect("selArl", info[0].id_Arl);
     refreshSelect("selEps", info[0].id_Eps);
     refreshSelect("selCompensationBox", info[0].id_Caja_Compensacion);
-    $("#txtContacName").val(info[0].nombre_Contacto);
+    $("#txtContactName").val(info[0].nombre_Contacto);
     $("#txtContactPhone").val(info[0].telefono_Contacto);
     $("#txtContactEmail").val(info[0].correo_Contacto);
 
@@ -451,15 +451,21 @@ function limpiarMultimedia() {
     objFileIdentification.listFileBase64 = new Array();
     objFileIdentification.listFileName = new Array();
     objFileIdentification.listFileURL = new Array();
+    objFileIdentification.listFileBase64 = new Array();
+    objFileIdentification.listFileNameDeleted = new Array();
     $("#lstArchivoCedula").html("");
 
     objFileMilitaryCard.listFileBase64 = new Array();
     objFileMilitaryCard.listFileName = new Array();
     objFileMilitaryCard.listFileURL = new Array();
+    objFileMilitaryCard.listFileBase64 = new Array();
+    objFileMilitaryCard.listFileNameDeleted = new Array();
     $("#lstArchivoLibreta").html("");
 
     objImageEmployee.listFileBase64 = new Array();
     objImageEmployee.listFileName = new Array();
     objImageEmployee.listFileURL = new Array();
+    objImageEmployee.listFileBase64 = new Array();
+    objImageEmployee.listFileNameDeleted = new Array();
     $("#lstArchivoFoto").html("");
 }

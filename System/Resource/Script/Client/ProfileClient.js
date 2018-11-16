@@ -1,5 +1,7 @@
 /* Funciones jQuery */
 $(window).on("load", function (e) {
+
+    var idClient = getUrlParameter('idFilter');
     list();
     loadTipoIdentificacion();
     loadDepartment();
@@ -12,8 +14,8 @@ $(window).on("load", function (e) {
     loadPersonType();
     loadClientTypeCheckbox();
     loadOfferType();
-    search(1);
-    searchPropertieByClient(1);
+    search(idClient);
+    searchPropertieByClient(idClient);
 });
 
 var listPropertiesId = new Array();
@@ -115,9 +117,16 @@ function showData(info) {
     $("#lblPhone").html(info[0].telefonos);
     $("#lblEmail").html(info[0].email);
     $("#lblPersonType").html(info[0].tipocliente);
+    showImageClient(info);
     loadEventsClient(info[0].id);
+
 }
 
+
+function showImageClient(info) {
+    var listado = "<img class='profile-user-img img-responsive img-circle' src='" + ((info[0].foto_cliente).split("System/")[1]) + "' class='img-circle' alt='Foto cliente'>";
+    $("#divImageClient").html(listado);
+}
 
 function showDataPropertie(info) {
     var listado = "";
@@ -127,13 +136,13 @@ function showDataPropertie(info) {
             listPropertiesId.push(info[x].id);
             listado += "<div class='post'>\n\
                             <div class='user-block'>\n\
-                                <img class='img-circle img-bordered-sm' src='../Resources/public/image/user6-128x128.jpg' alt='User Image'>\n\
+                                <img class='img-circle img-bordered-sm' src='../Resources/public/image/iconoinmueblecliente.png' alt='User Image'>\n\
                                 <span class='username'>\n\
-                                    <a href='#'>" + info[x].nombre_tipo_oferta + " - "+ info[x].nombre_ciudad +"</a><a href='#' class='pull-right btn-box-tool'>\n\
+                                    <a href='#'>" + info[x].nombre_tipo_oferta + " - " + info[x].nombre_ciudad + "</a><a href='#' class='pull-right btn-box-tool'>\n\
                                         <i class='fa fa-times'></i>\n\
                                     </a>\n\
                                 </span>\n\
-                                <span class='description titulosPrincipales'>Valor: $"+parseInt(info[x].precio).toLocaleString()+" -  Administración: $"+parseInt(info[x].costo_administracion).toLocaleString()+"\n\
+                                <span class='description titulosPrincipales'><b>Valor: $</b>" + parseInt(info[x].precio).toLocaleString() + " -  <b>Administración: $</b>" + parseInt(info[x].costo_administracion).toLocaleString() + "\n\
                                 </span>\n\
                             </div>\n\
                             <!-- /.user-block -->\n\
@@ -167,70 +176,6 @@ function showDataPropertie(info) {
     for (var j = 0; j < listPropertiesId.length; j++) {
         loadImagesPropertie(listPropertiesId[j]);
     }
-
-
-
-
-//    $("#txtIdPDFPropertie").val(info[0].id);
-//    $("#txtPrice").val(info[0].precio);
-//    $("#txtAdministrationCost").val(info[0].costo_administracion);
-//    $("#txtRoom").val(info[0].habitaciones);
-//    $("#txtBath").val(info[0].banios);
-//    $("#txtParking").val(info[0].parqueaderos);
-//    $("#txtTotalArea").val(info[0].area_total);
-//    $("#txtAreasWithoutBalconies").val(info[0].area_sin_balcones);
-//    $("#txtBuildYear").val(info[0].anio_de_construccion);
-//    $("#txtNumeroPiso").val(info[0].numero_piso);
-//    refreshCheckbox("chkChimenea", info[0].chimenea);
-//    refreshCheckbox("chkEstudio", info[0].estudio);
-//    refreshCheckbox("chkDeposito", info[0].deposito);
-//    refreshCheckbox("chkZonaRopas", info[0].zona_ropas);
-//    refreshCheckbox("chkParqueaderoVisitante", info[0].parqueadero_visitantes);
-//    refreshCheckbox("chkAscensor", info[0].ascensor);
-//    refreshCheckbox("chkTerraza", info[0].terraza);
-//    refreshCheckbox("chkTransportePublicoCercano", info[0].transporte_publico_cercano);
-//    refreshCheckbox("chkSalonComunal", info[0].salon_comunal);
-//    refreshCheckbox("chkSauna", info[0].sauna);
-//    refreshCheckbox("chkTurco", info[0].turco);
-//    refreshCheckbox("chkJacuzzi", info[0].jacuzzi);
-//    refreshCheckbox("chkZonaInfantil", info[0].zona_infantil);
-//    refreshCheckbox("chkJardines", info[0].jardines);
-//    refreshCheckbox("chkDuplex", info[0].duplex);
-//    refreshCheckbox("chkPuertaSeguridad", info[0].puerta_de_seguridad);
-//    refreshCheckbox("chkGimnasio", info[0].gimnasio);
-//    refreshCheckbox("chkPrecioNegociable", info[0].precio_negociable);
-//    refreshCheckbox("chkPiscina", info[0].piscina);
-//    refreshCheckbox("chkZonaMascotas", info[0].zona_mascotas);
-//    refreshCheckbox("chkParqueaderoCubierto", info[0].parqueadero_cubierto);
-//    refreshCheckbox("chkAmoblado", info[0].amoblado);
-//    refreshSelect("selState", info[0].id_departamento);
-//    refreshSelect("selCity", info[0].id_ciudad);
-//    refreshSelect("selBarrio", info[0].id_barrio);
-//    refreshSelect("selStratum", info[0].id_estrato);
-//    refreshSelect("selPropertieType", info[0].id_tipo_inmueble);
-//    refreshSelect("selOfferType", info[0].id_tipo_oferta);
-//    refreshSelect("selCurtainType", info[0].id_tipo_cortina);
-//    refreshSelect("selVigilanceType", info[0].id_tipo_vigilancia);
-//    refreshSelect("selZone", info[0].id_zona);
-//    refreshSelect("selStatus", info[0].estado);
-//    refreshSelect("selViewType", info[0].id_tipo_vista);
-//    refreshSelect("selKitchenType", info[0].id_tipo_cocina);
-//    refreshSelect("selKitchenStructure", info[0].id_estructura_cocina);
-//    refreshSelect("selFloorType", info[0].id_tipo_piso);
-//    refreshSelect("selClient", info[0].cedula_cliente);
-//    refreshSelect("selOutstandingType", info[0].id_tipo_destacado);
-//    $("#txtPublicationDate").val(info[0].fecha_publicacion);
-//    $("#txtReceptionDate").val(info[0].fecha_recepcion);
-//    $("#txtLinderos").val(info[0].linderos_inmbueble);
-//    $("#txtMatriculaInmobiliaria").val(info[0].matricula_inmobiliaria);
-//    $("#txtAvaluoCatastral").val(info[0].avaluo_catastral);
-//    /*Se añade el punto del gps*/
-//    addMarker(new google.maps.LatLng(info[0].latitud, info[0].longitud));
-//    /*Se cargan las imagenes y videos*/
-//    loadVideosPropertie(info[0].id);
-//    loadImagesPropertie(info[0].id);
-//    openWindow();
-//    showButton(false);
 }
 
 
@@ -301,13 +246,13 @@ function buildEventsClient(info) {
 
             listado += "<div class='post'>\n\
                     <div class='user-block'>\n\
-                        <img class='img-circle img-bordered-sm' src='../Resources/public/image/user1-128x128.jpg' alt='user image'>\n\
+                        <img class='img-circle img-bordered-sm' src='" + ((info[f].fotoempleado).split("System/")[1]) + "' alt='user image'>\n\
                         <span class='username'><a href='#'>" + info[f].nombreempleado + "</a>\n\
                             <a href='#' class='pull-right btn-box-tool'>\n\
                                 <i class='fa fa-times'></i>\n\
                             </a>\n\
                         </span>\n\
-                        <span class='description'> Fecha: " + info[f].fecha + " - Hora: " + info[f].hora + "\n\
+                        <span class='description'> <b>Fecha:</b> " + info[f].fecha + " - <b>Hora:</b> " + info[f].hora + " - <b>Lugar:</b> " + info[f].lugar + "\n\
                         </span>\n\
                     </div>\n\
                         <!-- /.user-block -->\n\
@@ -353,5 +298,10 @@ function deleteInfo() {
     Execute(scanInfo('delete', true), 'Client/CtlProfileClient', '', 'closeWindow("ModalConfirm");list();cleanForm("ModalNew");');
 }
 
+
+
+function loadInfoClientForm() {
+    redirectInfoFilter('Client/Client', getUrlParameter('idFilter'));
+}
 
 

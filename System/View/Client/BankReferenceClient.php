@@ -118,7 +118,7 @@ and open the template in the editor.
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">                                                                        
-                                                    <input id="txtId" name="id" class="form-control identificator"  type="hidden" value="">
+                                                    <input id="txtId" name="id" class="form-control text-capitalize identificator"  type="hidden" value="">
                                                 </div>
                                             </div>
                                         </div>
@@ -130,7 +130,7 @@ and open the template in the editor.
                                                     <label>Cliente</label>
                                                     <div>
                                                         <select id="selClient" name="client" 
-                                                                class="form-control select2" style="width: 100%;" required>
+                                                                class="form-control text-capitalize select2" style="width: 100%;" required>
                                                             <option value="-1" selected> -- SELECCIONE --</option>                            
                                                         </select>
                                                     </div>
@@ -141,7 +141,7 @@ and open the template in the editor.
                                                     <label for="txtNumberAccount">Número de cuenta</label>          
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>          
-                                                        <input id="txtNumberAccount" name="numberAccount" class="form-control" type="number" value="" autocomplete="off" required
+                                                        <input id="txtNumberAccount" name="numberAccount" class="form-control text-capitalize" type="number" value="" autocomplete="off" required
                                                                max="9999999999" maxlength="10" placeholder="número de cuenta">
                                                     </div>
                                                 </div>
@@ -156,7 +156,7 @@ and open the template in the editor.
                                                     <label>Banco</label>
                                                     <div>
                                                         <select id="selBank" name="bank" 
-                                                                class="form-control select2" style="width: 100%;" required>
+                                                                class="form-control text-capitalize select2" style="width: 100%;" required>
                                                             <option value="-1" selected> -- SELECCIONE --</option>                            
                                                         </select>
                                                     </div>
@@ -168,7 +168,7 @@ and open the template in the editor.
                                                     <label for="txtBranchOffice">Sucursal</label>   
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><i class="fa fa-info"></i></span>
-                                                        <input id="txtBranchOffice" name="branchOffice" class="form-control" type="text" value="" autocomplete="off" required
+                                                        <input id="txtBranchOffice" name="branchOffice" class="form-control text-capitalize" type="text" value="" autocomplete="off" required
                                                                placeholder="Sucursal">
                                                     </div>
                                                 </div>

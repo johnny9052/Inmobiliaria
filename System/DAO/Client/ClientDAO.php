@@ -32,7 +32,7 @@ class ClientDAO {
             (string) $obj->getHomePhone(), (string) $obj->getMobilePhone(),
             (string) $obj->getEmail(), (int) $obj->getGender(),
             (int) $obj->getCityResidence(), (int) $obj->getProfession(),
-            (int) $obj->getMaritalStatus(), (int) $obj->getPersonType(),
+            (int) $obj->getMaritalStatus(), (int) $obj->getPersonType(), (string) $obj->getImageEmployee(),
             (string) $obj->getTypesClientSelecteds() . ","
         ));
         //echo $query;
@@ -80,10 +80,11 @@ class ClientDAO {
             (string) $obj->getHomePhone(), (string) $obj->getMobilePhone(),
             (string) $obj->getEmail(), (int) $obj->getGender(),
             (int) $obj->getCityResidence(), (int) $obj->getProfession(),
-            (int) $obj->getMaritalStatus(), (int) $obj->getPersonType(),
+            (int) $obj->getMaritalStatus(), (int) $obj->getPersonType(), (string) $obj->getImageEmployee(),
             (string) $obj->getTypesClientSelecteds() . ","
         ));
         $this->repository->ExecuteTransaction($query);
+        
     }
 
     /**

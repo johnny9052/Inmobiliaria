@@ -111,7 +111,7 @@ and open the template in the editor.
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">                                                                        
-                                    <input id="txtId" name="id" class="form-control identificator"  type="hidden" value="">
+                                    <input id="txtId" name="id" class="form-control text-capitalize identificator"  type="hidden" value="">
                                 </div>
                             </div>
                         </div>
@@ -122,7 +122,7 @@ and open the template in the editor.
                                     <label for="" class="fa fa-user-circle"></label>
                                     &nbsp;&nbsp;
                                     <label>Empleado</label>
-                                    <select id="selEmployee" name="employee" required class="form-control select2" style="width: 100%;">
+                                    <select id="selEmployee" name="employee" required class="form-control text-capitalize select2" style="width: 100%;">
                                         <option value="-1" selected> -- SELECCIONE --</option>                            
                                     </select>
                                 </div>
@@ -133,7 +133,7 @@ and open the template in the editor.
                                     <label for="txtCompanyName">Institución de educación</label>    
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-building"></i></span>
-                                        <input id="txtEducationInstitute" name="educationInstitute" class="form-control" type="text" value="" autocomplete="off" required
+                                        <input id="txtEducationInstitute" name="educationInstitute" class="form-control text-capitalize" type="text" value="" autocomplete="off" required
                                                placeholder="Institucion">
                                     </div>
                                 </div>
@@ -147,7 +147,7 @@ and open the template in the editor.
                                     &nbsp;&nbsp;
                                     <label>Nivel educativo</label>
                                     <select id="selProfessionNivel" name="professionNivel" 
-                                            class="form-control select2" style="width: 100%;" 
+                                            class="form-control text-capitalize select2" style="width: 100%;" 
                                             onchange="loadProfession(this.value);">
                                         <option value="-1" selected> -- SELECCIONE --</option>                            
                                     </select>
@@ -158,7 +158,7 @@ and open the template in the editor.
                                     <label for="" class="fa fa-black-tie"></label>
                                     &nbsp;&nbsp;
                                     <label>Título</label>
-                                    <select id="selProfession" name="profession" required class="form-control select2" style="width: 100%;">
+                                    <select id="selProfession" name="profession" required class="form-control text-capitalize select2" style="width: 100%;">
                                         <option value="-1" selected> -- SELECCIONE --</option>                            
                                     </select>
                                 </div>
@@ -171,7 +171,7 @@ and open the template in the editor.
                                     <label for="" class="fa fa-calendar-o"></label>
                                     &nbsp;&nbsp;
                                     <label>Periodicidad</label>
-                                    <select id="selPeriodicity" name="periodicity" required class="form-control select2" style="width: 100%;">
+                                    <select id="selPeriodicity" name="periodicity" required class="form-control text-capitalize select2" style="width: 100%;">
                                         <option value="-1" selected> -- SELECCIONE --</option>                            
                                     </select>
                                 </div>
@@ -192,7 +192,7 @@ and open the template in the editor.
                                     <label for="" class="fa fa-check-circle"></label>
                                     &nbsp;&nbsp;
                                     <label for="txtLevel">Nivel alcanzado</label>                                    
-                                    <input id="txtLevel" name="level" class="form-control" type="number" value="" autocomplete="off"
+                                    <input id="txtLevel" name="level" class="form-control text-capitalize" type="number" value="" autocomplete="off"
                                            placeholder="Nivel alcanzado">
                                 </div>
                             </div>  

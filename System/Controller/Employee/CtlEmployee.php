@@ -42,6 +42,7 @@ $contactEmail = getInfo('contactEmail');
 
 
 $birthdate = date("Y-m-d", strtotime($birthdate));
+$expeditionDate = date("Y-m-d", strtotime($expeditionDate));
 
 /* Se borran todas las imagenes que se tengan que eliminar */
 deleteFiles('EmployeeIdentification', '../../', 'System/', 'Resource/Files/Employees/Identification/', 1, $documentNumber, false, '.pdf');

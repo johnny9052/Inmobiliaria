@@ -111,7 +111,7 @@ and open the template in the editor.
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">                                                                        
-                                    <input id="txtId" name="id" class="form-control identificator"  type="hidden" value="">
+                                    <input id="txtId" name="id" class="form-control text-capitalize identificator"  type="hidden" value="">
                                 </div>
                             </div>
                         </div>
@@ -122,7 +122,7 @@ and open the template in the editor.
                                     <label for="" class="fa fa-user-circle"></label>
                                     &nbsp;&nbsp;
                                     <label>Empleado</label>
-                                    <select id="selEmployee" name="employee" required class="form-control select2" style="width: 100%;">
+                                    <select id="selEmployee" name="employee" required class="form-control text-capitalize select2" style="width: 100%;">
                                         <option value="-1" selected> -- SELECCIONE --</option>                            
                                     </select>
                                 </div>
@@ -133,7 +133,7 @@ and open the template in the editor.
                                     <label for="txtCompanyName">Empresa</label>    
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-building"></i></span>
-                                        <input id="txtCompanyName" name="companyName" class="form-control" type="text" value="" autocomplete="off" required
+                                        <input id="txtCompanyName" name="companyName" class="form-control text-capitalize" type="text" value="" autocomplete="off" required
                                                placeholder="Empresa">
                                     </div>
                                 </div>
@@ -148,7 +148,7 @@ and open the template in the editor.
                                         <div class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </div>
-                                        <input type="text" name="admissionDate" required class="form-control pull-right dateAction" id="txtAdmissionDate">
+                                        <input type="text" name="admissionDate" required class="form-control text-capitalize pull-right dateAction" id="txtAdmissionDate">
                                     </div>
                                 </div>
                             </div>
@@ -160,7 +160,7 @@ and open the template in the editor.
                                         <div class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </div>
-                                        <input type="text" name="departureDate" required class="form-control pull-right dateAction" id="txtDepartureDate">
+                                        <input type="text" name="departureDate" required class="form-control text-capitalize pull-right dateAction" id="txtDepartureDate">
                                     </div>
                                 </div>
                             </div>
@@ -172,7 +172,7 @@ and open the template in the editor.
                                     <label for="" class="fa fa-briefcase"></label>
                                     &nbsp;&nbsp;
                                     <label>Cargo</label>
-                                    <select id="selPosition" name="position" required class="form-control select2" style="width: 100%;">
+                                    <select id="selPosition" name="position" required class="form-control text-capitalize select2" style="width: 100%;">
                                         <option value="-1" selected> -- SELECCIONE --</option>                            
                                     </select>
                                 </div>

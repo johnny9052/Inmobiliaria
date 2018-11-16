@@ -25,8 +25,9 @@ class ClientDTO extends BaseDTO {
     private $personType;
     private $typesClientSelecteds;
     private $password;
+    private $imageEmployee;
 
-    function __construct($id, $firstName, $secondName, $firstLastName, $secondLastName, $documentType, $documentNumber, $cityExpedition, $birthdate, $clientType, $address, $homePhone, $mobilePhone, $email, $gender, $cityResidence, $profession, $maritalStatus, $personType, $typesClientSelecteds, $password) {
+    function __construct($id, $firstName, $secondName, $firstLastName, $secondLastName, $documentType, $documentNumber, $cityExpedition, $birthdate, $clientType, $address, $homePhone, $mobilePhone, $email, $gender, $cityResidence, $profession, $maritalStatus, $personType, $typesClientSelecteds, $password, $imageEmployee) {
         $this->id = $id;
         $this->firstName = $firstName;
         $this->secondName = $secondName;
@@ -48,16 +49,9 @@ class ClientDTO extends BaseDTO {
         $this->personType = $personType;
         $this->typesClientSelecteds = $typesClientSelecteds;
         $this->password = $password;
+        $this->imageEmployee = $imageEmployee;
     }
-
-    function getPassword() {
-        return $this->password;
-    }
-
-    function setPassword($password) {
-        $this->password = $password;
-    }
-
+    
     function getId() {
         return $this->id;
     }
@@ -136,6 +130,14 @@ class ClientDTO extends BaseDTO {
 
     function getTypesClientSelecteds() {
         return $this->typesClientSelecteds;
+    }
+
+    function getPassword() {
+        return $this->password;
+    }
+
+    function getImageEmployee() {
+        return $this->imageEmployee;
     }
 
     function setId($id) {
@@ -217,5 +219,15 @@ class ClientDTO extends BaseDTO {
     function setTypesClientSelecteds($typesClientSelecteds) {
         $this->typesClientSelecteds = $typesClientSelecteds;
     }
+
+    function setPassword($password) {
+        $this->password = $password;
+    }
+
+    function setImageEmployee($imageEmployee) {
+        $this->imageEmployee = $imageEmployee;
+    }
+
+
 
 }

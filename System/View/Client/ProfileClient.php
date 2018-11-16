@@ -20,8 +20,8 @@ and open the template in the editor.
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li><a href="#">Examples</a></li>
-                <li class="active">User profile</li>
+                <li><a href="#">Clientes</a></li>
+                <li class="active">Perfil cliente</li>
             </ol>
         </section>
 
@@ -34,26 +34,39 @@ and open the template in the editor.
 
                     <!-- Profile Image -->
                     <div class="box box-primary">
-                        <div class="box-body box-profile">
-                            <img class="profile-user-img img-responsive img-circle" src="../Resources/public/image/fotoPerfil.png" class="img-circle" alt="Foto cliente">
+                        <div id="divInfoClient" class="box-body box-profile" >
+                            <div id="divImageClient">
+                                
+                            </div>
+                            <div class="text-muted text-center" id="lblNameClient">
+                            </div>
+                            <div class="text-muted text-center" id="lblProfession">
 
-                            <div class="text-muted text-center" id="lblNameClient"></div>
-                            <div class="text-muted text-center" id="lblProfession"></div>
-
-
+                            </div>
                             <ul class="list-group list-group-unbordered">
                                 <li class="list-group-item">
-                                    <b>Propiedades</b> <div class="pull-right" id="lblNumberProperties"></div>
+                                    <b>Propiedades</b> 
+                                    <div class="pull-right" id="lblNumberProperties">
+
+                                    </div>
                                 </li>
                                 <li class="list-group-item">
-                                    <b>Contratos</b> <div class="pull-right" id="lblNumberContracts"></div>
+                                    <b>Contratos</b> 
+                                    <div class="pull-right" id="lblNumberContracts">
+
+                                    </div>
                                 </li>
                                 <li class="list-group-item">
-                                    <b>Citas pendientes</b> <div class="pull-right" id="lblNumberEvents"></div>
+                                    <b>Citas pendientes</b> 
+                                    <div class="pull-right" id="lblNumberEvents">
+
+                                    </div>
                                 </li>
                             </ul>
+                            <a onclick="loadInfoClientForm();" class="btn btn-primary btn-block">
+                                <b>Follow</b>
+                            </a>
 
-                            <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
                         </div>
                         <!-- /.box-body -->
                     </div>
@@ -99,12 +112,12 @@ and open the template in the editor.
                     <div class="nav-tabs-custom">
                         <ul class="nav nav-tabs">
                             <li class="active"><a href="#divInmueblesClientes" data-toggle="tab">Inmuebles</a></li>
-                            <li><a href="#divEventosClientes" data-toggle="tab">Visitas</a></li>
+                            <li><a href="#divEventosClientes" data-toggle="tab">Citas</a></li>
                             <li><a href="#timeline" data-toggle="tab">Timeline</a></li>
                         </ul>
                         <div class="tab-content">
                             <div class="active  tab-pane" id="divInmueblesClientes">
-                                
+
                             </div>
                             <!-- /.tab-pane -->
                             <div class="tab-pane" id="timeline">
@@ -202,7 +215,7 @@ and open the template in the editor.
                                 </ul>
                             </div>
                             <!-- /.tab-pane -->
-                            
+
                             <div id="divEventosClientes" class="tab-pane">
 
                             </div>
@@ -213,13 +226,13 @@ and open the template in the editor.
                     <!-- /.nav-tabs-custom -->
                 </div>
             </div>
-         
+
         </section>
 
 
 
 
-    
+
 
         <!-- END MODAL PARA ADMINISTRACION DE REGISTROS-->
 

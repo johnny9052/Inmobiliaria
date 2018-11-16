@@ -226,9 +226,9 @@ function Execute(dataSend, url, before, success, idModalOpenFinish, msgNoAction,
                 case undefined:
                 default :
                     /*En el caso de que sea un listar info, buscar o pintar menu*/
-                    
+
                     //alert("Debo organizar datos");
-                    
+
                     if (dataSend.action === "list" || dataSend.action === "listfilter" ||
                             dataSend.action === "listbyuser" ||
                             dataSend.action === "listbydata" ||
@@ -1289,7 +1289,7 @@ function prepareDinamicData(nameData, obj) {
  * @version 0.2
  */
 function listDinamicData(info, obj, idDiv, prefix) {
-    /*Se agregan todos los datos a la lista, y se pintan*/   
+    /*Se agregan todos los datos a la lista, y se pintan*/
     for (var x = 0; x < info.length; x++) {
         if (info[x].dinamic_data !== "") {
             obj.listElements.push(info[x].dinamic_data);
@@ -1613,8 +1613,14 @@ function getUrlParameter(sParam) {
  * @author Johnny Alexander Salazar
  * @version 0.1
  */
-function redirectInfoFilter(page) {
-    var id = $("#txtId").val();
+function redirectInfoFilter(page, idTemp = "") {
+    var id;
+    if (idTemp !== "") {
+        id = idTemp;
+    } else {
+        id = $("#txtId").val();
+    }
+
     refreshPage(page, id);
 }
 
