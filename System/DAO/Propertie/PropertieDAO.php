@@ -50,7 +50,10 @@ class PropertieDAO {
             (string) $obj->getReceptionDate(), (int) $obj->getOutstandingType(),
             (string) $obj->getLinderos(), (string) $obj->getMatriculaInmobiliaria(),
             (float) $obj->getAvaluoCatastral(), (string) $obj->getLatitude(),
-            (string) $obj->getLongitude(), (string) implode(",", $obj->getImages()) . ',',
+            (string) $obj->getLongitude(),
+            (string) $obj->getDireccionCarrera(), (string) $obj->getDireccionCalle(),
+            (string) $obj->getDireccionNumero(), (string) $obj->getDireccionInformacionAdicional(),
+            (string) implode(",", $obj->getImages()) . ',',
             (string) $obj->getUrlVideos() . ','
         ));
 
@@ -123,8 +126,12 @@ class PropertieDAO {
             (int) $obj->getClient(), (string) $obj->getPublicationDate(),
             (string) $obj->getReceptionDate(), (int) $obj->getOutstandingType(),
             (string) $obj->getLinderos(), (string) $obj->getMatriculaInmobiliaria(),
-            (float) $obj->getAvaluoCatastral(), (string) $obj->getLatitude(),
-            (string) $obj->getLongitude(), (string) implode(",", $obj->getImages()) . ',',
+            (float) $obj->getAvaluoCatastral(),
+            (string) $obj->getLatitude(),
+            (string) $obj->getLongitude(),
+            (string) $obj->getDireccionCarrera(), (string) $obj->getDireccionCalle(),
+            (string) $obj->getDireccionNumero(), (string) $obj->getDireccionInformacionAdicional(),
+            (string) implode(",", $obj->getImages()) . ',',
             (string) $obj->getUrlVideos() . ','
         ));
 
@@ -625,7 +632,7 @@ class PropertieDAO {
     }
 
     public function ListByData(PropertieDTO $obj) {
-        $query = $this->repository->buildQuery("searchpropertiebyclient", array((int) $obj->getClient()));        
+        $query = $this->repository->buildQuery("searchpropertiebyclient", array((int) $obj->getClient()));
         $this->repository->Execute($query);
     }
 

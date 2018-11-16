@@ -60,13 +60,17 @@ class PropertieDTO extends BaseDTO {
     private $longitude;
     private $images;
     private $urlVideos;
+    private $direccionCarrera;
+    private $direccionCalle;
+    private $direccionNumero;
+    private $direccionInformacionAdicional;
     /* Filter */
     private $areaMax;
     private $valorMax;
     private $state;
     private $nombreCiudadBarrio;
 
-    function __construct($id, $precio, $administrationCost, $room, $bath, $parking, $totalArea, $areasWithoutBalconies, $buildYear, $numeroPiso, $chimenea, $estudio, $deposito, $zonaRopas, $parqueaderoVisitante, $ascensor, $terraza, $transportePublicoCercano, $salonComunal, $sauna, $turco, $jacuzzi, $zonaInfantil, $jardines, $duplex, $puertaSeguridad, $gimnasio, $precioNegociable, $piscina, $zonaMascotas, $parqueaderoCubierto, $amoblado, $city, $barrio, $estrato, $propertieType, $offerType, $curtainType, $vigilanceType, $zone, $viewType, $status, $kitchenType, $kitchenStructure, $floorType, $client, $publicationDate, $receptionDate, $outstandingType, $linderos, $matriculaInmobiliaria, $avaluoCatastral, $latitude, $longitude, $images, $urlVideos, $idfilter) {
+    function __construct($id, $precio, $administrationCost, $room, $bath, $parking, $totalArea, $areasWithoutBalconies, $buildYear, $numeroPiso, $chimenea, $estudio, $deposito, $zonaRopas, $parqueaderoVisitante, $ascensor, $terraza, $transportePublicoCercano, $salonComunal, $sauna, $turco, $jacuzzi, $zonaInfantil, $jardines, $duplex, $puertaSeguridad, $gimnasio, $precioNegociable, $piscina, $zonaMascotas, $parqueaderoCubierto, $amoblado, $city, $barrio, $estrato, $propertieType, $offerType, $curtainType, $vigilanceType, $zone, $viewType, $status, $kitchenType, $kitchenStructure, $floorType, $client, $publicationDate, $receptionDate, $outstandingType, $linderos, $matriculaInmobiliaria, $avaluoCatastral, $latitude, $longitude, $images, $urlVideos, $idfilter, $direccionCarrera, $direccionCalle, $direccionNumero, $direccionInformacionAdicional) {
         $this->id = $id;
         $this->precio = $precio;
         $this->administrationCost = $administrationCost;
@@ -124,6 +128,10 @@ class PropertieDTO extends BaseDTO {
         $this->images = $images;
         $this->urlVideos = $urlVideos;
         $this->idfilter = $idfilter;
+        $this->direccionCarrera = $direccionCarrera;
+        $this->direccionCalle = $direccionCalle;
+        $this->direccionNumero = $direccionNumero;
+        $this->direccionInformacionAdicional = $direccionInformacionAdicional;
     }
 
     function getAreaMax() {
@@ -604,6 +612,38 @@ class PropertieDTO extends BaseDTO {
 
     function setNombreCiudadBarrio($nombreCiudadBarrio) {
         $this->nombreCiudadBarrio = $nombreCiudadBarrio;
+    }
+
+    function getDireccionCarrera() {
+        return $this->direccionCarrera;
+    }
+
+    function getDireccionCalle() {
+        return $this->direccionCalle;
+    }
+
+    function getDireccionNumero() {
+        return $this->direccionNumero;
+    }
+
+    function getDireccionInformacionAdicional() {
+        return $this->direccionInformacionAdicional;
+    }
+
+    function setDireccionCarrera($direccionCarrera) {
+        $this->direccionCarrera = $direccionCarrera;
+    }
+
+    function setDireccionCalle($direccionCalle) {
+        $this->direccionCalle = $direccionCalle;
+    }
+
+    function setDireccionNumero($direccionNumero) {
+        $this->direccionNumero = $direccionNumero;
+    }
+
+    function setDireccionInformacionAdicional($direccionInformacionAdicional) {
+        $this->direccionInformacionAdicional = $direccionInformacionAdicional;
     }
 
     function saveFilterSearch($areaMax, $valorMax, $state, $city, $barrio, $zone, $propertieType, $offerType, $estrato, $ascensor, $piscina, $room, $bath, $parking, $nombreCiudadBarrio) {

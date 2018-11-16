@@ -571,7 +571,8 @@ function validateForm(form, modal) {
         if (elemento.type === "select-one") {
             if (elemento.value === "-1" && $(elemento).prop('required')) { //es valido?                   
                 $(elemento).parent().siblings('label').addClass("colorCampoError");
-                status = false; // si no es valido retorne falso                               
+                status = false; // si no es valido retorne falso   
+                console.log("El campo invalido es " + elemento.id);
             } else {
                 $(elemento).parent().siblings('label').removeClass("colorCampoError");
             }
@@ -584,7 +585,8 @@ function validateForm(form, modal) {
                 /*Es necesario el doble parent por el icono de las cajas de texto, 
                  * si se van a quitar los iconos solo seria 1 .parent()*/
                 $(elemento).parent().siblings('label').addClass("colorCampoError");
-                status = false; // si no es valido retorne falso                               
+                status = false; // si no es valido retorne falso    
+                console.log("El campo invalido es " + elemento.id);
             } else {
                 /*Es necesario el doble parent por el icono de las cajas de texto, 
                  * si se van a quitar los iconos solo seria 1 .parent()*/

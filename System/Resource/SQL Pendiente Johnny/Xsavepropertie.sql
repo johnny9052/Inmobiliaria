@@ -56,6 +56,10 @@ CREATE FUNCTION savepropertie (vid INT,
                                vAvaluoCatastral float,
                                vLatitude varchar(45) ,
                                vLongitude varchar(45), 
+                               vDireccionCarrera varchar(50) ,
+                               vDireccionCalle varchar(50) ,
+                               vDireccionNumero varchar(50) ,
+                               vDireccionInfoAdicional varchar(50) ,
                                vImages varchar(2000),
                                vVideos varchar(2000)
                                ) RETURNS int(1)
@@ -120,7 +124,11 @@ IF NOT EXISTS(select 1 from inmuebles where matriculaInmobiliaria=vMatriculaInmo
                                     matriculaInmobiliaria ,
                                     avaluoCatastral,
                                     latitud,
-                                    longitud
+                                    longitud, 
+                                    direccion_carrera, 
+                                    direccion_calle,    
+                                    direccion_numero, 
+                                    direccion_info_adicional
                                    )
                         VALUES (
                                vPrecio , 
@@ -175,7 +183,11 @@ IF NOT EXISTS(select 1 from inmuebles where matriculaInmobiliaria=vMatriculaInmo
                                vMatriculaInmobiliaria ,
                                vAvaluoCatastral, 
                                vLatitude,
-                               vLongitude);
+                               vLongitude, 
+                               vDireccionCarrera,
+                               vDireccionCalle,
+                               vDireccionNumero,
+                               vDireccionInfoAdicional);
 
 
     SET @vidPropertie = LAST_INSERT_ID();	
@@ -222,6 +234,7 @@ IF NOT EXISTS(select 1 from inmuebles where matriculaInmobiliaria=vMatriculaInmo
 		END IF;
 
 	RETURN res;
+
 	
 
 END//
