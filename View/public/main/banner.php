@@ -69,7 +69,7 @@
             <nav class="my-2 my-md-0 mr-md-3 align-self-md-end">
                 <a class="p-2" href="index.php?page=home"><font class="textoMenu">INICIO </font></a>
                 <a class="p-2" href="index.php?page=searchPropertie"><font class="textoMenu">BUSCAR UN INMUEBLE</font></a>
-                <a class="p-2" href="index.php?page=consignPropertie"><font class="textoMenu">CONSIGNAR UN INMUEBLE</font></a>
+                <a class="p-2" href="index.php?page=consignPropertie"><font class="textoMenu">PUBLICAR INMUEBLE</font></a>
                 <a class="p-2" href="index.php?page=about"><font class="textoMenu">ACERCA DE HÉXAGONO</font></a>                
                 <a class="p-2" href="index.php?page=contact"><font class="textoMenu">CONTACTO</font></a>                
             </nav>

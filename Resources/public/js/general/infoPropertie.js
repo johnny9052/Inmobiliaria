@@ -114,7 +114,7 @@ function showData(info) {
     characteristics += addCharacteristics("Tipo piso", info[0].nombre_tipo_piso);
     characteristics += addCharacteristics("Fecha publicacion", info[0].fecha_publicacion);
 
-    $("#accordionCharacteristics").html($("#accordionCharacteristics").html() + characteristics);
+    $("#accordionCharacteristics").html(characteristics);
 
 
     $("#txtLinderos").val(info[0].linderos_inmbueble);
@@ -123,7 +123,7 @@ function showData(info) {
 
     /*INFO PLUS*/
 
-    $("#divIconPlusContainer").html($("#divIconPlusContainer").html() +
+    $("#iconsAditionals").html(
             addIconsPlus(
                     "Chimenea", info[0].chimenea, 'fire',
                     "Estudio", info[0].estudio, 'cube',
@@ -180,72 +180,69 @@ function addIconsPlus(
 
 
     var iconsPlus = "<div class='row'>\n\
-                        <div class='col-2'></div>\n\
-                        <div class='col-8'>\n\
+                        <div class='col-1'></div>\n\
+                        <div class='col-6'>\n\
                             <div class='row'>\n\
-                                <div class='col-md-6 col-sm-6 col-xs-12'> \n\
+                                <div class='col-md-12 col-sm-12 col-xs-12 divSinEspacio'> \n\
                                             <label class='containerCheckbox'>\n\
                                                 <i class='fa fa-" + typeIcon1 + " EspaciadoCaracteristicasInmueblePequenio'></i>\n\
-                                                <label class='textoCaracteristicasInmueble espaciadoCaracteristicasInmueble'>" + text1 + "</label>\n\
+                                                <label class='textoCaracteristicasInmueble espaciadoCaracteristicasInmueble'>&emsp;" + text1 + "</label>\n\
                                                  \n\
                                                 <input class='espaciadoCaracteristicasInmueble' disabled='disabled' type='checkbox'" + ((value1 === "0") ? "" : "checked") + ">\n\
                                                 <span class='checkmarkcheckbox'></span>\n\
                                             </label>\n\
-                                </div>";
+                                </div>\n\
+                            </div>";
 
     if (text2 !== "") {
-        iconsPlus = iconsPlus + "<div class='col-md-6 col-sm-6 col-xs-12'> \n\
+        iconsPlus = iconsPlus + "\<div class='row'>\n\
+                                    <div class='col-md-12 col-sm-12 col-xs-12 divSinEspacio'> \n\
                                             <label class='containerCheckbox'>\n\
                                                 <i class='fa fa-" + typeIcon2 + " EspaciadoCaracteristicasInmueblePequenio'></i>\n\
-                                                <label class='textoCaracteristicasInmueble espaciadoCaracteristicasInmueble'>" + text2 + "</label>\n\
+                                                <label class='textoCaracteristicasInmueble espaciadoCaracteristicasInmueble'>&emsp;" + text2 + "</label>\n\
                                                  \n\
                                                 <input class='espaciadoCaracteristicasInmueble' disabled='disabled' type='checkbox'" + ((value2 === "0") ? "" : "checked") + ">\n\
                                                 <span class='checkmarkcheckbox'></span>\n\
                                             </label>\n\
+                                    </div>\n\
                                 </div>";
 
     }
 
 
-    iconsPlus = iconsPlus + "</div>\n\
-                        </div>\n\
-                        <div class='col-2'></div>\n\
-                    </div>";
-
-
     if (text3 !== "") {
         iconsPlus = iconsPlus + "<div class='row'>\n\
-                        <div class='col-2'></div>\n\
-                        <div class='col-8'>\n\
-                            <div class='row'>\n\
-                               <div class='col-md-6 col-sm-6 col-xs-12'> \n\
+                                    <div class='col-md-12 col-sm-12 col-xs-12 divSinEspacio'> \n\
                                             <label class='containerCheckbox'>\n\
                                                 <i class='fa fa-" + typeIcon3 + " EspaciadoCaracteristicasInmueblePequenio'></i>\n\
-                                                <label class='textoCaracteristicasInmueble espaciadoCaracteristicasInmueble'>" + text3 + "</label>\n\
+                                                <label class='textoCaracteristicasInmueble espaciadoCaracteristicasInmueble'>&emsp;" + text3 + "</label>\n\
                                                  \n\
                                                 <input class='espaciadoCaracteristicasInmueble' disabled='disabled' type='checkbox'" + ((value3 === "0") ? "" : "checked") + ">\n\
                                                 <span class='checkmarkcheckbox'></span>\n\
                                             </label>\n\
+                                    </div>\n\
                                 </div>";
 
     }
 
     if (text4 !== "") {
-        iconsPlus = iconsPlus + "<div class='col-md-6 col-sm-6 col-xs-12'> \n\
+        iconsPlus = iconsPlus + "<div class='row'>\n\
+                                    <div class='col-md-12 col-sm-12 col-xs-12 divSinEspacio'> \n\
                                             <label class='containerCheckbox'>\n\
                                                 <i class='fa fa-" + typeIcon4 + " EspaciadoCaracteristicasInmueblePequenio'></i>\n\
-                                                <label class='textoCaracteristicasInmueble espaciadoCaracteristicasInmueble'>" + text4 + "</label>\n\
+                                                <label class='textoCaracteristicasInmueble espaciadoCaracteristicasInmueble'>&emsp;" + text4 + "</label>\n\
                                                  \n\
                                                 <input class='espaciadoCaracteristicasInmueble' disabled='disabled' type='checkbox'" + ((value4 === "0") ? "" : "checked") + ">\n\
                                                 <span class='checkmarkcheckbox'></span>\n\
                                             </label>\n\
+                                    </div>\n\
                                 </div>";
     }
 
     if (text3 !== "" || text4 !== "") {
         iconsPlus = iconsPlus + "</div>\n\
                         </div>\n\
-                        <div class='col-2'></div>\n\
+                        <div class='col-1'></div>\n\
                     </div>";
     }
 

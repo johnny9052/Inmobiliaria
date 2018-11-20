@@ -122,7 +122,7 @@
                                                         <select id="selState" name="state" 
                                                                 class="form-control select2" style="width: 100%;"  
                                                                 onchange="loadCity(this.value);actualizarMucipioMapa();">
-                                                            <option value="-1" selected> Selecciona</option>                            
+                                                            <option value="-1" selected> Selección opcional</option>                            
                                                         </select>
                                                     </td>
                                                 </tr>
@@ -141,7 +141,7 @@
                                                     <td class="tdSelectSearch">
                                                         <select id="selCity" name="city" required class="form-control select2" style="width: 100%;" 
                                                                 onchange="loadNeighborhood(this.value);actualizarMucipioMapa();">
-                                                            <option value="-1" selected> Selecciona</option>                            
+                                                            <option value="-1" selected> Selección opcional</option>                            
                                                         </select>
                                                     </td>
                                                 </tr>
@@ -162,7 +162,7 @@
                                                     </td>
                                                     <td class="tdSelectSearch">
                                                         <select id="selBarrio" name="barrio" required class="form-control select2" style="width: 100%;">
-                                                            <option value="-1" selected> Selecciona</option>                            
+                                                            <option value="-1" selected> Selección opcional</option>                            
                                                         </select>
                                                     </td>
                                                 </tr>
@@ -181,7 +181,7 @@
                                                     </td>
                                                     <td class="tdSelectSearch">
                                                         <select id="selZone" name="zone" required class="form-control select2" style="width: 100%;">
-                                                            <option value="-1" selected> Selecciona</option>                            
+                                                            <option value="-1" selected> Selección opcional</option>                            
                                                         </select>
                                                     </td>
                                                 </tr>
@@ -203,7 +203,7 @@
                                                     </td>
                                                     <td class="tdSelectSearch">
                                                         <select id="selPropertieType" name="propertieType" required class="form-control select2" style="width: 100%;">
-                                                            <option value="-1" selected> Selecciona</option>                            
+                                                            <option value="-1" selected> Selección opcional</option>                            
                                                         </select>
                                                     </td>
                                                 </tr>
@@ -223,7 +223,7 @@
                                                     <td class="tdSelectSearch">
                                                         <select id="selOfferType" name="offerType" 
                                                                 class="form-control select2" style="width: 100%;" required>
-                                                            <option value="-1" selected> Selecciona </option>                            
+                                                            <option value="-1" selected> Selección opcional </option>                            
                                                         </select>
                                                     </td>
                                                 </tr>
@@ -334,7 +334,7 @@
                                                     <td class="tdSelectSearch">
                                                         <select id="selStratum" name="estrato" 
                                                                 class="form-control select2" style="width: 100%;" required>
-                                                            <option value="-1" selected> -- SELECCIONE --</option>                            
+                                                            <option value="-1" selected> Selección opcional</option>                            
                                                         </select>
                                                     </td>
                                                 </tr>
@@ -352,7 +352,7 @@
                                                     <td class="tdSelectSearch">
                                                         <select id="selParqueaderos" name="parking" 
                                                                 class="form-control select2" style="width: 100%;" required>
-                                                            <option value="-1" selected> -- SELECCIONE --</option>                            
+                                                            <option value="-1" selected> Selección opcional</option>                            
                                                             <option value="1" >1</option>      
                                                             <option value="2" >2</option>      
                                                             <option value="3" >3</option>      
@@ -379,7 +379,7 @@
                                                     <td class="tdSelectSearch">
                                                         <select id="selHabitaciones" name="room" 
                                                                 class="form-control select2" style="width: 100%;" required>
-                                                            <option value="-1" selected> -- SELECCIONE --</option>                            
+                                                            <option value="-1" selected> Selección opcional</option>                            
                                                             <option value="1" >1</option>      
                                                             <option value="2" >2</option>      
                                                             <option value="3" >3</option>      
@@ -403,7 +403,7 @@
                                                     <td class="tdSelectSearch">
                                                         <select id="selBanios" name="bath" 
                                                                 class="form-control select2" style="width: 100%;" required>
-                                                            <option value="-1" selected> -- SELECCIONE --</option>                            
+                                                            <option value="-1" selected> Selección opcional</option>                            
                                                             <option value="1" >1</option>      
                                                             <option value="2" >2</option>      
                                                             <option value="3" >3</option>      

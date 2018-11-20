@@ -1,7 +1,7 @@
 /* Funciones jQuery */
 $(window).on("load", function (e) {
-
     var idClient = getUrlParameter('idFilter');
+    var idPropertie = getUrlParameter('idFilter');
     list();
     loadTipoIdentificacion();
     loadDepartment();
@@ -106,6 +106,16 @@ function searchPropertieByClient(id) {
     Execute(scanInfo('listbydata', false, '', infoPlus.temp), 'Propertie/CtlPropertie', '', 'showDataPropertie(info);');
 }
 
+function searchTimeLineByClient(id) {
+
+    /*Se define el array de datos adicionales como un objeto, debido a que es necesario pasarlo por referencia para el llenado de los archivos*/
+    var infoPlus = {
+        temp: new Array()
+    };
+    infoPlus.temp.push({datos: ["id", id]});
+    Execute(scanInfo('SearchEventsClient', false, '', infoPlus.temp), 'Client/CtlProfileClient', '', 'buildTimeLine(info);');
+}
+
 
 function showData(info) {
     $("#lblNameClient").html(info[0].nombre);
@@ -119,6 +129,7 @@ function showData(info) {
     $("#lblPersonType").html(info[0].tipocliente);
     showImageClient(info);
     loadEventsClient(info[0].id);
+    searchTimeLineByClient(info[0].id);
 
 }
 
@@ -138,7 +149,7 @@ function showDataPropertie(info) {
                             <div class='user-block'>\n\
                                 <img class='img-circle img-bordered-sm' src='../Resources/public/image/iconoinmueblecliente.png' alt='User Image'>\n\
                                 <span class='username'>\n\
-                                    <a href='#'>" + info[x].nombre_tipo_oferta + " - " + info[x].nombre_ciudad + "</a><a href='#' class='pull-right btn-box-tool'>\n\
+                                    <a href='#' data-dismiss='modal' onclick='loadInfoPropertieForm(" + listPropertiesId[x] + ");'>" + info[x].nombre_tipo_oferta + " - " + info[x].nombre_ciudad + "</a><a href='#' class='pull-right btn-box-tool'>\n\
                                         <i class='fa fa-times'></i>\n\
                                     </a>\n\
                                 </span>\n\
@@ -237,6 +248,95 @@ function loadEventsClient(id) {
     Execute(scanInfo('SearchEventsClient', false, '', infoPlus.temp), 'Client/CtlProfileClient', '', 'buildEventsClient(info);');
 }
 
+function buildTimeLine(info) {
+    
+    if (info.length > 0) {
+        var listado = "";
+        for (f = 0; f < info.length; f++) {
+
+            listado += "<ul class='timeline timeline-inverse'>\n\
+                <!-- timeline time label -->\n\
+                <li class='time-label'>\n\
+                    <span class='bg-red'>" + info[f].fecha + "</span>\n\
+                </li>\n\
+                <!-- /.timeline-label -->\n\
+                <!-- timeline item -->\n\
+                <li>\n\
+                    <i class='fa fa-envelope bg-blue'></i>\n\
+                    <div class='timeline-item'>\n\
+                        <span class='time'>\n\
+                            <i class='fa fa-clock-o'></i> "+info[f].hora+"\n\
+                        </span>\n\
+                        <h3 class='timeline-header'>\n\
+                            <a href='#'>"+info[f].tipoEvento+"</a> \n\
+                        </h3>\n\
+                        <div class='timeline-body'>"+info[f].observaciones+"\n\
+                        </div>\n\
+                        <div class='timeline-footer'>\n\
+                            <a class='btn btn-primary btn-xs'>Read more</a>\n\
+                            <a class='btn btn-danger btn-xs'>Delete</a>\n\
+                        </div>\n\
+                    </div>\n\
+                </li>\n\
+                <!-- END timeline item -->\n\
+                <!-- timeline item -->\n\
+                <li>\n\
+                    <i class='fa fa-user bg-aqua'></i>\n\
+                    <div class='timeline-item'>\n\
+                        <span class='time'>\n\
+                            <i class='fa fa-clock-o'></i> 5 mins ago\n\
+                        </span>\n\
+                            <h3 class='timeline-header no-border'>\n\
+                                <a href='#'>Sarah Young</a> accepted your friend request\n\
+                            </h3>\n\
+                    </div>\n\
+                </li><!-- END timeline item -->\n\
+                <!-- timeline item -->\n\
+                <li>\n\
+                    <i class='fa fa-comments bg-yellow'></i>\n\
+                    <div class='timeline-item'>\n\
+                        <span class='time'>\n\
+                            <i class='fa fa-clock-o'></i> 27 mins ago\n\
+                        </span>\n\
+                            <h3 class='timeline-header'>\n\
+                                <a href='#'>Jay White</a> commented on your post\n\
+                            </h3>\n\
+                            <div class='timeline-body'>Take me to your leader! Switzerland is small and neutral! We are more like Germany, ambitious and misunderstood!</div>\n\
+                            <div class='timeline-footer'>\n\
+                                <a class='btn btn-warning btn-flat btn-xs'>View comment</a>\n\
+                            </div>\n\
+                    </div>\n\
+                </li><!-- END timeline item -->\n\
+                <!-- timeline time label -->\n\
+                <li class='time-label'>\n\
+                    <span class='bg-green'>3 Jan. 2014</span>\n\
+                </li><!-- /.timeline-label -->\n\
+                <!-- timeline item -->\n\
+                <li>\n\
+                    <i class='fa fa-camera bg-purple'></i>\n\
+                    <div class='timeline-item'>\n\
+                        <span class='time'>\n\
+                            <i class='fa fa-clock-o'></i> 2 days ago\n\
+                        </span>\n\
+                        <h3 class='timeline-header'>\n\
+                            <a href='#'>Mina Lee</a> uploaded new photos\n\
+                        </h3>\n\
+                        <div class='timeline-body'>\n\
+                            <img src='http://placehold.it/150x100' alt='...' class='margin'>\n\
+                            <img src='http://placehold.it/150x100' alt='...' class='margin'>\n\
+                            <img src='http://placehold.it/150x100' alt='...' class='margin'>\n\
+                            <img src='http://placehold.it/150x100' alt='...' class='margin'>\n\
+                        </div>\n\
+                    </div>\n\
+                </li><!-- END timeline item -->\n\
+                <li>\n\
+                    <i class='fa fa-clock-o bg-gray'></i>\n\
+                </li>\n\
+            </ul>";
+            $("#divTimeLine").html(listado);
+        }
+    }
+}
 
 
 function buildEventsClient(info) {
@@ -304,4 +404,8 @@ function loadInfoClientForm() {
     redirectInfoFilter('Client/Client', getUrlParameter('idFilter'));
 }
 
+
+function loadInfoPropertieForm(idPropertie) {
+    redirectInfoFilter('Propertie/Propertie', idPropertie);
+}
 

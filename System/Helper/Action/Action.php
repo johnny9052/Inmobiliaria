@@ -112,6 +112,10 @@ function ExecuteAction($action, $obj, $dao, $specific = null) {
         case "SearchEventsClient":
             $dao->SearchEventsClient($obj);
             break;
+        
+        case "SearchTimeLineClient":
+            $dao->SearchTimeLineClient($obj);
+            break;
 
 
 

@@ -90,7 +90,7 @@ and open the template in the editor.
                         <div class="nav-tabs-custom">
                             <ul class="nav nav-tabs">
                                 <li class="active"><a href="#register" data-toggle="tab">Información</a></li>
-                                <li><a href="" onclick="redirectInfoFilter('Propertie/Propertie');" data-toggle="tab">Inmuebles</a></li>
+                                <li><a href="" onclick="redirectInfoFilter('Propertie/Propertie','');" data-toggle="tab">Inmuebles</a></li>
                                 <li><a href="" onclick="redirectInfoFilter('Client/Event');" data-toggle="tab">Eventos</a></li>
                             </ul>
                             <div class="tab-content">

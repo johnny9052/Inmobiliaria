@@ -74,6 +74,18 @@ class ProfileClientDAO {
         $query = $this->repository->buildQuery("searcheventsclient", array((int) $obj->getId()));
         $this->repository->Execute($query);
     }
+    
+    /**
+     * Ejecuta un buscar en la base de datos
+     * @param ProfileClientDTO $obj 
+     * @return void      
+     * @author Johnny Alexander Salazar
+     * @version 0.1
+     */
+    public function SearchTimeLineClient(ProfileClientDTO $obj) {
+        $query = $this->repository->buildQuery("searchtimelineclient", array((int) $obj->getId()));
+        $this->repository->Execute($query);
+    }
 
     /**
      * Ejecuta un actualizar en la base de datos

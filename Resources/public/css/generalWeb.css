@@ -157,6 +157,15 @@
     padding: -5px !important;
 }
 
+.divSinEspacio{
+    width:30px;height:35px;
+    //border:blue 1px solid;
+    display:inline-block;
+    *display:inline;zoom:1;
+    margin:0px;outline:none;
+}
+}
+
 .imagenesListadoInmueblesContenedor{
     position: relative;
     display: inline-block;
@@ -204,13 +213,14 @@
 .textoCaracteristicasInmueble{
     color: gray;    
     font-family: 'Source Sans Pro', sans-serif !important;    
-    font-size: 30px !important;
+    font-size: 16px !important;
 }
 
 
 .EspaciadoCaracteristicasInmueblePequenio{
-    margin-right: 10px;
-    margin-left: 60px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
 }
 
 
@@ -224,13 +234,12 @@
     padding-left: 35px;
     margin-bottom: 12px;
     cursor: pointer;
-    font-size: 22px;
+    font-size: 15px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
     margin-top: 20px;
-
 }
 
 /* Hide the browser's default checkbox */
@@ -245,10 +254,10 @@
 /* Create a custom checkbox */
 .checkmarkcheckbox {
     position: absolute;
-    top: 0;
+    top: 20;
     left: 0;
-    height: 38px;
-    width: 38px;
+    height: 20px;
+    width: 20px;
     background-color: white;
     border-style: groove;
     border-radius: 5px;
@@ -271,18 +280,17 @@
     display: block;
 }
 
-/* Style the checkmark/indicator */
+/* Style the checkmark/indicator*/
 .containerCheckbox .checkmarkcheckbox:after {
-    left: 9px;
-    top: 5px;
-    width: 12px;
-    height: 17px;
+    left: 3px;
+    top: 0px;
+    width: 7px;
+    height: 11px;
     border: solid black;    
-    border-width: 0 3px 3px 0;
+    border-width: 0 3px 2px 0;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
-
 }
 
 .bg-hexagono {

@@ -29,3 +29,7 @@
 .colorCampoError{
     color: #dd4b39;    
 }
+
+.activeModal {
+  overflow-y:auto;
+}

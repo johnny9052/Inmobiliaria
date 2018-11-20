@@ -39,9 +39,22 @@ $(window).on("load", function (e) {
     loadFloorType();
     loadClient();
     loadOutstandingType();
+    
+    if (getUrlParameter('idFilter') !== undefined) {
+        showToast('Cargando... por favor espere');
+        executeWithTime("profileClientAction();", '2000');
+    }
 });
 
+function profileClientAction() {
+    var idPropertie = getUrlParameter('idFilter');
 
+    if (idPropertie !== undefined) {
+        $("#txtId").val(idPropertie);
+        searchIntoModal();
+    }
+
+}
 
 function loadDepartment() {
     Execute(scanInfo('loadDepartment', false), 'General/CtlGeneral', '', 'buildSelect(info,"selState");');
@@ -167,6 +180,14 @@ function list(id) {
 function search(id) {
     $("#txtId").val(id);
     Execute(scanInfo('search', true), 'Propertie/CtlPropertie', '', 'showData(info);');
+}
+
+function searchIntoModal() {
+    Execute(scanInfo('search', true),
+            'Propertie/CtlPropertie',
+            '',
+            'executeWithTime("closeWindow(\'modal-default\');",500);showData(info);');
+
 }
 
 

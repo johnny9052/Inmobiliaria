@@ -26,6 +26,9 @@ and open the template in the editor.
 
 
         <section class="content">
+            <div class="row">
+                <div class="col-md-3 col-sm-1 col-xs-12"></div>
+            </div>
 
             <!-----------------CARRUSEL----------------------------------->
             <div class="row">
@@ -213,8 +216,8 @@ and open the template in the editor.
 
 
         <div class="row">
-            <div class="col-md-1 col-sm-1 col-xs-12"></div>
-            <div class="col-md-10 col-sm-10 col-xs-12">
+            <div class="col-md-2"></div>
+            <div class="col-md-5">
                 <div class="box box-solid">
                     <div class="box-header with-border">
                         <h2>Caracteristicas</h2>
@@ -242,7 +245,13 @@ and open the template in the editor.
                 </div>
                 <!-- /.box -->
             </div>
-            <div class="col-md-1 col-sm-1 col-xs-12"></div>
+            <div class="col-md-5">
+                <div class="row">
+                    <div class="col-md-5"><h3><br><br></h3></div>
+                </div>
+                <div id="iconsAditionals"></div>
+                
+            </div>
         </div>
 
         <div class="row">
