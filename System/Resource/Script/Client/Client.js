@@ -33,7 +33,8 @@ function profileClientAction() {
 
     if (idClient !== undefined) {
         $("#txtId").val(idClient);
-        searchIntoModal();
+        closeWindow('modal-default');
+        executeWithTime("searchIntoModal();", 500);        
     }
 
 }
@@ -134,7 +135,7 @@ function searchIntoModal() {
     Execute(scanInfo('search', true),
             'Client/CtlClient',
             '',
-            'executeWithTime("closeWindow(\'modal-default\');",500);showData(info);CheckCheckboxChecked("loadClientTypeSelected","ClientType");');
+            'showData(info);CheckCheckboxChecked("loadClientTypeSelected","ClientType");');
 
 }
 
@@ -166,7 +167,7 @@ function showData(info) {
 
     var nombreArchivoFoto = "";
 
-    if (info[0].foto_cliente !== null) {
+    if (info[0].foto_cliente !== null && info[0].foto_cliente !== undefined) {
         nombreArchivoFoto = organizarArchivoCargadoDesdeBD(info[0].foto_cliente, objImageClient);
     }
     $("#lstArchivoFoto").html(imageDownloadFile("jpg", objImageClient.listFileURL[objImageClient.listFileName.indexOf(nombreArchivoFoto)], nombreArchivoFoto));

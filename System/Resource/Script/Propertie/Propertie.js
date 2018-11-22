@@ -39,7 +39,7 @@ $(window).on("load", function (e) {
     loadFloorType();
     loadClient();
     loadOutstandingType();
-    
+
     if (getUrlParameter('idFilter') !== undefined) {
         showToast('Cargando... por favor espere');
         executeWithTime("profileClientAction();", '2000');
@@ -51,7 +51,8 @@ function profileClientAction() {
 
     if (idPropertie !== undefined) {
         $("#txtId").val(idPropertie);
-        searchIntoModal();
+        closeWindow("modal-default");
+        executeWithTime("searchIntoModal();", 500);
     }
 
 }
@@ -186,7 +187,7 @@ function searchIntoModal() {
     Execute(scanInfo('search', true),
             'Propertie/CtlPropertie',
             '',
-            'executeWithTime("closeWindow(\'modal-default\');",500);showData(info);');
+            'showData(info);');
 
 }
 
