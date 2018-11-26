@@ -6,8 +6,6 @@ var objImageClient = {
     listFileURL: new Array(),
     listFileNameDeleted: new Array()
 };
-
-
 $(window).on("load", function (e) {
     list();
     loadTipoIdentificacion();
@@ -20,21 +18,17 @@ $(window).on("load", function (e) {
     loadMaritalStatus();
     loadPersonType();
     loadClientTypeCheckbox();
-
     if (getUrlParameter('idFilter') !== undefined) {
         showToast('Cargando... por favor espere');
         executeWithTime("profileClientAction();", '2000');
     }
 });
-
-
 function profileClientAction() {
     var idClient = getUrlParameter('idFilter');
-
     if (idClient !== undefined) {
         $("#txtId").val(idClient);
         closeWindow('modal-default');
-        executeWithTime("searchIntoModal();", 500);        
+        executeWithTime("searchIntoModal();", 500);
     }
 
 }
@@ -103,20 +97,16 @@ function save() {
         var infoPlus = {
             temp: new Array()
         };
-
         /*Se manda por referencia el objeto de la info adicional donde se añadiran 
          * los archivos, junto el el objeto que tiene la informacion real de
          * todos los archivos*/
 
         addFileNameAndEncodingAndDeletedFiles(infoPlus, objImageClient, 'ClientImage');
         infoPlus.temp.push({datos: scanCheckboxDinamic("typesClientSelecteds", "ClientType")});
-
-
         Execute(scanInfo('save', true, '', infoPlus.temp),
                 'Client/CtlClient',
                 '',
                 'closeWindow();list();mostrarMensaje();', '', 'Ha superado el tamaño maximo de las imagenes', '', true);
-
     }
 }
 
@@ -136,7 +126,6 @@ function searchIntoModal() {
             'Client/CtlClient',
             '',
             'showData(info);CheckCheckboxChecked("loadClientTypeSelected","ClientType");');
-
 }
 
 
@@ -161,19 +150,13 @@ function showData(info) {
     refreshSelect("selProfession", info[0].id_profesion);
     refreshSelect("selPersonType", info[0].id_tipo_persona);
     refreshSelect("selProfessionNivel", info[0].nivel_profesional);
-
     refreshSelect("selStateExpedition", info[0].departamento_expedicion);
     refreshSelect("selStateResidence", info[0].departamento_residencia);
-
     var nombreArchivoFoto = "";
-
     if (info[0].foto_cliente !== null && info[0].foto_cliente !== undefined) {
         nombreArchivoFoto = organizarArchivoCargadoDesdeBD(info[0].foto_cliente, objImageClient);
     }
     $("#lstArchivoFoto").html(imageDownloadFile("jpg", objImageClient.listFileURL[objImageClient.listFileName.indexOf(nombreArchivoFoto)], nombreArchivoFoto));
-
-
-
     openWindow();
     showButton(false);
 }
@@ -186,19 +169,16 @@ function update() {
         var infoPlus = {
             temp: new Array()
         };
-
         /*Se manda por referencia el objeto de la info adicional donde se añadiran 
          * los archivos, junto el el objeto que tiene la informacion real de
          * todos los archivos*/
 
         addFileNameAndEncodingAndDeletedFiles(infoPlus, objImageClient, 'ClientImage');
         infoPlus.temp.push({datos: scanCheckboxDinamic("typesClientSelecteds", "ClientType")});
-
         Execute(scanInfo('update', true, '', infoPlus.temp),
                 'Client/CtlClient',
                 '',
                 'closeWindow();list();limpiarMultimedia();', '', 'Ha superado el tamaño maximo de las imagenes');
-
     }
 }
 
@@ -210,13 +190,11 @@ function deleteInfo() {
     var infoPlus = {
         temp: new Array()
     };
-
     /*Se manda por referencia el objeto de la info adicional donde se añadiran 
      * los archivos, junto el el objeto que tiene la informacion real de
      * todos los archivos*/
 
     addAllFileNameDeleted(infoPlus, objImageClient, 'ClientImage');
-
     Execute(scanInfo('delete', true, '', infoPlus.temp), 'Client/CtlClient', '', 'closeWindow("ModalConfirm");list();cleanForm("ModalNew");limpiarMultimedia();');
 }
 
@@ -233,7 +211,19 @@ function limpiarMultimedia() {
     objImageClient.listFileURL = new Array();
     objImageClient.listFileBase64 = new Array();
     objImageClient.listFileNameDeleted = new Array();
-
     $("#lstArchivoFoto").html("");
+}
 
+
+
+
+function closeWindowToFilterClient() {
+    
+    var idClient = getUrlParameter('idFilter');
+
+    if (idClient !== undefined) {
+        redirectInfoFilter('Client/ProfileClient', idClient);
+    } else {
+        closeWindow();
+    }
 }

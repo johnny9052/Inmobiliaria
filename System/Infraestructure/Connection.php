@@ -11,9 +11,9 @@ class Connection {
 
 
     public function connect() {
-        $this->userbd = "root";
-        $this->passworddb = "admin";
-        $this->database = "inmobiliaria";
+        $this->userbd = "hexagono_admin";
+        $this->passworddb = "d4v1d3s3lm3j0r19";
+        $this->database = "hexagono_inmobiliaria";
         $this->host = "localhost";
 
         try {

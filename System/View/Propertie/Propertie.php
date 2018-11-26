@@ -89,7 +89,7 @@ and open the template in the editor.
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button onclick="closeWindow();list();" type="button" class="btn btn-default pull-right" data-dismiss="modal">X</button>
+                        <button onclick="closeWindowToFilterPropertie();list();" type="button" class="btn btn-default pull-right" data-dismiss="modal">X</button>
                         <h4 class="modal-title">Gestion registro</h4>                        
                     </div>
 
@@ -957,7 +957,7 @@ and open the template in the editor.
 
                     <div class="modal-footer">
 
-                        <button onclick="closeWindow();limpiarMultimedia();deleteMarkers();" type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
+                        <button onclick="closeWindowToFilterPropertie();limpiarMultimedia();deleteMarkers();" type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
 
                         <div class="newActionButton">                            
                             <button id="btnSave" onclick="save();" type ="button" class="btn btn-primary">Guardar</button>
