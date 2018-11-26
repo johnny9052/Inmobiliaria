@@ -865,18 +865,25 @@ function showButton(status) {
  * Redirecciona a otro formulario del sistema
  * @param {string} url : Ruta archivo a abrir
  * @param {string} value : Valor a enviar
+ * @param {string} settedvalue : Valor fijo o quemado (con su nombre y valor que se 
+ * agragara a la url)
  * @author Johnny Alexander Salazar
  * @version 0.1
  */
-function refreshPage(url, value) {
+function refreshPage(url, value, settedvalue) {
 
     var data = "";
 
     if (value !== "" && value !== undefined) {
         data += "&&idFilter=" + value;
     }
+    
+    
+    var urlRedirect = "Helper/Content/Content.php?page=" + url + data + ((settedvalue !== "" && settedvalue !== undefined) ? settedvalue : "");
+    
+    //alert(urlRedirect);
+    window.location.href = urlRedirect;
 
-    window.location.href = "Helper/Content/Content.php?page=" + url + data;
 }
 
 
@@ -1611,11 +1618,12 @@ function getUrlParameter(sParam) {
  * Redirecciona a otra pagina del sistema interno, enviando una variable de 
  * filtro para filtrar la informacion del formulario destino
  * @param {String} page Ruta de la pagina a cargar
+ * @param {string} settedvalue : Valor fijo o quemado (con su nombre y valor que se 
  * @returns {String}
  * @author Johnny Alexander Salazar
  * @version 0.1
  */
-function redirectInfoFilter(page, idTemp = "") {
+function redirectInfoFilter(page, idTemp = "", settedvalue = "") {
     var id;
     if (idTemp !== "") {
         id = idTemp;
@@ -1623,7 +1631,7 @@ function redirectInfoFilter(page, idTemp = "") {
         id = $("#txtId").val();
     }
 
-    refreshPage(page, id);
+    refreshPage(page, id, settedvalue);
 }
 
 

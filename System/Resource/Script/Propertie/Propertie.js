@@ -401,3 +401,16 @@ function eliminarTodasLasImagenes() {
 
 
 
+
+function closeWindowToFilterPropertie() {
+
+    var idClient = $("#selClient").val();
+
+    //alert(idClient);
+
+    if (getUrlParameter('idFilter') !== undefined) {
+        redirectInfoFilter('Client/ProfileClient', idClient);
+    } else {
+        closeWindow();
+    }
+}

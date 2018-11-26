@@ -1,7 +1,6 @@
 /* Funciones jQuery */
 $(window).on("load", function (e) {
     var idClient = getUrlParameter('idFilter');
-    var idPropertie = getUrlParameter('idFilter');
     list();
     loadTipoIdentificacion();
     loadDepartment();
@@ -266,7 +265,7 @@ function loadEventsClient(id) {
 }
 
 function buildTimeLine(info) {
-    
+
     if (info.length > 0) {
         var listado = "";
         for (f = 0; f < info.length; f++) {
@@ -282,12 +281,12 @@ function buildTimeLine(info) {
                     <i class='fa fa-envelope bg-blue'></i>\n\
                     <div class='timeline-item'>\n\
                         <span class='time'>\n\
-                            <i class='fa fa-clock-o'></i> "+info[f].hora+"\n\
+                            <i class='fa fa-clock-o'></i> " + info[f].hora + "\n\
                         </span>\n\
                         <h3 class='timeline-header'>\n\
-                            <a href='#'>"+info[f].tipoEvento+"</a> \n\
+                            <a href='#'>" + info[f].tipoEvento + "</a> \n\
                         </h3>\n\
-                        <div class='timeline-body'>"+info[f].observaciones+"\n\
+                        <div class='timeline-body'>" + info[f].observaciones + "\n\
                         </div>\n\
                         <div class='timeline-footer'>\n\
                             <a class='btn btn-primary btn-xs'>Read more</a>\n\
@@ -422,7 +421,7 @@ function loadInfoClientForm() {
 }
 
 
-function loadInfoPropertieForm(idPropertie) {
+function loadInfoPropertieForm(idPropertie) {    
     redirectInfoFilter('Propertie/Propertie', idPropertie);
 }
 

@@ -86,7 +86,7 @@ and open the template in the editor.
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button onclick="closeWindow();limpiarMultimedia();" type="button" class="btn btn-default pull-right" data-dismiss="modal">X</button>
+                        <button onclick="closeWindowToFilterClient();limpiarMultimedia();" type="button" class="btn btn-default pull-right" data-dismiss="modal">X</button>
                         <div class="nav-tabs-custom">
                             <ul class="nav nav-tabs">
                                 <li class="active"><a href="#register" data-toggle="tab">Información</a></li>
@@ -440,7 +440,7 @@ and open the template in the editor.
 
                     <div class="modal-footer">
 
-                        <button onclick="closeWindow();limpiarMultimedia();" type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
+                        <button onclick="closeWindowToFilterClient();limpiarMultimedia();" type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
 
                         <div class="newActionButton">                            
                             <button id="btnSave" onclick="save();" type ="button" class="btn btn-primary">Guardar</button>
