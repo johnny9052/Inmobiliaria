@@ -94,63 +94,7 @@ and open the template in the editor.
 
 
             <!-----------------CARACTERSITICAS PLUS-------------------------->
-            <!--            <div id="divIconPlusContainer">
-                            <div class="row">
-                                <div class="col-1">            
-                                </div>
-            
-                                <div class="col-10" id="divIconosPlus">            
-                                    <div class="row text-center">
-                                        <div class="col-md-3 col-sm-6 col-xs-12">
-                                            <div class="info-box bg-aqua">
-                                                <span class="info-box-icon"><i class="fa fa-bed"></i></span>
-            
-                                                <div class="info-box-content text-center">
-                                                    <span class="info-box-text">Habitaciones</span>
-                                                    <span class="info-box-number" id="lblRoom"></span>                          
-                                                </div>                        
-                                            </div>                    
-                                        </div>
-            
-                                        <div class="col-md-3 col-sm-6 col-xs-12">
-                                            <div class="info-box bg-aqua">
-                                                <span class="info-box-icon"><i class="fa fa-bath"></i></span>
-            
-                                                <div class="info-box-content text-center">
-                                                    <span class="info-box-text">Baños</span>
-                                                    <span class="info-box-number" id="lblBath"></span>
-                                                </div>                        
-                                            </div>                    
-                                        </div>
-            
-                                        <div class="col-md-3 col-sm-6 col-xs-12">
-                                            <div class="info-box bg-aqua">
-                                                <span class="info-box-icon"><i class="fa fa-automobile"></i></span>
-                                                <div class="info-box-content text-center">
-                                                    <span class="info-box-text">Parqueaderos</span>
-                                                    <span class="info-box-number" id="lblParking"></span>
-                                                </div>                        
-                                            </div>                    
-                                        </div>
-            
-                                        <div class="col-md-3 col-sm-6 col-xs-12">
-                                            <div class="info-box bg-aqua">
-                                                <span class="info-box-icon"><i class="fa fa-area-chart"></i></span>
-                                                <div class="info-box-content text-center">
-                                                    <span class="info-box-text">Area total</span>
-                                                    <span class="info-box-number" id="lblTotalArea"></span> 
-                                                </div>
-                                            </div>
-                                        </div>                
-                                    </div>           
-                                </div>
-            
-            
-                                <div class="col-1">            
-                                </div>
-                            </div>
-                        </div>-->
-
+         
 
 
             <div id="divIconPlusContainer">
@@ -250,7 +194,7 @@ and open the template in the editor.
                     <div class="col-md-5"><h3><br><br></h3></div>
                 </div>
                 <div id="iconsAditionals"></div>
-                
+
             </div>
         </div>
 
@@ -265,7 +209,7 @@ and open the template in the editor.
 
     <br>
 
-    <section id="FormContainer">
+    <section id="FormContainerContact">
 
         <div class="row">
             <div class="col-md-2 col-sm-1 col-xs-12"></div>
@@ -294,9 +238,16 @@ and open the template in the editor.
         </div>
 
         <div class="row">
+            <div class="col-md-9 col-sm-9 col-xs-9" style="text-align: right;">
+                * Campos obligatorios
+            </div>
+        </div>
+
+
+        <div class="row">
             <div class="col-md-3 col-sm-3 col-xs-12"></div>
             <div class="col-md-6 col-sm-6 col-xs-12"> 
-                <label for="txtNameUser">Nombre</label>   
+                <label for="txtNameUser">Nombre *</label>   
                 <div class="input-group">                    
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-user"></i></span>
@@ -314,12 +265,12 @@ and open the template in the editor.
         <div class="row">
             <div class="col-md-3 col-sm-3 col-xs-12"></div>
             <div class="col-md-6 col-sm-6 col-xs-12">  
-                <label for="txtEmailUser">Correo</label>   
+                <label for="txtEmailUser">Correo *</label>   
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-at"></i></span>
                     </div>
-                    <input type="email" class="form-control" id="txtEmailUser" name="email" 
+                    <input type="email" class="form-control" id="txtEmailUserContact" name="email" 
                            placeholder="Ingrese su correo" required>                    
                 </div>
 
@@ -333,7 +284,7 @@ and open the template in the editor.
         <div class="row">
             <div class="col-md-3 col-sm-3 col-xs-12"></div>
             <div class="col-md-6 col-sm-6 col-xs-12">   
-                <label for="txtPhoneUser">Numero</label>   
+                <label for="txtPhoneUser">Numero *</label>   
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-mobile-phone"></i></span>
@@ -351,7 +302,7 @@ and open the template in the editor.
         <div class="row">
             <div class="col-md-3 col-sm-3 col-xs-12"></div>
             <div class="col-md-6 col-sm-6 col-xs-12">  
-                <label for="txtDescription">Mensaje</label>   
+                <label for="txtDescription">Mensaje *</label>   
                 <div class="form-group">                    
                     <textarea id="txtDescription" name="description" class="form-control" 
                               name="message" rows="3" placeholder="Ingrese su mensaje" required></textarea>

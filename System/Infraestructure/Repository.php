@@ -1,5 +1,16 @@
 <?php
 
+
+error_reporting(-1);
+ini_set('display_errors', 'On');
+set_error_handler("var_dump");
+
+ini_set('post_max_size', '64M');
+ini_set('upload_max_filesize', '64M');
+
+ini_set('max_execution_time', 90);
+
+
 /**
  * Repositorio con funciones genericas
  * @author Johnny Alexander Salazar

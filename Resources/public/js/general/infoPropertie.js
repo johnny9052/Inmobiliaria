@@ -73,7 +73,8 @@ function sendContact() {
 
 function showDataSendContact() {
     showToast("Mensaje enviado, pronto te contactaremos", "sucess");
-    cleanForm();
+    executeWithTime("cleanForm('FormContainerContact');", 3000);
+
 }
 
 
@@ -375,7 +376,7 @@ function buildCarusel(info, obj) {
         imgcarusel += "<div class='carousel-item " + ((y === 0) ? 'active' : '') + "'>\n\
                                 <img src='System/" + obj.listFileURL[y] + "' alt='" + cleanNameFile(obj.listFileName[y]) + "' style='max-width: 900px; max-height: 500px;'>\n\
                         </div>";
-        
+
         imgMiniaturaCarusel += "<span data-target='#divcarusel' data-slide-to='" + y + "'>\n\
                                     <img class='seleccionable' src='System/" + obj.listFileURL[y] + "' alt='" + cleanNameFile(obj.listFileName[y]) + "' height='40' width='40'>\n\
                                 </span>&nbsp;";
@@ -393,7 +394,7 @@ function buildCarusel(info, obj) {
                             </div>\n\
                         </div>\n\
                       </div>";
-        
+
         imgMiniaturaCarusel += "<span data-target='#divcarusel' data-slide-to='" + positionCarusel + "'><img class='seleccionable' src='System/Resource/Multimedia/Images/videocarusel.png' alt='Video' height='40' width='40'></span>&nbsp;";
         paginatorcarusel += "<li data-target='#divcarusel' data-slide-to='" + positionCarusel + "'></li>";
         positionCarusel++;
