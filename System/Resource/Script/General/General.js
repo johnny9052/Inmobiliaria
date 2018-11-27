@@ -245,7 +245,8 @@ function Execute(dataSend, url, before, success, idModalOpenFinish, msgNoAction,
         error: function (jqXHR, textStatus, errorThrown) {
             showToast("Error detectado: " + textStatus + "\nExcepcion: " + errorThrown, "error");
             showToast("Verifique la ruta del archivo", "error");
-        }
+        },         
+        timeout: 10000
     });
 }
 
