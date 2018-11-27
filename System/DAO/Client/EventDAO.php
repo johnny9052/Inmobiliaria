@@ -10,7 +10,7 @@ class EventDAO {
 
     private $repository;
 
-    function EventDAO() {
+    function __construct() {
         require_once '../../Infraestructure/Repository.php';
         $this->repository = new Repository();
     }

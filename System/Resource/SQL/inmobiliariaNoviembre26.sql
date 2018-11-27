@@ -26,7 +26,7 @@ DELIMITER $$
 --
 -- Procedimientos
 --
-CREATE DEFINER=`root`@`localhost` PROCEDURE `listclient` (`iduser` INT)  BEGIN
+CREATE PROCEDURE `listclient` (`iduser` INT)  BEGIN
 
 
 
@@ -92,7 +92,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `listclient` (`iduser` INT)  BEGIN
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `listcontract` (`idEmpleado` INT)  BEGIN
+CREATE PROCEDURE `listcontract` (`idEmpleado` INT)  BEGIN
   select con.idcontratoEmpleado as id, CONCAT(empl.primerNombreEmpleado, ' ', 
 							empl.segundoNombreEmpleado, ' ', empl.primerApellidoEmpleado , ' ', 
 							empl.segundoApellidoEmpleado) as nombre,
@@ -119,7 +119,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `listcontract` (`idEmpleado` INT)  B
    order by nombre;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `listcontractpropertie` (`idcontrato` INT)  BEGIN
+CREATE PROCEDURE `listcontractpropertie` (`idcontrato` INT)  BEGIN
   select con.idcontrato as id, CONCAT(cli.primerNombreCliente, ' ', 
 							cli.segundoNombreCliente, ' ', cli.primerApellidoCliente , ' ', 
 							cli.segundoApellidoCliente) as cliente,
@@ -138,7 +138,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `listcontractpropertie` (`idcontrato
    order by cliente;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `listdebtor` (`idDebtor` INT)  BEGIN
+CREATE PROCEDURE `listdebtor` (`idDebtor` INT)  BEGIN
    select deu.idDeudor,deu.numeroIdentificacion as numero_identificacion, deu.primerNombreDeudor as primer_nombre, 
           deu.segundoNombreDeudor as segundo_nombre, deu.primerApellidoDeudor as primer_apellido, 
           deu.segundoApellidoDeudor as segundo_apellido, deu.direccionResidenciaDeudor as direccion,
@@ -147,7 +147,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `listdebtor` (`idDebtor` INT)  BEGIN
    order by primerApellidoDeudor;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `listdependent` (`idCliente` INT)  BEGIN
+CREATE PROCEDURE `listdependent` (`idCliente` INT)  BEGIN
 
 
 
@@ -229,7 +229,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `listdependent` (`idCliente` INT)  B
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `listemployee` (`idemployee` INT)  BEGIN
+CREATE PROCEDURE `listemployee` (`idemployee` INT)  BEGIN
    select empl.idEmpleado,empl.cedulaEmpleado as numero_identificacion, empl.primerNombreEmpleado as primer_nombre, 
           empl.segundoNombreEmpleado as segundo_nombre, empl.primerApellidoEmpleado as primer_apellido, 
           empl.segundoApellidoEmpleado as segundo_apellido,  
@@ -239,7 +239,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `listemployee` (`idemployee` INT)  B
    order by primerApellidoEmpleado;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `listevent` (`idfilter` INT)  BEGIN
+CREATE PROCEDURE `listevent` (`idfilter` INT)  BEGIN
    select eve.ideventoCliente,eve.fechaEvento as fecha_evento, eve.horaEvento as hora_evento, 
           eve.lugarEvento as lugar_evento,  
           CONCAT(cli.primerNombreCliente, ' ', 
@@ -251,7 +251,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `listevent` (`idfilter` INT)  BEGIN
    order by eve.fechaEvento;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `listexperience` (`idEmpleado` INT)  BEGIN
+CREATE PROCEDURE `listexperience` (`idEmpleado` INT)  BEGIN
 
 
   select exp.idExperienciaEmpleado as id, CONCAT(empl.primerNombreEmpleado, ' ', 
@@ -292,7 +292,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `listexperience` (`idEmpleado` INT) 
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `listfeaturedpropertie` (`vfilter` INT)  BEGIN
+CREATE PROCEDURE `listfeaturedpropertie` (`vfilter` INT)  BEGIN
 
    select DISTINCT  inm.idinmueble as id, tip_inm.`nombreTipoInmueble` as tipo,
                tip_ofer.`nombreTipoOferta` as oferta, inm.precio as precio, ciud.`nombreCiudad` as ciudad, 
@@ -310,7 +310,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `listfeaturedpropertie` (`vfilter` I
    LIMIT 6 OFFSET 0;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `listformation` (`vid` INT)  BEGIN
+CREATE PROCEDURE `listformation` (`vid` INT)  BEGIN
   select frm.idformacionEmpleado as id, CONCAT(empl.primerNombreEmpleado, ' ', 
 							empl.segundoNombreEmpleado, ' ', empl.primerApellidoEmpleado , ' ', 
 							empl.segundoApellidoEmpleado) as nombre,
@@ -327,7 +327,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `listformation` (`vid` INT)  BEGIN
    order by nombre;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `listimagepropertie` (`vid` INT)  BEGIN
+CREATE PROCEDURE `listimagepropertie` (`vid` INT)  BEGIN
  	
 	SELECT img.rutaImagen as url_file, img.`idInmueble` as id_inmueble             
 	FROM imageninmueble  as img
@@ -336,7 +336,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `listimagepropertie` (`vid` INT)  BE
 	
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `listindependent` (`idCliente` INT)  BEGIN
+CREATE PROCEDURE `listindependent` (`idCliente` INT)  BEGIN
 
 
 
@@ -418,7 +418,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `listindependent` (`idCliente` INT) 
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `listnoticia` (IN `iduser` INT)  BEGIN
+CREATE PROCEDURE `listnoticia` (IN `iduser` INT)  BEGIN
 
 
 
@@ -452,7 +452,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `listnoticia` (IN `iduser` INT)  BEG
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `listpqrs` (`idfilter` INT)  BEGIN
+CREATE PROCEDURE `listpqrs` (`idfilter` INT)  BEGIN
    select pqr.idPQRS as id, tip.nombretipopqrs,pqr.fechaPQRS as fechaPQRS, CONCAT(cli.primerNombreCliente, ' ', 
 							cli.segundoNombreCliente, ' ', cli.primerApellidoCliente , ' ', 
 							cli.segundoApellidoCliente) as cliente, pqr.descripcionPQRS as descripcionPQRS,
@@ -463,7 +463,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `listpqrs` (`idfilter` INT)  BEGIN
    order by pqr.fechaPQRS;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `listprofession` (`iduser` INT)  BEGIN
+CREATE PROCEDURE `listprofession` (`iduser` INT)  BEGIN
 
 
 
@@ -505,7 +505,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `listprofession` (`iduser` INT)  BEG
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `listpropertie` (`idfilter` INT)  BEGIN
+CREATE PROCEDURE `listpropertie` (`idfilter` INT)  BEGIN
     select inm.idinmueble as id, 
             CONCAT(cli.primerNombreCliente, ' ', cli.segundoNombreCliente, ' ', 
                     cli.primerApellidoCliente , ' ', cli.segundoApellidoCliente) as nombre,
@@ -529,7 +529,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `listpropertie` (`idfilter` INT)  BE
    order by inm.`fechaRecepcion`;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `listpropertiecsv` (`idfilter` INT)  BEGIN
+CREATE PROCEDURE `listpropertiecsv` (`idfilter` INT)  BEGIN
  	
 	SELECT distinct                 
                inm.matriculaInmobiliaria as matricula_inmobiliaria,
@@ -605,7 +605,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `listpropertiecsv` (`idfilter` INT) 
 	
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `listpropertiepublic` (`viduser` INT, `vstate` INT, `vareamax` INT, `vvalorMax` INT, `vcity` INT, `vbarrio` INT, `vzone` INT, `vpropertietype` INT, `voffertype` INT, `vestrato` INT, `vascensor` INT, `vpiscina` INT, `vroom` INT, `vbath` INT, `vparking` INT, `vnombrebarriociudad` VARCHAR(50))  BEGIN
+CREATE PROCEDURE `listpropertiepublic` (`viduser` INT, `vstate` INT, `vareamax` INT, `vvalorMax` INT, `vcity` INT, `vbarrio` INT, `vzone` INT, `vpropertietype` INT, `voffertype` INT, `vestrato` INT, `vascensor` INT, `vpiscina` INT, `vroom` INT, `vbath` INT, `vparking` INT, `vnombrebarriociudad` VARCHAR(50))  BEGIN
 
    select DISTINCT  inm.idinmueble as id, tip_inm.`nombreTipoInmueble` as tipo,
                tip_ofer.`nombreTipoOferta` as oferta, inm.precio as precio, ciud.`nombreCiudad` as ciudad, 
@@ -639,7 +639,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `listpropertiepublic` (`viduser` INT
    order by inm.`fechaRecepcion`;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `listreference` (`idreferenciapersonalfamiliar` INT)  BEGIN
+CREATE PROCEDURE `listreference` (`idreferenciapersonalfamiliar` INT)  BEGIN
   select refe.idreferenciapersonalfamiliar as id, CONCAT(cli.primerNombreCliente, ' ', 
 							cli.segundoNombreCliente, ' ', cli.primerApellidoCliente , ' ', 
 							cli.segundoApellidoCliente) as cliente,
@@ -656,7 +656,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `listreference` (`idreferenciaperson
    order by cliente;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `listreferencebank` (`idreferenciabancaria` INT)  BEGIN
+CREATE PROCEDURE `listreferencebank` (`idreferenciabancaria` INT)  BEGIN
   select refe.idreferenciabancaria as id, CONCAT(cli.primerNombreCliente, ' ', 
 							cli.segundoNombreCliente, ' ', cli.primerApellidoCliente , ' ', 
 							cli.segundoApellidoCliente) as cliente,
@@ -672,7 +672,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `listreferencebank` (`idreferenciaba
    order by cliente;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `listrol` (`iduser` INT)  BEGIN
+CREATE PROCEDURE `listrol` (`iduser` INT)  BEGIN
 
 
 
@@ -706,7 +706,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `listrol` (`iduser` INT)  BEGIN
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `listspouse` (`idconyugue` INT)  BEGIN
+CREATE PROCEDURE `listspouse` (`idconyugue` INT)  BEGIN
   select con.idconyugue as id, CONCAT(con.nombresConyugue, ' ', 
 							con.apellidosConyugue) as nombres,
 		  
@@ -724,7 +724,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `listspouse` (`idconyugue` INT)  BEG
    order by cliente;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `listuser` (`iduser` INT)  BEGIN
+CREATE PROCEDURE `listuser` (`iduser` INT)  BEGIN
 
 
 
@@ -790,7 +790,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `listuser` (`iduser` INT)  BEGIN
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `listvideopropertie` (`vid` INT)  BEGIN
+CREATE PROCEDURE `listvideopropertie` (`vid` INT)  BEGIN
  	
 	SELECT rutaVideo as dinamic_data              
 	FROM videoinmueble       
@@ -798,7 +798,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `listvideopropertie` (`vid` INT)  BE
 	
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadactivityeconomic` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadactivityeconomic` (IN `idfilter` INT)  BEGIN
 
 
 
@@ -875,7 +875,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadactivityeconomic` (IN `idfilter
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadallmenu` ()  BEGIN
+CREATE PROCEDURE `loadallmenu` ()  BEGIN
 
 
 
@@ -933,7 +933,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadallmenu` ()  BEGIN
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadapage` (IN `vpage` VARCHAR(2000), IN `vrol` INT)  BEGIN
+CREATE PROCEDURE `loadapage` (IN `vpage` VARCHAR(2000), IN `vrol` INT)  BEGIN
 
 
 
@@ -991,7 +991,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadapage` (IN `vpage` VARCHAR(2000
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadarea` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadarea` (IN `idfilter` INT)  BEGIN
  
 	IF idfilter > -1 THEN
 	
@@ -1008,7 +1008,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadarea` (IN `idfilter` INT)  BEGI
         END IF;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadareamaximainmueble` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadareamaximainmueble` (IN `idfilter` INT)  BEGIN
  
 	IF idfilter > -1 THEN
 	
@@ -1022,7 +1022,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadareamaximainmueble` (IN `idfilt
         END IF;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadarl` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadarl` (IN `idfilter` INT)  BEGIN
 
 
  
@@ -1069,7 +1069,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadarl` (IN `idfilter` INT)  BEGIN
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadbank` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadbank` (IN `idfilter` INT)  BEGIN
  
 	IF idfilter > -1 THEN
 	
@@ -1086,7 +1086,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadbank` (IN `idfilter` INT)  BEGI
         END IF;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadbloodtype` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadbloodtype` (IN `idfilter` INT)  BEGIN
 
 
  
@@ -1133,7 +1133,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadbloodtype` (IN `idfilter` INT) 
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadcity` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadcity` (IN `idfilter` INT)  BEGIN
 
 
 
@@ -1263,7 +1263,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadcity` (IN `idfilter` INT)  BEGI
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadclient` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadclient` (IN `idfilter` INT)  BEGIN
 
 
 
@@ -1417,7 +1417,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadclient` (IN `idfilter` INT)  BE
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadclientType` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadclientType` (IN `idfilter` INT)  BEGIN
 
 
 
@@ -1539,7 +1539,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadclientType` (IN `idfilter` INT)
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadclienttypeselected` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadclienttypeselected` (IN `idfilter` INT)  BEGIN
 
 
 
@@ -1653,7 +1653,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadclienttypeselected` (IN `idfilt
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadcompensationbox` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadcompensationbox` (IN `idfilter` INT)  BEGIN
 
 
  
@@ -1700,7 +1700,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadcompensationbox` (IN `idfilter`
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadcontractType` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadcontractType` (IN `idfilter` INT)  BEGIN
 	IF idfilter > -1 THEN
 		select idobjetoContrato as id,	nombreObjetoContrato as nombre
 		from objetoscontratos	                
@@ -1712,7 +1712,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadcontractType` (IN `idfilter` IN
         END IF;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadcurtaintype` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadcurtaintype` (IN `idfilter` INT)  BEGIN
 
 
  
@@ -1759,7 +1759,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadcurtaintype` (IN `idfilter` INT
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loaddebtor` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loaddebtor` (IN `idfilter` INT)  BEGIN
  
 	IF idfilter > -1 THEN
 	
@@ -1780,7 +1780,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loaddebtor` (IN `idfilter` INT)  BE
         END IF;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loaddepartment` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loaddepartment` (IN `idfilter` INT)  BEGIN
 
 
 
@@ -1902,7 +1902,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loaddepartment` (IN `idfilter` INT)
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loademployee` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loademployee` (IN `idfilter` INT)  BEGIN
 
 
 
@@ -2056,7 +2056,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loademployee` (IN `idfilter` INT)  
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loademployeeselected` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loademployeeselected` (IN `idfilter` INT)  BEGIN
 
 
 
@@ -2203,7 +2203,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loademployeeselected` (IN `idfilter
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loademployeesselected` (IN `idfilter` INT)  BEGIN 
+CREATE PROCEDURE `loademployeesselected` (IN `idfilter` INT)  BEGIN 
 
 
 
@@ -2309,7 +2309,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loademployeesselected` (IN `idfilte
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadeps` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadeps` (IN `idfilter` INT)  BEGIN
 
 
  
@@ -2356,7 +2356,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadeps` (IN `idfilter` INT)  BEGIN
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadfloortype` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadfloortype` (IN `idfilter` INT)  BEGIN
 
 
  
@@ -2403,7 +2403,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadfloortype` (IN `idfilter` INT) 
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadgender` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadgender` (IN `idfilter` INT)  BEGIN
 
 
 
@@ -2525,7 +2525,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadgender` (IN `idfilter` INT)  BE
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadinmueblestopvisitas` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadinmueblestopvisitas` (IN `idfilter` INT)  BEGIN
  
 	IF idfilter > -1 THEN
 	
@@ -2549,7 +2549,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadinmueblestopvisitas` (IN `idfil
         END IF;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadkitchenstructure` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadkitchenstructure` (IN `idfilter` INT)  BEGIN
 
 
  
@@ -2596,7 +2596,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadkitchenstructure` (IN `idfilter
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadkitchentype` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadkitchentype` (IN `idfilter` INT)  BEGIN
 
 
  
@@ -2643,7 +2643,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadkitchentype` (IN `idfilter` INT
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadmaritalstatus` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadmaritalstatus` (IN `idfilter` INT)  BEGIN
 
 
 
@@ -2765,7 +2765,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadmaritalstatus` (IN `idfilter` I
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadmenu` (IN `rol` INT)  BEGIN
+CREATE PROCEDURE `loadmenu` (IN `rol` INT)  BEGIN
 
 
 
@@ -2831,7 +2831,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadmenu` (IN `rol` INT)  BEGIN
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadneighborhood` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadneighborhood` (IN `idfilter` INT)  BEGIN
 
 
  
@@ -2881,7 +2881,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadneighborhood` (IN `idfilter` IN
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadoffertype` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadoffertype` (IN `idfilter` INT)  BEGIN
 
 
  
@@ -2928,7 +2928,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadoffertype` (IN `idfilter` INT) 
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadoutstandingtype` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadoutstandingtype` (IN `idfilter` INT)  BEGIN
 
 
  
@@ -2975,7 +2975,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadoutstandingtype` (IN `idfilter`
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadpensionfund` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadpensionfund` (IN `idfilter` INT)  BEGIN
 
 
  
@@ -3022,7 +3022,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadpensionfund` (IN `idfilter` INT
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadperiodicity` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadperiodicity` (IN `idfilter` INT)  BEGIN
 
  
 
@@ -3054,7 +3054,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadperiodicity` (IN `idfilter` INT
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadpersontype` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadpersontype` (IN `idfilter` INT)  BEGIN
 
 
 
@@ -3176,7 +3176,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadpersontype` (IN `idfilter` INT)
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadposition` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadposition` (IN `idfilter` INT)  BEGIN
 
 
 
@@ -3253,7 +3253,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadposition` (IN `idfilter` INT)  
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadpqrstype` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadpqrstype` (IN `idfilter` INT)  BEGIN
  
 	IF idfilter > -1 THEN
 	
@@ -3270,7 +3270,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadpqrstype` (IN `idfilter` INT)  
         END IF;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadpreciomaximoinmueble` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadpreciomaximoinmueble` (IN `idfilter` INT)  BEGIN
  
 	IF idfilter > -1 THEN
 	
@@ -3284,7 +3284,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadpreciomaximoinmueble` (IN `idfi
         END IF;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadprofession` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadprofession` (IN `idfilter` INT)  BEGIN
 
 
 
@@ -3414,7 +3414,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadprofession` (IN `idfilter` INT)
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadprofessionnivel` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadprofessionnivel` (IN `idfilter` INT)  BEGIN
 
 
 
@@ -3536,7 +3536,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadprofessionnivel` (IN `idfilter`
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadpropertie` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadpropertie` (IN `idfilter` INT)  BEGIN
  
 	IF idfilter > -1 THEN
 	
@@ -3553,7 +3553,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadpropertie` (IN `idfilter` INT) 
         END IF;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadpropertietype` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadpropertietype` (IN `idfilter` INT)  BEGIN
 
 
  
@@ -3600,7 +3600,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadpropertietype` (IN `idfilter` I
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadrol` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadrol` (IN `idfilter` INT)  BEGIN
 
 
 
@@ -3730,7 +3730,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadrol` (IN `idfilter` INT)  BEGIN
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadseverancefund` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadseverancefund` (IN `idfilter` INT)  BEGIN
 
 
  
@@ -3777,7 +3777,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadseverancefund` (IN `idfilter` I
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadStatus` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadStatus` (IN `idfilter` INT)  BEGIN
 
 
  
@@ -3824,7 +3824,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadStatus` (IN `idfilter` INT)  BE
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadstratum` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadstratum` (IN `idfilter` INT)  BEGIN
 
 
  
@@ -3871,7 +3871,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadstratum` (IN `idfilter` INT)  B
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadtipoidentificacion` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadtipoidentificacion` (IN `idfilter` INT)  BEGIN
 
 
 
@@ -3993,7 +3993,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadtipoidentificacion` (IN `idfilt
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadtotalarrendatarios` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadtotalarrendatarios` (IN `idfilter` INT)  BEGIN
  
 	IF idfilter > -1 THEN
 
@@ -4007,7 +4007,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadtotalarrendatarios` (IN `idfilt
         END IF;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadtotalclientes` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadtotalclientes` (IN `idfilter` INT)  BEGIN
  
 	IF idfilter > -1 THEN
 
@@ -4021,7 +4021,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadtotalclientes` (IN `idfilter` I
         END IF;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadtotalinmuebles` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadtotalinmuebles` (IN `idfilter` INT)  BEGIN
  
 	IF idfilter > -1 THEN
 	
@@ -4035,7 +4035,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadtotalinmuebles` (IN `idfilter` 
         END IF;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadtotalinmueblesporoferta` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadtotalinmueblesporoferta` (IN `idfilter` INT)  BEGIN
  
 	IF idfilter > -1 THEN
 
@@ -4053,7 +4053,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadtotalinmueblesporoferta` (IN `i
         END IF;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadtotalinmueblesporofertaContrato` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadtotalinmueblesporofertaContrato` (IN `idfilter` INT)  BEGIN
  
 	IF idfilter > -1 THEN
 
@@ -4073,7 +4073,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadtotalinmueblesporofertaContrato
         END IF;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadtypeemployee` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadtypeemployee` (IN `idfilter` INT)  BEGIN
 
 
 
@@ -4195,7 +4195,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadtypeemployee` (IN `idfilter` IN
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadtypeevent` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadtypeevent` (IN `idfilter` INT)  BEGIN
 
 
 
@@ -4317,7 +4317,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadtypeevent` (IN `idfilter` INT) 
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadtypereference` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadtypereference` (IN `idfilter` INT)  BEGIN
  
 	IF idfilter > -1 THEN
 	
@@ -4334,7 +4334,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadtypereference` (IN `idfilter` I
         END IF;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadviewtype` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadviewtype` (IN `idfilter` INT)  BEGIN
 
 
  
@@ -4381,7 +4381,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadviewtype` (IN `idfilter` INT)  
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadvigilancetype` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadvigilancetype` (IN `idfilter` INT)  BEGIN
 
 
  
@@ -4428,7 +4428,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadvigilancetype` (IN `idfilter` I
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadzonastopvisitas` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadzonastopvisitas` (IN `idfilter` INT)  BEGIN
  
 	IF idfilter > -1 THEN
 	
@@ -4452,7 +4452,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadzonastopvisitas` (IN `idfilter`
         END IF;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadzone` (IN `idfilter` INT)  BEGIN
+CREATE PROCEDURE `loadzone` (IN `idfilter` INT)  BEGIN
 
 
  
@@ -4499,7 +4499,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `loadzone` (IN `idfilter` INT)  BEGI
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `login` (IN `usu` VARCHAR(50), IN `pass` VARCHAR(50))  BEGIN
+CREATE PROCEDURE `login` (IN `usu` VARCHAR(50), IN `pass` VARCHAR(50))  BEGIN
 
 
 
@@ -4541,14 +4541,14 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `login` (IN `usu` VARCHAR(50), IN `p
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loginPublic` (`vemail` VARCHAR(50), `vpassword` VARCHAR(50))  BEGIN
+CREATE PROCEDURE `loginPublic` (`vemail` VARCHAR(50), `vpassword` VARCHAR(50))  BEGIN
   select cli.`idCliente` as id, cli.`correoCliente` as email, CONCAT(cli.primerNombreCliente, ' ', 
         cli.primerApellidoCliente) as nombre
    from clientes as cli   
    where cli.password = vpassword and cli.`correoCliente` = vemail	;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `log_msg` (`msg` VARCHAR(255))  READS SQL DATA
+CREATE PROCEDURE `log_msg` (`msg` VARCHAR(255))  READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que permite hacer debug'
 BEGIN 
@@ -4569,7 +4569,7 @@ BEGIN
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `searchclient` (`vid` INT)  BEGIN
+CREATE PROCEDURE `searchclient` (`vid` INT)  BEGIN
 	SELECT cli.idCliente as id ,
 		cli.numeroIdentificacion as cedula, 
 		cli.primerNombreCliente as primer_nombre, 
@@ -4599,7 +4599,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `searchclient` (`vid` INT)  BEGIN
 		where idCliente = vid;	
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `searchcontract` (`vid` INT)  BEGIN
+CREATE PROCEDURE `searchcontract` (`vid` INT)  BEGIN
  	
 	SELECT con.idcontratoEmpleado as id ,
 				con.fechaInicio	 as fecha_inicio,
@@ -4618,7 +4618,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `searchcontract` (`vid` INT)  BEGIN
 	
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `searchcontractpropertie` (`vid` INT)  BEGIN
+CREATE PROCEDURE `searchcontractpropertie` (`vid` INT)  BEGIN
  	
 	SELECT con.idcontrato as id ,
 				con.idcliente as cliente,
@@ -4637,7 +4637,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `searchcontractpropertie` (`vid` INT
 	
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `searchdebtor` (`vid` INT)  BEGIN
+CREATE PROCEDURE `searchdebtor` (`vid` INT)  BEGIN
  	
 	SELECT deu.idDeudor as id ,
                deu.numeroIdentificacion as cedula, 
@@ -4668,7 +4668,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `searchdebtor` (`vid` INT)  BEGIN
 	
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `searchdependent` (`vid` INT)  BEGIN
+CREATE PROCEDURE `searchdependent` (`vid` INT)  BEGIN
 
 
 
@@ -4820,7 +4820,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `searchdependent` (`vid` INT)  BEGIN
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `searchemployee` (`vid` INT)  BEGIN
+CREATE PROCEDURE `searchemployee` (`vid` INT)  BEGIN
 
 
  	
@@ -4960,7 +4960,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `searchemployee` (`vid` INT)  BEGIN
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `searchevent` (`vidEvent` INT)  BEGIN
+CREATE PROCEDURE `searchevent` (`vidEvent` INT)  BEGIN
 
 
 
@@ -5122,7 +5122,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `searchevent` (`vidEvent` INT)  BEGI
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `searcheventcomments` (`vidEvent` INT)  BEGIN
+CREATE PROCEDURE `searcheventcomments` (`vidEvent` INT)  BEGIN
 
 
 
@@ -5292,7 +5292,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `searcheventcomments` (`vidEvent` IN
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `searcheventsclient` (`vid` INT)  BEGIN
+CREATE PROCEDURE `searcheventsclient` (`vid` INT)  BEGIN
 			SELECT eve.ideventoCliente as idevento,
 					eve.fechaEvento as fecha,
 					eve.horaEvento as hora,
@@ -5309,7 +5309,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `searcheventsclient` (`vid` INT)  BE
 			where eve.clientes_cedulaCliente = vid;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `searchexperience` (`vid` INT)  BEGIN
+CREATE PROCEDURE `searchexperience` (`vid` INT)  BEGIN
 
 
  	
@@ -5353,7 +5353,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `searchexperience` (`vid` INT)  BEGI
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `searchformation` (`vid` INT)  BEGIN
+CREATE PROCEDURE `searchformation` (`vid` INT)  BEGIN
 
  	
 
@@ -5391,7 +5391,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `searchformation` (`vid` INT)  BEGIN
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `searchindependent` (`vid` INT)  BEGIN
+CREATE PROCEDURE `searchindependent` (`vid` INT)  BEGIN
 
 
 
@@ -5533,7 +5533,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `searchindependent` (`vid` INT)  BEG
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `searchnoticia` (`idnoticia` INT)  BEGIN
+CREATE PROCEDURE `searchnoticia` (`idnoticia` INT)  BEGIN
 
 
 
@@ -5591,7 +5591,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `searchnoticia` (`idnoticia` INT)  B
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `searchpqrs` (`vid` INT)  BEGIN
+CREATE PROCEDURE `searchpqrs` (`vid` INT)  BEGIN
  	
 	SELECT  pqr.idPQRS as id,
                 pqr.fechaPQRS as fechaPQRS,
@@ -5610,7 +5610,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `searchpqrs` (`vid` INT)  BEGIN
 	
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `searchprofession` (`vid` INT)  BEGIN
+CREATE PROCEDURE `searchprofession` (`vid` INT)  BEGIN
 
 
 
@@ -5660,7 +5660,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `searchprofession` (`vid` INT)  BEGI
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `searchprofileclient` (`vid` INT)  BEGIN
+CREATE PROCEDURE `searchprofileclient` (`vid` INT)  BEGIN
 			SELECT cli.idCliente as id, cli.numeroIdentificacion as cedula, CONCAT(cli.primerNombreCliente, ' ', 
 							cli.segundoNombreCliente, ' ', cli.primerApellidoCliente , ' ', 
 							cli.segundoApellidoCliente) as nombre,
@@ -5682,7 +5682,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `searchprofileclient` (`vid` INT)  B
 			where idCliente = vid;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `searchpropertie` (`vid` INT)  BEGIN
+CREATE PROCEDURE `searchpropertie` (`vid` INT)  BEGIN
  	
 	SELECT distinct inm.idinmueble as id,
                inm.precio as precio,
@@ -5777,7 +5777,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `searchpropertie` (`vid` INT)  BEGIN
 	
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `searchpropertiebyclient` (`vid` INT)  BEGIN
+CREATE PROCEDURE `searchpropertiebyclient` (`vid` INT)  BEGIN
  	
 	SELECT distinct inm.idinmueble as id,
                inm.precio as precio,
@@ -5848,7 +5848,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `searchpropertiebyclient` (`vid` INT
 	
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `searchpropertiepdf` (`vid` INT)  BEGIN
+CREATE PROCEDURE `searchpropertiepdf` (`vid` INT)  BEGIN
  	
 	SELECT distinct inm.idinmueble as id,
                inm.precio as precio,
@@ -5938,7 +5938,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `searchpropertiepdf` (`vid` INT)  BE
 	
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `searchreference` (`vid` INT)  BEGIN
+CREATE PROCEDURE `searchreference` (`vid` INT)  BEGIN
  	
 	SELECT refe.idreferenciapersonalfamiliar as id ,
 				refe.clientes_idCliente as cliente,
@@ -5953,7 +5953,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `searchreference` (`vid` INT)  BEGIN
 	
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `searchreferencebank` (`vid` INT)  BEGIN
+CREATE PROCEDURE `searchreferencebank` (`vid` INT)  BEGIN
  	
 	SELECT refe.idreferenciabancaria as id ,
 				refe.clientes_idCliente as cliente,
@@ -5967,7 +5967,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `searchreferencebank` (`vid` INT)  B
 	
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `searchrol` (`idrol` INT)  BEGIN
+CREATE PROCEDURE `searchrol` (`idrol` INT)  BEGIN
 
 
 
@@ -6025,7 +6025,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `searchrol` (`idrol` INT)  BEGIN
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `searchspouse` (`vid` INT)  BEGIN
+CREATE PROCEDURE `searchspouse` (`vid` INT)  BEGIN
  	
 	SELECT con.idconyugue as id ,
 				con.clientes_idCliente as cliente,
@@ -6046,7 +6046,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `searchspouse` (`vid` INT)  BEGIN
 	
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `searchtimelineclient` (`vid` INT)  BEGIN
+CREATE PROCEDURE `searchtimelineclient` (`vid` INT)  BEGIN
 			SELECT eve.ideventoCliente as idevento,
 					eve.fechaEvento as fecha,
 					eve.horaEvento as hora,
@@ -6063,7 +6063,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `searchtimelineclient` (`vid` INT)  
 			where eve.clientes_cedulaCliente = vid;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `searchuser` (`vid` INT)  BEGIN
+CREATE PROCEDURE `searchuser` (`vid` INT)  BEGIN
 
 
 
@@ -6124,7 +6124,7 @@ END$$
 --
 -- Funciones
 --
-CREATE DEFINER=`root`@`localhost` FUNCTION `deleteclient` (`vid` INT) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `deleteclient` (`vid` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que elimina un cliente'
 BEGIN 
@@ -6185,7 +6185,7 @@ BEGIN
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `deletecontract` (`vid` INT) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `deletecontract` (`vid` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que elimina un contrato'
 BEGIN 
@@ -6195,7 +6195,7 @@ BEGIN
 	RETURN res;
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `deletecontractpropertie` (`vid` INT) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `deletecontractpropertie` (`vid` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que elimina un contrato de un inmueble'
 BEGIN 
@@ -6205,7 +6205,7 @@ BEGIN
 	RETURN res;
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `deletedebtor` (`vid` INT) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `deletedebtor` (`vid` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que elimina un Deudor'
 BEGIN 
@@ -6215,7 +6215,7 @@ BEGIN
 	RETURN res;
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `deletedependent` (`vid` INT) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `deletedependent` (`vid` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que elimina un arrendatario dependiente'
 BEGIN 
@@ -6245,7 +6245,7 @@ BEGIN
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `deleteemployee` (`vid` INT) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `deleteemployee` (`vid` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que elimina un Empleado'
 BEGIN 
@@ -6290,7 +6290,7 @@ BEGIN
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `deleteevent` (`vid` INT) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `deleteevent` (`vid` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que elimina un evento'
 BEGIN 
@@ -6351,7 +6351,7 @@ BEGIN
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `deleteexperience` (`vid` INT) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `deleteexperience` (`vid` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que elimina formación'
 BEGIN 
@@ -6366,7 +6366,7 @@ BEGIN
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `deleteformation` (`vid` INT) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `deleteformation` (`vid` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que elimina formación'
 BEGIN 
@@ -6381,7 +6381,7 @@ BEGIN
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `deleteindependent` (`vid` INT) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `deleteindependent` (`vid` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que elimina un arrendatario dependiente'
 BEGIN 
@@ -6411,7 +6411,7 @@ BEGIN
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `deletenoticia` (`vid` INT) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `deletenoticia` (`vid` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que elimina una noticia'
 BEGIN 
@@ -6456,7 +6456,7 @@ SET res = 1;
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `deleteprofession` (`vid` INT) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `deleteprofession` (`vid` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que elimina una profesion'
 BEGIN 
@@ -6501,7 +6501,7 @@ SET res = 1;
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `deletepropertie` (`vid` INT) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `deletepropertie` (`vid` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que elimina un inmueble'
 BEGIN 
@@ -6515,7 +6515,7 @@ BEGIN
     RETURN res;
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `deletereference` (`vid` INT) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `deletereference` (`vid` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que elimina una referencia'
 BEGIN 
@@ -6525,7 +6525,7 @@ BEGIN
 	RETURN res;
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `deletereferencebank` (`vid` INT) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `deletereferencebank` (`vid` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que elimina una referencia bancaría'
 BEGIN 
@@ -6535,7 +6535,7 @@ BEGIN
 	RETURN res;
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `deleterol` (`cod` INT) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `deleterol` (`cod` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que elimina un rol'
 BEGIN
@@ -6580,7 +6580,7 @@ BEGIN
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `deletespouse` (`vid` INT) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `deletespouse` (`vid` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que elimina un conyugue'
 BEGIN 
@@ -6590,7 +6590,7 @@ BEGIN
 	RETURN res;
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `deleteuser` (`vid` INT) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `deleteuser` (`vid` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que elimina un usuario'
 BEGIN 
@@ -6635,7 +6635,7 @@ SET res = 1;
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `loadEmployeeEvent` (`vid` INT) RETURNS VARCHAR(200) CHARSET latin1 READS SQL DATA
+CREATE FUNCTION `loadEmployeeEvent` (`vid` INT) RETURNS VARCHAR(200) CHARSET latin1 READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que trae el empleado que atiende un evento'
 BEGIN 
@@ -6652,7 +6652,7 @@ BEGIN
     RETURN vemployee;
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `loadeventspending` (`vid` INT) RETURNS INT(11) READS SQL DATA
+CREATE FUNCTION `loadeventspending` (`vid` INT) RETURNS INT(11) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que trae la cantidad de eventos pendientes de un cliente'
 BEGIN 
@@ -6664,7 +6664,7 @@ BEGIN
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `loadImageEmployee` (`vid` INT) RETURNS VARCHAR(2000) CHARSET latin1 READS SQL DATA
+CREATE FUNCTION `loadImageEmployee` (`vid` INT) RETURNS VARCHAR(2000) CHARSET latin1 READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que trae el empleado que atiende un evento'
 BEGIN 
@@ -6679,7 +6679,7 @@ BEGIN
     RETURN vimageemployee;
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `loadimagepropertie` (`vid` INT) RETURNS VARCHAR(200) CHARSET latin1 READS SQL DATA
+CREATE FUNCTION `loadimagepropertie` (`vid` INT) RETURNS VARCHAR(200) CHARSET latin1 READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que trae la primera imagen de una propiedad'
 BEGIN 
@@ -6695,7 +6695,7 @@ BEGIN
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `saveclient` (`vid` INT, `vfirstname` VARCHAR(50), `vsecondname` VARCHAR(50), `vfirstlastname` VARCHAR(50), `vsecondlastname` VARCHAR(50), `vDocumentType` INT, `vDocumentNumber` VARCHAR(11), `vCityExpedition` INT, `vBirthdate` VARCHAR(50), `vClientType` INT, `vAddress` VARCHAR(45), `vHomePhone` VARCHAR(10), `vMobilePhone` VARCHAR(10), `vEmail` VARCHAR(45), `vGender` INT, `vCityResidence` INT, `vProfession` INT, `vMaritalStatus` INT, `vPersonType` INT, `vimageclient` VARCHAR(200), `vtypesclient` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `saveclient` (`vid` INT, `vfirstname` VARCHAR(50), `vsecondname` VARCHAR(50), `vfirstlastname` VARCHAR(50), `vsecondlastname` VARCHAR(50), `vDocumentType` INT, `vDocumentNumber` VARCHAR(11), `vCityExpedition` INT, `vBirthdate` VARCHAR(50), `vClientType` INT, `vAddress` VARCHAR(45), `vHomePhone` VARCHAR(10), `vMobilePhone` VARCHAR(10), `vEmail` VARCHAR(45), `vGender` INT, `vCityResidence` INT, `vProfession` INT, `vMaritalStatus` INT, `vPersonType` INT, `vimageclient` VARCHAR(200), `vtypesclient` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena un cliente'
 BEGIN 
@@ -6762,7 +6762,7 @@ BEGIN
 	RETURN res;
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `saveclientpublic` (`vid` INT, `vFirstName` VARCHAR(20), `vSecondName` VARCHAR(20), `vFirstLastName` VARCHAR(20), `vSecondLastName` VARCHAR(20), `vMobilePhone` VARCHAR(10), `vEmail` VARCHAR(45), `vPassword` VARCHAR(32)) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `saveclientpublic` (`vid` INT, `vFirstName` VARCHAR(20), `vSecondName` VARCHAR(20), `vFirstLastName` VARCHAR(20), `vSecondLastName` VARCHAR(20), `vMobilePhone` VARCHAR(10), `vEmail` VARCHAR(45), `vPassword` VARCHAR(32)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena un cliente desde la pagina publica'
 BEGIN 
@@ -6809,7 +6809,7 @@ IF NOT EXISTS(select 1 from clientes where correoCliente=vEmail)
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `savecontract` (`vid` INT, `vemployee` INT, `varea` INT, `vstartdate` VARCHAR(50), `venddate` VARCHAR(50), `vcontracttype` INT, `vposition` INT, `vsalary` FLOAT, `vurlcontract` VARCHAR(200)) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `savecontract` (`vid` INT, `vemployee` INT, `varea` INT, `vstartdate` VARCHAR(50), `venddate` VARCHAR(50), `vcontracttype` INT, `vposition` INT, `vsalary` FLOAT, `vurlcontract` VARCHAR(200)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena un contrato de un empleado'
 BEGIN
@@ -6845,7 +6845,7 @@ IF NOT EXISTS(select 1 from  contratoempleado where idcontratoEmpleado=vid)
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `savecontractpropertie` (`vid` INT, `vclient` INT, `vpropertie` INT, `vfirmDate` VARCHAR(50), `vstartDate` VARCHAR(50), `vendDate` VARCHAR(50), `vcontractValue` FLOAT, `vtermContract` INT, `vwayPay` VARCHAR(50), `vurlContract` VARCHAR(500), `vtypescontract` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `savecontractpropertie` (`vid` INT, `vclient` INT, `vpropertie` INT, `vfirmDate` VARCHAR(50), `vstartDate` VARCHAR(50), `vendDate` VARCHAR(50), `vcontractValue` FLOAT, `vtermContract` INT, `vwayPay` VARCHAR(50), `vurlContract` VARCHAR(500), `vtypescontract` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena un contrato de un inmueble'
 BEGIN
@@ -6894,7 +6894,7 @@ IF NOT EXISTS(select 1 from  contratos where idcontrato=vid)
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `savedebtor` (`vid` INT, `vDocumentNumber` VARCHAR(11), `vfirstname` VARCHAR(50), `vsecondname` VARCHAR(50), `vfirstlastname` VARCHAR(50), `vsecondlastname` VARCHAR(50), `vAddress` VARCHAR(45), `vHomePhone` VARCHAR(10), `vAddressOffice` VARCHAR(45), `vOfficePhone` VARCHAR(10), `vMobilePhone` VARCHAR(10), `vEmail` VARCHAR(45), `vMonthlyIncome` FLOAT, `vMaritalStatus` INT, `vDocumentType` INT, `vCityResidence` INT, `vCityExpedition` INT, `vExpeditionDate` VARCHAR(50)) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `savedebtor` (`vid` INT, `vDocumentNumber` VARCHAR(11), `vfirstname` VARCHAR(50), `vsecondname` VARCHAR(50), `vfirstlastname` VARCHAR(50), `vsecondlastname` VARCHAR(50), `vAddress` VARCHAR(45), `vHomePhone` VARCHAR(10), `vAddressOffice` VARCHAR(45), `vOfficePhone` VARCHAR(10), `vMobilePhone` VARCHAR(10), `vEmail` VARCHAR(45), `vMonthlyIncome` FLOAT, `vMaritalStatus` INT, `vDocumentType` INT, `vCityResidence` INT, `vCityExpedition` INT, `vExpeditionDate` VARCHAR(50)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena un Deudor'
 BEGIN 
@@ -6949,7 +6949,7 @@ IF NOT EXISTS(select 1 from deudorSolidario where numeroIdentificacion=vDocument
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `savedistrict` (`vid` INT, `vname` VARCHAR(50), `vcity` INT) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `savedistrict` (`vid` INT, `vname` VARCHAR(50), `vcity` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena un nuevo barrio'
 BEGIN 
@@ -6978,7 +6978,7 @@ IF NOT EXISTS(select 1 from barrios where nombreBarrio=vname)
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `saveemployee` (`vid` INT, `vfirstname` VARCHAR(50), `vsecondname` VARCHAR(50), `vfirstlastname` VARCHAR(50), `vsecondlastname` VARCHAR(50), `vdocumentnumber` VARCHAR(11), `vexpeditiondate` VARCHAR(50), `vbirthdate` VARCHAR(50), `vaddress` VARCHAR(45), `vhomephone` VARCHAR(10), `vmobilephone` VARCHAR(10), `vemail` VARCHAR(45), `vgender` INT, `vtypeemployee` INT, `vcityresidence` INT, `vprofession` INT, `vmaritalstatus` INT, `vcityexpedition` INT, `vfileidentification` VARCHAR(200), `vcitybirth` INT, `vmilitarycard` VARCHAR(20), `vbloodtype` INT, `vfilemilitarycard` VARCHAR(200), `vpensionFund` INT, `vseverancefund` INT, `varl` INT, `veps` INT, `vcompensationbox` INT, `vdisability` INT, `vimageemployee` VARCHAR(200), `vcontactname` VARCHAR(50), `vcontactphone` VARCHAR(10), `vcontactemail` VARCHAR(45)) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `saveemployee` (`vid` INT, `vfirstname` VARCHAR(50), `vsecondname` VARCHAR(50), `vfirstlastname` VARCHAR(50), `vsecondlastname` VARCHAR(50), `vdocumentnumber` VARCHAR(11), `vexpeditiondate` VARCHAR(50), `vbirthdate` VARCHAR(50), `vaddress` VARCHAR(45), `vhomephone` VARCHAR(10), `vmobilephone` VARCHAR(10), `vemail` VARCHAR(45), `vgender` INT, `vtypeemployee` INT, `vcityresidence` INT, `vprofession` INT, `vmaritalstatus` INT, `vcityexpedition` INT, `vfileidentification` VARCHAR(200), `vcitybirth` INT, `vmilitarycard` VARCHAR(20), `vbloodtype` INT, `vfilemilitarycard` VARCHAR(200), `vpensionFund` INT, `vseverancefund` INT, `varl` INT, `veps` INT, `vcompensationbox` INT, `vdisability` INT, `vimageemployee` VARCHAR(200), `vcontactname` VARCHAR(50), `vcontactphone` VARCHAR(10), `vcontactemail` VARCHAR(45)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena un Empleado'
 BEGIN
@@ -7139,7 +7139,7 @@ IF NOT EXISTS(select 1 from empleados where cedulaEmpleado=vdocumentnumber)
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `saveevent` (`vidEvent` INT, `vdateEvent` VARCHAR(50), `vtimeEvent` VARCHAR(50), `vplaceEvent` VARCHAR(100), `vlatitude` FLOAT, `vlength` FLOAT, `vclient` INT, `veventType` INT, `vobservations` VARCHAR(100), `vemployees` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `saveevent` (`vidEvent` INT, `vdateEvent` VARCHAR(50), `vtimeEvent` VARCHAR(50), `vplaceEvent` VARCHAR(100), `vlatitude` FLOAT, `vlength` FLOAT, `vclient` INT, `veventType` INT, `vobservations` VARCHAR(100), `vemployees` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena un evento'
 BEGIN 
@@ -7497,7 +7497,7 @@ BEGIN
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `saveexperience` (`vid` INT, `vemployee` INT, `vcompanyname` VARCHAR(50), `vadmissiondate` VARCHAR(50), `vdeparturedate` VARCHAR(50), `vurlworkcertificate` VARCHAR(200), `vposition` INT) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `saveexperience` (`vid` INT, `vemployee` INT, `vcompanyname` VARCHAR(50), `vadmissiondate` VARCHAR(50), `vdeparturedate` VARCHAR(50), `vurlworkcertificate` VARCHAR(200), `vposition` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena la experiencia de un empleado'
 BEGIN
@@ -7583,7 +7583,7 @@ IF NOT EXISTS(select 1 from experienciaempleado where idexperienciaEmpleado=vid)
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `saveformation` (`vid` INT, `vinstitute` VARCHAR(50), `vlevel` INT, `vcertificate` VARCHAR(200), `vemployee` INT, `vprofession` INT, `vperiodicity` INT, `vgraduate` INT) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `saveformation` (`vid` INT, `vinstitute` VARCHAR(50), `vlevel` INT, `vcertificate` VARCHAR(200), `vemployee` INT, `vprofession` INT, `vperiodicity` INT, `vgraduate` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena la formación de un empleado'
 BEGIN
@@ -7640,7 +7640,7 @@ IF NOT EXISTS(select 1 from formacionempleado where idformacionEmpleado=vid)
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `savenoticia` (`cod` INT, `titl` VARCHAR(200), `des` VARCHAR(10000), `fech` VARCHAR(20), `phot` VARCHAR(2000), `vid` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `savenoticia` (`cod` INT, `titl` VARCHAR(200), `des` VARCHAR(10000), `fech` VARCHAR(20), `phot` VARCHAR(2000), `vid` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena una noticia'
 BEGIN 
@@ -7741,7 +7741,7 @@ IF NOT EXISTS(select titulo from noticia where titulo=titl)
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `savepqrsclient` (`vpqrstype` INT, `vdescription` VARCHAR(200), `vfecha` VARCHAR(20), `vhora` VARCHAR(20), `vidclient` INT) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `savepqrsclient` (`vpqrstype` INT, `vdescription` VARCHAR(200), `vfecha` VARCHAR(20), `vhora` VARCHAR(20), `vidclient` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena un pqrs del cliente'
 BEGIN 
@@ -7769,7 +7769,7 @@ BEGIN
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `saveprofession` (`vid` INT, `vname` VARCHAR(50), `vprofessionnivel` INT) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `saveprofession` (`vid` INT, `vname` VARCHAR(50), `vprofessionnivel` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena una profesion'
 BEGIN 
@@ -7926,7 +7926,7 @@ IF NOT EXISTS(select 1 from profesiones where nombreProfesion=vname and vProfess
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `savepropertieauditpublic` (`vusuario_id` VARCHAR(20), `vid_register` INT, `vdia` VARCHAR(20), `vmes` VARCHAR(20), `vanio` VARCHAR(5), `vhora` VARCHAR(20), `vip` VARCHAR(20), `vdispositivo` VARCHAR(20), `vsistema_operativo` VARCHAR(20), `vnavegador` VARCHAR(20)) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `savepropertieauditpublic` (`vusuario_id` VARCHAR(20), `vid_register` INT, `vdia` VARCHAR(20), `vmes` VARCHAR(20), `vanio` VARCHAR(5), `vhora` VARCHAR(20), `vip` VARCHAR(20), `vdispositivo` VARCHAR(20), `vsistema_operativo` VARCHAR(20), `vnavegador` VARCHAR(20)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena una auditoria de la busqueda de un inmueble en el portal'
 BEGIN 
@@ -7939,7 +7939,7 @@ BEGIN
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `savereference` (`vid` INT, `vclient` INT, `vtypereference` INT, `vname` VARCHAR(50), `vlastname` VARCHAR(50), `vphone` VARCHAR(10)) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `savereference` (`vid` INT, `vclient` INT, `vtypereference` INT, `vname` VARCHAR(50), `vlastname` VARCHAR(50), `vphone` VARCHAR(10)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena un contrato de una referencia'
 BEGIN
@@ -7969,7 +7969,7 @@ IF NOT EXISTS(select 1 from  referenciapersonalfamiliar where idreferenciaperson
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `savereferencebank` (`vid` INT, `vclient` INT, `vaccountnumber` VARCHAR(50), `vbank` INT, `vbranchOffice` VARCHAR(50)) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `savereferencebank` (`vid` INT, `vclient` INT, `vaccountnumber` VARCHAR(50), `vbank` INT, `vbranchOffice` VARCHAR(50)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena un contrato de una referencia bancaría'
 BEGIN
@@ -7997,7 +7997,7 @@ IF NOT EXISTS(select 1 from  referenciabancaria where idreferenciabancaria=vid)
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `saverol` (`cod` INT, `nom` VARCHAR(50), `des` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `saverol` (`cod` INT, `nom` VARCHAR(50), `des` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena un rol'
 BEGIN 
@@ -8106,7 +8106,7 @@ IF NOT EXISTS(select nombre from rol where nombre=nom)
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `savespouse` (`vid` INT, `vclient` INT, `vdocumentNumber` INT, `vexpeditionDate` VARCHAR(50), `vemail` VARCHAR(50), `vfirstName` VARCHAR(50), `vlastName` VARCHAR(50), `vmobilePhone` VARCHAR(50), `vcompany` VARCHAR(50), `vaddress` VARCHAR(100), `vofficePhone` VARCHAR(50), `vsalary` FLOAT) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `savespouse` (`vid` INT, `vclient` INT, `vdocumentNumber` INT, `vexpeditionDate` VARCHAR(50), `vemail` VARCHAR(50), `vfirstName` VARCHAR(50), `vlastName` VARCHAR(50), `vmobilePhone` VARCHAR(50), `vcompany` VARCHAR(50), `vaddress` VARCHAR(100), `vofficePhone` VARCHAR(50), `vsalary` FLOAT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena un conyugue'
 BEGIN
@@ -8148,7 +8148,7 @@ IF NOT EXISTS(select 1 from  conyugues where idconyugue=vid)
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `saveupdatedependent` (`vid` INT, `vactivityEconomic` INT, `vcompany` VARCHAR(50), `vposition` INT, `vaddress` VARCHAR(200), `vsalary` FLOAT, `votherIncome` FLOAT, `vantiquity` INT, `vofficePhone` VARCHAR(10)) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `saveupdatedependent` (`vid` INT, `vactivityEconomic` INT, `vcompany` VARCHAR(50), `vposition` INT, `vaddress` VARCHAR(200), `vsalary` FLOAT, `votherIncome` FLOAT, `vantiquity` INT, `vofficePhone` VARCHAR(10)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena un arrendatario dependiente'
 BEGIN 
@@ -8358,7 +8358,7 @@ IF NOT EXISTS(select 1 from  arrendatariodependiente where clientes_idCliente=vI
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `saveupdateindependent` (`vid` INT, `vactivityEconomic` INT, `vbusinessDescription` VARCHAR(100), `vmerchantRecord` VARCHAR(50), `vnumberEmployees` INT, `vincome` FLOAT, `vexpenses` FLOAT) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `saveupdateindependent` (`vid` INT, `vactivityEconomic` INT, `vbusinessDescription` VARCHAR(100), `vmerchantRecord` VARCHAR(50), `vnumberEmployees` INT, `vincome` FLOAT, `vexpenses` FLOAT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena un arrendatario independiente'
 BEGIN 
@@ -8543,7 +8543,7 @@ IF NOT EXISTS(select 1 from  arrendatarioindependiente where clientes_idCliente=
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `saveuser` (`id` INT, `vfirstname` VARCHAR(50), `vsecondname` VARCHAR(50), `vfirstlastname` VARCHAR(50), `vsecondlastname` VARCHAR(50), `vuser` VARCHAR(50), `vpass` VARCHAR(50), `vrol` INT, `vdescription` VARCHAR(50)) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `saveuser` (`id` INT, `vfirstname` VARCHAR(50), `vsecondname` VARCHAR(50), `vfirstlastname` VARCHAR(50), `vsecondlastname` VARCHAR(50), `vuser` VARCHAR(50), `vpass` VARCHAR(50), `vrol` INT, `vdescription` VARCHAR(50)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena un rol'
 BEGIN 
@@ -8692,7 +8692,7 @@ IF NOT EXISTS(select usuario from usuario where usuario=vuser)
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `updateclient` (`vid` INT, `vfirstname` VARCHAR(50), `vsecondname` VARCHAR(50), `vfirstlastname` VARCHAR(50), `vsecondlastname` VARCHAR(50), `vDocumentType` INT, `vDocumentNumber` VARCHAR(11), `vCityExpedition` INT, `vBirthdate` VARCHAR(50), `vClientType` INT, `vAddress` VARCHAR(45), `vHomePhone` VARCHAR(10), `vMobilePhone` VARCHAR(10), `vEmail` VARCHAR(45), `vGender` INT, `vCityResidence` INT, `vProfession` INT, `vMaritalStatus` INT, `vPersonType` INT, `vimageclient` VARCHAR(200), `vtypesclient` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `updateclient` (`vid` INT, `vfirstname` VARCHAR(50), `vsecondname` VARCHAR(50), `vfirstlastname` VARCHAR(50), `vsecondlastname` VARCHAR(50), `vDocumentType` INT, `vDocumentNumber` VARCHAR(11), `vCityExpedition` INT, `vBirthdate` VARCHAR(50), `vClientType` INT, `vAddress` VARCHAR(45), `vHomePhone` VARCHAR(10), `vMobilePhone` VARCHAR(10), `vEmail` VARCHAR(45), `vGender` INT, `vCityResidence` INT, `vProfession` INT, `vMaritalStatus` INT, `vPersonType` INT, `vimageclient` VARCHAR(200), `vtypesclient` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que actualiza un cliente'
 BEGIN 
@@ -8749,7 +8749,7 @@ BEGIN
 	RETURN res;
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `updatecommentevents` (`vid` INT, `vcomments` VARCHAR(16383)) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `updatecommentevents` (`vid` INT, `vcomments` VARCHAR(16383)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que modifica los comentarios de un evento'
 BEGIN 
@@ -8842,7 +8842,7 @@ BEGIN
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `updatecontract` (`vid` INT, `vemployee` INT, `varea` INT, `vstartdate` VARCHAR(50), `venddate` VARCHAR(50), `vcontracttype` INT, `vposition` INT, `vsalary` FLOAT, `vurlcontract` VARCHAR(200)) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `updatecontract` (`vid` INT, `vemployee` INT, `varea` INT, `vstartdate` VARCHAR(50), `venddate` VARCHAR(50), `vcontracttype` INT, `vposition` INT, `vsalary` FLOAT, `vurlcontract` VARCHAR(200)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que modifica un contrato de un empleado'
 BEGIN 
@@ -8862,7 +8862,7 @@ BEGIN
 	RETURN res;
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `updatecontractpropertie` (`vid` INT, `vclient` INT, `vpropertie` INT, `vfirmDate` VARCHAR(50), `vstartDate` VARCHAR(50), `vendDate` VARCHAR(50), `vcontractValue` FLOAT, `vtermContract` INT, `vwayPay` VARCHAR(50), `vurlContract` VARCHAR(500)) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `updatecontractpropertie` (`vid` INT, `vclient` INT, `vpropertie` INT, `vfirmDate` VARCHAR(50), `vstartDate` VARCHAR(50), `vendDate` VARCHAR(50), `vcontractValue` FLOAT, `vtermContract` INT, `vwayPay` VARCHAR(50), `vurlContract` VARCHAR(500)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que modifica el contrato de un inmueble'
 BEGIN 
@@ -8882,7 +8882,7 @@ BEGIN
 	RETURN res;
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `updatedebtor` (`vid` INT, `vDocumentNumber` VARCHAR(11), `vfirstname` VARCHAR(50), `vsecondname` VARCHAR(50), `vfirstlastname` VARCHAR(50), `vsecondlastname` VARCHAR(50), `vAddress` VARCHAR(45), `vHomePhone` VARCHAR(10), `vAddressOffice` VARCHAR(45), `vOfficePhone` VARCHAR(10), `vMobilePhone` VARCHAR(10), `vEmail` VARCHAR(45), `vMonthlyIncome` FLOAT, `vMaritalStatus` INT, `vDocumentType` INT, `vCityResidence` INT, `vCityExpedition` INT, `vExpeditionDate` VARCHAR(50)) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `updatedebtor` (`vid` INT, `vDocumentNumber` VARCHAR(11), `vfirstname` VARCHAR(50), `vsecondname` VARCHAR(50), `vfirstlastname` VARCHAR(50), `vsecondlastname` VARCHAR(50), `vAddress` VARCHAR(45), `vHomePhone` VARCHAR(10), `vAddressOffice` VARCHAR(45), `vOfficePhone` VARCHAR(10), `vMobilePhone` VARCHAR(10), `vEmail` VARCHAR(45), `vMonthlyIncome` FLOAT, `vMaritalStatus` INT, `vDocumentType` INT, `vCityResidence` INT, `vCityExpedition` INT, `vExpeditionDate` VARCHAR(50)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que modifica un Deudor'
 BEGIN 
@@ -8918,7 +8918,7 @@ IF NOT EXISTS(select 1 from deudorSolidario where numeroIdentificacion =vDocumen
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `updateemployee` (`vid` INT, `vfirstname` VARCHAR(50), `vsecondname` VARCHAR(50), `vfirstlastname` VARCHAR(50), `vsecondlastname` VARCHAR(50), `vdocumentnumber` VARCHAR(11), `vexpeditiondate` VARCHAR(50), `vbirthdate` VARCHAR(50), `vaddress` VARCHAR(45), `vhomephone` VARCHAR(10), `vmobilephone` VARCHAR(10), `vemail` VARCHAR(45), `vgender` INT, `vtypeemployee` INT, `vcityresidence` INT, `vprofession` INT, `vmaritalstatus` INT, `vcityexpedition` INT, `vfileidentification` VARCHAR(200), `vcitybirth` INT, `vmilitarycard` VARCHAR(20), `vbloodtype` INT, `vfilemilitarycard` VARCHAR(200), `vpensionFund` INT, `vseverancefund` INT, `varl` INT, `veps` INT, `vcompensationbox` INT, `vdisability` INT, `vimageemployee` VARCHAR(200), `vcontactname` VARCHAR(50), `vcontactphone` VARCHAR(10), `vcontactemail` VARCHAR(45)) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `updateemployee` (`vid` INT, `vfirstname` VARCHAR(50), `vsecondname` VARCHAR(50), `vfirstlastname` VARCHAR(50), `vsecondlastname` VARCHAR(50), `vdocumentnumber` VARCHAR(11), `vexpeditiondate` VARCHAR(50), `vbirthdate` VARCHAR(50), `vaddress` VARCHAR(45), `vhomephone` VARCHAR(10), `vmobilephone` VARCHAR(10), `vemail` VARCHAR(45), `vgender` INT, `vtypeemployee` INT, `vcityresidence` INT, `vprofession` INT, `vmaritalstatus` INT, `vcityexpedition` INT, `vfileidentification` VARCHAR(200), `vcitybirth` INT, `vmilitarycard` VARCHAR(20), `vbloodtype` INT, `vfilemilitarycard` VARCHAR(200), `vpensionFund` INT, `vseverancefund` INT, `varl` INT, `veps` INT, `vcompensationbox` INT, `vdisability` INT, `vimageemployee` VARCHAR(200), `vcontactname` VARCHAR(50), `vcontactphone` VARCHAR(10), `vcontactemail` VARCHAR(45)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que modifica un Empleado'
 BEGIN 
@@ -9011,7 +9011,7 @@ IF NOT EXISTS(select 1 from Empleados where cedulaEmpleado =vDocumentNumber and 
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `updateevent` (`vid` INT, `vdateEvent` VARCHAR(50), `vtimeEvent` VARCHAR(50), `vplaceEvent` VARCHAR(100), `vlatitude` FLOAT, `vlength` FLOAT, `vclient` INT, `veventType` INT, `vobservations` VARCHAR(100), `vemployees` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `updateevent` (`vid` INT, `vdateEvent` VARCHAR(50), `vtimeEvent` VARCHAR(50), `vplaceEvent` VARCHAR(100), `vlatitude` FLOAT, `vlength` FLOAT, `vclient` INT, `veventType` INT, `vobservations` VARCHAR(100), `vemployees` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena un evento'
 BEGIN 
@@ -9312,7 +9312,7 @@ BEGIN
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `updateexperience` (`vid` INT, `vemployee` INT, `vcompanyname` VARCHAR(50), `vadmissiondate` VARCHAR(50), `vdeparturedate` VARCHAR(50), `vurlworkcertificate` VARCHAR(200), `vposition` INT) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `updateexperience` (`vid` INT, `vemployee` INT, `vcompanyname` VARCHAR(50), `vadmissiondate` VARCHAR(50), `vdeparturedate` VARCHAR(50), `vurlworkcertificate` VARCHAR(200), `vposition` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que modifica la experiencia de un empleado'
 BEGIN 
@@ -9350,7 +9350,7 @@ BEGIN
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `updateformation` (`vid` INT, `vinstitute` VARCHAR(50), `vlevel` INT, `vcertificate` VARCHAR(200), `vemployee` INT, `vprofession` INT, `vperiodicity` INT, `vgraduate` INT) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `updateformation` (`vid` INT, `vinstitute` VARCHAR(50), `vlevel` INT, `vcertificate` VARCHAR(200), `vemployee` INT, `vprofession` INT, `vperiodicity` INT, `vgraduate` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que modifica la formación de un empleado'
 BEGIN 
@@ -9381,7 +9381,7 @@ BEGIN
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `updatenoticia` (`cod` INT, `titl` VARCHAR(200), `des` VARCHAR(10000), `fech` VARCHAR(20), `phot` VARCHAR(2000), `vid` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `updatenoticia` (`cod` INT, `titl` VARCHAR(200), `des` VARCHAR(10000), `fech` VARCHAR(20), `phot` VARCHAR(2000), `vid` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que modifica una noticia'
 BEGIN 
@@ -9498,7 +9498,7 @@ IF NOT EXISTS(select titulo from noticia where titulo=titl and id<>cod)
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `updatepermission` (`vid` INTEGER, `vpermission` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `updatepermission` (`vid` INTEGER, `vpermission` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que actualiza los permisos de un rol'
 BEGIN 
@@ -9719,7 +9719,7 @@ BEGIN
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `updatepqrs` (`vid` INT, `vgivenResponse` VARCHAR(200)) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `updatepqrs` (`vid` INT, `vgivenResponse` VARCHAR(200)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que modifica una PQRS'
 BEGIN 
@@ -9731,7 +9731,7 @@ BEGIN
 	RETURN res;
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `updateprofession` (`vId` INT, `vName` VARCHAR(50), `vProfessionNivel` INT) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `updateprofession` (`vId` INT, `vName` VARCHAR(50), `vProfessionNivel` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que modifica una profesion'
 BEGIN 
@@ -9872,7 +9872,7 @@ IF NOT EXISTS(select 1 from profesiones where nombreProfesion =vName and
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `updatepropertie` (`vid` INT, `vPrecio` FLOAT, `vAdministrationCost` FLOAT, `vRoom` INT, `vBath` INT, `vParking` INT, `vTotalArea` FLOAT, `vAreasWithoutBalconies` FLOAT, `vBuildYear` VARCHAR(4), `vNumeroPiso` VARCHAR(3), `vChimenea` TINYINT, `vEstudio` TINYINT, `vDeposito` TINYINT, `vZonaRopas` TINYINT, `vParqueaderoVisitante` TINYINT, `vAscensor` TINYINT, `vTerraza` TINYINT, `vTransportePublicoCercano` TINYINT, `vSalonComunal` TINYINT, `vSauna` TINYINT, `vTurco` TINYINT, `vJacuzzi` TINYINT, `vZonaInfantil` TINYINT, `vJardines` TINYINT, `vDuplex` TINYINT, `vPuertaSeguridad` TINYINT, `vGimnasio` TINYINT, `vPrecioNegociable` TINYINT, `vPiscina` TINYINT, `vZonaMascotas` TINYINT, `vParqueaderoCubierto` TINYINT, `vAmoblado` TINYINT, `vCity` INT, `vBarrio` INT, `vEstrato` INT, `vPropertieType` INT, `vOfferType` INT, `vCurtainType` INT, `vVigilanceType` INT, `vZone` INT, `vViewType` INT, `vStatus` INT, `vKitchenType` INT, `vKitchenStructure` INT, `vFloorType` INT, `vClient` INT, `vPublicationDate` VARCHAR(50), `vReceptionDate` VARCHAR(50), `vOutstandingType` INT, `vLinderos` VARCHAR(200), `vMatriculaInmobiliaria` VARCHAR(45), `vAvaluoCatastral` FLOAT, `vLatitude` VARCHAR(45), `vLongitude` VARCHAR(45), `vDireccionCarrera` VARCHAR(50), `vDireccionCalle` VARCHAR(50), `vDireccionNumero` VARCHAR(50), `vDireccionInfoAdicional` VARCHAR(50), `vImages` VARCHAR(2000), `vVideos` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `updatepropertie` (`vid` INT, `vPrecio` FLOAT, `vAdministrationCost` FLOAT, `vRoom` INT, `vBath` INT, `vParking` INT, `vTotalArea` FLOAT, `vAreasWithoutBalconies` FLOAT, `vBuildYear` VARCHAR(4), `vNumeroPiso` VARCHAR(3), `vChimenea` TINYINT, `vEstudio` TINYINT, `vDeposito` TINYINT, `vZonaRopas` TINYINT, `vParqueaderoVisitante` TINYINT, `vAscensor` TINYINT, `vTerraza` TINYINT, `vTransportePublicoCercano` TINYINT, `vSalonComunal` TINYINT, `vSauna` TINYINT, `vTurco` TINYINT, `vJacuzzi` TINYINT, `vZonaInfantil` TINYINT, `vJardines` TINYINT, `vDuplex` TINYINT, `vPuertaSeguridad` TINYINT, `vGimnasio` TINYINT, `vPrecioNegociable` TINYINT, `vPiscina` TINYINT, `vZonaMascotas` TINYINT, `vParqueaderoCubierto` TINYINT, `vAmoblado` TINYINT, `vCity` INT, `vBarrio` INT, `vEstrato` INT, `vPropertieType` INT, `vOfferType` INT, `vCurtainType` INT, `vVigilanceType` INT, `vZone` INT, `vViewType` INT, `vStatus` INT, `vKitchenType` INT, `vKitchenStructure` INT, `vFloorType` INT, `vClient` INT, `vPublicationDate` VARCHAR(50), `vReceptionDate` VARCHAR(50), `vOutstandingType` INT, `vLinderos` VARCHAR(200), `vMatriculaInmobiliaria` VARCHAR(45), `vAvaluoCatastral` FLOAT, `vLatitude` VARCHAR(45), `vLongitude` VARCHAR(45), `vDireccionCarrera` VARCHAR(50), `vDireccionCalle` VARCHAR(50), `vDireccionNumero` VARCHAR(50), `vDireccionInfoAdicional` VARCHAR(50), `vImages` VARCHAR(2000), `vVideos` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena un inmueble'
 BEGIN 
@@ -9982,7 +9982,7 @@ IF NOT EXISTS(select 1 from inmuebles where matriculaInmobiliaria=vMatriculaInmo
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `updatereference` (`vid` INT, `vclient` INT, `vtypereference` INT, `vname` VARCHAR(50), `vlastname` VARCHAR(50), `vphone` VARCHAR(10)) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `updatereference` (`vid` INT, `vclient` INT, `vtypereference` INT, `vname` VARCHAR(50), `vlastname` VARCHAR(50), `vphone` VARCHAR(10)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que modifica la referencia de un cliente'
 BEGIN 
@@ -9998,7 +9998,7 @@ BEGIN
 	RETURN res;
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `updatereferencebank` (`vid` INT, `vclient` INT, `vaccountnumber` VARCHAR(50), `vbank` INT, `vbranchOffice` VARCHAR(50)) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `updatereferencebank` (`vid` INT, `vclient` INT, `vaccountnumber` VARCHAR(50), `vbank` INT, `vbranchOffice` VARCHAR(50)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que modifica la referencia bancaria de un cliente'
 BEGIN 
@@ -10013,7 +10013,7 @@ BEGIN
 	RETURN res;
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `updaterol` (`cod` INT, `nom` VARCHAR(50), `des` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `updaterol` (`cod` INT, `nom` VARCHAR(50), `des` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que modifica un rol'
 BEGIN 
@@ -10122,7 +10122,7 @@ IF NOT EXISTS(select nombre from rol where nombre=nom and id<>cod)
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `updatespouse` (`vid` INT, `vclient` INT, `vdocumentNumber` INT, `vexpeditionDate` VARCHAR(50), `vemail` VARCHAR(50), `vfirstName` VARCHAR(50), `vlastName` VARCHAR(50), `vmobilePhone` VARCHAR(50), `vcompany` VARCHAR(50), `vaddress` VARCHAR(100), `vofficePhone` VARCHAR(50), `vsalary` FLOAT) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `updatespouse` (`vid` INT, `vclient` INT, `vdocumentNumber` INT, `vexpeditionDate` VARCHAR(50), `vemail` VARCHAR(50), `vfirstName` VARCHAR(50), `vlastName` VARCHAR(50), `vmobilePhone` VARCHAR(50), `vcompany` VARCHAR(50), `vaddress` VARCHAR(100), `vofficePhone` VARCHAR(50), `vsalary` FLOAT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que modifica un conyugue'
 BEGIN 
@@ -10144,7 +10144,7 @@ BEGIN
 	RETURN res;
 END$$
 
-CREATE DEFINER=`root`@`localhost` FUNCTION `updateuser` (`vid` INT, `vfirstname` VARCHAR(50), `vsecondname` VARCHAR(50), `vfirstlastname` VARCHAR(50), `vsecondlastname` VARCHAR(50), `vuser` VARCHAR(50), `vpass` VARCHAR(50), `vrol` INT, `vdescription` VARCHAR(50)) RETURNS INT(1) READS SQL DATA
+CREATE FUNCTION `updateuser` (`vid` INT, `vfirstname` VARCHAR(50), `vsecondname` VARCHAR(50), `vfirstlastname` VARCHAR(50), `vsecondlastname` VARCHAR(50), `vuser` VARCHAR(50), `vpass` VARCHAR(50), `vrol` INT, `vdescription` VARCHAR(50)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que modifica un rol'
 BEGIN 

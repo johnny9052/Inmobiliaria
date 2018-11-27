@@ -10,7 +10,7 @@ class DebtorDAO {
 
     private $repository;
 
-    function DebtorDAO() {
+    function __construct() {
         require_once '../../Infraestructure/Repository.php';
         $this->repository = new Repository();
     }

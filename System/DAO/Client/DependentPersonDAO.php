@@ -10,7 +10,7 @@ class DependentPersonDAO {
 
     private $repository;
 
-    function DependentPersonDAO() {
+    function __construct() {
         require_once '../../Infraestructure/Repository.php';
         $this->repository = new Repository();
     }

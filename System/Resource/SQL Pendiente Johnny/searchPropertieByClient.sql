@@ -1,9 +1,7 @@
-
 DROP PROCEDURE IF EXISTS searchpropertiebyclient;
 
 DELIMITER //
-CREATE  PROCEDURE searchpropertiebyclient (`vid` INT)
-BEGIN
+CREATE PROCEDURE `searchpropertiebyclient` (`vid` INT)  BEGIN
  	
 	SELECT distinct inm.idinmueble as id,
                inm.precio as precio,
@@ -61,6 +59,10 @@ BEGIN
                ciu.`Departamentos_idDepartamento` as id_departamento,              
                ciu.`nombreCiudad` as nombre_ciudad,
                bar.`nombreBarrio` as nombre_barrio,
+			   inm.direccion_carrera as direccion_carrera,
+			   inm.direccion_calle as direccion_calle,
+			   inm.direccion_numero as direccion_numero,
+			   inm.direccion_info_adicional as direccion_info_adicional,
                tipinm.`nombreTipoInmueble` as nombre_tipo_inmueble,
                tipofer.`nombreTipoOferta` as nombre_tipo_oferta,                              
                tipdest.`nombreDestacado` as nombre_tipo_destacado    
@@ -73,5 +75,4 @@ BEGIN
 	where  inm.`clientes_cedulaCliente` = vid;	
 	
 END//
-
-DELIMITER ;
+DELIMITER;

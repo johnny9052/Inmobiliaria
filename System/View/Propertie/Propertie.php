@@ -818,8 +818,8 @@ and open the template in the editor.
                                         <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
                                         <input id="txtDireccionCarrera" name="direccionCarrera" 
                                                class="form-control" type="text" value="" 
-                                               autocomplete="off" required
-                                               placeholder="Carrera del inmueble">
+                                               autocomplete="off"
+                                               placeholder="Carrera del inmueble. Ej: 14 Norte">
                                     </div>
                                 </div>
                             </div>
@@ -830,8 +830,8 @@ and open the template in the editor.
                                         <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
                                         <input id="txtDireccionCalle" name="direccionCalle" 
                                                class="form-control" type="text" value="" 
-                                               autocomplete="off" required
-                                               placeholder="Calle del inmueble">
+                                               autocomplete="off"
+                                               placeholder="Calle del inmueble. Ej: 10">
                                     </div>
                                 </div>
                             </div>
@@ -842,13 +842,13 @@ and open the template in the editor.
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="txtDireccionNumero">Numero</label>  
+                                    <label for="txtDireccionNumero">Número</label>  
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
                                         <input id="txtDireccionNumero" name="direccionNumero" 
                                                class="form-control" type="text" value="" 
-                                               autocomplete="off" required
-                                               placeholder="Numero del inmueble">
+                                               autocomplete="off"
+                                               placeholder="Número. Ej:06">
                                     </div>
                                 </div>
                             </div>
@@ -860,7 +860,7 @@ and open the template in the editor.
                                         <input id="txtDireccionInformacionAdicional" name="direccionInformacionAdicional" 
                                                class="form-control" type="text" value="" 
                                                autocomplete="off" required
-                                               placeholder="InformacionAdicional del inmueble">
+                                               placeholder="Información adicional del inmueble">
                                     </div>
                                 </div>
                             </div>

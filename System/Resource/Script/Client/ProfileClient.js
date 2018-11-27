@@ -15,6 +15,7 @@ $(window).on("load", function (e) {
     loadOfferType();
     search(idClient);
     searchPropertieByClient(idClient);
+    searchTimeLineByClient(idClient);
 });
 
 var listPropertiesId = new Array();
@@ -112,7 +113,7 @@ function searchTimeLineByClient(id) {
         temp: new Array()
     };
     infoPlus.temp.push({datos: ["id", id]});
-    Execute(scanInfo('SearchEventsClient', false, '', infoPlus.temp), 'Client/CtlProfileClient', '', 'buildTimeLine(info);');
+    Execute(scanInfo('SearchTimeLineClient', false, '', infoPlus.temp), 'Client/CtlProfileClient', '', 'buildTimeLine(info);');
 }
 
 
@@ -148,7 +149,7 @@ function showDataPropertie(info) {
                             <div class='user-block'>\n\
                                 <img class='img-circle img-bordered-sm' src='../Resources/public/image/iconoinmueblecliente.png' alt='User Image'>\n\
                                 <span class='username'>\n\
-                                    <a href='#' data-dismiss='modal' onclick='loadInfoPropertieForm(" + listPropertiesId[x] + ");'>" + info[x].nombre_tipo_oferta + " - " + info[x].nombre_ciudad + "</a><a href='#' class='pull-right btn-box-tool'>\n\
+                                    <a href='#' data-dismiss='modal' onclick='loadInfoPropertieForm(" + listPropertiesId[x] + ");'>" + info[x].nombre_tipo_oferta + " - " + info[x].nombre_ciudad + " - " + createAddress(info, x) + "</a><a href='#' class='pull-right btn-box-tool'>\n\
                                         <i class='fa fa-times'></i>\n\
                                     </a>\n\
                                 </span>\n\
@@ -186,6 +187,22 @@ function showDataPropertie(info) {
     for (var j = 0; j < listPropertiesId.length; j++) {
         loadImagesPropertie(listPropertiesId[j]);
     }
+}
+function createAddress(info, i) {
+    var direccion = "";
+    if (info[i].direccion_carrera !== undefined && info[i].direccion_carrera !== "" && info[i].direccion_carrera !== null) {
+        direccion += "Carrera "+ info[i].direccion_carrera + " ";
+    }
+    if (info[i].direccion_calle !== undefined && info[i].direccion_calle !== "" && info[i].direccion_calle !== null) {
+        direccion += "Calle "+ info[i].direccion_calle + " ";
+    }
+    if (info[i].direccion_numero !== undefined && info[i].direccion_numero !== "" && info[i].direccion_numero !== null) {
+        direccion += "# "+ info[i].direccion_numero + " ";
+    }
+    if (info[i].direccion_info_adicional !== undefined && info[i].direccion_info_adicional !== "" && info[i].direccion_info_adicional !== null) {
+        direccion += info[i].direccion_info_adicional + " ";
+    }
+    return direccion;
 }
 
 
@@ -286,7 +303,7 @@ function buildTimeLine(info) {
                             <i class='fa fa-clock-o'></i> 5 mins ago\n\
                         </span>\n\
                             <h3 class='timeline-header no-border'>\n\
-                                <a href='#'>Sarah Young</a> accepted your friend request\n\
+                                <a href='#'> Empleado asignado: "+ info[f].nombreempleado +"</a>\n\
                             </h3>\n\
                     </div>\n\
                 </li><!-- END timeline item -->\n\
@@ -298,9 +315,9 @@ function buildTimeLine(info) {
                             <i class='fa fa-clock-o'></i> 27 mins ago\n\
                         </span>\n\
                             <h3 class='timeline-header'>\n\
-                                <a href='#'>Jay White</a> commented on your post\n\
+                                <a href='#'>"+ info[f].nombreempleado +"</a> Comentó el evento\n\
                             </h3>\n\
-                            <div class='timeline-body'>Take me to your leader! Switzerland is small and neutral! We are more like Germany, ambitious and misunderstood!</div>\n\
+                            <div class='timeline-body'>"+ info[f].descripcion+"Take me to your leader! Switzerland is small and neutral! We are more like Germany, ambitious and misunderstood!</div>\n\
                             <div class='timeline-footer'>\n\
                                 <a class='btn btn-warning btn-flat btn-xs'>View comment</a>\n\
                             </div>\n\

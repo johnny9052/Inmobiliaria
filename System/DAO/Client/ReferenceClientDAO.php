@@ -10,7 +10,7 @@ class ReferenceClientDAO {
 
     private $repository;
 
-    function ReferenceClientDAO() {
+    function __construct() {
         require_once '../../Infraestructure/Repository.php';
         $this->repository = new Repository();
     }

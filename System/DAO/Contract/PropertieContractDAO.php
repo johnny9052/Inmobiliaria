@@ -10,7 +10,7 @@ class PropertieContractDAO {
 
     private $repository;
 
-    function PropertieContractDAO() {
+    function __construct() {
         require_once '../../Infraestructure/Repository.php';
         $this->repository = new Repository();
     }

@@ -10,7 +10,7 @@ class EmployeeFormationDAO {
 
     private $repository;
 
-    function EmployeeFormationDAO() {
+    function __construct() {
         require_once '../../Infraestructure/Repository.php';
         $this->repository = new Repository();
     }

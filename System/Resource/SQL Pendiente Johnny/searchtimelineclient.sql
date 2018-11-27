@@ -16,6 +16,6 @@ BEGIN
 					loadImageEmployee(eve.ideventoCliente) as fotoempleado
 			from eventosclientes eve
 			inner join tiposeventos as tip on tip.idtipoEvento = eve.tiposeventos_idtipoEvento
-			where eve.clientes_cedulaCliente = vid;
+			where eve.clientes_cedulaCliente = vid order by fechaEvento DESC;
 END//
 DELIMITER;

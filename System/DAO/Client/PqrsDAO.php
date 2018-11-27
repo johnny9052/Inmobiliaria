@@ -10,7 +10,7 @@ class PqrsDAO {
 
     private $repository;
 
-    function PqrsDAO() {
+    function __construct() {
         require_once '../../Infraestructure/Repository.php';
         $this->repository = new Repository();
     }
