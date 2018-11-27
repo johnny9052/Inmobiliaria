@@ -316,7 +316,7 @@ and open the template in the editor.
                                                     <label for="txtEmail">Correo electronico</label>        
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><i class="fa fa-at"></i></span>          
-                                                        <input id="txtEmail" name="email" type="email" class="form-control text-capitalize"  value="" autocomplete="off" required
+                                                        <input id="txtEmail" name="email" type="email" class="form-control"  value="" autocomplete="off" required
                                                                placeholder="Correo electronico">
                                                     </div>
                                                 </div>

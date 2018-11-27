@@ -173,7 +173,7 @@ and open the template in the editor.
                                         <label>Hora evento</label>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
-                                            <input type="text" name="timeEvent" class="form-control timepicker"  id="txtTimeEvent">                                            
+                                            <input type="text" name="timeEvent" required class="form-control timepicker"  id="txtTimeEvent">                                            
                                         </div>
                                         <!-- /.input group -->
                                     </div>

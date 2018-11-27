@@ -174,13 +174,14 @@ and open the template in the editor.
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="txtAvaluoCatastral">Avaluo catastral</label>
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
-                                        <input id="txtAvaluoCatastral" name="avaluoCatastral" 
-                                               class="form-control" type="number" value="" 
-                                               autocomplete="off" required
-                                               placeholder="Avaluo catastral">
+                                    <label for="" class="fa fa-handshake-o"></label>
+                                    &nbsp;&nbsp;
+                                    <label>Tipo oferta</label>
+                                    <div>
+                                        <select id="selOfferType" name="offerType" 
+                                                class="form-control select2" style="width: 100%;" required>
+                                            <option value="-1" selected> -- SELECCIONE --</option>                            
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -295,7 +296,7 @@ and open the template in the editor.
                                     <label for="txtAreasWithoutBalconies">Areas sin balcones</label>                                    
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-area-chart"></i></span>
-                                        <input id="txtAreasWithoutBalconies" name="areasWithoutBalconies" class="form-control" type="number" value="" autocomplete="off" required
+                                        <input id="txtAreasWithoutBalconies" name="areasWithoutBalconies" class="form-control" type="number" value="" autocomplete="off"
                                                placeholder="Areas sin balcones">
                                     </div>
                                 </div>
@@ -322,7 +323,7 @@ and open the template in the editor.
                                     <label for="txtNumeroPiso">Numero piso</label>   
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-building"></i></span>
-                                        <input id="txtNumeroPiso" name="numeroPiso" class="form-control" type="number" value="" autocomplete="off" required
+                                        <input id="txtNumeroPiso" name="numeroPiso" class="form-control" type="number" value="" autocomplete="off"
                                                placeholder="Numero piso" max="999">
                                     </div>
                                 </div>
@@ -681,25 +682,18 @@ and open the template in the editor.
                                     </div>
                                 </div>
                             </div>
-
                         </div>
-
-
-
-
-
 
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="" class="fa fa-handshake-o"></label>
-                                    &nbsp;&nbsp;
-                                    <label>Tipo oferta</label>
-                                    <div>
-                                        <select id="selOfferType" name="offerType" 
-                                                class="form-control select2" style="width: 100%;" required>
-                                            <option value="-1" selected> -- SELECCIONE --</option>                            
-                                        </select>
+                                    <label for="txtAvaluoCatastral">Avaluo catastral</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
+                                        <input id="txtAvaluoCatastral" name="avaluoCatastral" 
+                                               class="form-control" type="number" value="" 
+                                               autocomplete="off" required
+                                               placeholder="Avaluo catastral">
                                     </div>
                                 </div>
                             </div>     

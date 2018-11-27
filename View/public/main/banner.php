@@ -62,7 +62,7 @@
         </div>
 
         <div class="col-md-2">
-            <a href="index.php?page=home"><img src="Resources/public/image/LogoBanner.PNG" alt="60" width="250" class="left img-responsive"/></a>
+            <a href="index.php?page=home"><img src="Resources/public/image/LogoBanner.png" alt="60" width="250" class="left img-responsive"/></a>
         </div>
 
         <div class="col-md-8 bannerMenu right">

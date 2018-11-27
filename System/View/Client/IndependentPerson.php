@@ -19,7 +19,7 @@ and open the template in the editor.
             </h1>
 
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-group"></i> Configuracion</a></li>
+                <li><a href="#"><i class="fa fa-group"></i> Configuración</a></li>
                 <li class="active">Persona independiente</li>
             </ol>
         </section>
@@ -34,7 +34,7 @@ and open the template in the editor.
                     <div class="nav-tabs-custom">
                         <ul class="nav nav-tabs">
                             <li><a href="" onclick="redirectInfoFilter('Contract/PropertieContract');"data-toggle="tab">Contratos</a></li>
-                            <li><a href="" onclick="redirectInfoFilter('Contract/Spouse');"data-toggle="tab">Conyugues</a></li>
+                            <li><a href="" onclick="redirectInfoFilter('Contract/Spouse');"data-toggle="tab">Conyuges</a></li>
                             <li><a href="" onclick="redirectInfoFilter('Client/DependentPerson');"data-toggle="tab">Dependiente</a></li>
                             <li class="active"><a href="" data-toggle="tab">Independiente</a></li>
                             <li><a href="" onclick="redirectInfoFilter('Client/BankReferenceClient');"data-toggle="tab">Ref. Bancaría</a></li>
