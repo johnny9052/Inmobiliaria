@@ -39,6 +39,10 @@ function ExecuteActionLoad($action, $obj, $dao) {
         case "loadContractType":
             $dao->LoadSelect($obj, "loadcontracttype");
             break;
+        
+        case "loadContractTypeEmployee":
+            $dao->LoadSelect($obj, "loadcontracttypeemployee");
+            break;
 
         case "loadBloodType":
             $dao->LoadSelect($obj, "loadbloodtype");

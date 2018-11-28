@@ -12,7 +12,7 @@ $(window).on("load", function (e) {
     loadEmployee();
     loadPosition();
     loadArea();
-    loadContractType();
+    loadContractTypeEmployee();
 });
 
 
@@ -28,8 +28,8 @@ function loadArea() {
     Execute(scanInfo('loadArea', false), 'General/CtlGeneral', '', 'buildSelect(info,"selArea");');
 }
 
-function loadContractType() {
-    Execute(scanInfo('loadContractType', false), 'General/CtlGeneral', '', 'buildSelect(info,"selContractType");');
+function loadContractTypeEmployee() {
+    Execute(scanInfo('loadContractTypeEmployee', false), 'General/CtlGeneral', '', 'buildSelect(info,"selContractType");');
 }
 
 

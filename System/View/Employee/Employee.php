@@ -129,9 +129,11 @@ and open the template in the editor.
                                             <label for="" class="fa fa-user-circle-o"></label>
                                             &nbsp;&nbsp;
                                             <label>Tipo Empleado</label>
-                                            <select id="selTypeEmployee" name="typeEmployee" required class="form-control text-capitalize select2" style="width: 100%;">
-                                                <option value="-1" selected> -- SELECCIONE --</option>                            
-                                            </select>
+                                            <div>
+                                                <select id="selTypeEmployee" name="typeEmployee" required class="form-control text-capitalize select2" style="width: 100%;">
+                                                    <option value="-1" selected> -- SELECCIONE --</option>                            
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -155,11 +157,13 @@ and open the template in the editor.
                                             <label for="" class="fa fa-map-marker"></label>
                                             &nbsp;&nbsp;
                                             <label>Departamento de expedición</label>
-                                            <select id="selStateExpedition" name="stateExpedition"  
-                                                    class="form-control text-capitalize select2" style="width: 100%;" 
-                                                    onchange="loadCityExpedition(this.value);">
-                                                <option value="-1" selected> -- SELECCIONE --</option>                            
-                                            </select>
+                                            <div>
+                                                <select id="selStateExpedition" name="stateExpedition"  
+                                                        class="form-control text-capitalize select2" style="width: 100%;" 
+                                                        onchange="loadCityExpedition(this.value);">
+                                                    <option value="-1" selected> -- SELECCIONE --</option>                            
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>     
 
@@ -168,9 +172,11 @@ and open the template in the editor.
                                             <label for="" class="fa fa-map-marker"></label>
                                             &nbsp;&nbsp;
                                             <label>Municipio de expedición</label>
-                                            <select id="selCityExpedition" name="cityExpedition" required class="form-control text-capitalize select2" style="width: 100%;">
-                                                <option value="-1" selected> -- SELECCIONE --</option>                            
-                                            </select>
+                                            <div>
+                                                <select id="selCityExpedition" name="cityExpedition" required class="form-control text-capitalize select2" style="width: 100%;">
+                                                    <option value="-1" selected> -- SELECCIONE --</option>                            
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>     
                                 </div>
@@ -220,9 +226,11 @@ and open the template in the editor.
                                             <label for="" class="fa fa-map-marker"></label>
                                             &nbsp;&nbsp;
                                             <label>Municipio de nacimiento</label>
-                                            <select id="selCityBirth" name="cityBirth" required class="form-control text-capitalize select2" style="width: 100%;">
-                                                <option value="-1" selected> -- SELECCIONE --</option>                            
-                                            </select>
+                                            <div>
+                                                <select id="selCityBirth" name="cityBirth" required class="form-control text-capitalize select2" style="width: 100%;">
+                                                    <option value="-1" selected> -- SELECCIONE --</option>                            
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>     
                                 </div>
@@ -315,9 +323,11 @@ and open the template in the editor.
                                             <label for="" class="fa fa-eyedropper"></label>
                                             &nbsp;&nbsp;
                                             <label>Tipo de sangre</label>
-                                            <select id="selBloodType" name="bloodType" required class="form-control text-capitalize select2" style="width: 100%;">
-                                                <option value="-1" selected> -- SELECCIONE --</option>                            
-                                            </select>
+                                            <div>
+                                                <select id="selBloodType" name="bloodType" required class="form-control text-capitalize select2" style="width: 100%;">
+                                                    <option value="-1" selected> -- SELECCIONE --</option>                            
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -374,7 +384,7 @@ and open the template in the editor.
                                             <label for="txtEmail">Correo electronico</label>        
                                             <div class="input-group">
                                                 <span class="input-group-addon"><i class="fa fa-at"></i></span>          
-                                                <input id="txtEmail" name="email" type="email" class="form-control text-capitalize"  value="" autocomplete="off" required
+                                                <input id="txtEmail" name="email" type="email" class="form-control text"  value="" autocomplete="off" required
                                                        placeholder="Correo electronico">
                                             </div>
                                         </div>
@@ -384,9 +394,11 @@ and open the template in the editor.
                                             <label for="" class="fa fa-intersex"></label>
                                             &nbsp;&nbsp;
                                             <label>Genero</label>
-                                            <select id="selGender" name="gender" required class="form-control text-capitalize select2" style="width: 100%;">
-                                                <option value="-1" selected> -- SELECCIONE --</option>                            
-                                            </select>
+                                            <div>
+                                                <select id="selGender" name="gender" required class="form-control text-capitalize select2" style="width: 100%;">
+                                                    <option value="-1" selected> -- SELECCIONE --</option>                            
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>     
                                 </div>
@@ -410,9 +422,11 @@ and open the template in the editor.
                                             <label for="" class="fa fa-map-marker"></label>
                                             &nbsp;&nbsp;
                                             <label>Municipio de residencia</label>
-                                            <select id="selCity" name="cityResidence" required class="form-control text-capitalize select2" style="width: 100%;">
-                                                <option value="-1" selected> -- SELECCIONE --</option>                            
-                                            </select>
+                                            <div>
+                                                <select id="selCity" name="cityResidence" required class="form-control text-capitalize select2" style="width: 100%;">
+                                                    <option value="-1" selected> -- SELECCIONE --</option>                            
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>     
                                 </div>
@@ -423,11 +437,13 @@ and open the template in the editor.
                                             <label for="" class="fa fa fa-drivers-license"></label>
                                             &nbsp;&nbsp;
                                             <label>Nivel de profesion</label>
-                                            <select id="selProfessionNivel" name="professionNivel" 
-                                                    class="form-control text-capitalize select2" style="width: 100%;" 
-                                                    onchange="loadProfession(this.value);">
-                                                <option value="-1" selected> -- SELECCIONE --</option>                            
-                                            </select>
+                                            <div>
+                                                <select id="selProfessionNivel" name="professionNivel" 
+                                                        class="form-control text-capitalize select2" style="width: 100%;" 
+                                                        onchange="loadProfession(this.value);">
+                                                    <option value="-1" selected> -- SELECCIONE --</option>                            
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>     
 
@@ -436,9 +452,11 @@ and open the template in the editor.
                                             <label for="" class="fa fa-user-md"></label>
                                             &nbsp;&nbsp;
                                             <label>Profesion</label>
-                                            <select id="selProfession" name="profession" required class="form-control text-capitalize select2" style="width: 100%;">
-                                                <option value="-1" selected> -- SELECCIONE --</option>                            
-                                            </select>
+                                            <div>
+                                                <select id="selProfession" name="profession" required class="form-control text-capitalize select2" style="width: 100%;">
+                                                    <option value="-1" selected> -- SELECCIONE --</option>                            
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>     
                                 </div>
@@ -449,9 +467,11 @@ and open the template in the editor.
                                             <label for="" class="fa fa-blind"></label>
                                             &nbsp;&nbsp;
                                             <label>Fondo de pensiones</label>
-                                            <select id="selPensionFund" name="pensionFund" required class="form-control text-capitalize select2" style="width: 100%;">
-                                                <option value="-1" selected> -- SELECCIONE --</option>                            
-                                            </select>
+                                            <div>
+                                                <select id="selPensionFund" name="pensionFund" required class="form-control text-capitalize select2" style="width: 100%;">
+                                                    <option value="-1" selected> -- SELECCIONE --</option>                            
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -459,9 +479,11 @@ and open the template in the editor.
                                             <label for="" class="fa fa-briefcase"></label>
                                             &nbsp;&nbsp;
                                             <label>Fondo de cesantias</label>
-                                            <select id="selSeveranceFund" name="severanceFund" required class="form-control text-capitalize select2" style="width: 100%;">
-                                                <option value="-1" selected> -- SELECCIONE --</option>                            
-                                            </select>
+                                            <div>
+                                                <select id="selSeveranceFund" name="severanceFund" required class="form-control text-capitalize select2" style="width: 100%;">
+                                                    <option value="-1" selected> -- SELECCIONE --</option>                            
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -472,9 +494,11 @@ and open the template in the editor.
                                             <label for="" class="fa fa-hospital-o"></label>
                                             &nbsp;&nbsp;
                                             <label>ARL</label>
-                                            <select id="selArl" name="arl" required class="form-control text-capitalize select2" style="width: 100%;">
-                                                <option value="-1" selected> -- SELECCIONE --</option>                            
-                                            </select>
+                                            <div>
+                                                <select id="selArl" name="arl" required class="form-control text-capitalize select2" style="width: 100%;">
+                                                    <option value="-1" selected> -- SELECCIONE --</option>                            
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -482,9 +506,11 @@ and open the template in the editor.
                                             <label for="" class="fa fa-ambulance"></label>
                                             &nbsp;&nbsp;
                                             <label>EPS</label>
-                                            <select id="selEps" name="eps" required class="form-control text-capitalize select2" style="width: 100%;">
-                                                <option value="-1" selected> -- SELECCIONE --</option>                            
-                                            </select>
+                                            <div>
+                                                <select id="selEps" name="eps" required class="form-control text-capitalize select2" style="width: 100%;">
+                                                    <option value="-1" selected> -- SELECCIONE --</option>                            
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -495,9 +521,11 @@ and open the template in the editor.
                                             <label for="" class="fa fa-building-o"></label>
                                             &nbsp;&nbsp;
                                             <label>Caja de compensación</label>
-                                            <select id="selCompensationBox" name="compensationBox" required class="form-control text-capitalize select2" style="width: 100%;">
-                                                <option value="-1" selected> -- SELECCIONE --</option>                            
-                                            </select>
+                                            <div>
+                                                <select id="selCompensationBox" name="compensationBox" required class="form-control text-capitalize select2" style="width: 100%;">
+                                                    <option value="-1" selected> -- SELECCIONE --</option>                            
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -554,7 +582,7 @@ and open the template in the editor.
                                             <label for="txtContactEmail">Correo contacto</label>        
                                             <div class="input-group">
                                                 <span class="input-group-addon"><i class="fa fa-at"></i></span>          
-                                                <input id="txtContactEmail" name="contactEmail" type="email" class="form-control text-capitalize"  value="" autocomplete="off" required
+                                                <input id="txtContactEmail" name="contactEmail" type="email" class="form-control text"  value="" autocomplete="off" required
                                                        placeholder="Correo contacto">
                                             </div>
                                         </div>

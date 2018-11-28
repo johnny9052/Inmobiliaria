@@ -122,9 +122,11 @@ and open the template in the editor.
                                     <label for="" class="fa fa-user-circle"></label>
                                     &nbsp;&nbsp;
                                     <label>Empleado</label>
-                                    <select id="selEmployee" name="employee" required class="form-control text-capitalize select2" style="width: 100%;">
-                                        <option value="-1" selected> -- SELECCIONE --</option>                            
-                                    </select>
+                                    <div>
+                                        <select id="selEmployee" name="employee" required class="form-control text-capitalize select2" style="width: 100%;">
+                                            <option value="-1" selected> -- SELECCIONE --</option>                            
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
 
@@ -133,9 +135,11 @@ and open the template in the editor.
                                     <label for="" class="fa fa-address-book-o"></label>
                                     &nbsp;&nbsp;
                                     <label>Área</label>
-                                    <select id="selArea" name="area" required class="form-control text-capitalize select2" style="width: 100%;">
-                                        <option value="-1" selected> -- SELECCIONE --</option>                            
-                                    </select>
+                                    <div>
+                                        <select id="selArea" name="area" required class="form-control text-capitalize select2" style="width: 100%;">
+                                            <option value="-1" selected> -- SELECCIONE --</option>                            
+                                        </select>
+                                    </div>
                                 </div>
                             </div> 
                         </div>
@@ -172,9 +176,11 @@ and open the template in the editor.
                                     <label for="" class="fa fa-file-archive-o"></label>
                                     &nbsp;&nbsp;
                                     <label>Tipo contrato</label>
-                                    <select id="selContractType" name="contractType" required class="form-control text-capitalize select2" style="width: 100%;">
-                                        <option value="-1" selected> -- SELECCIONE --</option>                            
-                                    </select>
+                                    <div>
+                                        <select id="selContractType" name="contractType" required class="form-control text-capitalize select2" style="width: 100%;">
+                                            <option value="-1" selected> -- SELECCIONE --</option>                            
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -182,9 +188,11 @@ and open the template in the editor.
                                     <label for="selPosition" class="fa fa-briefcase"></label>
                                     &nbsp;&nbsp;
                                     <label>Cargo</label>
-                                    <select id="selPosition" name="position" required class="form-control text-capitalize select2" style="width: 100%;">
-                                        <option value="-1" selected> -- SELECCIONE --</option>                            
-                                    </select>
+                                    <div>
+                                        <select id="selPosition" name="position" required class="form-control text-capitalize select2" style="width: 100%;">
+                                            <option value="-1" selected> -- SELECCIONE --</option>                            
+                                        </select>
+                                    </div>
                                 </div>
                             </div> 
                         </div>

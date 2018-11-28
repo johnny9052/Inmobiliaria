@@ -1,6 +1,6 @@
 <br><br>
 
-<script src="Resources/public/js/general/searchpropertie.js" type="text/javascript"></script>
+<script src="Resources/public/js/general/searchPropertie.js" type="text/javascript"></script>
 
 
 <div class="row" style="padding-bottom: 0px !important;">

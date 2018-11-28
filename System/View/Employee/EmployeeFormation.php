@@ -122,9 +122,11 @@ and open the template in the editor.
                                     <label for="" class="fa fa-user-circle"></label>
                                     &nbsp;&nbsp;
                                     <label>Empleado</label>
-                                    <select id="selEmployee" name="employee" required class="form-control text-capitalize select2" style="width: 100%;">
-                                        <option value="-1" selected> -- SELECCIONE --</option>                            
-                                    </select>
+                                    <div>
+                                        <select id="selEmployee" name="employee" required class="form-control text-capitalize select2" style="width: 100%;">
+                                            <option value="-1" selected> -- SELECCIONE --</option>                            
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
 
@@ -146,11 +148,13 @@ and open the template in the editor.
                                     <label for="" class="fa fa-book"></label>
                                     &nbsp;&nbsp;
                                     <label>Nivel educativo</label>
-                                    <select id="selProfessionNivel" name="professionNivel" 
-                                            class="form-control text-capitalize select2" style="width: 100%;" 
-                                            onchange="loadProfession(this.value);">
-                                        <option value="-1" selected> -- SELECCIONE --</option>                            
-                                    </select>
+                                    <div>
+                                        <select id="selProfessionNivel" name="professionNivel" 
+                                                class="form-control text-capitalize select2" style="width: 100%;" 
+                                                onchange="loadProfession(this.value);">
+                                            <option value="-1" selected> -- SELECCIONE --</option>                            
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -158,9 +162,11 @@ and open the template in the editor.
                                     <label for="" class="fa fa-black-tie"></label>
                                     &nbsp;&nbsp;
                                     <label>Título</label>
-                                    <select id="selProfession" name="profession" required class="form-control text-capitalize select2" style="width: 100%;">
-                                        <option value="-1" selected> -- SELECCIONE --</option>                            
-                                    </select>
+                                    <div>
+                                        <select id="selProfession" name="profession" required class="form-control text-capitalize select2" style="width: 100%;">
+                                            <option value="-1" selected> -- SELECCIONE --</option>                            
+                                        </select>
+                                    </div>
                                 </div>
                             </div>  
                         </div>
@@ -171,9 +177,11 @@ and open the template in the editor.
                                     <label for="" class="fa fa-calendar-o"></label>
                                     &nbsp;&nbsp;
                                     <label>Periodicidad</label>
-                                    <select id="selPeriodicity" name="periodicity" required class="form-control text-capitalize select2" style="width: 100%;">
-                                        <option value="-1" selected> -- SELECCIONE --</option>                            
-                                    </select>
+                                    <div>
+                                        <select id="selPeriodicity" name="periodicity" required class="form-control text-capitalize select2" style="width: 100%;">
+                                            <option value="-1" selected> -- SELECCIONE --</option>                            
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
