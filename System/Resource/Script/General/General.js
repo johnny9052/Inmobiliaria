@@ -152,13 +152,18 @@ function showLoadBar(status) {
  */
 function Execute(dataSend, url, before, success, idModalOpenFinish, msgNoAction, server, notShowMessage) {
 
-    console.log("INFO QUE SE ENVIA");
-    console.log(dataSend);
 
     $.ajax({
         type: 'post',
         url: ((server === undefined) ? "" : server) + "Controller/" + url + ".php",
         beforeSend: function () {
+
+            console.log("INFO QUE SE ENVIA");
+            console.log(dataSend);
+            console.log(JSON.stringify(dataSend));
+
+
+
             showLoadBar(true);
             if (before !== "") {
                 eval(before);
@@ -175,6 +180,8 @@ function Execute(dataSend, url, before, success, idModalOpenFinish, msgNoAction,
             /*Se reemplaza cualquier tipo de ENTER se que encuentre, ya que esto 
              * afecta la estructura del JSON*/
             var info = eval("(" + data.replace(/\n/ig, "") + ")");
+
+            console.log(JSON.stringify(info));
 
             var response = (info.res !== undefined) ? info.res : info[0].res;
             var msg = (info.msg !== undefined) ? info.msg : "";
@@ -245,8 +252,8 @@ function Execute(dataSend, url, before, success, idModalOpenFinish, msgNoAction,
         error: function (jqXHR, textStatus, errorThrown) {
             showToast("Error detectado: " + textStatus + "\nExcepcion: " + errorThrown, "error");
             showToast("Verifique la ruta del archivo", "error");
-        },         
-        timeout: 10000
+        },
+        timeout: 1200000
     });
 }
 
@@ -878,10 +885,10 @@ function refreshPage(url, value, settedvalue) {
     if (value !== "" && value !== undefined) {
         data += "&&idFilter=" + value;
     }
-    
-    
+
+
     var urlRedirect = "Helper/Content/Content.php?page=" + url + data + ((settedvalue !== "" && settedvalue !== undefined) ? settedvalue : "");
-    
+
     //alert(urlRedirect);
     window.location.href = urlRedirect;
 

@@ -1020,7 +1020,7 @@ and open the template in the editor.
 
                         <button onclick="closeWindow('ModalNewDistrict', false, 'ModalNew'); list();" type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
 
-                        <div class="newActionButton">                            
+                        <div class="">                            
                             <button id="btnSave" onclick="saveNewDistrict();" type ="button" class="btn btn-primary">Guardar</button>
                         </div>
 
