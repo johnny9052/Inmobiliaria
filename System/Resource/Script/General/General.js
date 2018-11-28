@@ -249,7 +249,7 @@ function Execute(dataSend, url, before, success, idModalOpenFinish, msgNoAction,
             showToast("Error detectado: " + textStatus + "\nExcepcion: " + errorThrown, "error");
             showToast("Verifique la ruta del archivo", "error");
         },
-        timeout: 10000
+        timeout: 1200000
     });
 }
 
