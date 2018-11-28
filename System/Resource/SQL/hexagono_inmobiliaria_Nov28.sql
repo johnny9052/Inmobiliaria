@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 28-11-2018 a las 14:01:39
+-- Tiempo de generación: 28-11-2018 a las 16:34:11
 -- Versión del servidor: 5.6.40-84.0-log
 -- Versión de PHP: 5.6.30
 
@@ -227,6 +227,16 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listdependent` (`idCliente` INT
 
 
 
+END$$
+
+CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listemployee` (`idemployee` INT)  BEGIN
+   select empl.idEmpleado,empl.cedulaEmpleado as numero_identificacion, CONCAT(empl.primerApellidoEmpleado , ' ', 
+							empl.segundoApellidoEmpleado, ' ', empl.primerNombreEmpleado, ' ', 
+							empl.segundoNombreEmpleado) as nombreempleado, 
+          tip.`nombreTipoEmpleado` as tipo_empleado
+   from empleados as empl inner join tiposempleados as tip 
+   on empl.`idTipoEmpleado` = tip.`idtipoEmpleado`
+   order by nombreempleado;
 END$$
 
 CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listevent` (`idfilter` INT)  BEGIN
@@ -787,18 +797,6 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listvideopropertie` (`vid` INT)
 	where idInmueble = vid;	
 	
 END$$
-
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listemployee` (`idemployee` INT)  BEGIN
-   select empl.idEmpleado,empl.cedulaEmpleado as numero_identificacion, CONCAT(empl.primerApellidoEmpleado , ' ', 
-							empl.segundoApellidoEmpleado, ' ', empl.primerNombreEmpleado, ' ', 
-							empl.segundoNombreEmpleado) as nombreempleado, 
-          tip.`nombreTipoEmpleado` as tipo_empleado
-   from empleados as empl inner join tiposempleados as tip 
-   on empl.`idTipoEmpleado` = tip.`idtipoEmpleado`
-   order by nombreempleado;
-END$$
-
-
 
 CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadactivityeconomic` (IN `idfilter` INT)  BEGIN
 
@@ -1711,6 +1709,23 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadcontractType` (IN `idfilter
 		select idobjetoContrato as id,	nombreObjetoContrato as nombre
 		from objetoscontratos	                
 		ORDER BY nombreObjetoContrato;
+        END IF;
+END$$
+
+CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadcontracttypeemployee` (IN `idfilter` INT)  BEGIN
+ 
+	IF idfilter > -1 THEN
+	
+		select idtipoContratoEmpleado as id, nombrecontratoempleado as nombre
+		from tipocontratoempleado	               
+		ORDER BY nombre;
+		
+        ELSE	
+	
+		select idtipoContratoEmpleado as id, nombrecontratoempleado as nombre
+		from tipocontratoempleado	               
+		ORDER BY nombre;
+	
         END IF;
 END$$
 
@@ -3827,50 +3842,20 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadStatus` (IN `idfilter` INT)
 END$$
 
 CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadstratum` (IN `idfilter` INT)  BEGIN
-
-
  
-
-
 	IF idfilter > -1 THEN
-
-
 	
-
-
 		select 	idestrato  as id,nombreEstrato  as nombre
-
-
 		from estratos                    
-
-
 		ORDER BY nombreEstrato;
-
-
 		
-
-
         ELSE	
-
-
 	
-
-
 		select 	idestrato  as id,nombreEstrato  as nombre
-
-
 		from estratos                
-
-
 		ORDER BY nombreEstrato;
-
-
 	
-
-
         END IF;
-
-
 END$$
 
 CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadtipoidentificacion` (IN `idfilter` INT)  BEGIN
@@ -16497,7 +16482,7 @@ ALTER TABLE `eventosclientes`
 -- AUTO_INCREMENT de la tabla `experienciaempleado`
 --
 ALTER TABLE `experienciaempleado`
-  MODIFY `idexperienciaEmpleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `idexperienciaEmpleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT de la tabla `fondocesantias`
 --
@@ -16512,7 +16497,7 @@ ALTER TABLE `fondopensiones`
 -- AUTO_INCREMENT de la tabla `formacionempleado`
 --
 ALTER TABLE `formacionempleado`
-  MODIFY `idformacionEmpleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idformacionEmpleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT de la tabla `generos`
 --
