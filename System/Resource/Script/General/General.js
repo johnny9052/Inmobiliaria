@@ -160,6 +160,8 @@ function Execute(dataSend, url, before, success, idModalOpenFinish, msgNoAction,
 
             console.log("INFO QUE SE ENVIA");
             console.log(dataSend);
+            console.log(JSON.stringify(dataSend));
+
 
 
             showLoadBar(true);
@@ -178,6 +180,8 @@ function Execute(dataSend, url, before, success, idModalOpenFinish, msgNoAction,
             /*Se reemplaza cualquier tipo de ENTER se que encuentre, ya que esto 
              * afecta la estructura del JSON*/
             var info = eval("(" + data.replace(/\n/ig, "") + ")");
+
+            console.log(JSON.stringify(info));
 
             var response = (info.res !== undefined) ? info.res : info[0].res;
             var msg = (info.msg !== undefined) ? info.msg : "";
