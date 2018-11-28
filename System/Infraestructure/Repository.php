@@ -1,14 +1,17 @@
 <?php
 
-
 error_reporting(-1);
 ini_set('display_errors', 'On');
 set_error_handler("var_dump");
 
 ini_set('post_max_size', '64M');
 ini_set('upload_max_filesize', '64M');
+ini_set('client_max_body_size', '64M');
 
-ini_set('max_execution_time', 90);
+ini_set('max_execution_time', 259200);
+ini_set('max_input_time', 259200);
+
+ini_set('memory_limit', '300M');
 
 
 /**
@@ -476,7 +479,7 @@ class Repository {
         $cadenaHTML .= '<link href="../../Resource/Style/estilosPDF.css" type="text/css" rel="stylesheet">';
 
 
-         $cadenaHTML .= " <page_header>
+        $cadenaHTML .= " <page_header>
                                 <table style='width: 100%;'>
                                     <tr>
                                         <td>
@@ -507,7 +510,7 @@ class Repository {
 //        $html2pdf->WriteHTML($content); //Lo que tenga content lo pasa a pdf
 //        ob_end_clean(); // se limpia nuevamente el buffer
 //        $html2pdf->Output($nameFile . '.pdf'); //se genera el pdf, generando por defecto el nombre indicado para guardar
-        
+
         try {
             /* El true indica si es o no unicode */
             $html2pdf = new Html2Pdf('P', 'A4', 'es', 'true', 'UTF-8');
