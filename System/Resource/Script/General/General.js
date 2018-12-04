@@ -577,7 +577,7 @@ function validateForm(form, modal) {
 
         /*Si es un select se valida que no sea -1*/
         if (elemento.type === "select-one") {
-            if (elemento.value === "-1" && $(elemento).prop('required')) { //es valido?                   
+            if ((elemento.value === "-1" || elemento.value === "") && $(elemento).prop('required')) { //es valido?                   
                 $(elemento).parent().siblings('label').addClass("colorCampoError");
                 status = false; // si no es valido retorne falso   
                 console.log("El campo invalido es " + elemento.id);
@@ -996,7 +996,6 @@ function CheckCheckboxChecked(type, name) {
  */
 function CheckCheckboxCheckedBuild(info, name) {
 
-
     for (var x in info) {
         $("#" + name + info[x].id).prop('checked', true);
     }
@@ -1341,17 +1340,27 @@ function pintarDinamicData(idDiv, obj, prefix) {
 
 
 /**
- * Se almacenan todas las URL de textos agregados, almacenandolos en una lista 
- * @param {String} idInput Id del input file donde se obtendra el archivo a agregar
+ * Se almacenan todas las URL de textos agregados, almacenandolos en una lista, 
+ * obteniendo los datos de un input text o select 
+ * @param {String} idInput Id del input donde se obtendra el archivo a agregar
  * @param {Object} obj Objeto donde se almacenara el elemento agregado
  * @param {String} idDiv Id del div donde se mostrara el elemento
  * @returns {void}
- * @author Johnny Alexander Salazar
- * @version 0.1
+ * @author Johnny Alexander Salazar - David Alberto Angarita
+ * @version 0.2
  */
 function addDinamicData(idInput, obj, idDiv) {
-    /*Se captura la URL*/
-    var dinamicDataFileURL = $("#" + idInput).val();
+
+    var dinamicDataFileURL;
+
+    /*Se captura la URL*/    
+    if ($("#" + idInput).prop('tagName') === "SELECT") {
+        dinamicDataFileURL = $("#" + idInput + " option:selected").text();
+    } else {
+        dinamicDataFileURL = $("#" + idInput).val();
+    }
+
+
 
     /*Si se ha agregado algun dato*/
     if (dinamicDataFileURL !== "" && dinamicDataFileURL !== null) {
@@ -1361,6 +1370,7 @@ function addDinamicData(idInput, obj, idDiv) {
         pintarDinamicData(idDiv, obj, "Video");
         /*Se limpia el campo del dato ingresado*/
         $("#" + idInput).val("");
+
         console.log(obj.listElements);
     } else {
 
@@ -1941,7 +1951,7 @@ function scanDataLabelDinamic(nameData, prefixLabel, split = false, charactersSp
         if ((elemento.id).includes(prefixLabel)) {
 
             if (split) {
-                temp.push(((elemento.html()).split(charactersSplit)))[0];
+                temp.push(((elemento.id).split(charactersSplit))[1]);
             } else {
                 temp.push(elemento.html());
             }

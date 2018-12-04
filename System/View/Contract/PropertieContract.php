@@ -10,6 +10,7 @@ and open the template in the editor.
         <title></title>
 
         <script defer type="text/javascript" src="Resource/Script/Contract/PropertieContract.js"></script>
+        <script defer type="text/javascript" src="Resource/Script/Contract/Debtor.js"></script>
     </head>
     <body>
 
@@ -137,9 +138,11 @@ and open the template in the editor.
                                     <label for="" class="fa fa-home"></label>
                                     &nbsp;&nbsp;
                                     <label>Inmueble</label>
-                                    <select id="selPropertie" name="propertie" required class="form-control select2" style="width: 100%;">
-                                        <option value="-1" selected> -- SELECCIONE --</option>                            
-                                    </select>
+                                    <div>
+                                        <select id="selPropertie" name="propertie" required class="form-control select2" style="width: 100%;">
+                                            <option value="-1" selected> -- SELECCIONE --</option>                            
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -232,7 +235,7 @@ and open the template in the editor.
                         </div>
 
                         <div class="row">                           
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="" class="fa fa-user"></label>
                                     &nbsp;&nbsp;
@@ -241,37 +244,51 @@ and open the template in the editor.
 
                                     </div>
                                 </div>
-                            </div>           
+                            </div>
                         </div>
-                        
+
+
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-5">
                                 <div class="form-group">
                                     <label for="" class="fa fa-user"></label>
                                     &nbsp;&nbsp;
                                     <label>Deudor</label>
                                     <div>
                                         <select id="selDebtor" name="debtor" 
-                                                class="form-control select2" style="width: 100%;" required>
+                                                class="form-control select2" style="width: 100%;">
                                             <option value="-1" selected> -- SELECCIONE --</option>                            
                                         </select>
                                     </div>
                                 </div>
-                                
+
                             </div>
                             <div class="col-md-1">
                                 <br>
                                 <button onclick="agregarDeudorContrato()">+</button>
                             </div>
-                            <div class="col-md-5">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <div id="listDebtor">
-                                        
+
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        
+                        <div class="row">                            
+                            <div class="col-md-6">
+                                <div class="form-group seleccionable">
+                                    <br>
+                                    <label for="" class="fa fa-plus-square seleccionable"></label>
+                                    &nbsp;&nbsp;
+                                    <label class="seleccionable" id="lblNuevoBarrio" onclick="abrirModalDebtor();">
+                                        Agregar nuevo deudor
+                                    </label>   
+                                </div>
+                            </div>     
 
+                        </div>
 
                         <div class="row">
                             <div class="col-md-12">
@@ -311,6 +328,313 @@ and open the template in the editor.
 
 
         <!-- END MODAL PARA ADMINISTRACION DE REGISTROS-->
+        
+        <!-- MODAL PARA CREACIÓN DE DEUDOR-->
+        <div class="modal fade" id="ModalNewDebtor" >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button onclick="closeWindow();" type="button" class="btn btn-default pull-right" data-dismiss="modal">X</button>
+                        <div class="nav-tabs-custom">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#register" data-toggle="tab">Registrar Deudor</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="active tab-pane" id="register">
+                                    <div class="modal-body" id="FormContainerDebtor">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">                                                                        
+                                                    <input id="txtId" name="id" class="form-control text-capitalize identificator"  type="hidden" value="">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="" class="fa fa-id-card"></label>
+                                                    &nbsp;&nbsp;
+                                                    <label>Tipo documento</label>
+                                                    <div>
+                                                        <select id="selDocumentType" name="documentType" required class="form-control text-capitalize select2" style="width: 100%;">
+                                                            <option value="-1" selected> -- SELECCIONE --</option>                            
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>     
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="txtDocumentNumber">Cedula</label>    
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-id-card"></i></span>
+                                                        <input id="txtDocumentNumber" name="documentNumber" class="form-control text-capitalize" type="number" value="" autocomplete="off" required
+                                                               placeholder="Numero de cedula">
+                                                    </div>
+                                                </div>
+                                            </div>    
+                                        </div>
+                                        
+                                        <div class="row">
+                                            <div class="col-md-6">                                
+                                                <div class="form-group">
+                                                    <label>Fecha de expedición</label>
+                                                    <div class="input-group date">
+                                                        <div class="input-group-addon">
+                                                            <i class="fa fa-calendar"></i>
+                                                        </div>
+                                                        <input type="text" name="expeditionDate" required class="form-control text-capitalize pull-right dateAction" id="txtExpeditionDate">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="" class="fa fa-map-marker"></label>
+                                                    &nbsp;&nbsp;
+                                                    <label>Departamento de expedicion</label>
+                                                    <div>
+                                                        <select id="selStateExpedition" name="stateExpedition" 
+                                                                class="form-control text-capitalize select2" style="width: 100%;"  
+                                                                onchange="loadCity(this.value)">
+                                                            <option value="-1" selected> -- SELECCIONE --</option>                            
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>          
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="" class="fa fa-map-marker"></label>
+                                                    &nbsp;&nbsp;
+                                                    <label>Municipio de expedicion</label>
+                                                    <div>
+                                                        <select id="selCityExpedition" name="cityExpedition" required class="form-control text-capitalize select2" style="width: 100%;">
+                                                            <option value="-1" selected> -- SELECCIONE --</option>                            
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>    
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="txtFirstName">Primer nombre</label>   
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-info"></i></span>
+                                                        <input id="txtFirstName" name="firstName" class="form-control text-capitalize" type="text" value="" autocomplete="off" required
+                                                               placeholder="Primer nombre">
+                                                    </div>
+                                                </div>
+                                            </div>                       
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="txtName">Segundo nombre</label>  
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-info"></i></span>
+                                                        <input id="txtSecondName" name="secondName" class="form-control text-capitalize" type="text" value="" autocomplete="off"
+                                                               placeholder="Segundo nombre">
+                                                    </div>
+                                                </div>
+                                            </div> 
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="txtFirstLastName">Primer apellido</label>  
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-info"></i></span>
+                                                        <input id="txtFirstLastName" name="firstLastName" class="form-control text-capitalize" type="text" value="" autocomplete="off" required
+                                                               placeholder="Primer apellido">
+                                                    </div>
+                                                </div>
+                                            </div>                       
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="txtName">Segundo apellido</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-info"></i></span>                                    
+                                                        <input id="txtSecondLastName" name="secondLastName" class="form-control text-capitalize" type="text" value="" autocomplete="off" 
+                                                               placeholder="Segundo apellido">
+                                                    </div>
+                                                </div>
+                                            </div>     
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="txtAddressOffice">Dirección laboral</label> 
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-address-card"></i></span>          
+                                                        <input id="txtAddressOffice" name="addressOffice" class="form-control text-capitalize" type="text" value="" autocomplete="off" required
+                                                               placeholder="Dirección laboral">
+                                                    </div>
+                                                </div>
+                                            </div>                                                
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="txtOfficePhone">Teléfono laboral</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-phone"></i></span>                                              
+                                                        <input id="txtOfficePhone" name="officePhone" class="form-control text-capitalize" type="number" value="" autocomplete="off" required
+                                                               max="9999999999" maxlength="10" placeholder="Teléfono laboral(Max 10 digitos)">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="txtHomePhone">Telefono residencia</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-phone"></i></span>                                              
+                                                        <input id="txtHomePhone" name="homePhone" class="form-control text-capitalize" type="number" value="" autocomplete="off" 
+                                                               max="9999999999" maxlength="10" placeholder="Telefono residencia (Max 10 digitos)">
+                                                    </div>
+                                                </div>
+                                            </div>     
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="txtMobilePhone">Teléfono celular</label>          
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-mobile-phone"></i></span>          
+                                                        <input id="txtMobilePhone" name="mobilePhone" class="form-control text-capitalize" type="number" value="" autocomplete="off" required
+                                                               max="9999999999" maxlength="10" placeholder="Teléfono celular (Max 10 digitos)">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="txtEmail">Correo electrónico</label>        
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-at"></i></span>          
+                                                        <input id="txtEmail" name="email" type="email" class="form-control"  value="" autocomplete="off" required
+                                                               placeholder="Correo electrónico">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="txtAddress">Dirección residencia</label> 
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-address-card"></i></span>          
+                                                        <input id="txtAddress" name="address" class="form-control text-capitalize" type="text" value="" autocomplete="off" required
+                                                               placeholder="Dirección residencia">
+                                                    </div>
+                                                </div>
+                                            </div>                                                
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="" class="fa fa-gratipay"></label>
+                                                    &nbsp;&nbsp;
+                                                    <label>Estado civil</label>
+                                                    <div>
+                                                        <select id="selMaritalStatus" name="maritalStatus" required class="form-control text-capitalize select2" style="width: 100%;">
+                                                            <option value="-1" selected> -- SELECCIONE --</option>                            
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="" class="fa fa-map-marker"></label>
+                                                    &nbsp;&nbsp;
+                                                    <label>Departamento de residencia</label>
+                                                    <div>                                        
+                                                        <select id="selStateResidence" name="stateResidence"  
+                                                                class="form-control text-capitalize select2" style="width: 100%;" 
+                                                                onchange="loadCityResidence(this.value);">
+                                                            <option value="-1" selected> -- SELECCIONE --</option>                            
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>          
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="" class="fa fa-map-marker"></label>
+                                                    &nbsp;&nbsp;
+                                                    <label>Municipio de residencia</label>
+                                                    <div>
+                                                        <select id="selCityResidence" name="cityResidence" required class="form-control text-capitalize select2" style="width: 100%;">
+                                                            <option value="-1" selected> -- SELECCIONE --</option>                            
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="txtMonthlyIncome">Ingresos Mensuales</label>   
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-money"></i></span>
+                                                        <input id="txtMonthlyIncome" name="monthlyIncome" class="form-control text-capitalize" type="number" value="" autocomplete="off" required
+                                                               placeholder="Ingresos Mensuales">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="progress progress-sm active">
+                                                    <div class="progress-bar progress-bar-primary progress-bar-striped" role="progressbar" aria-valuenow="100" aria-valuemin="100" aria-valuemax="100" style="width: 100%">
+                                                        <span class="sr-only">100% Complete</span>
+                                                    </div>
+                                                </div>
+                                            </div>                       
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="properties">
+                                </div>
+                                <div class="tab-pane" id="events">
+                                    <!-- Post -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+
+                        <button onclick="closeWindow('ModalNewDebtor', false, 'ModalNew'); list();" type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
+                        <div class="newActionButton">                            
+                            <button id="btnSave" onclick="saveNewDebtor();" type ="button" class="btn btn-primary">Guardar</button>
+                        </div>
+
+                        <div class="updateActionButton">                            
+                            <button id="btnUpdate" onclick="update();" type="button" class="btn btn-warning">Editar</button>
+                            <button id="btnSave"   onclick="goNavigation('ModalNew', 'ModalConfirm');" 
+                                    type="button" class="btn btn-danger">Eliminar</button>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
+
+        <!-- END MODAL PARA CREACIÓN DE DEUDOR-->
 
 
 

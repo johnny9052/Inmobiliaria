@@ -108,151 +108,152 @@ and open the template in the editor.
                     <div class="modal-header">                       
                         <button onclick="closeWindow();" type="button" class="btn btn-default pull-right" data-dismiss="modal">X</button>
                         <h4 class="modal-title">Gestión información cliente dependiente</h4>
-                    </div>
-
-                    <div class="modal-body" id="FormContainer">
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">                                                                        
-                                    <input id="txtId" name="id" class="form-control identificator"  type="hidden" value="">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
 
 
-                            <div class="col-md-6" >
-                                <div class="form-group">
-                                    <label for="" class="fa fa-user"></label>
-                                    &nbsp;&nbsp;
-                                    <label>Cliente</label>
-                                    <div id="lblNameClient">
+                        <div class="modal-body" id="FormContainer">
 
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">                                                                        
+                                        <input id="txtId" name="id" class="form-control identificator"  type="hidden" value="">
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="selLaborType" class="fa fa-briefcase"></label>
-                                    &nbsp;&nbsp;
-                                    <label>Actividad Económica</label>
-                                    <div>
-                                        <select id="selLaborType" name="laborType" required class="form-control select2" style="width: 100%;">
-                                            <option value="-1" selected> -- SELECCIONE --</option>                            
-                                        </select>
+                            <div class="row">
+
+
+                                <div class="col-md-6" >
+                                    <div class="form-group">
+                                        <label for="" class="fa fa-user"></label>
+                                        &nbsp;&nbsp;
+                                        <label>Cliente</label>
+                                        <div id="lblNameClient">
+
+                                        </div>
                                     </div>
                                 </div>
-                            </div>    
-                        </div>
 
-                        <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="selLaborType" class="fa fa-briefcase"></label>
+                                        &nbsp;&nbsp;
+                                        <label>Actividad Económica</label>
+                                        <div>
+                                            <select id="selLaborType" name="laborType" required class="form-control select2" style="width: 100%;">
+                                                <option value="-1" selected> -- SELECCIONE --</option>                            
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>    
+                            </div>
 
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="txtCompanyName">Empresa</label>    
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-building"></i></span>
-                                        <input id="txtCompanyName" name="companyName" class="form-control" type="text" value="" autocomplete="off" required
-                                               placeholder="Empresa">
+                            <div class="row">
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="txtCompanyName">Empresa</label>    
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-building"></i></span>
+                                            <input id="txtCompanyName" name="companyName" class="form-control" type="text" value="" autocomplete="off" required
+                                                   placeholder="Empresa">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="selPosition" class="fa fa-briefcase"></label>
+                                        &nbsp;&nbsp;
+                                        <label>Cargo</label>
+                                        <div>
+                                            <select id="selPosition" name="position" required class="form-control select2" style="width: 100%;">
+                                                <option value="-1" selected> -- SELECCIONE --</option>                            
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="selPosition" class="fa fa-briefcase"></label>
-                                    &nbsp;&nbsp;
-                                    <label>Cargo</label>
-                                    <div>
-                                        <select id="selPosition" name="position" required class="form-control select2" style="width: 100%;">
-                                            <option value="-1" selected> -- SELECCIONE --</option>                            
-                                        </select>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="txtAddress">Direccion</label> 
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-address-card"></i></span>          
+                                            <input id="txtAddress" name="address" class="form-control" type="text" value="" autocomplete="off" required
+                                                   placeholder="Direccion de empresa">
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
+                                </div> 
+                            </div>                                               
 
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="txtAddress">Direccion</label> 
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-address-card"></i></span>          
-                                        <input id="txtAddress" name="address" class="form-control" type="text" value="" autocomplete="off" required
-                                               placeholder="Direccion de empresa">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="txtSalary">Salario</label>   
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-money"></i></span>
+                                            <input id="txtSalary" name="salary" class="form-control" type="number" value="" autocomplete="off" required
+                                                   placeholder="Salario">
+                                        </div>
                                     </div>
-                                </div>
-                            </div> 
-                        </div>                                               
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="txtSalary">Salario</label>   
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-money"></i></span>
-                                        <input id="txtSalary" name="salary" class="form-control" type="number" value="" autocomplete="off" required
-                                               placeholder="Salario">
+                                </div> 
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="txtIncome">Otros ingresos</label>   
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
+                                            <input id="txtIncome" name="income" class="form-control" type="number" value="" autocomplete="off" required
+                                                   placeholder="Otros ingresos">
+                                        </div>
                                     </div>
-                                </div>
-                            </div> 
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="txtIncome">Otros ingresos</label>   
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
-                                        <input id="txtIncome" name="income" class="form-control" type="number" value="" autocomplete="off" required
-                                               placeholder="Otros ingresos">
-                                    </div>
-                                </div>
-                            </div> 
+                                </div> 
 
 
-                        </div>
-
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="txtAntiquity">Antiguedad</label>          
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-history"></i></span>
-                                        <input id="txtAntiquity" name="antiquity" class="form-control" type="number" value="" autocomplete="off" required
-                                               placeholder="Antiguedad en empresa">
-                                    </div>
-                                </div>
-                            </div> 
-
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="txtPhoneoffice">Teléfono fijo</label>
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-phone"></i></span>                                              
-                                        <input id="txtPhoneoffice" name="phoneOffice" class="form-control" type="number" value="" autocomplete="off" required
-                                               max="9999999999" maxlength="10" placeholder="Telefono fijo (Max 10 digitos)">
-                                    </div>
-                                </div>
                             </div>
 
-                        </div>
 
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="txtAntiquity">Antiguedad</label>          
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-history"></i></span>
+                                            <input id="txtAntiquity" name="antiquity" class="form-control" type="number" value="" autocomplete="off" required
+                                                   placeholder="Antiguedad en empresa">
+                                        </div>
+                                    </div>
+                                </div> 
 
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="progress progress-sm active">
-                                    <div class="progress-bar progress-bar-primary progress-bar-striped" role="progressbar" aria-valuenow="100" aria-valuemin="100" aria-valuemax="100" style="width: 100%">
-                                        <span class="sr-only">100% Complete</span>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="txtPhoneoffice">Teléfono fijo</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-phone"></i></span>                                              
+                                            <input id="txtPhoneoffice" name="phoneOffice" class="form-control" type="number" value="" autocomplete="off" required
+                                                   max="9999999999" maxlength="10" placeholder="Telefono fijo (Max 10 digitos)">
+                                        </div>
                                     </div>
                                 </div>
-                            </div>                       
+
+                            </div>
+
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="progress progress-sm active">
+                                        <div class="progress-bar progress-bar-primary progress-bar-striped" role="progressbar" aria-valuenow="100" aria-valuemin="100" aria-valuemax="100" style="width: 100%">
+                                            <span class="sr-only">100% Complete</span>
+                                        </div>
+                                    </div>
+                                </div>                       
+                            </div>
+
+
                         </div>
-
-
                     </div>
 
 

@@ -28,8 +28,8 @@ class PropertieContractDAO {
             (string) $obj->getFirmDate(),(string) $obj->getStartDate(),
             (string) $obj->getEndDate(), (float) $obj->getContractValue(), 
             (int) $obj->getTermContract(), (string) $obj->getWayPay(), 
-            (string) $obj->getUrlContract(),
-            (string) $obj->getTypesClientSelecteds() . ","
+            (string) $obj->getUrlContract(), (string) $obj->getTypesContractSelecteds(). ",",
+            (string) $obj->getTypesDebtorSelecteds() . ","
         ));
         //echo $query;
         $this->repository->ExecuteTransaction($query);
@@ -72,7 +72,8 @@ class PropertieContractDAO {
             (string) $obj->getFirmDate(),(string) $obj->getStartDate(),
             (string) $obj->getEndDate(), (float) $obj->getContractValue(), 
             (int) $obj->getTermContract(), (string) $obj->getWayPay(), 
-            (string) $obj->getUrlContract(),(string) $obj->getTypesClientSelecteds() . ","
+            (string) $obj->getUrlContract(), (string) $obj->getTypesContractSelecteds(). ",",
+            (string) $obj->getTypesDebtorSelecteds() . ","
         ));
         $this->repository->ExecuteTransaction($query);
     }
@@ -87,6 +88,19 @@ class PropertieContractDAO {
     public function Delete(PropertieContractDTO $obj) {
         $query = $this->repository->buildQuerySimply("deletecontractpropertie", array((int) $obj->getId()));
         $this->repository->ExecuteTransaction($query);
+    }
+    
+    /**
+     * Ejecuta un buscar en la base de datos, enfocado a la busqueda de los deudores 
+     * asociados
+     * @param PropertieContractDTO $obj 
+     * @return void      
+     * @author Johnny Alexander Salazar
+     * @version 0.1
+     */
+    public function loadDebtorContract(PropertieContractDTO $obj) {
+        $query = $this->repository->buildQuery("listdebtorcontract", array((int) $obj->getId()));
+        $this->repository->Execute($query);
     }
 
 }

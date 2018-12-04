@@ -15,8 +15,9 @@ class PropertieContractDTO extends BaseDTO {
     private $wayPay;
     private $urlContract;
     private $typesContractSelecteds;
+    private $typesDebtorSelecteds;
     
-    function __construct($id, $client, $propertie, $firmDate, $startDate, $endDate, $contractValue, $termContract, $wayPay, $urlContract, $typesContractSelecteds) {
+    function __construct($id, $client, $propertie, $firmDate, $startDate, $endDate, $contractValue, $termContract, $wayPay, $urlContract, $typesContractSelecteds, $typesDebtorSelecteds) {
         $this->id = $id;
         $this->client = $client;
         $this->propertie = $propertie;
@@ -28,6 +29,7 @@ class PropertieContractDTO extends BaseDTO {
         $this->wayPay = $wayPay;
         $this->urlContract = $urlContract;
         $this->typesContractSelecteds = $typesContractSelecteds;
+        $this->typesDebtorSelecteds = $typesDebtorSelecteds;
     }
     
     function getId() {
@@ -74,6 +76,10 @@ class PropertieContractDTO extends BaseDTO {
         return $this->typesContractSelecteds;
     }
 
+    function getTypesDebtorSelecteds() {
+        return $this->typesDebtorSelecteds;
+    }
+
     function setId($id) {
         $this->id = $id;
     }
@@ -117,4 +123,11 @@ class PropertieContractDTO extends BaseDTO {
     function setTypesContractSelecteds($typesContractSelecteds) {
         $this->typesContractSelecteds = $typesContractSelecteds;
     }
+
+    function setTypesDebtorSelecteds($typesDebtorSelecteds) {
+        $this->typesDebtorSelecteds = $typesDebtorSelecteds;
+    }
+
+
+
 }

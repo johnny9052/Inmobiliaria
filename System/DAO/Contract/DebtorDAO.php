@@ -81,6 +81,7 @@ class DebtorDAO {
             (int) $obj->getDocumentType(), (int) $obj->getCityResidence(),
             (int) $obj->getCityExpedition(), (string) $obj->getExpeditionDate()
         ));
+        //echo query;
         $this->repository->ExecuteTransaction($query);
     }
 

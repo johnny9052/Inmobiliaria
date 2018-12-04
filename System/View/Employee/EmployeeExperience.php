@@ -36,7 +36,7 @@ and open the template in the editor.
                             <li class="active"><a href="" data-toggle="tab">Experiencia</a></li>
                             <li><a href="" onclick="redirectInfoFilter('Employee/EmployeeFormation');" data-toggle="tab">Formación</a></li>
                             <li><a href="" onclick="redirectInfoFilter('Employee/EmployeeContract');" data-toggle="tab">Contratos</a></li>
-                            <li><a href="" onclick="redirectInfoFilter('Client/event');" data-toggle="tab">Eventos</a></li>
+                            <li><a href="" onclick="redirectInfoFilter('Employee/EventEmployee');" data-toggle="tab">Eventos</a></li>
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane" id="employee">

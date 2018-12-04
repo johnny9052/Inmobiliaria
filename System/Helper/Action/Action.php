@@ -103,6 +103,10 @@ function ExecuteAction($action, $obj, $dao, $specific = null) {
         case "loadVideo":
             $dao->LoadVideo($obj);
             break;
+        
+        case "loadDebtorContract":
+            $dao->loadDebtorContract($obj);
+            break;
 
 
         case "loadImage":

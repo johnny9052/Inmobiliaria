@@ -120,7 +120,7 @@ and open the template in the editor.
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="" class="fa fa-id-card"></label>
+                                                    <label for="selDocumentType" class="fa fa-id-card"></label>
                                                     &nbsp;&nbsp;
                                                     <label>Tipo documento</label>
                                                     <div>
