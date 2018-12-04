@@ -59,14 +59,14 @@ function saveAudit() {
 
 function search(id) {
     $("#txtId").val(id);
-    Execute(scanInfo('search', true), 'Propertie/CtlPropertie', '', 'showData(info);', '', '', 'System/');
+    Execute(scanInfo('search', true, 'FormContainerContact'), 'Propertie/CtlPropertie', '', 'showData(info);', '', '', 'System/');
 }
 
 
 
 function sendContact() {
     if (validateForm() === true) {
-        Execute(scanInfo('search', true), 'Contact/CtlContact', '', 'showDataSendContact();');
+        Execute(scanInfo('search', true, 'FormContainerContact'), 'Contact/CtlContact', '', 'showDataSendContact();');
     }
 }
 

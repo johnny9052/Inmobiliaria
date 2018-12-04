@@ -255,6 +255,7 @@ function showData(info) {
     $("#txtAvaluoCatastral").val(info[0].avaluo_catastral);
     /*Se añade el punto del gps*/
     addMarker(new google.maps.LatLng(info[0].latitud, info[0].longitud));
+    moveToPosition(info[0].latitud, info[0].longitud);
     /*Se cargan las imagenes y videos*/
     loadVideosPropertie(info[0].id);
     loadImagesPropertie(info[0].id);

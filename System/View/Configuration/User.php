@@ -108,7 +108,7 @@ and open the template in the editor.
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="txtFirstName">Primer nombre</label>   
+                                    <label for="txtFirstName">Primer nombre *</label>   
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-info"></i></span>
                                         <input id="txtFirstName" name="firstName" class="form-control" type="text" value="" autocomplete="off" required
@@ -133,7 +133,7 @@ and open the template in the editor.
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="txtFirstLastName">Primer apellido</label>  
+                                    <label for="txtFirstLastName">Primer apellido *</label>  
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-info"></i></span>
                                         <input id="txtFirstLastName" name="firstLastName" class="form-control" type="text" value="" autocomplete="off" required
@@ -158,7 +158,7 @@ and open the template in the editor.
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="txtUser">Nickname</label>    
+                                    <label for="txtUser">Nickname *</label>    
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-user"></i></span>
                                         <input id="txtUser" name="user" class="form-control" type="text" value="" autocomplete="off" required
@@ -171,7 +171,7 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <label for="" class="fa fa-user-secret"></label>
                                     &nbsp;&nbsp;
-                                    <label>Rol</label>
+                                    <label>Rol *</label>
                                     <div>
                                         <select id="selRol" name="rol" required class="form-control select2" style="width: 100%;">
                                             <option value="-1" selected> -- SELECCIONE --</option>                            
@@ -186,7 +186,7 @@ and open the template in the editor.
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="txtPassword">Password</label>                                    
+                                    <label for="txtPassword">Password *</label>                                    
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-asterisk"></i></span>
                                         <input id="txtPassword" name="password" type="password" class="form-control"  value="" autocomplete="off" required
@@ -197,7 +197,7 @@ and open the template in the editor.
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="txtPasswordConfirm">Confirme su password</label>                                    
+                                    <label for="txtPasswordConfirm">Confirme su password *</label>                                    
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-asterisk"></i></span>
                                         <input id="txtPasswordConfirm" name="passwordConfirm" class="form-control" type="password" value="" autocomplete="off" required

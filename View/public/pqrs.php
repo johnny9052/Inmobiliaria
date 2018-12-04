@@ -51,13 +51,21 @@ and open the template in the editor.
         </div>
 
         <section id="FormContainer">
+
+            <div class="row">
+                <div class="col-md-11 col-sm-11 col-xs-12" style="text-align: right;">
+                    * Campos obligatorios
+                </div>
+            </div>
+
+
             <div class="row">
                 <div class="col-md-3 col-sm-3 col-xs-12"></div>
                 <div class="col-md-6 col-sm-6 col-xs-12">  
-                    <div class="form-group">
+                    <div class="form-group textoNegrita textoPequenioFormularos">
                         <label for="" class="fa fa-inbox"></label>
                         &nbsp;&nbsp;
-                        <label>Tipo PQRS</label>
+                        <label>Tipo PQRS *</label>
                         <div>
                             <select id="selPRQSType" name="pqrstype" 
                                     class="form-control select2" style="width: 100%;" required>
@@ -69,10 +77,12 @@ and open the template in the editor.
                 <div class="col-md-3 col-sm-3 col-xs-12"></div>
             </div>
 
-            <div class="row">
+            <div class="row textoNegrita textoPequenioFormularos">
                 <div class="col-md-3 col-sm-3 col-xs-12"></div>
                 <div class="col-md-6 col-sm-6 col-xs-12">  
-                    <label for="txtDescription">Mensaje</label>   
+                    <label for="" class="fa fa-info"></label>
+                        &nbsp;&nbsp;
+                    <label for="txtDescription">Mensaje *</label>   
                     <div class="form-group">                    
                         <textarea id="txtDescription" name="description" class="form-control" 
                                   name="message" rows="3" placeholder="Ingrese su mensaje" required></textarea>

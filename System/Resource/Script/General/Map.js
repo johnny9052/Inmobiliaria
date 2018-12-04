@@ -153,7 +153,7 @@ function addMarker(location, public) {
     var image = '';
     if (public) {
         image = 'System/Resource/Images/map/marker.png';
-    } else {        
+    } else {
         image = 'Resource/Images/map/marker.png';
     }
 
@@ -229,7 +229,12 @@ function deleteMarkers() {
     markersListGlobal = [];
 }
 
-
+/*Se enfoca el mapa en un punto en especifico*/
+function moveToPosition(lat, lng) {
+    var center = new google.maps.LatLng(lat, lng);
+    // using global variable:
+    map.panTo(center);
+}
 
 
 

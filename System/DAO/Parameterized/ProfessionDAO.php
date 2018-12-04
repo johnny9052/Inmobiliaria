@@ -38,7 +38,7 @@ class ProfessionDAO {
      * @author Johnny Alexander Salazar
      * @version 0.1
      */
-    public function ListAll(ProfessionDTO $obj, $type) {
+    public function ListAll(ProfessionDTO $obj) {
         $query = $this->repository->buildQuery("listprofession", array((int) $obj->getIdUser()));
         $this->repository->BuildPaginatorDataTable($query, '', 50);
     }

@@ -26,7 +26,7 @@ DELIMITER $$
 --
 -- Procedimientos
 --
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listclient` (`iduser` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `listclient` (`iduser` INT)  BEGIN
 
 
 
@@ -92,7 +92,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listclient` (`iduser` INT)  BEG
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listcontract` (`idEmpleado` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `listcontract` (`idEmpleado` INT)  BEGIN
   select con.idcontratoEmpleado as id, CONCAT(empl.primerNombreEmpleado, ' ', 
 							empl.segundoNombreEmpleado, ' ', empl.primerApellidoEmpleado , ' ', 
 							empl.segundoApellidoEmpleado) as nombre,
@@ -119,7 +119,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listcontract` (`idEmpleado` INT
    order by nombre;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listcontractpropertie` (`idcontrato` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `listcontractpropertie` (`idcontrato` INT)  BEGIN
   select con.idcontrato as id, CONCAT(cli.primerNombreCliente, ' ', 
 							cli.segundoNombreCliente, ' ', cli.primerApellidoCliente , ' ', 
 							cli.segundoApellidoCliente) as cliente,
@@ -138,7 +138,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listcontractpropertie` (`idcont
    order by cliente;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listdebtor` (IN `idDebtor` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `listdebtor` (IN `idDebtor` INT)  BEGIN
    select deu.idDeudor,deu.numeroIdentificacion as numero_identificacion, deu.primerNombreDeudor as primer_nombre, 
           deu.segundoNombreDeudor as segundo_nombre, deu.primerApellidoDeudor as primer_apellido, 
           deu.segundoApellidoDeudor as segundo_apellido, deu.direccionResidenciaDeudor as direccion,
@@ -147,7 +147,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listdebtor` (IN `idDebtor` INT)
    order by primerApellidoDeudor;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listdependent` (`idCliente` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `listdependent` (`idCliente` INT)  BEGIN
 
 
 
@@ -229,7 +229,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listdependent` (`idCliente` INT
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listemployee` (`idemployee` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `listemployee` (`idemployee` INT)  BEGIN
    select empl.idEmpleado,empl.cedulaEmpleado as numero_identificacion, CONCAT(empl.primerApellidoEmpleado , ' ', 
 							empl.segundoApellidoEmpleado, ' ', empl.primerNombreEmpleado, ' ', 
 							empl.segundoNombreEmpleado) as nombreempleado, 
@@ -239,7 +239,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listemployee` (`idemployee` INT
    order by nombreempleado;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listevent` (`idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `listevent` (`idfilter` INT)  BEGIN
    select eve.ideventoCliente,eve.fechaEvento as fecha_evento, eve.horaEvento as hora_evento, 
           eve.lugarEvento as lugar_evento,  
           CONCAT(cli.primerNombreCliente, ' ', 
@@ -251,7 +251,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listevent` (`idfilter` INT)  BE
    order by eve.fechaEvento;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listexperience` (`idEmpleado` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `listexperience` (`idEmpleado` INT)  BEGIN
 
 
   select exp.idExperienciaEmpleado as id, CONCAT(empl.primerNombreEmpleado, ' ', 
@@ -292,7 +292,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listexperience` (`idEmpleado` I
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listfeaturedpropertie` (`vfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `listfeaturedpropertie` (`vfilter` INT)  BEGIN
 
    select DISTINCT  inm.idinmueble as id, tip_inm.`nombreTipoInmueble` as tipo,
                tip_ofer.`nombreTipoOferta` as oferta, inm.precio as precio, ciud.`nombreCiudad` as ciudad, 
@@ -310,7 +310,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listfeaturedpropertie` (`vfilte
    LIMIT 6 OFFSET 0;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listformation` (`vid` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `listformation` (`vid` INT)  BEGIN
   select frm.idformacionEmpleado as id, CONCAT(empl.primerNombreEmpleado, ' ', 
 							empl.segundoNombreEmpleado, ' ', empl.primerApellidoEmpleado , ' ', 
 							empl.segundoApellidoEmpleado) as nombre,
@@ -327,7 +327,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listformation` (`vid` INT)  BEG
    order by nombre;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listimagepropertie` (`vid` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `listimagepropertie` (`vid` INT)  BEGIN
  	
 	SELECT img.rutaImagen as url_file, img.`idInmueble` as id_inmueble             
 	FROM imageninmueble  as img
@@ -336,7 +336,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listimagepropertie` (`vid` INT)
 	
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listindependent` (`idCliente` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `listindependent` (`idCliente` INT)  BEGIN
 
 
 
@@ -418,7 +418,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listindependent` (`idCliente` I
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listnoticia` (IN `iduser` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `listnoticia` (IN `iduser` INT)  BEGIN
 
 
 
@@ -452,7 +452,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listnoticia` (IN `iduser` INT) 
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listpqrs` (`idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `listpqrs` (`idfilter` INT)  BEGIN
    select pqr.idPQRS as id, tip.nombretipopqrs,pqr.fechaPQRS as fechaPQRS, CONCAT(cli.primerNombreCliente, ' ', 
 							cli.segundoNombreCliente, ' ', cli.primerApellidoCliente , ' ', 
 							cli.segundoApellidoCliente) as cliente, pqr.descripcionPQRS as descripcionPQRS,
@@ -463,7 +463,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listpqrs` (`idfilter` INT)  BEG
    order by pqr.fechaPQRS;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listprofession` (`iduser` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `listprofession` (`iduser` INT)  BEGIN
 
 
 
@@ -505,7 +505,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listprofession` (`iduser` INT) 
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listpropertie` (`idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `listpropertie` (`idfilter` INT)  BEGIN
     select inm.idinmueble as id, 
             CONCAT(cli.primerNombreCliente, ' ', cli.segundoNombreCliente, ' ', 
                     cli.primerApellidoCliente , ' ', cli.segundoApellidoCliente) as nombre,
@@ -529,7 +529,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listpropertie` (`idfilter` INT)
    order by inm.`fechaRecepcion`;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listpropertiecsv` (`idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `listpropertiecsv` (`idfilter` INT)  BEGIN
  	
 	SELECT distinct                 
                inm.matriculaInmobiliaria as matricula_inmobiliaria,
@@ -605,7 +605,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listpropertiecsv` (`idfilter` I
 	
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listpropertiepublic` (`viduser` INT, `vstate` INT, `vareamax` INT, `vvalorMax` INT, `vcity` INT, `vbarrio` INT, `vzone` INT, `vpropertietype` INT, `voffertype` INT, `vestrato` INT, `vascensor` INT, `vpiscina` INT, `vroom` INT, `vbath` INT, `vparking` INT, `vnombrebarriociudad` VARCHAR(50))  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `listpropertiepublic` (`viduser` INT, `vstate` INT, `vareamax` INT, `vvalorMax` INT, `vcity` INT, `vbarrio` INT, `vzone` INT, `vpropertietype` INT, `voffertype` INT, `vestrato` INT, `vascensor` INT, `vpiscina` INT, `vroom` INT, `vbath` INT, `vparking` INT, `vnombrebarriociudad` VARCHAR(50))  BEGIN
 
    select DISTINCT  inm.idinmueble as id, tip_inm.`nombreTipoInmueble` as tipo,
                tip_ofer.`nombreTipoOferta` as oferta, inm.precio as precio, ciud.`nombreCiudad` as ciudad, 
@@ -639,7 +639,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listpropertiepublic` (`viduser`
    order by inm.`fechaRecepcion`;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listreference` (`idreferenciapersonalfamiliar` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `listreference` (`idreferenciapersonalfamiliar` INT)  BEGIN
   select refe.idreferenciapersonalfamiliar as id, CONCAT(cli.primerNombreCliente, ' ', 
 							cli.segundoNombreCliente, ' ', cli.primerApellidoCliente , ' ', 
 							cli.segundoApellidoCliente) as cliente,
@@ -656,7 +656,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listreference` (`idreferenciape
    order by cliente;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listreferencebank` (`idreferenciabancaria` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `listreferencebank` (`idreferenciabancaria` INT)  BEGIN
   select refe.idreferenciabancaria as id, CONCAT(cli.primerNombreCliente, ' ', 
 							cli.segundoNombreCliente, ' ', cli.primerApellidoCliente , ' ', 
 							cli.segundoApellidoCliente) as cliente,
@@ -672,7 +672,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listreferencebank` (`idreferenc
    order by cliente;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listrol` (`iduser` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `listrol` (`iduser` INT)  BEGIN
 
 
 
@@ -706,7 +706,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listrol` (`iduser` INT)  BEGIN
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listspouse` (`idconyugue` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `listspouse` (`idconyugue` INT)  BEGIN
   select con.idconyugue as id, CONCAT(con.nombresConyugue, ' ', 
 							con.apellidosConyugue) as nombres,
 		  
@@ -724,7 +724,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listspouse` (`idconyugue` INT) 
    order by cliente;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listuser` (`iduser` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `listuser` (`iduser` INT)  BEGIN
 
 
 
@@ -790,7 +790,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listuser` (`iduser` INT)  BEGIN
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listvideopropertie` (`vid` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `listvideopropertie` (`vid` INT)  BEGIN
  	
 	SELECT rutaVideo as dinamic_data              
 	FROM videoinmueble       
@@ -798,7 +798,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `listvideopropertie` (`vid` INT)
 	
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadactivityeconomic` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadactivityeconomic` (IN `idfilter` INT)  BEGIN
 
 
 
@@ -875,7 +875,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadactivityeconomic` (IN `idfi
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadallmenu` ()  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadallmenu` ()  BEGIN
 
 
 
@@ -933,7 +933,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadallmenu` ()  BEGIN
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadapage` (IN `vpage` VARCHAR(2000), IN `vrol` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadapage` (IN `vpage` VARCHAR(2000), IN `vrol` INT)  BEGIN
 
 
 
@@ -991,7 +991,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadapage` (IN `vpage` VARCHAR(
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadarea` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadarea` (IN `idfilter` INT)  BEGIN
  
 	IF idfilter > -1 THEN
 	
@@ -1008,7 +1008,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadarea` (IN `idfilter` INT)  
         END IF;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadareamaximainmueble` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadareamaximainmueble` (IN `idfilter` INT)  BEGIN
  
 	IF idfilter > -1 THEN
 	
@@ -1022,7 +1022,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadareamaximainmueble` (IN `id
         END IF;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadarl` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadarl` (IN `idfilter` INT)  BEGIN
 
 
  
@@ -1069,7 +1069,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadarl` (IN `idfilter` INT)  B
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadbank` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadbank` (IN `idfilter` INT)  BEGIN
  
 	IF idfilter > -1 THEN
 	
@@ -1086,7 +1086,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadbank` (IN `idfilter` INT)  
         END IF;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadbloodtype` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadbloodtype` (IN `idfilter` INT)  BEGIN
 
 
  
@@ -1133,7 +1133,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadbloodtype` (IN `idfilter` I
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadcity` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadcity` (IN `idfilter` INT)  BEGIN
 
 
 
@@ -1263,7 +1263,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadcity` (IN `idfilter` INT)  
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadclient` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadclient` (IN `idfilter` INT)  BEGIN
 
 
 
@@ -1417,7 +1417,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadclient` (IN `idfilter` INT)
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadclientType` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadclientType` (IN `idfilter` INT)  BEGIN
 
 
 
@@ -1539,7 +1539,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadclientType` (IN `idfilter` 
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadclienttypeselected` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadclienttypeselected` (IN `idfilter` INT)  BEGIN
 
 
 
@@ -1653,7 +1653,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadclienttypeselected` (IN `id
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadcompensationbox` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadcompensationbox` (IN `idfilter` INT)  BEGIN
 
 
  
@@ -1700,7 +1700,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadcompensationbox` (IN `idfil
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadcontractType` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadcontractType` (IN `idfilter` INT)  BEGIN
 	IF idfilter > -1 THEN
 		select idobjetoContrato as id,	nombreObjetoContrato as nombre
 		from objetoscontratos	                
@@ -1712,7 +1712,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadcontractType` (IN `idfilter
         END IF;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadcontracttypeemployee` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadcontracttypeemployee` (IN `idfilter` INT)  BEGIN
  
 	IF idfilter > -1 THEN
 	
@@ -1729,7 +1729,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadcontracttypeemployee` (IN `
         END IF;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadcurtaintype` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadcurtaintype` (IN `idfilter` INT)  BEGIN
 
 
  
@@ -1776,7 +1776,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadcurtaintype` (IN `idfilter`
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loaddebtor` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loaddebtor` (IN `idfilter` INT)  BEGIN
  
 	IF idfilter > -1 THEN
 	
@@ -1797,7 +1797,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loaddebtor` (IN `idfilter` INT)
         END IF;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loaddepartment` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loaddepartment` (IN `idfilter` INT)  BEGIN
 
 
 
@@ -1919,7 +1919,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loaddepartment` (IN `idfilter` 
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loademployee` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loademployee` (IN `idfilter` INT)  BEGIN
 
 
 
@@ -2073,7 +2073,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loademployee` (IN `idfilter` IN
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loademployeeselected` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loademployeeselected` (IN `idfilter` INT)  BEGIN
 
 
 
@@ -2220,7 +2220,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loademployeeselected` (IN `idfi
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loademployeesselected` (IN `idfilter` INT)  BEGIN 
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loademployeesselected` (IN `idfilter` INT)  BEGIN 
 
 
 
@@ -2326,7 +2326,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loademployeesselected` (IN `idf
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadeps` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadeps` (IN `idfilter` INT)  BEGIN
 
 
  
@@ -2373,7 +2373,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadeps` (IN `idfilter` INT)  B
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadfloortype` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadfloortype` (IN `idfilter` INT)  BEGIN
 
 
  
@@ -2420,7 +2420,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadfloortype` (IN `idfilter` I
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadgender` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadgender` (IN `idfilter` INT)  BEGIN
 
 
 
@@ -2542,7 +2542,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadgender` (IN `idfilter` INT)
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadinmueblestopvisitas` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadinmueblestopvisitas` (IN `idfilter` INT)  BEGIN
  
 	IF idfilter > -1 THEN
 	
@@ -2566,7 +2566,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadinmueblestopvisitas` (IN `i
         END IF;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadkitchenstructure` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadkitchenstructure` (IN `idfilter` INT)  BEGIN
 
 
  
@@ -2613,7 +2613,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadkitchenstructure` (IN `idfi
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadkitchentype` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadkitchentype` (IN `idfilter` INT)  BEGIN
 
 
  
@@ -2660,7 +2660,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadkitchentype` (IN `idfilter`
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadmaritalstatus` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadmaritalstatus` (IN `idfilter` INT)  BEGIN
 
 
 
@@ -2782,7 +2782,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadmaritalstatus` (IN `idfilte
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadmenu` (IN `rol` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadmenu` (IN `rol` INT)  BEGIN
 
 
 
@@ -2848,7 +2848,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadmenu` (IN `rol` INT)  BEGIN
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadneighborhood` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadneighborhood` (IN `idfilter` INT)  BEGIN
 
 
  
@@ -2898,7 +2898,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadneighborhood` (IN `idfilter
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadoffertype` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadoffertype` (IN `idfilter` INT)  BEGIN
 
 
  
@@ -2945,7 +2945,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadoffertype` (IN `idfilter` I
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadoutstandingtype` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadoutstandingtype` (IN `idfilter` INT)  BEGIN
 
 
  
@@ -2992,7 +2992,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadoutstandingtype` (IN `idfil
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadpensionfund` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadpensionfund` (IN `idfilter` INT)  BEGIN
 
 
  
@@ -3039,7 +3039,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadpensionfund` (IN `idfilter`
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadperiodicity` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadperiodicity` (IN `idfilter` INT)  BEGIN
 
  
 
@@ -3071,7 +3071,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadperiodicity` (IN `idfilter`
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadpersontype` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadpersontype` (IN `idfilter` INT)  BEGIN
 
 
 
@@ -3193,7 +3193,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadpersontype` (IN `idfilter` 
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadposition` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadposition` (IN `idfilter` INT)  BEGIN
 
 
 
@@ -3270,7 +3270,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadposition` (IN `idfilter` IN
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadpqrstype` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadpqrstype` (IN `idfilter` INT)  BEGIN
  
 	IF idfilter > -1 THEN
 	
@@ -3287,7 +3287,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadpqrstype` (IN `idfilter` IN
         END IF;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadpreciomaximoinmueble` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadpreciomaximoinmueble` (IN `idfilter` INT)  BEGIN
  
 	IF idfilter > -1 THEN
 	
@@ -3301,7 +3301,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadpreciomaximoinmueble` (IN `
         END IF;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadprofession` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadprofession` (IN `idfilter` INT)  BEGIN
 
 
 
@@ -3431,7 +3431,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadprofession` (IN `idfilter` 
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadprofessionnivel` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadprofessionnivel` (IN `idfilter` INT)  BEGIN
 
 
 
@@ -3553,7 +3553,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadprofessionnivel` (IN `idfil
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadpropertie` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadpropertie` (IN `idfilter` INT)  BEGIN
  
 	IF idfilter > -1 THEN
 	
@@ -3570,7 +3570,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadpropertie` (IN `idfilter` I
         END IF;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadpropertietype` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadpropertietype` (IN `idfilter` INT)  BEGIN
 
 
  
@@ -3617,7 +3617,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadpropertietype` (IN `idfilte
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadrol` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadrol` (IN `idfilter` INT)  BEGIN
 
 
 
@@ -3747,7 +3747,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadrol` (IN `idfilter` INT)  B
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadseverancefund` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadseverancefund` (IN `idfilter` INT)  BEGIN
 
 
  
@@ -3794,7 +3794,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadseverancefund` (IN `idfilte
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadStatus` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadStatus` (IN `idfilter` INT)  BEGIN
 
 
  
@@ -3841,7 +3841,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadStatus` (IN `idfilter` INT)
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadstratum` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadstratum` (IN `idfilter` INT)  BEGIN
  
 	IF idfilter > -1 THEN
 	
@@ -3858,7 +3858,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadstratum` (IN `idfilter` INT
         END IF;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadtipoidentificacion` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadtipoidentificacion` (IN `idfilter` INT)  BEGIN
 
 
 
@@ -3980,7 +3980,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadtipoidentificacion` (IN `id
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadtotalarrendatarios` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadtotalarrendatarios` (IN `idfilter` INT)  BEGIN
  
 	IF idfilter > -1 THEN
 
@@ -3994,7 +3994,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadtotalarrendatarios` (IN `id
         END IF;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadtotalclientes` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadtotalclientes` (IN `idfilter` INT)  BEGIN
  
 	IF idfilter > -1 THEN
 
@@ -4008,7 +4008,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadtotalclientes` (IN `idfilte
         END IF;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadtotalinmuebles` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadtotalinmuebles` (IN `idfilter` INT)  BEGIN
  
 	IF idfilter > -1 THEN
 	
@@ -4022,7 +4022,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadtotalinmuebles` (IN `idfilt
         END IF;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadtotalinmueblesporoferta` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadtotalinmueblesporoferta` (IN `idfilter` INT)  BEGIN
  
 	IF idfilter > -1 THEN
 
@@ -4040,7 +4040,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadtotalinmueblesporoferta` (I
         END IF;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadtotalinmueblesporofertaContrato` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadtotalinmueblesporofertaContrato` (IN `idfilter` INT)  BEGIN
  
 	IF idfilter > -1 THEN
 
@@ -4060,7 +4060,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadtotalinmueblesporofertaCont
         END IF;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadtypeemployee` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadtypeemployee` (IN `idfilter` INT)  BEGIN
 
 
 
@@ -4182,7 +4182,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadtypeemployee` (IN `idfilter
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadtypeevent` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadtypeevent` (IN `idfilter` INT)  BEGIN
 
 
 
@@ -4304,7 +4304,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadtypeevent` (IN `idfilter` I
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadtypereference` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadtypereference` (IN `idfilter` INT)  BEGIN
  
 	IF idfilter > -1 THEN
 	
@@ -4321,7 +4321,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadtypereference` (IN `idfilte
         END IF;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadviewtype` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadviewtype` (IN `idfilter` INT)  BEGIN
 
 
  
@@ -4368,7 +4368,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadviewtype` (IN `idfilter` IN
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadvigilancetype` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadvigilancetype` (IN `idfilter` INT)  BEGIN
 
 
  
@@ -4415,7 +4415,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadvigilancetype` (IN `idfilte
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadzonastopvisitas` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadzonastopvisitas` (IN `idfilter` INT)  BEGIN
  
 	IF idfilter > -1 THEN
 	
@@ -4439,7 +4439,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadzonastopvisitas` (IN `idfil
         END IF;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadzone` (IN `idfilter` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loadzone` (IN `idfilter` INT)  BEGIN
 
 
  
@@ -4486,7 +4486,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loadzone` (IN `idfilter` INT)  
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `login` (IN `usu` VARCHAR(50), IN `pass` VARCHAR(50))  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `login` (IN `usu` VARCHAR(50), IN `pass` VARCHAR(50))  BEGIN
 
 
 
@@ -4528,14 +4528,14 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `login` (IN `usu` VARCHAR(50), I
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `loginPublic` (`vemail` VARCHAR(50), `vpassword` VARCHAR(50))  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `loginPublic` (`vemail` VARCHAR(50), `vpassword` VARCHAR(50))  BEGIN
   select cli.`idCliente` as id, cli.`correoCliente` as email, CONCAT(cli.primerNombreCliente, ' ', 
         cli.primerApellidoCliente) as nombre
    from clientes as cli   
    where cli.password = vpassword and cli.`correoCliente` = vemail	;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `log_msg` (`msg` VARCHAR(255))  READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `log_msg` (`msg` VARCHAR(255))  READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que permite hacer debug'
 BEGIN 
@@ -4556,7 +4556,7 @@ BEGIN
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searchclient` (`vid` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `searchclient` (`vid` INT)  BEGIN
 	SELECT cli.idCliente as id ,
 		cli.numeroIdentificacion as cedula, 
 		cli.primerNombreCliente as primer_nombre, 
@@ -4586,7 +4586,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searchclient` (`vid` INT)  BEGI
 		where idCliente = vid;	
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searchcontract` (`vid` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `searchcontract` (`vid` INT)  BEGIN
  	
 	SELECT con.idcontratoEmpleado as id ,
 				con.fechaInicio	 as fecha_inicio,
@@ -4605,7 +4605,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searchcontract` (`vid` INT)  BE
 	
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searchcontractpropertie` (`vid` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `searchcontractpropertie` (`vid` INT)  BEGIN
  	
 	SELECT con.idcontrato as id ,
 				con.idcliente as cliente,
@@ -4624,7 +4624,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searchcontractpropertie` (`vid`
 	
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searchdebtor` (`vid` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `searchdebtor` (`vid` INT)  BEGIN
  	
 	SELECT deu.idDeudor as id ,
                deu.numeroIdentificacion as cedula, 
@@ -4655,7 +4655,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searchdebtor` (`vid` INT)  BEGI
 	
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searchdependent` (`vid` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `searchdependent` (`vid` INT)  BEGIN
 
 
 
@@ -4807,7 +4807,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searchdependent` (`vid` INT)  B
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searchemployee` (IN `vid` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `searchemployee` (IN `vid` INT)  BEGIN
 
 
  	
@@ -4947,7 +4947,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searchemployee` (IN `vid` INT) 
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searchevent` (IN `vidEvent` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `searchevent` (IN `vidEvent` INT)  BEGIN
 
 
 
@@ -5109,7 +5109,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searchevent` (IN `vidEvent` INT
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searcheventcomments` (IN `vidEvent` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `searcheventcomments` (IN `vidEvent` INT)  BEGIN
 
 
 
@@ -5279,7 +5279,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searcheventcomments` (IN `vidEv
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searcheventsclient` (`vid` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `searcheventsclient` (`vid` INT)  BEGIN
 			SELECT eve.ideventoCliente as idevento,
 					eve.fechaEvento as fecha,
 					eve.horaEvento as hora,
@@ -5296,7 +5296,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searcheventsclient` (`vid` INT)
 			where eve.clientes_cedulaCliente = vid;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searchexperience` (`vid` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `searchexperience` (`vid` INT)  BEGIN
 
 
  	
@@ -5340,7 +5340,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searchexperience` (`vid` INT)  
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searchformation` (`vid` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `searchformation` (`vid` INT)  BEGIN
 
  	
 
@@ -5378,7 +5378,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searchformation` (`vid` INT)  B
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searchindependent` (`vid` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `searchindependent` (`vid` INT)  BEGIN
 
 
 
@@ -5520,7 +5520,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searchindependent` (`vid` INT) 
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searchnoticia` (`idnoticia` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `searchnoticia` (`idnoticia` INT)  BEGIN
 
 
 
@@ -5578,7 +5578,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searchnoticia` (`idnoticia` INT
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searchpqrs` (`vid` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `searchpqrs` (`vid` INT)  BEGIN
  	
 	SELECT  pqr.idPQRS as id,
                 pqr.fechaPQRS as fechaPQRS,
@@ -5597,7 +5597,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searchpqrs` (`vid` INT)  BEGIN
 	
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searchprofession` (`vid` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `searchprofession` (`vid` INT)  BEGIN
 
 
 
@@ -5647,7 +5647,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searchprofession` (`vid` INT)  
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searchprofileclient` (`vid` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `searchprofileclient` (`vid` INT)  BEGIN
 			SELECT cli.idCliente as id, cli.numeroIdentificacion as cedula, CONCAT(cli.primerNombreCliente, ' ', 
 							cli.segundoNombreCliente, ' ', cli.primerApellidoCliente , ' ', 
 							cli.segundoApellidoCliente) as nombre,
@@ -5669,7 +5669,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searchprofileclient` (`vid` INT
 			where idCliente = vid;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searchpropertie` (`vid` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `searchpropertie` (`vid` INT)  BEGIN
  	
 	SELECT distinct inm.idinmueble as id,
                inm.precio as precio,
@@ -5764,7 +5764,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searchpropertie` (`vid` INT)  B
 	
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searchpropertiebyclient` (`vid` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `searchpropertiebyclient` (`vid` INT)  BEGIN
  	
 	SELECT distinct inm.idinmueble as id,
                inm.precio as precio,
@@ -5835,7 +5835,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searchpropertiebyclient` (`vid`
 	
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searchpropertiepdf` (`vid` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `searchpropertiepdf` (`vid` INT)  BEGIN
  	
 	SELECT distinct inm.idinmueble as id,
                inm.precio as precio,
@@ -5925,7 +5925,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searchpropertiepdf` (`vid` INT)
 	
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searchreference` (`vid` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `searchreference` (`vid` INT)  BEGIN
  	
 	SELECT refe.idreferenciapersonalfamiliar as id ,
 				refe.clientes_idCliente as cliente,
@@ -5940,7 +5940,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searchreference` (`vid` INT)  B
 	
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searchreferencebank` (`vid` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `searchreferencebank` (`vid` INT)  BEGIN
  	
 	SELECT refe.idreferenciabancaria as id ,
 				refe.clientes_idCliente as cliente,
@@ -5954,7 +5954,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searchreferencebank` (`vid` INT
 	
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searchrol` (`idrol` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `searchrol` (`idrol` INT)  BEGIN
 
 
 
@@ -6012,7 +6012,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searchrol` (`idrol` INT)  BEGIN
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searchspouse` (`vid` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `searchspouse` (`vid` INT)  BEGIN
  	
 	SELECT con.idconyugue as id ,
 				con.clientes_idCliente as cliente,
@@ -6033,7 +6033,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searchspouse` (`vid` INT)  BEGI
 	
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searchtimelineclient` (`vid` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `searchtimelineclient` (`vid` INT)  BEGIN
 			SELECT eve.ideventoCliente as idevento,
 					eve.fechaEvento as fecha,
 					eve.horaEvento as hora,
@@ -6050,7 +6050,7 @@ CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searchtimelineclient` (`vid` IN
 			where eve.clientes_cedulaCliente = vid;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` PROCEDURE `searchuser` (`vid` INT)  BEGIN
+CREATE DEFINER=`hexagono_admin`@`localhost` PROCEDURE `searchuser` (`vid` INT)  BEGIN
 
 
 
@@ -6111,7 +6111,7 @@ END$$
 --
 -- Funciones
 --
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `deleteclient` (`vid` INT) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `deleteclient` (`vid` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que elimina un cliente'
 BEGIN 
@@ -6172,7 +6172,7 @@ BEGIN
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `deletecontract` (`vid` INT) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `deletecontract` (`vid` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que elimina un contrato'
 BEGIN 
@@ -6182,7 +6182,7 @@ BEGIN
 	RETURN res;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `deletecontractpropertie` (`vid` INT) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `deletecontractpropertie` (`vid` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que elimina un contrato de un inmueble'
 BEGIN 
@@ -6192,7 +6192,7 @@ BEGIN
 	RETURN res;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `deletedebtor` (`vid` INT) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `deletedebtor` (`vid` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que elimina un Deudor'
 BEGIN 
@@ -6202,7 +6202,7 @@ BEGIN
 	RETURN res;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `deletedependent` (`vid` INT) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `deletedependent` (`vid` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que elimina un arrendatario dependiente'
 BEGIN 
@@ -6232,7 +6232,7 @@ BEGIN
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `deleteemployee` (`vid` INT) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `deleteemployee` (`vid` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que elimina un Empleado'
 BEGIN 
@@ -6277,7 +6277,7 @@ BEGIN
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `deleteevent` (`vid` INT) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `deleteevent` (`vid` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que elimina un evento'
 BEGIN 
@@ -6338,7 +6338,7 @@ BEGIN
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `deleteexperience` (`vid` INT) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `deleteexperience` (`vid` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que elimina formación'
 BEGIN 
@@ -6353,7 +6353,7 @@ BEGIN
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `deleteformation` (`vid` INT) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `deleteformation` (`vid` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que elimina formación'
 BEGIN 
@@ -6368,7 +6368,7 @@ BEGIN
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `deleteindependent` (`vid` INT) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `deleteindependent` (`vid` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que elimina un arrendatario dependiente'
 BEGIN 
@@ -6398,7 +6398,7 @@ BEGIN
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `deletenoticia` (`vid` INT) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `deletenoticia` (`vid` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que elimina una noticia'
 BEGIN 
@@ -6443,7 +6443,7 @@ SET res = 1;
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `deleteprofession` (`vid` INT) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `deleteprofession` (`vid` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que elimina una profesion'
 BEGIN 
@@ -6488,7 +6488,7 @@ SET res = 1;
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `deletepropertie` (`vid` INT) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `deletepropertie` (`vid` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que elimina un inmueble'
 BEGIN 
@@ -6502,7 +6502,7 @@ BEGIN
     RETURN res;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `deletereference` (`vid` INT) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `deletereference` (`vid` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que elimina una referencia'
 BEGIN 
@@ -6512,7 +6512,7 @@ BEGIN
 	RETURN res;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `deletereferencebank` (`vid` INT) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `deletereferencebank` (`vid` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que elimina una referencia bancaría'
 BEGIN 
@@ -6522,7 +6522,7 @@ BEGIN
 	RETURN res;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `deleterol` (`cod` INT) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `deleterol` (`cod` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que elimina un rol'
 BEGIN
@@ -6567,7 +6567,7 @@ BEGIN
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `deletespouse` (`vid` INT) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `deletespouse` (`vid` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que elimina un conyugue'
 BEGIN 
@@ -6577,7 +6577,7 @@ BEGIN
 	RETURN res;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `deleteuser` (`vid` INT) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `deleteuser` (`vid` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que elimina un usuario'
 BEGIN 
@@ -6622,7 +6622,7 @@ SET res = 1;
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `loadEmployeeEvent` (`vid` INT) RETURNS VARCHAR(200) CHARSET latin1 READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `loadEmployeeEvent` (`vid` INT) RETURNS VARCHAR(200) CHARSET latin1 READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que trae el empleado que atiende un evento'
 BEGIN 
@@ -6639,7 +6639,7 @@ BEGIN
     RETURN vemployee;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `loadeventspending` (`vid` INT) RETURNS INT(11) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `loadeventspending` (`vid` INT) RETURNS INT(11) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que trae la cantidad de eventos pendientes de un cliente'
 BEGIN 
@@ -6651,7 +6651,7 @@ BEGIN
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `loadImageEmployee` (`vid` INT) RETURNS VARCHAR(2000) CHARSET latin1 READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `loadImageEmployee` (`vid` INT) RETURNS VARCHAR(2000) CHARSET latin1 READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que trae el empleado que atiende un evento'
 BEGIN 
@@ -6666,7 +6666,7 @@ BEGIN
     RETURN vimageemployee;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `loadimagepropertie` (`vid` INT) RETURNS VARCHAR(200) CHARSET latin1 READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `loadimagepropertie` (`vid` INT) RETURNS VARCHAR(200) CHARSET latin1 READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que trae la primera imagen de una propiedad'
 BEGIN 
@@ -6682,7 +6682,7 @@ BEGIN
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `saveclient` (`vid` INT, `vfirstname` VARCHAR(50), `vsecondname` VARCHAR(50), `vfirstlastname` VARCHAR(50), `vsecondlastname` VARCHAR(50), `vDocumentType` INT, `vDocumentNumber` VARCHAR(11), `vCityExpedition` INT, `vBirthdate` VARCHAR(50), `vClientType` INT, `vAddress` VARCHAR(45), `vHomePhone` VARCHAR(10), `vMobilePhone` VARCHAR(10), `vEmail` VARCHAR(45), `vGender` INT, `vCityResidence` INT, `vProfession` INT, `vMaritalStatus` INT, `vPersonType` INT, `vimageclient` VARCHAR(200), `vtypesclient` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `saveclient` (`vid` INT, `vfirstname` VARCHAR(50), `vsecondname` VARCHAR(50), `vfirstlastname` VARCHAR(50), `vsecondlastname` VARCHAR(50), `vDocumentType` INT, `vDocumentNumber` VARCHAR(11), `vCityExpedition` INT, `vBirthdate` VARCHAR(50), `vClientType` INT, `vAddress` VARCHAR(45), `vHomePhone` VARCHAR(10), `vMobilePhone` VARCHAR(10), `vEmail` VARCHAR(45), `vGender` INT, `vCityResidence` INT, `vProfession` INT, `vMaritalStatus` INT, `vPersonType` INT, `vimageclient` VARCHAR(200), `vtypesclient` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena un cliente'
 BEGIN 
@@ -6749,7 +6749,7 @@ BEGIN
 	RETURN res;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `saveclientpublic` (`vid` INT, `vFirstName` VARCHAR(20), `vSecondName` VARCHAR(20), `vFirstLastName` VARCHAR(20), `vSecondLastName` VARCHAR(20), `vMobilePhone` VARCHAR(10), `vEmail` VARCHAR(45), `vPassword` VARCHAR(32)) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `saveclientpublic` (`vid` INT, `vFirstName` VARCHAR(20), `vSecondName` VARCHAR(20), `vFirstLastName` VARCHAR(20), `vSecondLastName` VARCHAR(20), `vMobilePhone` VARCHAR(10), `vEmail` VARCHAR(45), `vPassword` VARCHAR(32)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena un cliente desde la pagina publica'
 BEGIN 
@@ -6796,7 +6796,7 @@ IF NOT EXISTS(select 1 from clientes where correoCliente=vEmail)
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `savecontract` (`vid` INT, `vemployee` INT, `varea` INT, `vstartdate` VARCHAR(50), `venddate` VARCHAR(50), `vcontracttype` INT, `vposition` INT, `vsalary` FLOAT, `vurlcontract` VARCHAR(200)) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `savecontract` (`vid` INT, `vemployee` INT, `varea` INT, `vstartdate` VARCHAR(50), `venddate` VARCHAR(50), `vcontracttype` INT, `vposition` INT, `vsalary` FLOAT, `vurlcontract` VARCHAR(200)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena un contrato de un empleado'
 BEGIN
@@ -6832,7 +6832,7 @@ IF NOT EXISTS(select 1 from  contratoempleado where idcontratoEmpleado=vid)
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `savecontractpropertie` (`vid` INT, `vclient` INT, `vpropertie` INT, `vfirmDate` VARCHAR(50), `vstartDate` VARCHAR(50), `vendDate` VARCHAR(50), `vcontractValue` FLOAT, `vtermContract` INT, `vwayPay` VARCHAR(50), `vurlContract` VARCHAR(500), `vtypescontract` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `savecontractpropertie` (`vid` INT, `vclient` INT, `vpropertie` INT, `vfirmDate` VARCHAR(50), `vstartDate` VARCHAR(50), `vendDate` VARCHAR(50), `vcontractValue` FLOAT, `vtermContract` INT, `vwayPay` VARCHAR(50), `vurlContract` VARCHAR(500), `vtypescontract` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena un contrato de un inmueble'
 BEGIN
@@ -6881,7 +6881,7 @@ IF NOT EXISTS(select 1 from  contratos where idcontrato=vid)
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `savedebtor` (`vid` INT, `vDocumentNumber` VARCHAR(11), `vfirstname` VARCHAR(50), `vsecondname` VARCHAR(50), `vfirstlastname` VARCHAR(50), `vsecondlastname` VARCHAR(50), `vAddress` VARCHAR(45), `vHomePhone` VARCHAR(10), `vAddressOffice` VARCHAR(45), `vOfficePhone` VARCHAR(10), `vMobilePhone` VARCHAR(10), `vEmail` VARCHAR(45), `vMonthlyIncome` FLOAT, `vMaritalStatus` INT, `vDocumentType` INT, `vCityResidence` INT, `vCityExpedition` INT, `vExpeditionDate` VARCHAR(50)) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `savedebtor` (`vid` INT, `vDocumentNumber` VARCHAR(11), `vfirstname` VARCHAR(50), `vsecondname` VARCHAR(50), `vfirstlastname` VARCHAR(50), `vsecondlastname` VARCHAR(50), `vAddress` VARCHAR(45), `vHomePhone` VARCHAR(10), `vAddressOffice` VARCHAR(45), `vOfficePhone` VARCHAR(10), `vMobilePhone` VARCHAR(10), `vEmail` VARCHAR(45), `vMonthlyIncome` FLOAT, `vMaritalStatus` INT, `vDocumentType` INT, `vCityResidence` INT, `vCityExpedition` INT, `vExpeditionDate` VARCHAR(50)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena un Deudor'
 BEGIN 
@@ -6936,7 +6936,7 @@ IF NOT EXISTS(select 1 from deudorSolidario where numeroIdentificacion=vDocument
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `savedistrict` (`vid` INT, `vname` VARCHAR(50), `vcity` INT) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `savedistrict` (`vid` INT, `vname` VARCHAR(50), `vcity` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena un nuevo barrio'
 BEGIN 
@@ -6965,7 +6965,7 @@ IF NOT EXISTS(select 1 from barrios where nombreBarrio=vname)
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `saveemployee` (`vid` INT, `vfirstname` VARCHAR(50), `vsecondname` VARCHAR(50), `vfirstlastname` VARCHAR(50), `vsecondlastname` VARCHAR(50), `vdocumentnumber` VARCHAR(11), `vexpeditiondate` VARCHAR(50), `vbirthdate` VARCHAR(50), `vaddress` VARCHAR(45), `vhomephone` VARCHAR(10), `vmobilephone` VARCHAR(10), `vemail` VARCHAR(45), `vgender` INT, `vtypeemployee` INT, `vcityresidence` INT, `vprofession` INT, `vmaritalstatus` INT, `vcityexpedition` INT, `vfileidentification` VARCHAR(200), `vcitybirth` INT, `vmilitarycard` VARCHAR(20), `vbloodtype` INT, `vfilemilitarycard` VARCHAR(200), `vpensionFund` INT, `vseverancefund` INT, `varl` INT, `veps` INT, `vcompensationbox` INT, `vdisability` INT, `vimageemployee` VARCHAR(200), `vcontactname` VARCHAR(50), `vcontactphone` VARCHAR(10), `vcontactemail` VARCHAR(45)) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `saveemployee` (`vid` INT, `vfirstname` VARCHAR(50), `vsecondname` VARCHAR(50), `vfirstlastname` VARCHAR(50), `vsecondlastname` VARCHAR(50), `vdocumentnumber` VARCHAR(11), `vexpeditiondate` VARCHAR(50), `vbirthdate` VARCHAR(50), `vaddress` VARCHAR(45), `vhomephone` VARCHAR(10), `vmobilephone` VARCHAR(10), `vemail` VARCHAR(45), `vgender` INT, `vtypeemployee` INT, `vcityresidence` INT, `vprofession` INT, `vmaritalstatus` INT, `vcityexpedition` INT, `vfileidentification` VARCHAR(200), `vcitybirth` INT, `vmilitarycard` VARCHAR(20), `vbloodtype` INT, `vfilemilitarycard` VARCHAR(200), `vpensionFund` INT, `vseverancefund` INT, `varl` INT, `veps` INT, `vcompensationbox` INT, `vdisability` INT, `vimageemployee` VARCHAR(200), `vcontactname` VARCHAR(50), `vcontactphone` VARCHAR(10), `vcontactemail` VARCHAR(45)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena un Empleado'
 BEGIN
@@ -7126,7 +7126,7 @@ IF NOT EXISTS(select 1 from empleados where cedulaEmpleado=vdocumentnumber)
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `saveevent` (`vidEvent` INT, `vdateEvent` VARCHAR(50), `vtimeEvent` VARCHAR(50), `vplaceEvent` VARCHAR(100), `vlatitude` FLOAT, `vlength` FLOAT, `vclient` INT, `veventType` INT, `vobservations` VARCHAR(100), `vemployees` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `saveevent` (`vidEvent` INT, `vdateEvent` VARCHAR(50), `vtimeEvent` VARCHAR(50), `vplaceEvent` VARCHAR(100), `vlatitude` FLOAT, `vlength` FLOAT, `vclient` INT, `veventType` INT, `vobservations` VARCHAR(100), `vemployees` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena un evento'
 BEGIN 
@@ -7484,7 +7484,7 @@ BEGIN
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `saveexperience` (`vid` INT, `vemployee` INT, `vcompanyname` VARCHAR(50), `vadmissiondate` VARCHAR(50), `vdeparturedate` VARCHAR(50), `vurlworkcertificate` VARCHAR(200), `vposition` INT) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `saveexperience` (`vid` INT, `vemployee` INT, `vcompanyname` VARCHAR(50), `vadmissiondate` VARCHAR(50), `vdeparturedate` VARCHAR(50), `vurlworkcertificate` VARCHAR(200), `vposition` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena la experiencia de un empleado'
 BEGIN
@@ -7570,7 +7570,7 @@ IF NOT EXISTS(select 1 from experienciaempleado where idexperienciaEmpleado=vid)
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `saveformation` (`vid` INT, `vinstitute` VARCHAR(50), `vlevel` INT, `vcertificate` VARCHAR(200), `vemployee` INT, `vprofession` INT, `vperiodicity` INT, `vgraduate` INT) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `saveformation` (`vid` INT, `vinstitute` VARCHAR(50), `vlevel` INT, `vcertificate` VARCHAR(200), `vemployee` INT, `vprofession` INT, `vperiodicity` INT, `vgraduate` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena la formación de un empleado'
 BEGIN
@@ -7627,7 +7627,7 @@ IF NOT EXISTS(select 1 from formacionempleado where idformacionEmpleado=vid)
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `savenoticia` (`cod` INT, `titl` VARCHAR(200), `des` VARCHAR(10000), `fech` VARCHAR(20), `phot` VARCHAR(2000), `vid` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `savenoticia` (`cod` INT, `titl` VARCHAR(200), `des` VARCHAR(10000), `fech` VARCHAR(20), `phot` VARCHAR(2000), `vid` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena una noticia'
 BEGIN 
@@ -7728,7 +7728,7 @@ IF NOT EXISTS(select titulo from noticia where titulo=titl)
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `savepqrsclient` (`vpqrstype` INT, `vdescription` VARCHAR(200), `vfecha` VARCHAR(20), `vhora` VARCHAR(20), `vidclient` INT) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `savepqrsclient` (`vpqrstype` INT, `vdescription` VARCHAR(200), `vfecha` VARCHAR(20), `vhora` VARCHAR(20), `vidclient` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena un pqrs del cliente'
 BEGIN 
@@ -7756,7 +7756,7 @@ BEGIN
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `saveprofession` (`vid` INT, `vname` VARCHAR(50), `vprofessionnivel` INT) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `saveprofession` (`vid` INT, `vname` VARCHAR(50), `vprofessionnivel` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena una profesion'
 BEGIN 
@@ -7913,7 +7913,7 @@ IF NOT EXISTS(select 1 from profesiones where nombreProfesion=vname and vProfess
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `savepropertie` (`vid` INT, `vPrecio` FLOAT, `vAdministrationCost` FLOAT, `vRoom` INT, `vBath` INT, `vParking` INT, `vTotalArea` FLOAT, `vAreasWithoutBalconies` FLOAT, `vBuildYear` VARCHAR(4), `vNumeroPiso` VARCHAR(3), `vChimenea` TINYINT, `vEstudio` TINYINT, `vDeposito` TINYINT, `vZonaRopas` TINYINT, `vParqueaderoVisitante` TINYINT, `vAscensor` TINYINT, `vTerraza` TINYINT, `vTransportePublicoCercano` TINYINT, `vSalonComunal` TINYINT, `vSauna` TINYINT, `vTurco` TINYINT, `vJacuzzi` TINYINT, `vZonaInfantil` TINYINT, `vJardines` TINYINT, `vDuplex` TINYINT, `vPuertaSeguridad` TINYINT, `vGimnasio` TINYINT, `vPrecioNegociable` TINYINT, `vPiscina` TINYINT, `vZonaMascotas` TINYINT, `vParqueaderoCubierto` TINYINT, `vAmoblado` TINYINT, `vCity` INT, `vBarrio` INT, `vEstrato` INT, `vPropertieType` INT, `vOfferType` INT, `vCurtainType` INT, `vVigilanceType` INT, `vZone` INT, `vViewType` INT, `vStatus` INT, `vKitchenType` INT, `vKitchenStructure` INT, `vFloorType` INT, `vClient` INT, `vPublicationDate` VARCHAR(50), `vReceptionDate` VARCHAR(50), `vOutstandingType` INT, `vLinderos` VARCHAR(200), `vMatriculaInmobiliaria` VARCHAR(45), `vAvaluoCatastral` FLOAT, `vLatitude` VARCHAR(45), `vLongitude` VARCHAR(45), `vDireccionCarrera` VARCHAR(50), `vDireccionCalle` VARCHAR(50), `vDireccionNumero` VARCHAR(50), `vDireccionInfoAdicional` VARCHAR(50), `vImages` VARCHAR(2000), `vVideos` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `savepropertie` (`vid` INT, `vPrecio` FLOAT, `vAdministrationCost` FLOAT, `vRoom` INT, `vBath` INT, `vParking` INT, `vTotalArea` FLOAT, `vAreasWithoutBalconies` FLOAT, `vBuildYear` VARCHAR(4), `vNumeroPiso` VARCHAR(3), `vChimenea` TINYINT, `vEstudio` TINYINT, `vDeposito` TINYINT, `vZonaRopas` TINYINT, `vParqueaderoVisitante` TINYINT, `vAscensor` TINYINT, `vTerraza` TINYINT, `vTransportePublicoCercano` TINYINT, `vSalonComunal` TINYINT, `vSauna` TINYINT, `vTurco` TINYINT, `vJacuzzi` TINYINT, `vZonaInfantil` TINYINT, `vJardines` TINYINT, `vDuplex` TINYINT, `vPuertaSeguridad` TINYINT, `vGimnasio` TINYINT, `vPrecioNegociable` TINYINT, `vPiscina` TINYINT, `vZonaMascotas` TINYINT, `vParqueaderoCubierto` TINYINT, `vAmoblado` TINYINT, `vCity` INT, `vBarrio` INT, `vEstrato` INT, `vPropertieType` INT, `vOfferType` INT, `vCurtainType` INT, `vVigilanceType` INT, `vZone` INT, `vViewType` INT, `vStatus` INT, `vKitchenType` INT, `vKitchenStructure` INT, `vFloorType` INT, `vClient` INT, `vPublicationDate` VARCHAR(50), `vReceptionDate` VARCHAR(50), `vOutstandingType` INT, `vLinderos` VARCHAR(200), `vMatriculaInmobiliaria` VARCHAR(45), `vAvaluoCatastral` FLOAT, `vLatitude` VARCHAR(45), `vLongitude` VARCHAR(45), `vDireccionCarrera` VARCHAR(50), `vDireccionCalle` VARCHAR(50), `vDireccionNumero` VARCHAR(50), `vDireccionInfoAdicional` VARCHAR(50), `vImages` VARCHAR(2000), `vVideos` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena un inmueble'
 BEGIN 
@@ -8089,7 +8089,7 @@ IF NOT EXISTS(select 1 from inmuebles where matriculaInmobiliaria=vMatriculaInmo
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `savepropertieauditpublic` (`vusuario_id` VARCHAR(20), `vid_register` INT, `vdia` VARCHAR(20), `vmes` VARCHAR(20), `vanio` VARCHAR(5), `vhora` VARCHAR(20), `vip` VARCHAR(20), `vdispositivo` VARCHAR(20), `vsistema_operativo` VARCHAR(20), `vnavegador` VARCHAR(20)) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `savepropertieauditpublic` (`vusuario_id` VARCHAR(20), `vid_register` INT, `vdia` VARCHAR(20), `vmes` VARCHAR(20), `vanio` VARCHAR(5), `vhora` VARCHAR(20), `vip` VARCHAR(20), `vdispositivo` VARCHAR(20), `vsistema_operativo` VARCHAR(20), `vnavegador` VARCHAR(20)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena una auditoria de la busqueda de un inmueble en el portal'
 BEGIN 
@@ -8102,7 +8102,7 @@ BEGIN
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `savereference` (`vid` INT, `vclient` INT, `vtypereference` INT, `vname` VARCHAR(50), `vlastname` VARCHAR(50), `vphone` VARCHAR(10)) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `savereference` (`vid` INT, `vclient` INT, `vtypereference` INT, `vname` VARCHAR(50), `vlastname` VARCHAR(50), `vphone` VARCHAR(10)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena un contrato de una referencia'
 BEGIN
@@ -8132,7 +8132,7 @@ IF NOT EXISTS(select 1 from  referenciapersonalfamiliar where idreferenciaperson
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `savereferencebank` (`vid` INT, `vclient` INT, `vaccountnumber` VARCHAR(50), `vbank` INT, `vbranchOffice` VARCHAR(50)) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `savereferencebank` (`vid` INT, `vclient` INT, `vaccountnumber` VARCHAR(50), `vbank` INT, `vbranchOffice` VARCHAR(50)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena un contrato de una referencia bancaría'
 BEGIN
@@ -8160,7 +8160,7 @@ IF NOT EXISTS(select 1 from  referenciabancaria where idreferenciabancaria=vid)
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `saverol` (`cod` INT, `nom` VARCHAR(50), `des` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `saverol` (`cod` INT, `nom` VARCHAR(50), `des` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena un rol'
 BEGIN 
@@ -8269,7 +8269,7 @@ IF NOT EXISTS(select nombre from rol where nombre=nom)
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `savespouse` (`vid` INT, `vclient` INT, `vdocumentNumber` INT, `vexpeditionDate` VARCHAR(50), `vemail` VARCHAR(50), `vfirstName` VARCHAR(50), `vlastName` VARCHAR(50), `vmobilePhone` VARCHAR(50), `vcompany` VARCHAR(50), `vaddress` VARCHAR(100), `vofficePhone` VARCHAR(50), `vsalary` FLOAT) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `savespouse` (`vid` INT, `vclient` INT, `vdocumentNumber` INT, `vexpeditionDate` VARCHAR(50), `vemail` VARCHAR(50), `vfirstName` VARCHAR(50), `vlastName` VARCHAR(50), `vmobilePhone` VARCHAR(50), `vcompany` VARCHAR(50), `vaddress` VARCHAR(100), `vofficePhone` VARCHAR(50), `vsalary` FLOAT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena un conyugue'
 BEGIN
@@ -8311,7 +8311,7 @@ IF NOT EXISTS(select 1 from  conyugues where idconyugue=vid)
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `saveupdatedependent` (`vid` INT, `vactivityEconomic` INT, `vcompany` VARCHAR(50), `vposition` INT, `vaddress` VARCHAR(200), `vsalary` FLOAT, `votherIncome` FLOAT, `vantiquity` INT, `vofficePhone` VARCHAR(10)) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `saveupdatedependent` (`vid` INT, `vactivityEconomic` INT, `vcompany` VARCHAR(50), `vposition` INT, `vaddress` VARCHAR(200), `vsalary` FLOAT, `votherIncome` FLOAT, `vantiquity` INT, `vofficePhone` VARCHAR(10)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena un arrendatario dependiente'
 BEGIN 
@@ -8521,7 +8521,7 @@ IF NOT EXISTS(select 1 from  arrendatariodependiente where clientes_idCliente=vI
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `saveupdateindependent` (`vid` INT, `vactivityEconomic` INT, `vbusinessDescription` VARCHAR(100), `vmerchantRecord` VARCHAR(50), `vnumberEmployees` INT, `vincome` FLOAT, `vexpenses` FLOAT) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `saveupdateindependent` (`vid` INT, `vactivityEconomic` INT, `vbusinessDescription` VARCHAR(100), `vmerchantRecord` VARCHAR(50), `vnumberEmployees` INT, `vincome` FLOAT, `vexpenses` FLOAT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena un arrendatario independiente'
 BEGIN 
@@ -8706,7 +8706,7 @@ IF NOT EXISTS(select 1 from  arrendatarioindependiente where clientes_idCliente=
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `saveuser` (`id` INT, `vfirstname` VARCHAR(50), `vsecondname` VARCHAR(50), `vfirstlastname` VARCHAR(50), `vsecondlastname` VARCHAR(50), `vuser` VARCHAR(50), `vpass` VARCHAR(50), `vrol` INT, `vdescription` VARCHAR(50)) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `saveuser` (`id` INT, `vfirstname` VARCHAR(50), `vsecondname` VARCHAR(50), `vfirstlastname` VARCHAR(50), `vsecondlastname` VARCHAR(50), `vuser` VARCHAR(50), `vpass` VARCHAR(50), `vrol` INT, `vdescription` VARCHAR(50)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena un rol'
 BEGIN 
@@ -8855,7 +8855,7 @@ IF NOT EXISTS(select usuario from usuario where usuario=vuser)
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `updateclient` (`vid` INT, `vfirstname` VARCHAR(50), `vsecondname` VARCHAR(50), `vfirstlastname` VARCHAR(50), `vsecondlastname` VARCHAR(50), `vDocumentType` INT, `vDocumentNumber` VARCHAR(11), `vCityExpedition` INT, `vBirthdate` VARCHAR(50), `vClientType` INT, `vAddress` VARCHAR(45), `vHomePhone` VARCHAR(10), `vMobilePhone` VARCHAR(10), `vEmail` VARCHAR(45), `vGender` INT, `vCityResidence` INT, `vProfession` INT, `vMaritalStatus` INT, `vPersonType` INT, `vimageclient` VARCHAR(200), `vtypesclient` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `updateclient` (`vid` INT, `vfirstname` VARCHAR(50), `vsecondname` VARCHAR(50), `vfirstlastname` VARCHAR(50), `vsecondlastname` VARCHAR(50), `vDocumentType` INT, `vDocumentNumber` VARCHAR(11), `vCityExpedition` INT, `vBirthdate` VARCHAR(50), `vClientType` INT, `vAddress` VARCHAR(45), `vHomePhone` VARCHAR(10), `vMobilePhone` VARCHAR(10), `vEmail` VARCHAR(45), `vGender` INT, `vCityResidence` INT, `vProfession` INT, `vMaritalStatus` INT, `vPersonType` INT, `vimageclient` VARCHAR(200), `vtypesclient` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que actualiza un cliente'
 BEGIN 
@@ -8912,7 +8912,7 @@ BEGIN
 	RETURN res;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `updatecommentevents` (`vid` INT, `vcomments` VARCHAR(16383)) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `updatecommentevents` (`vid` INT, `vcomments` VARCHAR(16383)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que modifica los comentarios de un evento'
 BEGIN 
@@ -9005,7 +9005,7 @@ BEGIN
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `updatecontract` (`vid` INT, `vemployee` INT, `varea` INT, `vstartdate` VARCHAR(50), `venddate` VARCHAR(50), `vcontracttype` INT, `vposition` INT, `vsalary` FLOAT, `vurlcontract` VARCHAR(200)) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `updatecontract` (`vid` INT, `vemployee` INT, `varea` INT, `vstartdate` VARCHAR(50), `venddate` VARCHAR(50), `vcontracttype` INT, `vposition` INT, `vsalary` FLOAT, `vurlcontract` VARCHAR(200)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que modifica un contrato de un empleado'
 BEGIN 
@@ -9025,7 +9025,7 @@ BEGIN
 	RETURN res;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `updatecontractpropertie` (`vid` INT, `vclient` INT, `vpropertie` INT, `vfirmDate` VARCHAR(50), `vstartDate` VARCHAR(50), `vendDate` VARCHAR(50), `vcontractValue` FLOAT, `vtermContract` INT, `vwayPay` VARCHAR(50), `vurlContract` VARCHAR(500)) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `updatecontractpropertie` (`vid` INT, `vclient` INT, `vpropertie` INT, `vfirmDate` VARCHAR(50), `vstartDate` VARCHAR(50), `vendDate` VARCHAR(50), `vcontractValue` FLOAT, `vtermContract` INT, `vwayPay` VARCHAR(50), `vurlContract` VARCHAR(500)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que modifica el contrato de un inmueble'
 BEGIN 
@@ -9045,7 +9045,7 @@ BEGIN
 	RETURN res;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `updatedebtor` (`vid` INT, `vDocumentNumber` VARCHAR(11), `vfirstname` VARCHAR(50), `vsecondname` VARCHAR(50), `vfirstlastname` VARCHAR(50), `vsecondlastname` VARCHAR(50), `vAddress` VARCHAR(45), `vHomePhone` VARCHAR(10), `vAddressOffice` VARCHAR(45), `vOfficePhone` VARCHAR(10), `vMobilePhone` VARCHAR(10), `vEmail` VARCHAR(45), `vMonthlyIncome` FLOAT, `vMaritalStatus` INT, `vDocumentType` INT, `vCityResidence` INT, `vCityExpedition` INT, `vExpeditionDate` VARCHAR(50)) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `updatedebtor` (`vid` INT, `vDocumentNumber` VARCHAR(11), `vfirstname` VARCHAR(50), `vsecondname` VARCHAR(50), `vfirstlastname` VARCHAR(50), `vsecondlastname` VARCHAR(50), `vAddress` VARCHAR(45), `vHomePhone` VARCHAR(10), `vAddressOffice` VARCHAR(45), `vOfficePhone` VARCHAR(10), `vMobilePhone` VARCHAR(10), `vEmail` VARCHAR(45), `vMonthlyIncome` FLOAT, `vMaritalStatus` INT, `vDocumentType` INT, `vCityResidence` INT, `vCityExpedition` INT, `vExpeditionDate` VARCHAR(50)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que modifica un Deudor'
 BEGIN 
@@ -9081,7 +9081,7 @@ IF NOT EXISTS(select 1 from deudorSolidario where numeroIdentificacion =vDocumen
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `updateemployee` (`vid` INT, `vfirstname` VARCHAR(50), `vsecondname` VARCHAR(50), `vfirstlastname` VARCHAR(50), `vsecondlastname` VARCHAR(50), `vdocumentnumber` VARCHAR(11), `vexpeditiondate` VARCHAR(50), `vbirthdate` VARCHAR(50), `vaddress` VARCHAR(45), `vhomephone` VARCHAR(10), `vmobilephone` VARCHAR(10), `vemail` VARCHAR(45), `vgender` INT, `vtypeemployee` INT, `vcityresidence` INT, `vprofession` INT, `vmaritalstatus` INT, `vcityexpedition` INT, `vfileidentification` VARCHAR(200), `vcitybirth` INT, `vmilitarycard` VARCHAR(20), `vbloodtype` INT, `vfilemilitarycard` VARCHAR(200), `vpensionFund` INT, `vseverancefund` INT, `varl` INT, `veps` INT, `vcompensationbox` INT, `vdisability` INT, `vimageemployee` VARCHAR(200), `vcontactname` VARCHAR(50), `vcontactphone` VARCHAR(10), `vcontactemail` VARCHAR(45)) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `updateemployee` (`vid` INT, `vfirstname` VARCHAR(50), `vsecondname` VARCHAR(50), `vfirstlastname` VARCHAR(50), `vsecondlastname` VARCHAR(50), `vdocumentnumber` VARCHAR(11), `vexpeditiondate` VARCHAR(50), `vbirthdate` VARCHAR(50), `vaddress` VARCHAR(45), `vhomephone` VARCHAR(10), `vmobilephone` VARCHAR(10), `vemail` VARCHAR(45), `vgender` INT, `vtypeemployee` INT, `vcityresidence` INT, `vprofession` INT, `vmaritalstatus` INT, `vcityexpedition` INT, `vfileidentification` VARCHAR(200), `vcitybirth` INT, `vmilitarycard` VARCHAR(20), `vbloodtype` INT, `vfilemilitarycard` VARCHAR(200), `vpensionFund` INT, `vseverancefund` INT, `varl` INT, `veps` INT, `vcompensationbox` INT, `vdisability` INT, `vimageemployee` VARCHAR(200), `vcontactname` VARCHAR(50), `vcontactphone` VARCHAR(10), `vcontactemail` VARCHAR(45)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que modifica un Empleado'
 BEGIN 
@@ -9174,7 +9174,7 @@ IF NOT EXISTS(select 1 from empleados where cedulaEmpleado =vDocumentNumber and 
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `updateevent` (`vid` INT, `vdateEvent` VARCHAR(50), `vtimeEvent` VARCHAR(50), `vplaceEvent` VARCHAR(100), `vlatitude` FLOAT, `vlength` FLOAT, `vclient` INT, `veventType` INT, `vobservations` VARCHAR(100), `vemployees` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `updateevent` (`vid` INT, `vdateEvent` VARCHAR(50), `vtimeEvent` VARCHAR(50), `vplaceEvent` VARCHAR(100), `vlatitude` FLOAT, `vlength` FLOAT, `vclient` INT, `veventType` INT, `vobservations` VARCHAR(100), `vemployees` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena un evento'
 BEGIN 
@@ -9475,7 +9475,7 @@ BEGIN
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `updateexperience` (`vid` INT, `vemployee` INT, `vcompanyname` VARCHAR(50), `vadmissiondate` VARCHAR(50), `vdeparturedate` VARCHAR(50), `vurlworkcertificate` VARCHAR(200), `vposition` INT) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `updateexperience` (`vid` INT, `vemployee` INT, `vcompanyname` VARCHAR(50), `vadmissiondate` VARCHAR(50), `vdeparturedate` VARCHAR(50), `vurlworkcertificate` VARCHAR(200), `vposition` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que modifica la experiencia de un empleado'
 BEGIN 
@@ -9513,7 +9513,7 @@ BEGIN
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `updateformation` (`vid` INT, `vinstitute` VARCHAR(50), `vlevel` INT, `vcertificate` VARCHAR(200), `vemployee` INT, `vprofession` INT, `vperiodicity` INT, `vgraduate` INT) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `updateformation` (`vid` INT, `vinstitute` VARCHAR(50), `vlevel` INT, `vcertificate` VARCHAR(200), `vemployee` INT, `vprofession` INT, `vperiodicity` INT, `vgraduate` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que modifica la formación de un empleado'
 BEGIN 
@@ -9544,7 +9544,7 @@ BEGIN
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `updatenoticia` (`cod` INT, `titl` VARCHAR(200), `des` VARCHAR(10000), `fech` VARCHAR(20), `phot` VARCHAR(2000), `vid` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `updatenoticia` (`cod` INT, `titl` VARCHAR(200), `des` VARCHAR(10000), `fech` VARCHAR(20), `phot` VARCHAR(2000), `vid` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que modifica una noticia'
 BEGIN 
@@ -9661,7 +9661,7 @@ IF NOT EXISTS(select titulo from noticia where titulo=titl and id<>cod)
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `updatepermission` (`vid` INTEGER, `vpermission` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `updatepermission` (`vid` INTEGER, `vpermission` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que actualiza los permisos de un rol'
 BEGIN 
@@ -9882,7 +9882,7 @@ BEGIN
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `updatepqrs` (`vid` INT, `vgivenResponse` VARCHAR(200)) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `updatepqrs` (`vid` INT, `vgivenResponse` VARCHAR(200)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que modifica una PQRS'
 BEGIN 
@@ -9894,7 +9894,7 @@ BEGIN
 	RETURN res;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `updateprofession` (`vId` INT, `vName` VARCHAR(50), `vProfessionNivel` INT) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `updateprofession` (`vId` INT, `vName` VARCHAR(50), `vProfessionNivel` INT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que modifica una profesion'
 BEGIN 
@@ -10035,7 +10035,7 @@ IF NOT EXISTS(select 1 from profesiones where nombreProfesion =vName and
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `updatepropertie` (`vid` INT, `vPrecio` FLOAT, `vAdministrationCost` FLOAT, `vRoom` INT, `vBath` INT, `vParking` INT, `vTotalArea` FLOAT, `vAreasWithoutBalconies` FLOAT, `vBuildYear` VARCHAR(4), `vNumeroPiso` VARCHAR(3), `vChimenea` TINYINT, `vEstudio` TINYINT, `vDeposito` TINYINT, `vZonaRopas` TINYINT, `vParqueaderoVisitante` TINYINT, `vAscensor` TINYINT, `vTerraza` TINYINT, `vTransportePublicoCercano` TINYINT, `vSalonComunal` TINYINT, `vSauna` TINYINT, `vTurco` TINYINT, `vJacuzzi` TINYINT, `vZonaInfantil` TINYINT, `vJardines` TINYINT, `vDuplex` TINYINT, `vPuertaSeguridad` TINYINT, `vGimnasio` TINYINT, `vPrecioNegociable` TINYINT, `vPiscina` TINYINT, `vZonaMascotas` TINYINT, `vParqueaderoCubierto` TINYINT, `vAmoblado` TINYINT, `vCity` INT, `vBarrio` INT, `vEstrato` INT, `vPropertieType` INT, `vOfferType` INT, `vCurtainType` INT, `vVigilanceType` INT, `vZone` INT, `vViewType` INT, `vStatus` INT, `vKitchenType` INT, `vKitchenStructure` INT, `vFloorType` INT, `vClient` INT, `vPublicationDate` VARCHAR(50), `vReceptionDate` VARCHAR(50), `vOutstandingType` INT, `vLinderos` VARCHAR(200), `vMatriculaInmobiliaria` VARCHAR(45), `vAvaluoCatastral` FLOAT, `vLatitude` VARCHAR(45), `vLongitude` VARCHAR(45), `vDireccionCarrera` VARCHAR(50), `vDireccionCalle` VARCHAR(50), `vDireccionNumero` VARCHAR(50), `vDireccionInfoAdicional` VARCHAR(50), `vImages` VARCHAR(2000), `vVideos` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `updatepropertie` (`vid` INT, `vPrecio` FLOAT, `vAdministrationCost` FLOAT, `vRoom` INT, `vBath` INT, `vParking` INT, `vTotalArea` FLOAT, `vAreasWithoutBalconies` FLOAT, `vBuildYear` VARCHAR(4), `vNumeroPiso` VARCHAR(3), `vChimenea` TINYINT, `vEstudio` TINYINT, `vDeposito` TINYINT, `vZonaRopas` TINYINT, `vParqueaderoVisitante` TINYINT, `vAscensor` TINYINT, `vTerraza` TINYINT, `vTransportePublicoCercano` TINYINT, `vSalonComunal` TINYINT, `vSauna` TINYINT, `vTurco` TINYINT, `vJacuzzi` TINYINT, `vZonaInfantil` TINYINT, `vJardines` TINYINT, `vDuplex` TINYINT, `vPuertaSeguridad` TINYINT, `vGimnasio` TINYINT, `vPrecioNegociable` TINYINT, `vPiscina` TINYINT, `vZonaMascotas` TINYINT, `vParqueaderoCubierto` TINYINT, `vAmoblado` TINYINT, `vCity` INT, `vBarrio` INT, `vEstrato` INT, `vPropertieType` INT, `vOfferType` INT, `vCurtainType` INT, `vVigilanceType` INT, `vZone` INT, `vViewType` INT, `vStatus` INT, `vKitchenType` INT, `vKitchenStructure` INT, `vFloorType` INT, `vClient` INT, `vPublicationDate` VARCHAR(50), `vReceptionDate` VARCHAR(50), `vOutstandingType` INT, `vLinderos` VARCHAR(200), `vMatriculaInmobiliaria` VARCHAR(45), `vAvaluoCatastral` FLOAT, `vLatitude` VARCHAR(45), `vLongitude` VARCHAR(45), `vDireccionCarrera` VARCHAR(50), `vDireccionCalle` VARCHAR(50), `vDireccionNumero` VARCHAR(50), `vDireccionInfoAdicional` VARCHAR(50), `vImages` VARCHAR(2000), `vVideos` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que almacena un inmueble'
 BEGIN 
@@ -10145,7 +10145,7 @@ IF NOT EXISTS(select 1 from inmuebles where matriculaInmobiliaria=vMatriculaInmo
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `updatereference` (`vid` INT, `vclient` INT, `vtypereference` INT, `vname` VARCHAR(50), `vlastname` VARCHAR(50), `vphone` VARCHAR(10)) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `updatereference` (`vid` INT, `vclient` INT, `vtypereference` INT, `vname` VARCHAR(50), `vlastname` VARCHAR(50), `vphone` VARCHAR(10)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que modifica la referencia de un cliente'
 BEGIN 
@@ -10161,7 +10161,7 @@ BEGIN
 	RETURN res;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `updatereferencebank` (`vid` INT, `vclient` INT, `vaccountnumber` VARCHAR(50), `vbank` INT, `vbranchOffice` VARCHAR(50)) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `updatereferencebank` (`vid` INT, `vclient` INT, `vaccountnumber` VARCHAR(50), `vbank` INT, `vbranchOffice` VARCHAR(50)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que modifica la referencia bancaria de un cliente'
 BEGIN 
@@ -10176,7 +10176,7 @@ BEGIN
 	RETURN res;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `updaterol` (`cod` INT, `nom` VARCHAR(50), `des` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `updaterol` (`cod` INT, `nom` VARCHAR(50), `des` VARCHAR(2000)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que modifica un rol'
 BEGIN 
@@ -10285,7 +10285,7 @@ IF NOT EXISTS(select nombre from rol where nombre=nom and id<>cod)
 
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `updatespouse` (`vid` INT, `vclient` INT, `vdocumentNumber` INT, `vexpeditionDate` VARCHAR(50), `vemail` VARCHAR(50), `vfirstName` VARCHAR(50), `vlastName` VARCHAR(50), `vmobilePhone` VARCHAR(50), `vcompany` VARCHAR(50), `vaddress` VARCHAR(100), `vofficePhone` VARCHAR(50), `vsalary` FLOAT) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `updatespouse` (`vid` INT, `vclient` INT, `vdocumentNumber` INT, `vexpeditionDate` VARCHAR(50), `vemail` VARCHAR(50), `vfirstName` VARCHAR(50), `vlastName` VARCHAR(50), `vmobilePhone` VARCHAR(50), `vcompany` VARCHAR(50), `vaddress` VARCHAR(100), `vofficePhone` VARCHAR(50), `vsalary` FLOAT) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que modifica un conyugue'
 BEGIN 
@@ -10307,7 +10307,7 @@ BEGIN
 	RETURN res;
 END$$
 
-CREATE DEFINER=`hexagono`@`localhost` FUNCTION `updateuser` (`vid` INT, `vfirstname` VARCHAR(50), `vsecondname` VARCHAR(50), `vfirstlastname` VARCHAR(50), `vsecondlastname` VARCHAR(50), `vuser` VARCHAR(50), `vpass` VARCHAR(50), `vrol` INT, `vdescription` VARCHAR(50)) RETURNS INT(1) READS SQL DATA
+CREATE DEFINER=`hexagono_admin`@`localhost` FUNCTION `updateuser` (`vid` INT, `vfirstname` VARCHAR(50), `vsecondname` VARCHAR(50), `vfirstlastname` VARCHAR(50), `vsecondlastname` VARCHAR(50), `vuser` VARCHAR(50), `vpass` VARCHAR(50), `vrol` INT, `vdescription` VARCHAR(50)) RETURNS INT(1) READS SQL DATA
     DETERMINISTIC
     COMMENT 'Funcion que modifica un rol'
 BEGIN 

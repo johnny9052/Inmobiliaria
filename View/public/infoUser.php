@@ -63,7 +63,7 @@ and open the template in the editor.
                     </div>
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="col-md-1">
 
@@ -74,16 +74,24 @@ and open the template in the editor.
                     </div>
                 </div>
             </div>
-            
 
-            <div class="row" box box-success>
+
+            <div class="row">
+                <div class="col-md-11 col-sm-11 col-xs-11" style="text-align: right;">
+                    * Campos obligatorios
+                </div>
+            </div>
+
+
+
+            <div class="row">
                 <div class="col-md-1"></div>
-                <div class="col-md-5" box-header with-border>
-                    <div class="form-group">
+                <div class="col-md-5">
+                    <div class="form-group textoNegrita textoPequenioFormularos">
                         <label for="" class="fa fa-id-card"></label>
                         &nbsp;&nbsp;
-                        <label for="selDocumentType">Tipo documento</label>
-                        <div class="input-group">
+                        <label for="selDocumentType">Tipo documento *</label>                       
+                        <div>
                             <select id="selDocumentType" name="documentType" required class="form-control select2" style="width: 100%;">
                                 <option value="-1" selected> -- SELECCIONE --</option>                            
                             </select>
@@ -92,11 +100,15 @@ and open the template in the editor.
                 </div>     
 
                 <div class="col-md-5">
-                    <div class="form-group">
-                        <label class="fa fa-id-card"></label>
-                        &nbsp;&nbsp;
-                        <label for="txtDocumentNumber">Cedula</label>    
+                    <div class="form-group textoNegrita textoPequenioFormularos">
+                        <label for="txtDocumentNumber">Cedula *</label>    
                         <div class="input-group">
+
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-id-card"></i></span>
+                            </div>       
+
+
                             <input id="txtDocumentNumber" name="documentNumber" class="form-control" type="number" value="" autocomplete="off" required
                                    placeholder="Numero de cedula">
                         </div>
@@ -109,7 +121,7 @@ and open the template in the editor.
             <div class="row">
                 <div class="col-md-1"></div>
                 <div class="col-md-5">
-                    <div class="form-group">
+                    <div class="form-group textoNegrita textoPequenioFormularos">
                         <label for="" class="fa fa-map-marker"></label>
                         &nbsp;&nbsp;
                         <label>Departamento de expedicion</label>
@@ -124,10 +136,10 @@ and open the template in the editor.
                 </div>     
 
                 <div class="col-md-5">
-                    <div class="form-group">
+                    <div class="form-group textoNegrita textoPequenioFormularos">
                         <label for="" class="fa fa-map-marker"></label>
                         &nbsp;&nbsp;
-                        <label>Municipio de expedicion</label>
+                        <label>Municipio de expedicion *</label>
                         <div>
                             <select id="selCityExpedition" name="cityExpedition" required class="form-control select2" style="width: 100%;">
                                 <option value="-1" selected> -- SELECCIONE --</option>                            
@@ -141,12 +153,12 @@ and open the template in the editor.
             <div class="row">
                 <div class="col-md-1"></div>
                 <div class="col-md-5">
-                    <div class="form-group">
-                        <label class="fa fa-info"></label>
-                        &nbsp;&nbsp;
-                        <label for="txtFirstName">Primer nombre</label>   
+                    <div class="form-group textoNegrita textoPequenioFormularos">
+                        <label for="txtFirstName">Primer nombre *</label>   
                         <div class="input-group">
-
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-info"></i></span>
+                            </div>      
                             <input id="txtFirstName" name="firstName" class="form-control" type="text" value="" autocomplete="off" required
                                    placeholder="Primer nombre">
                         </div>
@@ -154,12 +166,12 @@ and open the template in the editor.
                 </div>                       
 
                 <div class="col-md-5">
-                    <div class="form-group">
-                        <label class="fa fa-info"></label>
-                        &nbsp;&nbsp;
+                    <div class="form-group textoNegrita textoPequenioFormularos">
                         <label for="txtName">Segundo nombre</label>  
                         <div class="input-group">
-
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-info"></i></span>
+                            </div>      
                             <input id="txtSecondName" name="secondName" class="form-control" type="text" value="" autocomplete="off"
                                    placeholder="Segundo nombre">
                         </div>
@@ -171,12 +183,12 @@ and open the template in the editor.
             <div class="row">
                 <div class="col-md-1"></div>
                 <div class="col-md-5">
-                    <div class="form-group">
-                        <label class="fa fa-info"></label>
-                        &nbsp;&nbsp;
-                        <label for="txtFirstLastName">Primer apellido</label>  
+                    <div class="form-group textoNegrita textoPequenioFormularos">                        
+                        <label for="txtFirstLastName">Primer apellido *</label>  
                         <div class="input-group">
-
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-info"></i></span>
+                            </div>    
                             <input id="txtFirstLastName" name="firstLastName" class="form-control" type="text" value="" autocomplete="off" required
                                    placeholder="Primer apellido">
                         </div>
@@ -184,12 +196,12 @@ and open the template in the editor.
                 </div>                       
 
                 <div class="col-md-5">
-                    <div class="form-group">
-                        <label class="fa fa-info"></label>
-                        &nbsp;&nbsp;
+                    <div class="form-group textoNegrita textoPequenioFormularos">   
                         <label for="txtName">Segundo apellido</label>
                         <div class="input-group">
-
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-info"></i></span>
+                            </div>    
                             <input id="txtSecondLastName" name="secondLastName" class="form-control" type="text" value="" autocomplete="off" 
                                    placeholder="Segundo apellido">
                         </div>
@@ -202,12 +214,12 @@ and open the template in the editor.
             <div class="row">
                 <div class="col-md-1"></div>
                 <div class="col-md-5">                                
-                    <div class="form-group">
-                        <label class="fa fa-calendar"></label>
-                        &nbsp;&nbsp;
-                        <label>Fecha de nacimiento</label>
+                    <div class="form-group textoNegrita textoPequenioFormularos">   
+                        <label>Fecha de nacimiento *</label>
                         <div class="input-group date">
-
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                            </div>    
                             <input type="date" name="birthdate" required class="form-control pull-right" id="txtBirthdate">
                         </div>
                     </div>
@@ -215,10 +227,10 @@ and open the template in the editor.
 
 
                 <div class="col-md-5">
-                    <div class="form-group">
+                    <div class="form-group textoNegrita textoPequenioFormularos"> 
                         <label for="" class="fa fa-gratipay"></label>
                         &nbsp;&nbsp;
-                        <label>Estado civil</label>
+                        <label>Estado civil *</label>
                         <div>
                             <select id="selMaritalStatus" name="maritalStatus" required class="form-control select2" style="width: 100%;">
                                 <option value="-1" selected> -- SELECCIONE --</option>                            
@@ -232,10 +244,10 @@ and open the template in the editor.
             <div class="row">
                 <div class="col-md-1"></div>
                 <div class="col-md-5">
-                    <div class="form-group">
+                    <div class="form-group textoNegrita textoPequenioFormularos"> 
                         <label for="" class="fa fa-user"></label>
                         &nbsp;&nbsp;
-                        <label>Tipo de persona</label>
+                        <label>Tipo de persona *</label>
                         <div>
                             <select id="selPersonType" name="personType" required class="form-control select2" style="width: 100%;">
                                 <option value="-1" selected> -- SELECCIONE --</option>                            
@@ -244,12 +256,12 @@ and open the template in the editor.
                     </div>
                 </div>  
                 <div class="col-md-5">
-                    <div class="form-group">
-                        <label class="fa fa-address-card"></label>
-                        &nbsp;&nbsp;
-                        <label for="txtAddress">Direccion</label> 
+                    <div class="form-group textoNegrita textoPequenioFormularos"> 
+                        <label for="txtAddress">Direccion *</label> 
                         <div class="input-group">
-
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-address-card"></i></span>
+                            </div>    
                             <input id="txtAddress" name="address" class="form-control" type="text" value="" autocomplete="off" required
                                    placeholder="Direccion de residencia">
                         </div>
@@ -266,11 +278,12 @@ and open the template in the editor.
             <div class="row">
                 <div class="col-md-1"></div>
                 <div class="col-md-5">
-                    <div class="form-group">
-                        <label class="fa fa-phone"></label>
-                        &nbsp;&nbsp;
-                        <label for="txtHomePhone">Telefono fijo</label>
-                        <div class="input-group">                            
+                    <div class="form-group textoNegrita textoPequenioFormularos"> 
+                        <label for="txtHomePhone">Telefono fijo </label>
+                        <div class="input-group">  
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-phone"></i></span>
+                            </div>    
                             <input id="txtHomePhone" name="homePhone" class="form-control" type="number" value="" autocomplete="off"
                                    max="9999999999" maxlength="10" placeholder="Telefono fijo (Max 10 digitos)">
                         </div>
@@ -278,11 +291,12 @@ and open the template in the editor.
                 </div>     
 
                 <div class="col-md-5">
-                    <div class="form-group">
-                        <label class="fa fa-mobile-phone"></label>
-                        &nbsp;&nbsp;
-                        <label for="txtMobilePhone">Telefono celular</label>          
+                    <div class="form-group textoNegrita textoPequenioFormularos"> 
+                        <label for="txtMobilePhone">Telefono celular *</label>          
                         <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-mobile-phone"></i></span>
+                            </div>    
                             <input id="txtMobilePhone" name="mobilePhone" class="form-control" type="number" value="" autocomplete="off" required
                                    max="9999999999" maxlength="10" placeholder="Telefono celular (Max 10 digitos)">
                         </div>
@@ -295,12 +309,12 @@ and open the template in the editor.
             <div class="row">
                 <div class="col-md-1"></div>
                 <div class="col-md-5">
-                    <div class="form-group">
-                        <label class="fa fa-at"></label>
-                        &nbsp;&nbsp;
-                        <label for="txtEmail">Correo electronico</label>        
+                    <div class="form-group textoNegrita textoPequenioFormularos"> 
+                        <label for="txtEmail">Correo electronico *</label>        
                         <div class="input-group">
-
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-at"></i></span>
+                            </div> 
                             <input id="txtEmail" name="email" type="email" class="form-control"  value="" autocomplete="off" required
                                    placeholder="Correo electronico">
                         </div>
@@ -308,10 +322,10 @@ and open the template in the editor.
                 </div>     
 
                 <div class="col-md-5">
-                    <div class="form-group">
+                    <div class="form-group textoNegrita textoPequenioFormularos"> 
                         <label for="" class="fa fa-intersex"></label>
                         &nbsp;&nbsp;
-                        <label>Genero</label>
+                        <label>Genero *</label>
                         <div>
                             <select id="selGender" name="gender" required class="form-control select2" style="width: 100%;">
                                 <option value="-1" selected> -- SELECCIONE --</option>                            
@@ -327,7 +341,7 @@ and open the template in the editor.
             <div class="row">
                 <div class="col-md-1"></div>
                 <div class="col-md-5">
-                    <div class="form-group">
+                    <div class="form-group textoNegrita textoPequenioFormularos"> 
                         <label for="" class="fa fa-map-marker"></label>
                         &nbsp;&nbsp;
                         <label>Departamento de residencia</label>
@@ -342,10 +356,10 @@ and open the template in the editor.
                 </div>     
 
                 <div class="col-md-5">
-                    <div class="form-group">
+                    <div class="form-group textoNegrita textoPequenioFormularos"> 
                         <label for="" class="fa fa-map-marker"></label>
                         &nbsp;&nbsp;
-                        <label>Municipio de residencia</label>
+                        <label>Municipio de residencia *</label>
                         <div>
                             <select id="selCityResidence" name="cityResidence" required class="form-control select2" style="width: 100%;">
                                 <option value="-1" selected> -- SELECCIONE --</option>                            
@@ -362,7 +376,7 @@ and open the template in the editor.
             <div class="row">
                 <div class="col-md-1"></div>
                 <div class="col-md-5">
-                    <div class="form-group">
+                    <div class="form-group textoNegrita textoPequenioFormularos"> 
                         <label for="" class="fa fa fa-drivers-license"></label>
                         &nbsp;&nbsp;
                         <label>Nivel de profesion</label>
@@ -377,10 +391,10 @@ and open the template in the editor.
                 </div>     
 
                 <div class="col-md-5">
-                    <div class="form-group">
+                    <div class="form-group textoNegrita textoPequenioFormularos"> 
                         <label for="" class="fa fa-user-md"></label>
                         &nbsp;&nbsp;
-                        <label>Profesion</label>
+                        <label>Profesion *</label>
                         <div>
                             <select id="selProfession" name="profession" required class="form-control select2" style="width: 100%;">
                                 <option value="-1" selected> -- SELECCIONE --</option>                            

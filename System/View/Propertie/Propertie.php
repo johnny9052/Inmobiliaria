@@ -103,10 +103,11 @@ and open the template in the editor.
                             </div>
                         </div>
 
+                        
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="txtMatriculaInmobiliaria">Matricula inmobiliaria</label>  
+                                    <label for="txtMatriculaInmobiliaria">Matricula inmobiliaria *</label>  
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-hashtag"></i></span>
                                         <input id="txtMatriculaInmobiliaria" name="matriculaInmobiliaria" 
@@ -120,7 +121,7 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <label for="" class="fa fa-user"></label>
                                     &nbsp;&nbsp;
-                                    <label>Cliente</label>
+                                    <label>Cliente *</label>
                                     <div>
                                         <select id="selClient" name="client" 
                                                 class="form-control select2" style="width: 100%;" required>
@@ -136,7 +137,7 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <label for="" class="fa fa-circle"></label>
                                     &nbsp;&nbsp;
-                                    <label>Estado</label>
+                                    <label>Estado *</label>
                                     <div>
                                         <select id="selStatus" name="status" required class="form-control select2" style="width: 100%;">
                                             <option value="-1" selected> -- SELECCIONE --</option>                            
@@ -148,7 +149,7 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <label for="" class="fa fa-home"></label>
                                     &nbsp;&nbsp;
-                                    <label>Tipo inmueble</label>
+                                    <label>Tipo inmueble *</label>
                                     <div>
                                         <select id="selPropertieType" name="propertieType" required class="form-control select2" style="width: 100%;">
                                             <option value="-1" selected> -- SELECCIONE --</option>                            
@@ -163,7 +164,7 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <label for="" class="fa fa-star"></label>
                                     &nbsp;&nbsp;
-                                    <label>Tipo de destacado</label>
+                                    <label>Tipo de destacado *</label>
                                     <div>
                                         <select id="selOutstandingType" name="outstandingType" 
                                                 class="form-control select2" style="width: 100%;" required>
@@ -176,7 +177,7 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <label for="" class="fa fa-handshake-o"></label>
                                     &nbsp;&nbsp;
-                                    <label>Tipo oferta</label>
+                                    <label>Tipo oferta *</label>
                                     <div>
                                         <select id="selOfferType" name="offerType" 
                                                 class="form-control select2" style="width: 100%;" required>
@@ -191,7 +192,7 @@ and open the template in the editor.
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="txtPrice">Precio</label>   
+                                    <label for="txtPrice">Precio *</label>   
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-money"></i></span>
                                         <input id="txtPrice" name="precio" class="form-control" type="number" value="" autocomplete="off" required
@@ -202,7 +203,7 @@ and open the template in the editor.
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="txtAdministrationCost">Costo administracion</label>   
+                                    <label for="txtAdministrationCost">Costo administracion *</label>   
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
                                         <input id="txtAdministrationCost" name="administrationCost" class="form-control" type="number" value="" autocomplete="off" required
@@ -214,7 +215,7 @@ and open the template in the editor.
                         <div class="row">
                             <div class="col-md-6">                                
                                 <div class="form-group">
-                                    <label>Fecha de recepcion</label>
+                                    <label>Fecha de recepcion *</label>
                                     <div class="input-group date">
                                         <div class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
@@ -227,7 +228,7 @@ and open the template in the editor.
                             </div>
                             <div class="col-md-6">                                
                                 <div class="form-group">
-                                    <label>Fecha de publicacion</label>
+                                    <label>Fecha de publicacion *</label>
                                     <div class="input-group date">
                                         <div class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
@@ -243,7 +244,7 @@ and open the template in the editor.
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="txtRoom">Habitaciones</label>          
+                                    <label for="txtRoom">Habitaciones *</label>          
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-bed"></i></span>
                                         <input id="txtRoom" name="room" class="form-control" type="number" value="" autocomplete="off" required
@@ -254,7 +255,7 @@ and open the template in the editor.
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="txtBath">Baños</label>  
+                                    <label for="txtBath">Baños *</label>  
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-bath"></i></span>
                                         <input id="txtBath" name="bath" class="form-control" type="number" value="" autocomplete="off" required
@@ -268,7 +269,7 @@ and open the template in the editor.
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="txtParking">Parqueaderos</label>    
+                                    <label for="txtParking">Parqueaderos *</label>    
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-automobile"></i></span>
                                         <input id="txtParking" name="parking" class="form-control" type="number" value="" autocomplete="off" required
@@ -279,7 +280,7 @@ and open the template in the editor.
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="txtTotalArea">Area total</label> 
+                                    <label for="txtTotalArea">Area total *</label> 
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-area-chart"></i></span>
                                         <input id="txtTotalArea" name="totalArea" class="form-control" type="number" value="" autocomplete="off" required
@@ -304,7 +305,7 @@ and open the template in the editor.
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="txtBuildYear">Año de construccion</label>    
+                                    <label for="txtBuildYear">Año de construccion *</label>    
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                         <input id="txtBuildYear" name="buildYear" class="form-control" type="number" value="" autocomplete="off" required
@@ -611,7 +612,7 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <label for="" class="fa fa-map-marker"></label>
                                     &nbsp;&nbsp;
-                                    <label>Municipio</label>
+                                    <label>Municipio *</label>
                                     <div>
                                         <select id="selCity" name="city" required class="form-control select2" style="width: 100%;" 
                                                 onchange="loadNeighborhood(this.value);actualizarMucipioMapa();">
@@ -660,7 +661,7 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <label for="" class="fa fa-hashtag"></label>
                                     &nbsp;&nbsp;
-                                    <label>Estrato</label>
+                                    <label>Estrato *</label>
                                     <div>
                                         <select id="selStratum" name="estrato" 
                                                 class="form-control select2" style="width: 100%;" required>
@@ -673,7 +674,7 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <label for="" class="fa fa-circle-thin"></label>
                                     &nbsp;&nbsp;
-                                    <label>Tipo de piso</label>
+                                    <label>Tipo de piso *</label>
                                     <div>
                                         <select id="selFloorType" name="floorType" 
                                                 class="form-control select2" style="width: 100%;" required>
@@ -687,7 +688,7 @@ and open the template in the editor.
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="txtAvaluoCatastral">Avaluo catastral</label>
+                                    <label for="txtAvaluoCatastral">Avaluo catastral *</label>
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
                                         <input id="txtAvaluoCatastral" name="avaluoCatastral" 
@@ -702,7 +703,7 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <label for="" class="fa fa-circle-o"></label>
                                     &nbsp;&nbsp;
-                                    <label>Tipo de cortina</label>
+                                    <label>Tipo de cortina *</label>
                                     <div>
                                         <select id="selCurtainType" name="curtainType" required class="form-control select2" style="width: 100%;">
                                             <option value="-1" selected> -- SELECCIONE --</option>                            
@@ -719,7 +720,7 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <label for="" class="fa fa-expeditedssl"></label>
                                     &nbsp;&nbsp;
-                                    <label>Tipo de vigilancia</label>
+                                    <label>Tipo de vigilancia *</label>
                                     <div>
                                         <select id="selVigilanceType" name="vigilanceType" 
                                                 class="form-control select2" style="width: 100%;" required>
@@ -733,7 +734,7 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <label for="" class="fa fa-circle"></label>
                                     &nbsp;&nbsp;
-                                    <label>Zonas</label>
+                                    <label>Zonas *</label>
                                     <div>
                                         <select id="selZone" name="zone" required class="form-control select2" style="width: 100%;">
                                             <option value="-1" selected> -- SELECCIONE --</option>                            
@@ -752,7 +753,7 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <label for="" class="fa fa-area-chart"></label>
                                     &nbsp;&nbsp;
-                                    <label>Tipo de vista</label>
+                                    <label>Tipo de vista *</label>
                                     <div>
                                         <select id="selViewType" name="viewType" 
                                                 class="form-control select2" style="width: 100%;" required>
@@ -765,7 +766,7 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <label for="selKitchenType" class="fa fa-cutlery"></label>
                                     &nbsp;&nbsp;
-                                    <label>Tipo de cocina</label>
+                                    <label>Tipo de cocina *</label>
                                     <div>
                                         <select id="selKitchenType" name="kitchenType" 
                                                 class="form-control select2" style="width: 100%;" required>
@@ -781,7 +782,7 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <label for="" class="fa fa-cutlery"></label>
                                     &nbsp;&nbsp;
-                                    <label>Estructura de la cocina</label>
+                                    <label>Estructura de la cocina *</label>
                                     <div>
                                         <select id="selKitchenStructure" name="kitchenStructure" 
                                                 class="form-control select2" style="width: 100%;" required>
@@ -807,10 +808,10 @@ and open the template in the editor.
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="txtDireccionCarrera">Carrera</label>  
+                                    <label for="txtDireccionCarrera">Carrera *</label>  
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-                                        <input id="txtDireccionCarrera" name="direccionCarrera" 
+                                        <input id="txtDireccionCarrera" required="" name="direccionCarrera" 
                                                class="form-control" type="text" value="" 
                                                autocomplete="off"
                                                placeholder="Carrera del inmueble. Ej: 14 Norte">
@@ -819,10 +820,10 @@ and open the template in the editor.
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="txtDireccionCalle">Calle</label>  
+                                    <label for="txtDireccionCalle">Calle *</label>  
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-                                        <input id="txtDireccionCalle" name="direccionCalle" 
+                                        <input id="txtDireccionCalle" name="direccionCalle" required
                                                class="form-control" type="text" value="" 
                                                autocomplete="off"
                                                placeholder="Calle del inmueble. Ej: 10">
@@ -836,10 +837,10 @@ and open the template in the editor.
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="txtDireccionNumero">Número</label>  
+                                    <label for="txtDireccionNumero">Número *</label>  
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-                                        <input id="txtDireccionNumero" name="direccionNumero" 
+                                        <input id="txtDireccionNumero" required name="direccionNumero" 
                                                class="form-control" type="text" value="" 
                                                autocomplete="off"
                                                placeholder="Número. Ej:06">
@@ -848,7 +849,7 @@ and open the template in the editor.
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="txtDireccionInformacionAdicional">Informacion Adicional</label>  
+                                    <label for="txtDireccionInformacionAdicional">Informacion Adicional *</label>  
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
                                         <input id="txtDireccionInformacionAdicional" name="direccionInformacionAdicional" 

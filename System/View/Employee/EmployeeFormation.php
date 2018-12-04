@@ -121,7 +121,7 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <label for="" class="fa fa-user-circle"></label>
                                     &nbsp;&nbsp;
-                                    <label>Empleado</label>
+                                    <label>Empleado *</label>
                                     <div>
                                         <select id="selEmployee" name="employee" required class="form-control text-capitalize select2" style="width: 100%;">
                                             <option value="-1" selected> -- SELECCIONE --</option>                            
@@ -132,7 +132,7 @@ and open the template in the editor.
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="txtCompanyName">Institución de educación</label>    
+                                    <label for="txtCompanyName">Institución de educación *</label>    
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-building"></i></span>
                                         <input id="txtEducationInstitute" name="educationInstitute" class="form-control text-capitalize" type="text" value="" autocomplete="off" required
@@ -161,7 +161,7 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <label for="" class="fa fa-black-tie"></label>
                                     &nbsp;&nbsp;
-                                    <label>Título</label>
+                                    <label>Título *</label>
                                     <div>
                                         <select id="selProfession" name="profession" required class="form-control text-capitalize select2" style="width: 100%;">
                                             <option value="-1" selected> -- SELECCIONE --</option>                            
@@ -176,7 +176,7 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <label for="" class="fa fa-calendar-o"></label>
                                     &nbsp;&nbsp;
-                                    <label>Periodicidad</label>
+                                    <label>Periodicidad *</label>
                                     <div>
                                         <select id="selPeriodicity" name="periodicity" required class="form-control text-capitalize select2" style="width: 100%;">
                                             <option value="-1" selected> -- SELECCIONE --</option>                            
