@@ -103,7 +103,7 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <label for="" class="fa fa-id-badge"></label>
                                     &nbsp;&nbsp;
-                                    <label>Cliente</label>
+                                    <label>Cliente *</label>
                                     <div>
                                         <select id="selClient" name="client" required class="form-control select2" style="width: 100%;">
                                             <option value="-1" selected> -- SELECCIONE --</option>                            
@@ -116,7 +116,7 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <label for="" class="fa fa-leanpub"></label>
                                     &nbsp;&nbsp;
-                                    <label>Tipo Evento</label>
+                                    <label>Tipo Evento *</label>
                                     <div>
                                         <select id="selTypeEvent" name="typeEvent" required class="form-control select2" style="width: 100%;">
                                             <option value="-1" selected> -- SELECCIONE --</option>                            
@@ -142,7 +142,7 @@ and open the template in the editor.
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="txtFirstName">Lugar</label> 
+                                    <label for="txtFirstName">Lugar *</label> 
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-info"></i></span>
                                         <input id="txtPlace" name="place" class="form-control" type="text" value="" autocomplete="off" required
@@ -155,7 +155,7 @@ and open the template in the editor.
 
                             <div class="col-md-6">                                
                                 <div class="form-group">
-                                    <label>Fecha de evento</label>
+                                    <label>Fecha de evento *</label>
                                     <div class="input-group date">
                                         <div class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
@@ -200,7 +200,7 @@ and open the template in the editor.
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="txtFirstName">Observaciones</label>
+                                    <label for="txtFirstName">Observaciones *</label>
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-eye"></i></span>                                    
                                         <input id="txtObservations" name="observations" class="form-control" type="text" value="" autocomplete="off" required

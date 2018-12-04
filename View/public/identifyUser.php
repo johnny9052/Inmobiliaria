@@ -9,7 +9,7 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <title></title>
         <script src="Resources/public/js/general/identifyUser.js" type="text/javascript"></script>
-        
+
     </head>
     <body>
 
@@ -27,11 +27,15 @@ and open the template in the editor.
                             </div>
                         </div>
 
+                      
+
                         <br>
+
+
 
                         <div class="row">                            
                             <div class="col-md-6 col-sm-6 col-xs-12">                                 
-                                <label for="txtFirstNameUser">Primer nombre</label>   
+                                <label for="txtFirstNameUser">Primer nombre *</label>   
                                 <div class="input-group">                                            
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fa fa-user"></i></span>
@@ -58,7 +62,7 @@ and open the template in the editor.
 
                         <div class="row">                            
                             <div class="col-md-6 col-sm-6 col-xs-12">     
-                                <label for="txtFirstLastNameUser">Primer apellido</label>   
+                                <label for="txtFirstLastNameUser">Primer apellido *</label>   
                                 <div class="input-group">                    
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fa fa-user"></i></span>
@@ -84,7 +88,7 @@ and open the template in the editor.
 
                         <div class="row">                            
                             <div class="col-md-12 col-sm-12 col-xs-12">      
-                                <label for="txtEmailUser">Correo</label>   
+                                <label for="txtEmailUser">Correo *</label>   
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fa fa-at"></i></span>
@@ -100,7 +104,7 @@ and open the template in the editor.
 
                         <div class="row">                           
                             <div class="col-md-12 col-sm-12 col-xs-12">   
-                                <label for="txtPhoneUser">Numero de telefono</label>   
+                                <label for="txtPhoneUser">Numero de telefono *</label>   
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fa fa-mobile-phone"></i></span>
@@ -115,7 +119,7 @@ and open the template in the editor.
 
                         <div class="row">                           
                             <div class="col-md-12 col-sm-12 col-xs-12"> 
-                                <label for="txtPassword">Password</label>   
+                                <label for="txtPassword">Password *</label>   
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fa fa-asterisk"></i></span>
@@ -131,7 +135,7 @@ and open the template in the editor.
 
                         <div class="row">                           
                             <div class="col-md-12 col-sm-12 col-xs-12">                                     
-                                <label for="txtPasswordConfirm">Confirme password</label>   
+                                <label for="txtPasswordConfirm">Confirme password *</label>   
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fa fa-asterisk"></i></span>
@@ -213,7 +217,7 @@ and open the template in the editor.
 
                     <div class="modal-footer">
 
-                        <button onclick="closeWindow('ModalIdentifyUser',true);" type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
+                        <button onclick="closeWindow('ModalIdentifyUser', true);" type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
 
                         <div class="newActionButton">                            
                             <button id="btnSave" onclick="LogInPublic();" type ="button" class="btn btn-primary">Identificarse</button>

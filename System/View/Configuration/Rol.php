@@ -110,7 +110,7 @@ and open the template in the editor.
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="txtName">Nombre</label>   
+                                    <label for="txtName">Nombre *</label>   
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-user"></i></span>
                                         <input id="txtName" name="name" class="form-control" type="text" value="" autocomplete="off" required

@@ -169,8 +169,10 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <label for="" class="fa fa-comments"></label>
                                     &nbsp;&nbsp;
-                                    <label>Respuesta</label>
-                                    <textarea id="txtResponse" name="givenResponse" class="form-control" rows="3" placeholder="Respuesta"></textarea>
+                                    <label>Respuesta *</label>
+                                    <div>
+                                        <textarea id="txtResponse" required name="givenResponse" class="form-control" rows="3" placeholder="Respuesta"></textarea>
+                                    </div>
                                 </div>
                             </div>                       
                         </div>

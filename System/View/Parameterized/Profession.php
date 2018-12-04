@@ -109,9 +109,12 @@ and open the template in the editor.
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="txtName">Nombre</label>                                    
-                                    <input id="txtName" name="name" class="form-control" type="text" value="" autocomplete="off" required
-                                           placeholder="Nombre de la profesion">
+                                    <label for="txtName">Nombre</label>     
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-info"></i></span>
+                                        <input id="txtName" name="name" class="form-control" type="text" value="" autocomplete="off" required
+                                               placeholder="Nombre de la profesion">
+                                    </div>
                                 </div>
                             </div>                       
                         </div>
@@ -120,15 +123,19 @@ and open the template in the editor.
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
+                                    <label for="" class="fa fa-user"></label>
+                                    &nbsp;&nbsp;
                                     <label>Nivel</label>
-                                    <select id="selProfessionNivel" name="professionNivel" required class="form-control select2" style="width: 100%;">
-                                        <option value="-1" selected> -- SELECCIONE --</option>                            
-                                    </select>
+                                    <div>
+                                        <select id="selProfessionNivel" name="professionNivel" required class="form-control select2" style="width: 100%;">
+                                            <option value="-1" selected> -- SELECCIONE --</option>                            
+                                        </select>
+                                    </div>
                                 </div>
                             </div>     
                         </div>
-                        
-                        
+
+
 
                         <div class="row">
                             <div class="col-md-12">

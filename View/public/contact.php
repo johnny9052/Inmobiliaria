@@ -110,7 +110,7 @@ and open the template in the editor.
                         <div class="form-group">
                             <label class="fa fa-info"></label>
                             &nbsp;&nbsp;
-                            <label for="txtFirstName">Primer nombre</label>   
+                            <label for="txtFirstName">Primer nombre *</label>   
                             <div class="input-group">
 
                                 <input id="txtFirstName" name="firstName" class="form-control" type="text" value="" autocomplete="off" required
@@ -138,7 +138,7 @@ and open the template in the editor.
                         <div class="form-group">
                             <label class="fa fa-info"></label>
                             &nbsp;&nbsp;
-                            <label for="txtFirstLastName">Primer apellido</label>  
+                            <label for="txtFirstLastName">Primer apellido *</label>  
                             <div class="input-group">
 
                                 <input id="txtFirstLastName" name="firstLastName" class="form-control" type="text" value="" autocomplete="off" required

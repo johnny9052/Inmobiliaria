@@ -13,7 +13,6 @@ set_error_handler("var_dump");
 //
 //ini_set('memory_limit', '300M');
 
-
 /**
  * Repositorio con funciones genericas
  * @author Johnny Alexander Salazar

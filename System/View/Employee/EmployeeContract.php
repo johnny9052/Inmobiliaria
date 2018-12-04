@@ -121,7 +121,7 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <label for="" class="fa fa-user-circle"></label>
                                     &nbsp;&nbsp;
-                                    <label>Empleado</label>
+                                    <label>Empleado *</label>
                                     <div>
                                         <select id="selEmployee" name="employee" required class="form-control text-capitalize select2" style="width: 100%;">
                                             <option value="-1" selected> -- SELECCIONE --</option>                            
@@ -134,7 +134,7 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <label for="" class="fa fa-address-book-o"></label>
                                     &nbsp;&nbsp;
-                                    <label>Área</label>
+                                    <label>Área *</label>
                                     <div>
                                         <select id="selArea" name="area" required class="form-control text-capitalize select2" style="width: 100%;">
                                             <option value="-1" selected> -- SELECCIONE --</option>                            
@@ -147,7 +147,7 @@ and open the template in the editor.
                         <div class="row">
                             <div class="col-md-6">                                
                                 <div class="form-group">
-                                    <label>Fecha de inicio</label>
+                                    <label>Fecha de inicio *</label>
                                     <div class="input-group date">
                                         <div class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
@@ -175,7 +175,7 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <label for="" class="fa fa-file-archive-o"></label>
                                     &nbsp;&nbsp;
-                                    <label>Tipo contrato</label>
+                                    <label>Tipo contrato *</label>
                                     <div>
                                         <select id="selContractType" name="contractType" required class="form-control text-capitalize select2" style="width: 100%;">
                                             <option value="-1" selected> -- SELECCIONE --</option>                            
@@ -187,7 +187,7 @@ and open the template in the editor.
                                 <div class="form-group">
                                     <label for="selPosition" class="fa fa-briefcase"></label>
                                     &nbsp;&nbsp;
-                                    <label>Cargo</label>
+                                    <label>Cargo *</label>
                                     <div>
                                         <select id="selPosition" name="position" required class="form-control text-capitalize select2" style="width: 100%;">
                                             <option value="-1" selected> -- SELECCIONE --</option>                            
@@ -200,7 +200,7 @@ and open the template in the editor.
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="txtSalary">Salario</label>   
+                                    <label for="txtSalary">Salario *</label>   
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-money"></i></span>
                                         <input id="txtSalary" name="salary" class="form-control text-capitalize" type="number" value="" autocomplete="off" required

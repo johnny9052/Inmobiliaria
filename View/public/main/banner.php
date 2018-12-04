@@ -35,7 +35,7 @@
                             PQRS</font>
                         </a>
 
-                        <a class="dropdown-item" onclick="LogOut();">
+                        <a class="dropdown-item seleccionable" onclick="LogOut();">
                             <font class="textoMenu"><i class="fa fa-sign-out"></i>&nbsp Salir</font>                 
                         </a>
                     </div>
