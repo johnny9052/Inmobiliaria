@@ -21,8 +21,35 @@ $(window).on("load", function (e) {
     loadClient();
     loadContractTypeCheckbox();
     loadDebtor();
+    loadTipoIdentificacion();
+    loadDepartment();
+    loadCity(-1);
+    loadCityResidence(-1);
+    loadMaritalStatus();
 });
 
+function loadTipoIdentificacion() {
+    Execute(scanInfo('loadTipoIdentificacion', false), 'General/CtlGeneral', '', 'buildSelect(info,"selDocumentType");');
+}
+
+
+function loadDepartment() {
+    Execute(scanInfo('loadDepartment', false), 'General/CtlGeneral', '', 'buildSelect(info,"selStateExpedition");buildSelect(info,"selStateResidence");');
+}
+
+
+function loadCity(id) {
+    Execute(scanInfo('loadCity', false, '', [{datos: ["id", id]}]), 'General/CtlGeneral', '', 'buildSelect(info,"selCityExpedition");');
+}
+
+
+function loadCityResidence(id) {
+    Execute(scanInfo('loadCity', false, '', [{datos: ["id", id]}]), 'General/CtlGeneral', '', 'buildSelect(info,"selCityResidence");');
+}
+
+function loadMaritalStatus() {
+    Execute(scanInfo('loadMaritalStatus', false), 'General/CtlGeneral', '', 'buildSelect(info,"selMaritalStatus");');
+}
 
 function loadPropertie() {
     Execute(scanInfo('loadPropertie', false), 'General/CtlGeneral', '', 'buildSelect(info,"selPropertie");');
@@ -259,5 +286,3 @@ function agregarDeudorFromDB(info) {
     }
     listarDeudores(objDeudores.listElements, objDeudores.listNameElements);
 }
-
-
