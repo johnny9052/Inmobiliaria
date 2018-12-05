@@ -21,21 +21,21 @@
 
 @media (min-width: 992px) {
     .carousel {
-        margin-top: 50px;
+        /*margin-top: 50px;*/
     }
 
 
 }
 @media (max-width: 992px) {
     .carousel {
-        margin-top: 75px;
+        /*        margin-top: 75px;*/
     }
 }
 
 
 @media (min-width: 300px) {
     .carousel {
-        margin-top: 90px;
+        /*margin-top: 90px;*/
     }        
 }
 

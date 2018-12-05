@@ -4,11 +4,7 @@
     <section >
         <br>
         <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <div class="container marketing">
+            <div class="container marketing">
 
             <!-- Three columns of text below the carousel -->
             <div class="row">

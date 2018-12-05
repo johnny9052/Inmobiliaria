@@ -257,7 +257,7 @@
 /* Create a custom checkbox */
 .checkmarkcheckbox {
     position: absolute;
-    top: 20;
+    top: 20px;
     left: 0;
     height: 20px;
     width: 20px;
@@ -322,6 +322,10 @@
         top: 40%;
         left: 30%;      
     }
+
+    .brandingHexagono{
+        padding-left: 150px;
+    }
 }
 
 /* If the screen size is 600px or less, set the font-size of <div> to 30px */
@@ -337,13 +341,11 @@
         width: 110px;
     }
 
-    .rowCarrusel{
-        padding-top: 150px !important;
-    }
-
     .bannerMenu{
-        text-align: left;
-        
-
+        text-align: left;        
+    }
+    
+    .brandingHexagono{
+        padding-left: 75px;
     }
 }
