@@ -95,7 +95,7 @@ session_start();
 
         <!-- MASTER PAGE CONTROL  -->
         <?php
-//        include("View/public/main/banner.php");
+        include("View/public/main/banner.php");
 
 
         if (isset($_GET['page'])) {

@@ -336,4 +336,14 @@
     .botonFiltroBusquedaBanner{
         width: 110px;
     }
+
+    .rowCarrusel{
+        padding-top: 150px !important;
+    }
+
+    .bannerMenu{
+        text-align: left;
+        
+
+    }
 }

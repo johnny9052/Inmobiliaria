@@ -2,7 +2,7 @@
 <br><br>
 <script src="Resources/public/js/general/home.js" type="text/javascript"></script>
 <!-- INICIO DEL CARRUSEL-->
-<div class="row">
+<div class="row rowCarrusel">
     <div class="col-md-1 col-sm-1 col-xs-12"></div>
     <div class="col-md-10 col-sm-10 col-xs-12" id="containercarusel">
         <div id="divcarusel" class="carousel slide" data-ride="carousel">
