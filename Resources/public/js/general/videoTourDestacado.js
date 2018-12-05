@@ -40,14 +40,14 @@ function buildListFeaturedProperties(info) {
         $("#tblInmueblesDestacados").html(listado);
     } else {
         listado = listado + "<div class='row'>\n\
-                                    <div class='col-md-4'></div>\n\
+                                    <div class='col-md-4 col-sm-12 col-xs-12'></div>\n\
                                     </div>\n\
-                                    <div class='col-md-4'></div>\n\
+                                    <div class='col-md-4 col-sm-12 col-xs-12'></div>\n\
                                                 <div class='icon-block'><div> <hr style='color: #DFDFDF;' /></div>\n\
                                                     <label>No se encuentran inmubles con esas caracteristicas</label>\n\
                                                 </div>\n\
                                     </div>\n\
-                                    <div class='col-md-4'></div>\n\
+                                    <div class='col-md-4 col-sm-12 col-xs-12'></div>\n\
                              </div>";
         $("#tblInmueblesDestacados").html(listado);
         $('#segmentoPaginadorDestacado').html("");

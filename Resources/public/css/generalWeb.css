@@ -153,7 +153,7 @@
     border-radius: 10px 10px 10px 10px;
     -moz-border-radius: 10px 10px 10px 10px;
     -webkit-border-radius: 10px 10px 10px 10px;
-    
+
 }
 
 
@@ -198,24 +198,12 @@
 
 
 
-.filtroBusquedaBanner{
-    position: absolute;
-    top: 40%;
-    left: 30%;      
-}
-
 .transparencia{
     opacity: 0.9;
     filter: alpha(opacity=90); /* For IE8 and earlier */
 }
 
-.botonFiltroBusquedaBanner{
-    width: 150px;
-}
 
-.botonFiltroBusquedaBanner:hover{
-    background-color: gray;
-}
 
 
 .botonSeleccionado{
@@ -310,4 +298,42 @@
 
 .bg-hexagono {
     background-color: #3F5666 !important;
+}
+
+
+
+
+.botonFiltroBusquedaBanner{
+    width: 150px;
+}
+
+.botonFiltroBusquedaBanner:hover{
+    background-color: gray;
+}
+
+
+/*ENFOCADO AL CARRUSEL Y AL BUSCADOR DEL CARRUSEL*/
+
+/* If the screen size is 601px or more, set the font-size of <div> to 80px */
+@media only screen and (min-width: 951px) {
+    /*PARA LA UBICACION DEL FILTRO DE BUSQUEDA*/
+    .filtroBusquedaBanner{
+        position: absolute;
+        top: 40%;
+        left: 30%;      
+    }
+}
+
+/* If the screen size is 600px or less, set the font-size of <div> to 30px */
+@media only screen and (max-width: 950px) {
+    /*PARA LA UBICACION DEL FILTRO DE BUSQUEDA*/
+    .filtroBusquedaBanner{        
+        position: absolute;
+        top: 15%;
+        left: 5%; 
+    }
+
+    .botonFiltroBusquedaBanner{
+        width: 110px;
+    }
 }

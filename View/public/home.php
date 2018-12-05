@@ -12,7 +12,7 @@
                 <li data-target="#divcarusel" data-slide-to="2" class=""></li>                
             </ul>
 
-            <div class="carousel-inner" id="imagesCarusel" style="max-width: 1100px; max-height: 450px">
+            <div class="carousel-inner" id="imagesCarusel" style="max-width: 1100px; max-height: 450px; min-height: 250px;">
                 <div class="carousel-item active">
                     <img src="Resources/public/image/banner1.jpg" alt="Hexagono">
                 </div>  
@@ -29,8 +29,12 @@
             <a class="carousel-control-next" href="#divcarusel" data-slide="next">
                 <span class="carousel-control-next-icon"></span>
             </a>
+
+
             <div class="filtroBusquedaBanner">
                 <div class="row" style="padding-bottom: 0px !important;">
+
+
 
                     <div class="col-md-12 col-sm-12 col-xs-12">
 
@@ -67,8 +71,13 @@
                         </table>
 
                     </div>                    
+
+
                 </div>
             </div>
+
+
+
         </div>
     </div>
     <div class="col-md-1 col-sm-1 col-xs-12"></div>
@@ -90,24 +99,28 @@
 <!-- INICIO IMAGENES DE LAS CIUDADES PRINCIPALES-->
 <section >
     <div class="container marketing">
-        <!-- Three columns of text below the carousel -->
+        
         <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <img class="" src="Resources/public/image/risaralda.jpg" alt="Generic placeholder image" width="240" height="140">                                
+            <div class="col-lg-3 col-md-6 col-sm-12" style="text-align: center;">
+                <img class="" src="Resources/public/image/risaralda.jpg" alt="Generic placeholder image" width="240" height="140">
+                <br>
                 <label>Risaralda</label>                
             </div>            
-            <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="col-lg-3 col-md-6 col-sm-12" style="text-align: center;">
                 <img class="" src="Resources/public/image/Quindio.jpg" alt="Generic placeholder image" width="240" height="140">
+                <br>
                 <label>Quindío</label>
                 <br>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="col-lg-3 col-md-6 col-sm-12" style="text-align: center;">
                 <img class="" src="Resources/public/image/Caldas.jpg" alt="Generic placeholder image" width="240" height="140">            
+                <br>
                 <label>Caldas</label>
                 <br>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="col-lg-3 col-md-6 col-sm-12" style="text-align: center;">
                 <img class="" src="Resources/public/image/Vacaciones.jpg" alt="Generic placeholder image" width="240" height="140">
+                <br>
                 <label>Vacacionales</label>
                 <br>
             </div>
