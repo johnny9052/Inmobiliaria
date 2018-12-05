@@ -9,8 +9,7 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <title></title>
 
-        <script defer type="text/javascript" src="Resource/Script/Contract/PropertieContract.js"></script>
-        <script defer type="text/javascript" src="Resource/Script/Contract/Debtor.js"></script>
+        <script defer type="text/javascript" src="Resource/Script/Contract/PropertieContract.js"></script>s
     </head>
     <body>
 

@@ -112,11 +112,13 @@ function showData(info) {
     refreshSelect("selState", info[0].id_departamento);
     refreshSelect("selCity", info[0].id_ciudad);
     
-    
     alert(info[0].latitud);
     alert(info[0].longitud);
+    
+    
     /*Se añade el punto del gps*/
     addMarker(new google.maps.LatLng(info[0].latitud, info[0].longitud));
+    moveToPosition(info[0].latitud, info[0].longitud);
 
     openWindow();
     showButton(false);
