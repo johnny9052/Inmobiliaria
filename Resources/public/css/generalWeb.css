@@ -344,8 +344,14 @@
     .bannerMenu{
         text-align: left;        
     }
-    
+
     .brandingHexagono{
         padding-left: 75px;
+        position: inherit;
+        left: -200px;
+        padding: 7px;
+        margin-right: 100px;
     }
+
+    
 }

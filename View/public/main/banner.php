@@ -1,15 +1,11 @@
 
 <header>
-    <div style="margin: 10px;">
-        <a class="btn btn-xs btn-social-icon btn-facebook"><i class="fa fa-facebook"></i></a>
-        <a class="btn btn-xs btn-social-icon btn-instagram"><i class="fa fa-instagram"></i></a>
-        <a class="btn btn-xs btn-social-icon btn-linkedin"><i class="fa fa-linkedin"></i></a>
-        <a class="btn btn-xs btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a>
-    </div>
+
+
 
 
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-expand-md">
+    <nav class="navbar navbar-expand-md fixed-top" style=" background-color: white;">
 
         <!-- CONTENIDO PERMANENTE-->
 
@@ -92,5 +88,11 @@
         </div>
     </nav>
 </header>
+
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
