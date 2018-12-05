@@ -110,9 +110,7 @@ and open the template in the editor.
                         <button onclick="closeWindow();" type="button" class="btn btn-default pull-right" data-dismiss="modal">X</button>
                         <div class="nav-tabs-custom">
                             <ul class="nav nav-tabs">
-                                <li class="active"><a href="#register" data-toggle="tab">Información</a></li>
-                                <li><a href="" onclick="redirectInfoFilter('Propertie/Propertie');" data-toggle="tab">Inmuebles</a></li>
-                                <li><a href="" onclick="redirectInfoFilter('Client/Event');" data-toggle="tab">Eventos</a></li>
+                                <li class="active"><a href="#register" data-toggle="tab">Gestión deudor</a></li>
                             </ul>
                             <div class="tab-content">
                                 <div class="active tab-pane" id="register">
@@ -271,7 +269,7 @@ and open the template in the editor.
                                                     <label for="txtHomePhone">Telefono residencia</label>
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><i class="fa fa-phone"></i></span>                                              
-                                                        <input id="txtHomePhone" name="homePhone" class="form-control text-capitalize" type="number" value="" autocomplete="off" required
+                                                        <input id="txtHomePhone" name="homePhone" class="form-control text-capitalize" type="number" value="" autocomplete="off" 
                                                                max="9999999999" maxlength="10" placeholder="Telefono residencia (Max 10 digitos)">
                                                     </div>
                                                 </div>

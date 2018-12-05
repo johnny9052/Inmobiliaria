@@ -28,7 +28,8 @@ class EventDAO {
             (string) $obj->getPlaceEvent(), (float) $obj->getLatitude(),
             (float) $obj->getLength(),
             (int) $obj->getClient(), (int) $obj->getEventType(),
-            (string) $obj->getObservations(), (string) $obj->getEmployeesSelecteds() . ","
+            (string) $obj->getObservations(), (string) $obj->getEmployeesSelecteds() . ",", 
+            (int) $obj->getCity()
         ));
         $this->repository->ExecuteTransaction($query);
         //echo $query;
@@ -70,7 +71,8 @@ class EventDAO {
             (string) $obj->getDateEvent(), (string) $obj->getTimeEvent(),
             (string) $obj->getPlaceEvent(), (float) $obj->getLatitude(),
             (float) $obj->getLength(), (int) $obj->getClient(), (int) $obj->getEventType(),
-            (string) $obj->getObservations(), (string) $obj->getEmployeesSelecteds(). ","
+            (string) $obj->getObservations(), (string) $obj->getEmployeesSelecteds(). ",", 
+            (int) $obj->getCity()
         ));
         $this->repository->ExecuteTransaction($query);
     }

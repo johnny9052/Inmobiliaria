@@ -10,6 +10,8 @@ and open the template in the editor.
         <title></title>
 
         <script defer type="text/javascript" src="Resource/Script/Client/Event.js"></script>
+        <script src="Resource/Script/General/Map.js" type="text/javascript"></script>
+        <link href="Resource/Style/mapSearch.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
 
@@ -124,6 +126,48 @@ and open the template in the editor.
                                     </div>
                                 </div>
                             </div>    
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="" class="fa fa-map-marker"></label>
+                                    &nbsp;&nbsp;
+                                    <label>Departamento</label>
+                                    <div>
+                                        <select id="selState" name="state" 
+                                                class="form-control select2" style="width: 100%;"  
+                                                onchange="loadCity(this.value);actualizarMucipioMapa();">
+                                            <option value="-1" selected> -- SELECCIONE --</option>                            
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>     
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="" class="fa fa-map-marker"></label>
+                                    &nbsp;&nbsp;
+                                    <label>Municipio</label>
+                                    <div>
+                                        <select id="selCity" name="city" required class="form-control select2" style="width: 100%;" 
+                                                onchange="actualizarMucipioMapa();">
+                                            <option value="-1" selected> -- SELECCIONE --</option>                            
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>     
+                        </div>
+                        
+                         <div class="row">
+                            <div class="col-md-12">
+                                <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div id="googleMap" style="width:100%;height:400px;"></div>
+                            </div>                                                                                                                                     
                         </div>
 
                         <div class="row">
@@ -272,20 +316,11 @@ and open the template in the editor.
         </div>
         <!-- /.modal -->
 
-
         <!-- END MODAL DE CONFIRMACION-->
-
-
-
-
-
-
-
-
-
-
-
-
+        
+        <!-- SCRIPT DE MAPAS, ACTIVACION MEDIANTE KEY -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmpRlSVVxIje1GdQb7jlW5QwG-WBfVEnw&libraries=places&callback=myMap"
+        async defer></script>
 
 
     </body>

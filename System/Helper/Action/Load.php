@@ -223,6 +223,10 @@ function ExecuteActionLoad($action, $obj, $dao) {
         case "loadClientTypeSelected":
             $dao->LoadSelect($obj, "loadclienttypeselected");
             break;
+        
+        case "loadTypesContractSelecteds":
+            $dao->LoadSelect($obj, "loadtypescontractselecteds");
+            break;
 
         case "loadEmployeeSelected":
             $dao->LoadSelect($obj, "loademployeeselected");

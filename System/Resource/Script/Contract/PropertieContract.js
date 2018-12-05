@@ -5,6 +5,14 @@ var objFileContract = {
     listFileNameDeleted: new Array()
 };
 
+var objDeudores = {
+    /*Atributo con el mismo nombre del objeto, para poder pasarlo como referencia
+     * con innerHTML*/
+    name: 'objDeudores',
+    listElements: new Array(),
+    listNameElements: new Array()
+};
+
 
 /* Funciones jQuery */
 $(window).on("load", function (e) {
@@ -28,32 +36,54 @@ function loadDebtor() {
     Execute(scanInfo('loadDebtor', false), 'General/CtlGeneral', '', 'buildSelect(info,"selDebtor");');
 }
 
-
-function loadContractTypeCheckbox() {
-    Execute(scanInfo('loadContractTypeCheckbox', false),
-            'General/CtlGeneral',
-            '',
-            'BuildCheckbox(info,"FormContainerCheckboxContractType", "ContractType");');
-    /*BuildCheckbox("Info que llega","Id del contenedor", "Nombre de los checks");')*/
+function abrirModalDebtor() {
+            /*Se cierra el modal actual, se indica que no se limpia el formualrio, 
+         * y es abre el modal para el registro del barrio*/
+        closeWindow('ModalNew', false, 'ModalNewDebtor'); 
 }
 
-function save() {
-    if (validateForm() === true) {
-        /*Se define el array de datos adicionales como un objeto, debido a que es necesario pasarlo por referencia para el llenado de los archivos*/
-        var infoPlus = {
-            temp: new Array()
-        };
 
-        /*Se manda por referencia el objeto de la info adicional donde se añadiran los archivos, junto el el objeto que tiene la informacion real de todos los archivos*/
-        addFileNameAndEncodingAndDeletedFiles(infoPlus, objFileContract, 'Contract');
+/**
+ * Se almacena un nuevo deudor 
+ * @returns {void}
+ * @author David Alberto Angarita García
+ * @version 0.1
+ */
+function saveNewDebtor() {
+    /*Para la validacion, se manda el id del form a mapear y el id del modal de 
+     * dicho form, por si sucede un error, vuelva a dicho modal*/
+    if (validateForm('FormContainerDebtor', 'ModalNewDebtor') === true) {
 
-        infoPlus.temp.push({datos: scanCheckboxDinamic("typesContractSelecteds", "ContractType")});
-        
-        infoPlus.temp.push({datos: scanDataLabelDinamic("listDebtor", "deudor",true,"-")});
-
-        Execute(scanInfo('save', true, '', infoPlus.temp), 'Contract/CtlPropertieContract', '', 'closeWindow();list();limpiarMultimedia();', '', 'Ha superado el tamaño maximo de las imagenes');
-        //Execute(scanInfo('save', true, '', [{datos: scanCheckboxDinamic("typesContractSelecteds", "ContractType")}]),
+        Execute(scanInfo('save', true, 'FormContainerDebtor'), 'Contract/CtlDebtor', '', 'loadDebtor();cleanForm("ModalNewDebtor");',
+                'ModalNewDebtor');
     }
+}
+
+
+function save() {
+    if (objDeudores.listElements.length > 0) {
+        if (validateForm() === true) {
+            /*Se define el array de datos adicionales como un objeto, debido a que es necesario pasarlo por referencia para el llenado de los archivos*/
+            var infoPlus = {
+                temp: new Array()
+            };
+
+            /*Se manda por referencia el objeto de la info adicional donde se añadiran los archivos, junto el el objeto que tiene la informacion real de todos los archivos*/
+            addFileNameAndEncodingAndDeletedFiles(infoPlus, objFileContract, 'Contract');
+
+            infoPlus.temp.push({datos: scanCheckboxDinamic("typesContractSelecteds", "ContractType")});
+
+            infoPlus.temp.push({datos: scanDataLabelDinamic("listDebtor", "deudor", true, "deudor")});
+
+
+
+            Execute(scanInfo('save', true, '', infoPlus.temp), 'Contract/CtlPropertieContract', '', 'closeWindow();list();limpiarMultimedia();', '', 'Ha superado el tamaño maximo del archivo');
+            //Execute(scanInfo('save', true, '', [{datos: scanCheckboxDinamic("typesContractSelecteds", "ContractType")}]),
+        }
+    } else {
+        showToast("Por favor registre un deudor", "error");
+    }
+
 }
 
 function list() {
@@ -63,7 +93,10 @@ function list() {
 
 function search(id) {
     $("#txtId").val(id);
-    Execute(scanInfo('search', true), 'Contract/CtlPropertieContract', '', 'showData(info);');
+    Execute(scanInfo('search', true),
+            'Contract/CtlPropertieContract',
+            '',
+            'showData(info);CheckCheckboxChecked("loadTypesContractSelecteds","ContractType");');
 }
 
 
@@ -83,27 +116,35 @@ function showData(info) {
 
     $("#lstArchivoAgregado").html(imageDownloadFile("pdf", objFileContract.listFileURL[objFileContract.listFileName.indexOf(nombreContrato)], nombreContrato));
 
+    loadDebtorContract(info[0].id);
+
     openWindow();
     showButton(false);
 }
 
 
 function update() {
-    if (validateForm() === true) {
+    if (objDeudores.listElements.length > 0) {
+        if (validateForm() === true) {
 
-        /*Se define el array de datos adicionales como un objeto, debido a que 
-         * es necesario pasarlo por referencia para el llenado de los archivos*/
-        var infoPlus = {
-            temp: new Array()
-        };
+            /*Se define el array de datos adicionales como un objeto, debido a que es necesario pasarlo por referencia para el llenado de los archivos*/
+            var infoPlus = {
+                temp: new Array()
+            };
 
-        /*Se manda por referencia el objeto de la info adicional donde se añadiran 
-         * los archivos, junto el el objeto que tiene la informacion real de
-         * todos los archivos*/
-        addFileNameAndEncodingAndDeletedFiles(infoPlus, objFileContract, 'Contract');
+            /*Se manda por referencia el objeto de la info adicional donde se añadiran los archivos, junto el el objeto que tiene la informacion real de todos los archivos*/
+            addFileNameAndEncodingAndDeletedFiles(infoPlus, objFileContract, 'Contract');
 
-        Execute(scanInfo('update', true, '', infoPlus.temp), 'Contract/CtlPropertieContract', '', 'closeWindow();list();');
+            infoPlus.temp.push({datos: scanCheckboxDinamic("typesContractSelecteds", "ContractType")});
+
+            infoPlus.temp.push({datos: scanDataLabelDinamic("listDebtor", "deudor", true, "deudor")});
+
+            Execute(scanInfo('update', true, '', infoPlus.temp), 'Contract/CtlPropertieContract', '', 'closeWindow();list();limpiarMultimedia();', '', 'Ha superado el tamaño maximo de las imagenes');
+        }
+    } else {
+        showToast("Por favor registre un deudor", "error");
     }
+
 }
 
 
@@ -141,18 +182,82 @@ function limpiarMultimedia() {
     objFileContract.listFileName = new Array();
     objFileContract.listFileURL = new Array();
     $("#lstArchivoAgregado").html("");
+    $("#listDebtor").html("");
+    objDeudores.listElements = new Array();
+    objDeudores.listNameElements = new Array();
+
 }
 
 
 function agregarDeudorContrato() {
-    var datosDeudor = $("#selDebtor option:selected").text();
-    var cedulaDeudor = (datosDeudor.split("-"))[0];
-    var nombreDeudor = (datosDeudor.split("-"))[1];
 
-    var label = "<label id='deudor" + cedulaDeudor + "' class='dinamicLabelData'> " + nombreDeudor + "</label>";
+    var nombreDeudor = $("#selDebtor option:selected").text();
+    var idDeudor = $("#selDebtor").val();
+    var incluido = false;
+    for (var x = 0; x < objDeudores.listNameElements.length; x++) {
+        if (nombreDeudor === objDeudores.listNameElements[x]) {
+            incluido = true;
+        }
+    }
+    if (incluido === false) {
+        if (idDeudor !== -1 && idDeudor !== "-1") {
+            objDeudores.listElements.push(parseInt(idDeudor));
+            objDeudores.listNameElements.push(nombreDeudor);
+            listarDeudores(objDeudores.listElements, objDeudores.listNameElements);
+        }
+    }else{
+        showToast("El deudor ya se encuentra en la lista", "error");
+    }
 
-    $("#listDebtor").html($("#listDebtor").html() + "<br>" + label);
+
+
+
+
 }
 
+
+function listarDeudores(listId, listName) {
+
+    var content = "";
+
+    var label = "";
+    var labelX = "";
+
+    for (var x = 0; x < listId.length; x++) {
+        label = "<label id='deudor" + listId[x] + "' class='dinamicLabelData'>" + listName[x] + "</label>";
+        labelX = "<label id='cerrar' onclick='eliminarDeudorContrato(" + listId[x] + ");' class = 'seleccionable'>  (X) </label>";
+        content += "<br>" + label + labelX;
+    }
+
+    $("#listDebtor").html(content);
+}
+
+function eliminarDeudorContrato(idDeudor) {
+
+    var pos = objDeudores.listElements.indexOf(idDeudor);
+    
+    if (pos !== -1) {
+        objDeudores.listElements.splice(pos, 1);
+        objDeudores.listNameElements.splice(pos, 1);
+        listarDeudores(objDeudores.listElements, objDeudores.listNameElements);
+    }
+}
+
+
+function loadDebtorContract(id) {
+    Execute(scanInfo('loadDebtorContract', false, '', [{datos: ["id", id]}]), 'Contract/CtlPropertieContract', '', 'agregarDeudorFromDB(info);');
+}
+
+
+function agregarDeudorFromDB(info) {
+    /*Se agregan todos los datos a la lista, y se pintan*/
+    for (var x = 0; x < info.length; x++) {
+        if (info[x].dinamic_data !== "") {
+            objDeudores.listElements.push(parseInt(info[x].id));
+            objDeudores.listNameElements.push(info[x].dinamic_data);
+        }
+    }
+    listarDeudores(objDeudores.listElements, objDeudores.listNameElements);
+}
 
 

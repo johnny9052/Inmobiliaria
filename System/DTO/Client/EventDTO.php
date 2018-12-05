@@ -14,19 +14,20 @@ class EventDTO extends BaseDTO {
     private $eventType;
     private $observations;
     private $employeesSelecteds;
+    private $city;
     
-    function __construct($id, $dateEvent, $timeEvent, $placeEvent, $latitude, $length, $client, $eventType, $observations, $employeesSelecteds, $idfilter) {
+    function __construct($id, $dateEvent, $timeEvent, $placeEvent, $latitude, $length, $client, $eventType, $observations, $employeesSelecteds, $city) {
         $this->id = $id;
         $this->dateEvent = $dateEvent;
         $this->timeEvent = $timeEvent;
         $this->placeEvent = $placeEvent;
-        $this->latitude = 4.554263961623923;
-        $this->length = -75.65520020474804;
+        $this->latitude = $latitude;
+        $this->length = $length;
         $this->client = $client;
         $this->eventType = $eventType;
         $this->observations = $observations;
         $this->employeesSelecteds = $employeesSelecteds;
-        $this->idfilter = $idfilter;
+        $this->city = $city;
     }
     
     function getId() {
@@ -69,6 +70,10 @@ class EventDTO extends BaseDTO {
         return $this->employeesSelecteds;
     }
 
+    function getCity() {
+        return $this->city;
+    }
+
     function setId($id) {
         $this->id = $id;
     }
@@ -109,6 +114,9 @@ class EventDTO extends BaseDTO {
         $this->employeesSelecteds = $employeesSelecteds;
     }
 
+    function setCity($city) {
+        $this->city = $city;
+    }
 
 
 

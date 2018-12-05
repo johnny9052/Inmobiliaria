@@ -9,7 +9,7 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <title></title>
 
-        <script defer type="text/javascript" src="Resource/Script/Employee/EmployeeContract.js"></script>
+        <script type="text/javascript" src="Resource/Script/Employee/EmployeeContract.js"></script>
     </head>
     <body>
 
@@ -19,7 +19,7 @@ and open the template in the editor.
             </h1>
 
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-group"></i> Configuracion</a></li>
+                <li><a href="#"><i class="fa fa-group"></i> Configuración</a></li>
                 <li class="active">Contrato empleado</li>
             </ol>
         </section>
@@ -36,7 +36,7 @@ and open the template in the editor.
                             <li><a href="" onclick="redirectInfoFilter('Employee/EmployeeExperience');" data-toggle="tab">Experiencia</a></li>
                             <li><a href="" onclick="redirectInfoFilter('Employee/EmployeeFormation');" data-toggle="tab">Formación</a></li>
                             <li class="active"><a href="" data-toggle="tab">Contratos</a></li>
-                            <li><a href="" onclick="redirectInfoFilter('Client/event');" data-toggle="tab">Eventos</a></li>
+                            <li><a href="" onclick="redirectInfoFilter('Employee/EventEmployee');" data-toggle="tab">Eventos</a></li>
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane" id="employee">

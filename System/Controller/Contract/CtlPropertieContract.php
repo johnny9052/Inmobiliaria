@@ -17,6 +17,7 @@ $endDate = getInfo('endDate');
 $contractValue = getInfo('contractValue');
 $termContract = getInfo('termContract');
 $wayPay = getInfo('wayPay');
+$typesDebtorSelecteds = getInfo('listDebtor');
 $typesContractSelecteds = getInfo('typesContractSelecteds');
 
 
@@ -32,7 +33,7 @@ $fileContract = generateFiles('Contract', '../../', 'System/', 'Resource/Files/P
 
 
 /* DEFINICION DE OBJETOS */
-$obj = new PropertieContractDTO($id, $client, $propertie, $firmDate, $startDate, $endDate, $contractValue, $termContract, $wayPay, $fileContract, $typesContractSelecteds);
+$obj = new PropertieContractDTO($id, $client, $propertie, $firmDate, $startDate, $endDate, $contractValue, $termContract, $wayPay, $fileContract, $typesContractSelecteds, $typesDebtorSelecteds);
 $dao = new PropertieContractDAO();
 
 /* CONTROL DE ACCIONES */
