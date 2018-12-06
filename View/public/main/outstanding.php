@@ -1,3 +1,5 @@
+<script src="Resources/public/js/general/videoTourDestacado.js" type="text/javascript"></script>
+
 <section class="section-property section-t8">
     <div class="container">
         <div class="row">
