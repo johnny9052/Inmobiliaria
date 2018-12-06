@@ -1,160 +1,99 @@
-<?php
-/* Toca colocarlo aqui porque si no el servidor esta mostrando error */
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>EstateAgency Bootstrap Template</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="" name="keywords">
+        <meta content="" name="description">
 
+        <!-- Favicons -->
+        <link href="img/favicon.png" rel="icon">
+        <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
 
-        <title>Inmobiliaria Armenia</title>
-        <link rel="shortcut icon" type="image/png" href="System/Resource/Images/Public/favicon.png"/>
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
 
-        <!-- CSS  -->        
+        <!-- Bootstrap CSS File -->
+        <link href="Resources/public/template/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+        <!-- Libraries CSS Files -->
+        <link href="Resources/public/template/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href="Resources/public/template/lib/animate/animate.min.css" rel="stylesheet">
+        <link href="Resources/public/template/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+        <link href="Resources/public/template/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
-
-        <link href="Resources/public/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="System/Resource/bower_components/font-awesome/css/font-awesome.min.css">
-        <!-- Select2 -->
-        <link rel="stylesheet" href="System/Resource/bower_components/select2/dist/css/select2.min.css">
-        <!-- Bootstrap time Picker -->
-        <link rel="stylesheet" href="System/Resource/plugins/timepicker/bootstrap-timepicker.min.css">
-        <!-- Ionicons -->
-        <link rel="stylesheet" href="System/Resource/bower_components/Ionicons/css/ionicons.min.css">
-        <!-- MATERIAL icons -->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <!-- Theme style -->
-        <link href="System/Resource/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css"/>
-        <!-- Google Font -->        
-        <link href="System/Resource/Style/googleFonts.css" rel="stylesheet" type="text/css"/>
-
-
-        <link href="Resources/public/css/album.css" rel="stylesheet" type="text/css"/>  
-
-        <link href="Resources/public/css/carousel.css" rel="stylesheet" type="text/css"/>
-
-
-
-
-        <link href="System/Resource/plugins/bootstrap-slider/slider.css" rel="stylesheet" type="text/css"/>
-
-        <link href="System/Resource/Style/General.css" rel="stylesheet" type="text/css"/>
-
-        <!-- ESTILOS VISUALES DE LA PAGINA WEB-->
-        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
-        <link href="Resources/public/css/generalWeb.css" rel="stylesheet" type="text/css"/>        
-        <!-- END ESTILOS VISUALES DE LA PAGINA WEB-->
-
-        <link href="System/Resource/Style/hexagono.css" rel="stylesheet" type="text/css"/>
-
-
-        <!-- DataTables -->
-        <link rel="stylesheet" href="System/Resource/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
-
-
-        <!--  Scripts-->
-<!--        <script src="Resources/public/js/jquery/code.jquery.com_jquery-3.3.1.slim.min.js" type="text/javascript"></script>-->
-        <script src="System/Resource/bower_components/jquery/dist/jquery.min.js"></script>
-
-        <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>');</script>        
-        <script src="Resources/public/js/bootstrap/vendor/popper.min.js" type="text/javascript"></script>        
-        <script src="Resources/public/js/bootstrap/bootstrap.min.js" type="text/javascript"></script>        
-
-        <script src="System/Resource/plugins/bootstrap-slider/bootstrap-slider.js" type="text/javascript"></script>
-
-        <script src="Resources/public/js/bootstrap/vendor/holder.min.js" type="text/javascript"></script>
-
-        <script src="System/Resource/bower_components/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
-        <script src="System/Resource/bower_components/fastclick/lib/fastclick.js" type="text/javascript"></script>
-
-        <script src="System/Resource/dist/js/adminlte.min.js" type="text/javascript"></script>
-
-        <script src="System/Resource/bower_components/jquery-ui/jquery-ui.min.js"></script>
-        <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-        <!-- TimePicker -->
-        <script src="System/Resource/plugins/timepicker/bootstrap-timepicker.min.js"></script>
-
-        <script src="Resources/public/js/general/cache.js" type="text/javascript"></script>
-
-
-        <!-- DataTables -->
-<!--        <script src="System/Resource/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-        <script src="System/Resource/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>-->
+        <!-- Main Stylesheet File -->
+        <link href="Resources/public/template/css/style.css" rel="stylesheet">
 
 
     </head>
+
     <body>
 
+        <!-- BUSCADOR -->  
+        <?php
+        include("View/public/main/search.php");
+        ?>
+        <!-- END BUSCADOR -->  
+
+
+        <!-- BANNER MENU -->
+        <?php
+        include("View/public/main/banner.php");
+        ?>
+        <!-- END BANNER MENU -->
 
 
         <!-- MASTER PAGE CONTROL  -->
         <?php
-        include("View/public/main/banner.php");
-
-
         if (isset($_GET['page'])) {
 
-            if (($_GET['page'] === 'infoUser' || $_GET['page'] === 'managementPropertie' ||
-                    $_GET['page'] === 'pqrs')) {
-                if (isset($_SESSION['identificationPublicHexagon'])) {
-                    include("View/public/" . $_GET['page'] . ".php");
-                } else {
-                    include("View/public/home.php");
-                }
-            } else {
-                include("View/public/" . $_GET['page'] . ".php");
-            }
+//            if (($_GET['page'] === 'infoUser' || $_GET['page'] === 'managementPropertie' ||
+//                    $_GET['page'] === 'pqrs')) {
+//                if (isset($_SESSION['identificationPublicHexagon'])) {
+//                    include("View/public/" . $_GET['page'] . ".php");
+//                } else {
+//                    include("View/public/home.php");
+//                }
+//            } else {
+//                include("View/public/" . $_GET['page'] . ".php");
+//            }
+
+            include("View/public/" . $_GET['page'] . ".php");
         } else {
             include("View/public/home.php");
         }
-
-
-        include("View/public/main/footer.php");
         ?>                        
         <!--END MASTER PAGE CONTROL  -->
 
 
 
+        <!-- FOOTER -->
+<?php
+include("View/public/main/footer.php");
+?>
+        <!-- END FOOTER -->
 
 
+        <!-- BARRA DE CARGA -->
+        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+        <div id="preloader"></div>
+        <!--END BARRA DE CARGA -->
 
+        <!-- JavaScript Libraries -->
+        <script src="Resources/public/template/lib/jquery/jquery.min.js"></script>
+        <script src="Resources/public/template/lib/jquery/jquery-migrate.min.js"></script>
+        <script src="Resources/public/template/lib/popper/popper.min.js"></script>
+        <script src="Resources/public/template/lib/bootstrap/js/bootstrap.min.js"></script>
+        <script src="Resources/public/template/lib/easing/easing.min.js"></script>
+        <script src="Resources/public/template/lib/owlcarousel/owl.carousel.min.js"></script>
+        <script src="Resources/public/template/lib/scrollreveal/scrollreveal.min.js"></script>
+        <!-- Contact Form JavaScript File -->
+        <script src="Resources/public/template/contactform/contactform.js"></script>
 
-        <!--MODAL GENERICO PARA MOSTRAR MENSAJES -->
-        <div class="modal fade" id="modal-default" data-backdrop="static" data-keyboard="false">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">                        
-                        <h4 class="modal-title" id="lblTituloMensajeModal">Mensaje</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p id="lblMessageModal"></p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>                        
-                    </div>
-                </div>                
-            </div>            
-        </div>
-        <!--END MODAL GENERICO PARA MOSTRAR MENSAJES -->
+        <!-- Template Main Javascript File -->
+        <script src="Resources/public/template/js/main.js"></script>
 
-
-        <?php
-        if (!isset($_SESSION['userpublichexagon'])) {
-            include("View/public/identifyUser.php");
-        }
-        ?>      
-
-
-
-
-
-
-        <script src="System/Resource/Script/General/General.js" type="text/javascript"></script>
     </body>
 </html>

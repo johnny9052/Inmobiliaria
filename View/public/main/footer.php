@@ -1,56 +1,152 @@
-<footer class="footer">
-    <div class="row" >
-        <div class="col-md-2 col-sm-12 col-xs-12">
+<section class="section-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-4">
+                <div class="widget-a">
+                    <div class="w-header-a">
+                        <h3 class="w-title-a text-brand">EstateAgency</h3>
+                    </div>
+                    <div class="w-body-a">
+                        <p class="w-text-a color-text-a">
+                            Enim minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip exea commodo consequat duis
+                            sed aute irure.
+                        </p>
+                    </div>
+                    <div class="w-footer-a">
+                        <ul class="list-unstyled">
+                            <li class="color-a">
+                                <span class="color-text-a">Phone .</span> contact@example.com</li>
+                            <li class="color-a">
+                                <span class="color-text-a">Email .</span> +54 356 945234</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-4 section-md-t3">
+                <div class="widget-a">
+                    <div class="w-header-a">
+                        <h3 class="w-title-a text-brand">The Company</h3>
+                    </div>
+                    <div class="w-body-a">
+                        <div class="w-body-a">
+                            <ul class="list-unstyled">
+                                <li class="item-list-a">
+                                    <i class="fa fa-angle-right"></i> <a href="#">Site Map</a>
+                                </li>
+                                <li class="item-list-a">
+                                    <i class="fa fa-angle-right"></i> <a href="#">Legal</a>
+                                </li>
+                                <li class="item-list-a">
+                                    <i class="fa fa-angle-right"></i> <a href="#">Agent Admin</a>
+                                </li>
+                                <li class="item-list-a">
+                                    <i class="fa fa-angle-right"></i> <a href="#">Careers</a>
+                                </li>
+                                <li class="item-list-a">
+                                    <i class="fa fa-angle-right"></i> <a href="#">Affiliate</a>
+                                </li>
+                                <li class="item-list-a">
+                                    <i class="fa fa-angle-right"></i> <a href="#">Privacy Policy</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-4 section-md-t3">
+                <div class="widget-a">
+                    <div class="w-header-a">
+                        <h3 class="w-title-a text-brand">International sites</h3>
+                    </div>
+                    <div class="w-body-a">
+                        <ul class="list-unstyled">
+                            <li class="item-list-a">
+                                <i class="fa fa-angle-right"></i> <a href="#">Venezuela</a>
+                            </li>
+                            <li class="item-list-a">
+                                <i class="fa fa-angle-right"></i> <a href="#">China</a>
+                            </li>
+                            <li class="item-list-a">
+                                <i class="fa fa-angle-right"></i> <a href="#">Hong Kong</a>
+                            </li>
+                            <li class="item-list-a">
+                                <i class="fa fa-angle-right"></i> <a href="#">Argentina</a>
+                            </li>
+                            <li class="item-list-a">
+                                <i class="fa fa-angle-right"></i> <a href="#">Singapore</a>
+                            </li>
+                            <li class="item-list-a">
+                                <i class="fa fa-angle-right"></i> <a href="#">Philippines</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-3 col-sm-12 col-xs-12" style="margin-left: 10px;margin-bottom: 20px;">
-            <h5 class="titulosPrincipales">NOSOTROS</h5>
-            <small class="footerText">Hexágono es una empresa dedicada al acompañamiento integral de empresas y personas en procesos 
-                relacionados con las áreas juridica, tecnologica e inmobiliaria a tráves un conjunto de profesionales integrales</small>
-        </div>
-
-        <div class="col-md-2 col-sm-12 col-xs-12" style="margin-left: 10px;margin-bottom: 20px;">
-            <h5 class="titulosPrincipales">LINKS</h5>
-            <ul class="list-unstyled footerText">
-                <li>
-                    <img src="Resources/public/image/iconoVineta.PNG" alt="10" width="10"/>
-                    <a href="#">
-                        <font class="textoContenidoBlanco" color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;INMOBILIARIA</font>
-                    </a>                    
-                </li>
-                <li class="liSinEspacio">
-                    <img src="Resources/public/image/LineaDivisora.PNG" alt="50" width="200"/>
-                </li>
-
-
-
-                <li><img src="Resources/public/image/iconoVineta.PNG" alt="10" width="10"/><a href="#"><font class="textoContenidoBlanco" color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;CONTÁCTENOS</font></a></li>
-                <li class="liSinEspacio"><img src="Resources/public/image/LineaDivisora.PNG" alt="50" width="200"/></li>
-                <li><img src="Resources/public/image/iconoVineta.PNG" alt="10" width="10"/><a href="#"><font class="textoContenidoBlanco" color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;DEPENDENCIAS</font></a></li>
-                <li class="liSinEspacio"><img src="Resources/public/image/LineaDivisora.PNG" alt="50" width="200"/></li>
-                <li><img src="Resources/public/image/iconoVineta.PNG" alt="10" width="10"/><a href="#"><font class="textoContenidoBlanco" color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;PERSONAL</font></a></li>
-                <li class="liSinEspacio"><img src="Resources/public/image/LineaDivisora.PNG" alt="50" width="200"/></li>
-                <li><img src="Resources/public/image/iconoVineta.PNG" alt="10" width="10"/><a href="#"><font class="textoContenidoBlanco" color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;SERVICIOS</font></a></li>               
-            </ul>
-        </div>
-
-        <div class="col-md-3 col-sm-12 col-xs-12" style="margin-left: 10px;margin-bottom: 20px;">
-            <h5 class="titulosPrincipales">CONTÁCTENOS</h5>
-            <ul class="list-unstyled footerText">
-                <li>
-                    <img src="Resources/public/image/iconoDireccionHexagono.PNG" alt="1" width="20"/>&nbsp;&nbsp;Calle 17 Norte # 11-07. Armenia, Quindío
-                </li>
-                <li class="liSinEspacio"><br></li>
-                <li>
-                    <img src="Resources/public/image/iconoTelefonoHexagono.PNG" alt="1" width="20"/>&nbsp;&nbsp;Cel. 3002680564 - Fijo. 7454545
-                </li>
-                <li class="liSinEspacio"><br></li>
-                <li>
-                    <img src="Resources/public/image/iconoEmailHexagono.PNG" alt="1" width="20"/>&nbsp;&nbsp;contacto@hexagonogestores.com
-                </li>
-            </ul>
-        </div>
-        <div class="col-md-2 col-sm-12 col-xs-12">
-
+    </div>
+</section>
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="nav-footer">
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <a href="#">Home</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">About</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">Property</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">Blog</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="socials-a">
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fa fa-facebook" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fa fa-instagram" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fa fa-pinterest-p" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fa fa-dribbble" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="copyright-footer">
+                    <p class="copyright color-text-a">
+                        &copy; Copyright
+                        <span class="color-a">EstateAgency</span> All Rights Reserved.
+                    </p>
+                </div>
+                <div class="credits">           
+                    Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                </div>
+            </div>
         </div>
     </div>
 </footer>
