@@ -15,14 +15,7 @@ and open the template in the editor.
     </head>
 
     <body>
-        <br>
-        <br>
-        <br>
-        <br>    
-        <br>
-        <br>
-
-
+    
         <div class="row">
             <div class="col-md-1">
 
@@ -50,7 +43,7 @@ and open the template in the editor.
             </div>
         </div>
 
-        <section id="FormContainer">
+        <section id="FormContainer" style="padding: 10px;">
 
             <div class="row">
                 <div class="col-md-11 col-sm-11 col-xs-12" style="text-align: right;">

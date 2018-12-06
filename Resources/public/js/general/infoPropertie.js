@@ -65,7 +65,7 @@ function search(id) {
 
 
 function sendContact() {
-    if (validateForm() === true) {
+    if (validateForm('FormContainerContact') === true) {
         Execute(scanInfo('search', true, 'FormContainerContact'), 'Contact/CtlContact', '', 'showDataSendContact();');
     }
 }
@@ -87,15 +87,14 @@ function showData(info) {
     $("#lblParking").html(info[0].parqueaderos);
     $("#lblTotalArea").html(info[0].area_total + " m<sup>2</sup>");
 
-    $("#lblTituloBarrio").html(info[0].nombre_barrio);
+    $("#lblTituloBarrio").html(info[0].nombre_barrio + " : " + "$ " + parseInt(info[0].precio).toLocaleString());
     $("#lblDescripcion").html(info[0].linderos_inmbueble);
     /*END ICONOS PLUS ESTATICOS*/
 
     /*INFO ESTATICA*/
 
 
-    var characteristics = addCharacteristics("Precio", "$ " + parseInt(info[0].precio).toLocaleString());
-    characteristics += addCharacteristics("Costo administracion", "$ " + info[0].costo_administracion);
+    var characteristics = addCharacteristics("Costo administracion", "$ " + info[0].costo_administracion);
     characteristics += addCharacteristics("Area sin balcones", info[0].area_sin_balcones);
     characteristics += addCharacteristics("Año de construccion", info[0].anio_de_construccion);
     characteristics += addCharacteristics("Numero de piso", info[0].numero_piso);
@@ -378,7 +377,7 @@ function buildCarusel(info, obj) {
                         </div>";
 
         imgMiniaturaCarusel += "<span data-target='#divcarusel' data-slide-to='" + y + "'>\n\
-                                    <img class='seleccionable' src='System/" + obj.listFileURL[y] + "' alt='" + cleanNameFile(obj.listFileName[y]) + "' height='40' width='40'>\n\
+                                    <img class='seleccionable imgMiniaturaCarrusel' src='System/" + obj.listFileURL[y] + "' alt='" + cleanNameFile(obj.listFileName[y]) + "' height='40' width='40'>\n\
                                 </span>&nbsp;";
         paginatorcarusel += "<li data-target='#divcarusel' data-slide-to='" + y + "' class='" + ((y === 0) ? 'active' : '') + "'></li>";
         positionCarusel++;
@@ -395,7 +394,7 @@ function buildCarusel(info, obj) {
                         </div>\n\
                       </div>";
 
-        imgMiniaturaCarusel += "<span data-target='#divcarusel' data-slide-to='" + positionCarusel + "'><img class='seleccionable' src='System/Resource/Multimedia/Images/videocarusel.png' alt='Video' height='40' width='40'></span>&nbsp;";
+        imgMiniaturaCarusel += "<span data-target='#divcarusel' data-slide-to='" + positionCarusel + "'><img class='seleccionable imgMiniaturaCarrusel' src='System/Resource/Multimedia/Images/videocarusel.png' alt='Video' height='40' width='40'></span>&nbsp;";
         paginatorcarusel += "<li data-target='#divcarusel' data-slide-to='" + positionCarusel + "'></li>";
         positionCarusel++;
     }

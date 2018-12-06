@@ -350,7 +350,12 @@
         position: inherit;
         left: -200px;
         padding: 7px;
+        padding-top: 20px;
         margin-right: 100px;
+    }
+    
+    .imgMiniaturaCarrusel{
+        margin-bottom: 10px;
     }
 
     

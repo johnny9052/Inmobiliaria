@@ -14,18 +14,7 @@ and open the template in the editor.
         <link href="System/Resource/Style/mapSearch.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-
-
-
-        <section class="content-header">
-
-        </section>
-
+          
         <!-- ***************CONTENIDO**************** -->
 
         <section class="content">

@@ -1,15 +1,10 @@
 
 <header>
 
-
-
-
     <!-- Fixed navbar -->
     <nav class="navbar navbar-expand-md fixed-top" style=" background-color: white;">
 
         <!-- CONTENIDO PERMANENTE-->
-
-
 
         <div class="row">
 

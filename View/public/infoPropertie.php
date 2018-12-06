@@ -27,7 +27,25 @@ and open the template in the editor.
 
         <section class="content">
             <div class="row">
-                <div class="col-md-3 col-sm-1 col-xs-12"></div>
+                <div class="col-md-2 col-sm-1 col-xs-12"></div>
+                <div class="col-md-8 col-sm-10 col-xs-12">
+
+                    <table  width="100%">
+                        <tr>
+                            <td>
+                                <h2 class="text-light-blue" id="lblTituloBarrio">                        
+                                </h2>                                                              
+                            </td>
+                            <td class="text-right">
+                                <a style="margin: 3px;" class="btn btn-social-icon btn-dropbox" onclick="executeSubmit('frmPDFPropertie');"><i class="fa fa-print" style="color: white; padding: 5px;"></i></a>
+                                <a style="margin: 3px;" class="btn btn-social-icon btn-facebook" onclick="sharedContentFacebook()"><i class="fa fa-facebook" style="color: white; padding: 5px;"></i></a>
+                                <a style="margin: 3px;" class="btn btn-social-icon btn-twitter" onclick="sharedContentTwitter()"><i class="fa fa-twitter" style="color: white; padding: 5px;"></i></a>                                                                
+                                <a style="margin: 3px;" class="btn btn-social-icon btn-linkedin" onclick="sharedContentLinkedIn('Mira este inmueble', 'Estoy interesado en este inmueble', 'NombreInmobiliaria')"><i class="fa fa-linkedin" style="color: white; padding: 5px;"></i></a>                                                                
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-md-2 col-sm-1 col-xs-12"></div>
             </div>
 
             <!-----------------CARRUSEL----------------------------------->
@@ -59,27 +77,7 @@ and open the template in the editor.
 
             <br>
 
-            <div class="row">
-                <div class="col-md-2 col-sm-1 col-xs-12"></div>
-                <div class="col-md-8 col-sm-10 col-xs-12">
 
-                    <table  width="100%">
-                        <tr>
-                            <td>
-                                <h2 class="text-light-blue" id="lblTituloBarrio">                        
-                                </h2>
-                            </td>
-                            <td class="text-right">
-                                <a class="btn btn-social-icon btn-dropbox" onclick="executeSubmit('frmPDFPropertie');"><i class="fa fa-print" style="color: white"></i></a>
-                                <a class="btn btn-social-icon btn-facebook" onclick="sharedContentFacebook()"><i class="fa fa-facebook" style="color: white"></i></a>
-                                <a class="btn btn-social-icon btn-twitter" onclick="sharedContentTwitter()"><i class="fa fa-twitter" style="color: white"></i></a>                                                                
-                                <a class="btn btn-social-icon btn-linkedin" onclick="sharedContentLinkedIn('Mira este inmueble', 'Estoy interesado en este inmueble', 'NombreInmobiliaria')"><i class="fa fa-linkedin" style="color: white"></i></a>                                                                
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="col-md-2 col-sm-1 col-xs-12"></div>
-            </div>
 
             <div class="row">
                 <div class="col-md-2 col-sm-1 col-xs-12"></div>
@@ -94,7 +92,7 @@ and open the template in the editor.
 
 
             <!-----------------CARACTERSITICAS PLUS-------------------------->
-         
+
 
 
             <div id="divIconPlusContainer">
@@ -170,19 +168,6 @@ and open the template in the editor.
                     <div class="box-body">
                         <div class="box-group" id="accordionCharacteristics">
 
-                            <!--                    <div class="panel box box-primary">
-                                                    <div class="box-header with-border">
-                                                        <div class="row">
-                                                            <h3 class="box-title text-light-blue col-md-5 col-sm-12 col-xs-12">
-                                                                Administracion
-                                                            </h3>
-                                                            <h5 class="box-title col-md-5 col-sm-12 col-xs-12" id="lblAdministrationCost">
-                            
-                                                            </h5>
-                                                        </div>
-                                                    </div>                            
-                                                </div>                    -->
-
                         </div>
                     </div>
                     <!-- /.box-body -->
@@ -209,24 +194,27 @@ and open the template in the editor.
 
     <br>
 
-    <section id="FormContainerContact">
+    <section id="FormContainerContact" style="padding: 10px;">
 
         <div class="row">
-            <div class="col-md-2 col-sm-1 col-xs-12"></div>
-            <div class="col-md-8 col-sm-10 col-xs-12">
+            <div class="col-md-2 col-sm-1 col-xs-1"></div>
+
+            <div class="col-md-8 col-sm-10 col-xs-10">
                 <h2 class="text-light-blue">                        
                     Contactanos y agenda una cita
                 </h2>
             </div>
-            <div class="col-md-2 col-sm-1 col-xs-12"></div>
+            <div class="col-md-2 col-sm-1 col-xs-1"></div>
         </div>
 
         <div class="row">
-            <div class="col-md-10 col-sm-10 col-xs-12">
+            <div class="col-md-1 col-sm-1 col-xs-1"></div>
+            <div class="col-md-10 col-sm-10 col-xs-10">
                 <div class="form-group">                                                                        
                     <input id="txtId" name="id" class="form-control identificator"  type="hidden" value="">
                 </div>
-            </div>            
+            </div>      
+            <div class="col-md-1 col-sm-1 col-xs-1"></div>    
         </div>
 
         <div class="row">
@@ -245,8 +233,8 @@ and open the template in the editor.
 
 
         <div class="row">
-            <div class="col-md-3 col-sm-3 col-xs-12"></div>
-            <div class="col-md-6 col-sm-6 col-xs-12"> 
+            <div class="col-md-3 col-sm-3 col-xs-3"></div>
+            <div class="col-md-6 col-sm-6 col-xs-6"> 
                 <label for="txtNameUser">Nombre *</label>   
                 <div class="input-group">                    
                     <div class="input-group-prepend">
@@ -257,7 +245,7 @@ and open the template in the editor.
                 </div>
 
             </div>  
-            <div class="col-md-3 col-sm-3 col-xs-12"></div>
+            <div class="col-md-3 col-sm-3 col-xs-3"></div>
         </div>
 
         <br>

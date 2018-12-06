@@ -12,13 +12,6 @@ and open the template in the editor.
     </head>
     <body>
 
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
 
         <section class="content-header">
 
@@ -53,7 +46,7 @@ and open the template in the editor.
         </div>
 
 
-        <div class="" id="FormContainer">
+        <div class="" id="FormContainer" style="padding: 10px;">
 
             <div class="row">
                 <div class="col-md-1"></div>
