@@ -6,7 +6,7 @@
             <span></span>
             <span></span>
         </button>
-        <a class="navbar-brand text-brand" href="index.html">Estate<span class="color-b">Agency</span></a>
+        <a href="index.html"><img src="Resources/public/template/img/logo.png" alt="60" width="300" class="left img-responsive"/></a>
         <button type="button" class="btn btn-link nav-search navbar-toggle-box-collapse d-md-none" data-toggle="collapse"
                 data-target="#navbarTogglerDemo01" aria-expanded="false">
             <span class="fa fa-search" aria-hidden="true"></span>
@@ -43,10 +43,22 @@
 
 
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php?page=property-grid">Property</a>
+                    <a class="nav-link <?php
+                    if (isset($_GET['page'])) {
+                        if ($_GET['page'] === 'property-grid') {
+                            echo 'active';
+                        }
+                    }
+                    ?>" href="index.php?page=property-grid">Property</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php?page=blog-grid">Blog</a>
+                    <a class="nav-link <?php
+                    if (isset($_GET['page'])) {
+                        if ($_GET['page'] === 'blog-grid') {
+                            echo 'active';
+                        }
+                    }
+                    ?>" href="index.php?page=blog-grid">Blog</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -54,14 +66,44 @@
                         Pages
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="index.php?page=property-single">Property Single</a>
-                        <a class="dropdown-item" href="index.php?page=blog-single">Blog Single</a>
-                        <a class="dropdown-item" href="index.php?page=agents-grid">Agents Grid</a>
-                        <a class="dropdown-item" href="index.php?page=agent-single">Agent Single</a>
+                        <a class="dropdown-item <?php
+                    if (isset($_GET['page'])) {
+                        if ($_GET['page'] === 'property-single') {
+                            echo 'active';
+                        }
+                    }
+                    ?>" href="index.php?page=property-single">Property Single</a>
+                        <a class="dropdown-item <?php
+                    if (isset($_GET['page'])) {
+                        if ($_GET['page'] === 'blog-single') {
+                            echo 'active';
+                        }
+                    }
+                    ?>" href="index.php?page=blog-single">Blog Single</a>
+                        <a class="dropdown-item <?php
+                    if (isset($_GET['page'])) {
+                        if ($_GET['page'] === 'agents-grid') {
+                            echo 'active';
+                        }
+                    }
+                    ?>" href="index.php?page=agents-grid">Agents Grid</a>
+                        <a class="dropdown-item <?php
+                    if (isset($_GET['page'])) {
+                        if ($_GET['page'] === 'agent-single') {
+                            echo 'active';
+                        }
+                    }
+                    ?>" href="index.php?page=agent-single">Agent Single</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php?page=contact">Contact</a>
+                    <a class="nav-link <?php
+                    if (isset($_GET['page'])) {
+                        if ($_GET['page'] === 'contact') {
+                            echo 'active';
+                        }
+                    }
+                    ?>" href="index.php?page=contact">Contact</a>
                 </li>
             </ul>
         </div>
