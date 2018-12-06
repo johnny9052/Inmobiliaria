@@ -43,7 +43,7 @@
 
 
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php?page=property-grid">Property</a>
+                    <a class="nav-link" href="index.php?page=searchPropertie">Inmuebles</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="index.php?page=blog-grid">Blog</a>

@@ -3,7 +3,8 @@ $(window).on("load", function (e) {
     listFeaturedProperties();
     executeWithTime('repaginacionAutomatica();', 3000);
 });
-var registrosPaginaDestacado = 2;
+
+var registrosPaginaDestacado = 3;
 var totalRegistrosDestacado = 0;
 var posicionActualPaginacionDestacado = 0;
 var objectToPaginationDestacado;
@@ -24,7 +25,7 @@ function listFeaturedProperties() {
 function buildListFeaturedProperties(info) {
 
     console.log(info);
-    var listado = "<tr>";
+    var listado = "";
     showLoadBar(true);
     if (info.length > 0) {
 
@@ -36,8 +37,8 @@ function buildListFeaturedProperties(info) {
             listado = listado + construirRegistroPaginacionDestacado(f);
         }
 
-        listado += "</tr>";
-        $("#tblInmueblesDestacados").html(listado);
+        listado += "";
+        $("#property-carousel-outstanding").html(listado);
     } else {
         listado = listado + "<div class='row'>\n\
                                     <div class='col-md-4 col-sm-12 col-xs-12'></div>\n\
@@ -49,7 +50,7 @@ function buildListFeaturedProperties(info) {
                                     </div>\n\
                                     <div class='col-md-4 col-sm-12 col-xs-12'></div>\n\
                              </div>";
-        $("#tblInmueblesDestacados").html(listado);
+        $("#property-carousel-outstanding").html(listado);
         $('#segmentoPaginadorDestacado').html("");
     }
 
@@ -120,6 +121,40 @@ function construirRegistroPaginacionDestacado(pos) {
                 <td>\n\
                     &nbsp; &nbsp; &nbsp;\n\
                 </td>";
+
+
+
+    return "<div class='carousel-item-b'>\n\
+                <div class='card-box-a card-shadow'>\n\
+                    <div class='img-box-a'>\n\
+                        <img src='"+imagen+"' alt='' class='img-a img-fluid'>\n\
+                    </div>\n\
+                <div class='card-overlay'>\n\
+                    <div class='card-overlay-a-content'>\n\
+                        <div class='card-header-a'>\n\
+                            <h2 class='card-title-a'>\n\
+                                <a>"+ciudad+"<br />"+barrio+"</a>\n\
+                            </h2>\n\
+                        </div>\n\
+                    <div class='card-body-a'>\n\
+                <div class='price-box d-flex'>\n\
+                    <span class='price-a'>\n\
+                        Valor | $ "+precio+"\n\
+                    </span>\n\
+                </div>\n\
+                <a href='#' class='link-a'>\n\
+                    Click para ver<span class='ion-ios-arrow-forward'></span>\n\
+                </a>\n\
+            </div>\n\
+            <div class='card-footer-a'>\n\
+                <ul class='card-info d-flex justify-content-around'>\n\
+                    <li>\n\
+                        <h4 class='card-info-title'>\n\
+                            Area\n\
+                        </h4>\n\
+                        <span>\n\
+                            340m<sup>2</sup>\n\
+                        </span></li><li><h4 class='card-info-title'>Hab.</h4><span>2</span></li><li><h4 class='card-info-title'>Baños</h4><span>4</span></li><li><h4 class='card-info-title'>Parq.</h4><span>1</span></li></ul></div></div></div></div></div>";
 }
 
 
@@ -144,7 +179,7 @@ function repaginarDestacado(cambioPosicion) {
     }
 
     var posInicial = posicionActualPaginacionDestacado;
-    var posFinal = (objectToPaginationDestacado.length < posicionActualPaginacionDestacado + 2) ? objectToPaginationDestacado.length : posicionActualPaginacionDestacado + 2;    
+    var posFinal = (objectToPaginationDestacado.length < posicionActualPaginacionDestacado + 2) ? objectToPaginationDestacado.length : posicionActualPaginacionDestacado + 2;
     var listado = "<tr>";
 
     for (f = posInicial; f < posFinal; f++) {
@@ -153,7 +188,7 @@ function repaginarDestacado(cambioPosicion) {
 
     listado += "</tr>";
 
-    $("#tblInmueblesDestacados").html(listado);
+    $("#property-carousel-outstanding").html(listado);
 
     showLoadBar(false);
 
