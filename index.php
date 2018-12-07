@@ -1,3 +1,8 @@
+<?php
+/* Toca colocarlo aqui porque si no el servidor esta mostrando error */
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -9,29 +14,32 @@
 
         <!-- Favicons -->
         <link rel="shortcut icon" type="image/png" href="System/Resource/Images/Public/favicon.png"/>        
-        
-        
+
+
         <!-- Bootstrap CSS File -->
         <link href="Resources/public/template/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        
+
         <!-- GENERAL -->
         <!-- <link href="System/Resource/Style/General.css" rel="stylesheet" type="text/css"/>-->
 
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
-        
+
+        <!-- Theme style -->
+        <link href="System/Resource/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css"/>
+
         <!-- GENERAL WEB -->
         <link href="Resources/public/css/generalWeb.css" rel="stylesheet" type="text/css"/>        
 
         <!-- HEXAGONO -->
         <link href="System/Resource/Style/hexagono.css" rel="stylesheet" type="text/css"/>
-        
-        
+
+
         <!-- DataTables -->
         <link rel="stylesheet" href="System/Resource/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
 
-        
-        
+
+
         <!-- Bootstrap time Picker -->
         <link rel="stylesheet" href="System/Resource/plugins/timepicker/bootstrap-timepicker.min.css">
 
@@ -43,17 +51,17 @@
 
         <!-- Main Stylesheet File -->
         <link href="Resources/public/template/css/style.css" rel="stylesheet">
-        
-        
+
+
         <!-- JavaScript Libraries -->
         <script src="Resources/public/template/lib/jquery/jquery.min.js"></script>
         <script src="Resources/public/template/lib/jquery/jquery-migrate.min.js"></script>
         <script src="Resources/public/template/lib/popper/popper.min.js"></script>
         <script src="Resources/public/template/lib/bootstrap/js/bootstrap.min.js"></script>
-        
+
         <script src="System/Resource/dist/js/adminlte.min.js" type="text/javascript"></script>
 
-              
+
         <!-- TimePicker -->
         <script src="System/Resource/plugins/timepicker/bootstrap-timepicker.min.js"></script>
 
@@ -82,18 +90,16 @@
         <?php
         if (isset($_GET['page'])) {
 
-//            if (($_GET['page'] === 'infoUser' || $_GET['page'] === 'managementPropertie' ||
-//                    $_GET['page'] === 'pqrs')) {
-//                if (isset($_SESSION['identificationPublicHexagon'])) {
-//                    include("View/public/" . $_GET['page'] . ".php");
-//                } else {
-//                    include("View/public/home.php");
-//                }
-//            } else {
-//                include("View/public/" . $_GET['page'] . ".php");
-//            }
-
-            include("View/public/" . $_GET['page'] . ".php");
+            if (($_GET['page'] === 'infoUser' || $_GET['page'] === 'managementPropertie' ||
+                    $_GET['page'] === 'pqrs')) {
+                if (isset($_SESSION['identificationPublicHexagon'])) {
+                    include("View/public/" . $_GET['page'] . ".php");
+                } else {
+                    include("View/public/home.php");
+                }
+            } else {
+                include("View/public/" . $_GET['page'] . ".php");
+            }
         } else {
             include("View/public/home.php");
         }
@@ -103,10 +109,45 @@
 
 
         <!-- FOOTER -->
-<?php
-include("View/public/main/footer.php");
-?>
+        <?php
+        include("View/public/main/footer.php");
+        ?>
         <!-- END FOOTER -->
+
+
+
+
+
+
+        <!--MODAL GENERICO PARA MOSTRAR MENSAJES -->
+        <div class="modal fade" id="modal-default" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">                        
+                        <h4 class="modal-title" id="lblTituloMensajeModal">Mensaje</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p id="lblMessageModal"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>                        
+                    </div>
+                </div>                
+            </div>            
+        </div>
+        <!--END MODAL GENERICO PARA MOSTRAR MENSAJES -->
+
+
+
+        <?php
+        if (!isset($_SESSION['userpublichexagon'])) {
+            include("View/public/identifyUser.php");
+        }
+        ?>      
+
+
+
+
 
 
         <!-- BARRA DE CARGA -->
@@ -114,8 +155,14 @@ include("View/public/main/footer.php");
         <div id="preloader"></div>
         <!--END BARRA DE CARGA -->
 
-        
-          <script src="Resources/public/template/lib/easing/easing.min.js"></script>
+
+
+
+
+
+
+
+        <script src="Resources/public/template/lib/easing/easing.min.js"></script>
         <script src="Resources/public/template/lib/owlcarousel/owl.carousel.min.js"></script>
         <script src="Resources/public/template/lib/scrollreveal/scrollreveal.min.js"></script>
         <!-- Contact Form JavaScript File -->
@@ -123,8 +170,8 @@ include("View/public/main/footer.php");
 
         <!-- Template Main Javascript File -->
         <script src="Resources/public/template/js/main.js"></script>
-        
-        
+
+
         <script src="System/Resource/Script/General/General.js" type="text/javascript"></script>
 
     </body>
