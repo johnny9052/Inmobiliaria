@@ -3,11 +3,15 @@
 /* If the screen size is 601px or more, set the font-size of <div> to 80px */
 @media only screen and (min-width: 951px) {
     /*PARA LA UBICACION DEL FILTRO DE BUSQUEDA*/
-    .filtroBusquedaBanner{
-        position: absolute;
-        top: 40%;
-        left: 30%;      
+    .overlay-search { 
+        color:#fff;
+        position:absolute;
+        z-index:12;
+        top:50%;
+        left:33%;
+        text-align:center;
     }
+    
 
     .brandingHexagono{
         padding-left: 150px;
@@ -17,10 +21,13 @@
 /* If the screen size is 600px or less, set the font-size of <div> to 30px */
 @media only screen and (max-width: 950px) {
     /*PARA LA UBICACION DEL FILTRO DE BUSQUEDA*/
-    .filtroBusquedaBanner{        
-        position: absolute;
-        top: 15%;
-        left: 5%; 
+    .overlay-search {
+        background-color: #FFFFFF;
+        color:#fff;
+        position:absolute;
+        z-index:12;
+        top:15%;
+        left:-15px;
     }
 
     .botonFiltroBusquedaBanner{
@@ -39,5 +46,23 @@
         margin-right: 100px;
     }
 
-    
+
+}
+
+.transparencia{
+    opacity: 0.9;
+    filter: alpha(opacity=90); /* For IE8 and earlier */
+}
+
+.botonFiltroBusquedaBanner{
+    width: 150px;
+}
+
+.botonFiltroBusquedaBanner:hover{
+    background-color: gray;
+}
+
+.seleccionable{
+    cursor: pointer !important;   
+    pointer-events: auto;    
 }

@@ -8,14 +8,32 @@
         <meta content="" name="description">
 
         <!-- Favicons -->
-        <link href="img/favicon.png" rel="icon">
-        <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+        <link rel="shortcut icon" type="image/png" href="System/Resource/Images/Public/favicon.png"/>        
+
+
+        <!-- Bootstrap CSS File -->
+        <link href="Resources/public/template/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- GENERAL -->
+        <!-- <link href="System/Resource/Style/General.css" rel="stylesheet" type="text/css"/>-->
 
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
 
-        <!-- Bootstrap CSS File -->
-        <link href="Resources/public/template/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <!-- GENERAL WEB -->
+        <link href="Resources/public/css/generalWeb.css" rel="stylesheet" type="text/css"/>        
+
+        <!-- HEXAGONO -->
+        <link href="System/Resource/Style/hexagono.css" rel="stylesheet" type="text/css"/>
+
+
+        <!-- DataTables -->
+        <link rel="stylesheet" href="System/Resource/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+
+
+
+        <!-- Bootstrap time Picker -->
+        <link rel="stylesheet" href="System/Resource/plugins/timepicker/bootstrap-timepicker.min.css">
 
         <!-- Libraries CSS Files -->
         <link href="Resources/public/template/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
@@ -25,6 +43,21 @@
 
         <!-- Main Stylesheet File -->
         <link href="Resources/public/template/css/style.css" rel="stylesheet">
+
+
+        <!-- JavaScript Libraries -->
+        <script src="Resources/public/template/lib/jquery/jquery.min.js"></script>
+        <script src="Resources/public/template/lib/jquery/jquery-migrate.min.js"></script>
+        <script src="Resources/public/template/lib/popper/popper.min.js"></script>
+        <script src="Resources/public/template/lib/bootstrap/js/bootstrap.min.js"></script>
+
+        <script src="System/Resource/dist/js/adminlte.min.js" type="text/javascript"></script>
+
+
+        <!-- TimePicker -->
+        <script src="System/Resource/plugins/timepicker/bootstrap-timepicker.min.js"></script>
+
+        <script src="Resources/public/js/general/cache.js" type="text/javascript"></script>
 
 
     </head>
@@ -70,9 +103,9 @@
 
 
         <!-- FOOTER -->
-<?php
-include("View/public/main/footer.php");
-?>
+        <?php
+        include("View/public/main/footer.php");
+        ?>
         <!-- END FOOTER -->
 
 
@@ -81,11 +114,7 @@ include("View/public/main/footer.php");
         <div id="preloader"></div>
         <!--END BARRA DE CARGA -->
 
-        <!-- JavaScript Libraries -->
-        <script src="Resources/public/template/lib/jquery/jquery.min.js"></script>
-        <script src="Resources/public/template/lib/jquery/jquery-migrate.min.js"></script>
-        <script src="Resources/public/template/lib/popper/popper.min.js"></script>
-        <script src="Resources/public/template/lib/bootstrap/js/bootstrap.min.js"></script>
+
         <script src="Resources/public/template/lib/easing/easing.min.js"></script>
         <script src="Resources/public/template/lib/owlcarousel/owl.carousel.min.js"></script>
         <script src="Resources/public/template/lib/scrollreveal/scrollreveal.min.js"></script>
@@ -94,6 +123,9 @@ include("View/public/main/footer.php");
 
         <!-- Template Main Javascript File -->
         <script src="Resources/public/template/js/main.js"></script>
+
+
+        <script src="System/Resource/Script/General/General.js" type="text/javascript"></script>
 
     </body>
 </html>

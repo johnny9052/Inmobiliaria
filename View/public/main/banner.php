@@ -45,11 +45,11 @@
                 <li class="nav-item">
                     <a class="nav-link <?php
                     if (isset($_GET['page'])) {
-                        if ($_GET['page'] === 'property-grid') {
+                        if ($_GET['page'] === 'searchPropertie') {
                             echo 'active';
                         }
                     }
-                    ?>" href="index.php?page=property-grid">Property</a>
+                    ?>" href="index.php?page=searchPropertie">Property</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link <?php

@@ -867,7 +867,7 @@ a:hover {
 }
 
 .intro .owl-theme .owl-dots {
-  position: absolute;
+  position: relative;
   bottom: 70px;
   right: 50px;
 }
@@ -899,7 +899,7 @@ a:hover {
 }
 
 .intro .intro-content {
-  position: absolute;
+  position: relative;
 }
 
 .intro .intro-body {
