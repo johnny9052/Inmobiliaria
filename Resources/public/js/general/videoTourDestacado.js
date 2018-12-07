@@ -1,10 +1,10 @@
 /* Funciones jQuery */
 $(window).on("load", function (e) {
     listFeaturedProperties();
-    executeWithTime('repaginacionAutomatica();', 3000);
+    //executeWithTime('repaginacionAutomatica();', 3000);
 });
 
-var registrosPaginaDestacado = 3;
+var registrosPaginaDestacado = 100;
 var totalRegistrosDestacado = 0;
 var posicionActualPaginacionDestacado = 0;
 var objectToPaginationDestacado;
@@ -25,7 +25,10 @@ function listFeaturedProperties() {
 function buildListFeaturedProperties(info) {
 
     console.log(info);
-    var listado = "";
+    var listado = "<div class='owl-carousel owl-theme carruselHexagono'>";
+
+
+
     showLoadBar(true);
     if (info.length > 0) {
 
@@ -37,8 +40,30 @@ function buildListFeaturedProperties(info) {
             listado = listado + construirRegistroPaginacionDestacado(f);
         }
 
-        listado += "";
+        listado += "</div>";
+
         $("#property-carousel-outstanding").html(listado);
+
+
+        /*--/ Property owl /--*/
+        $('.carruselHexagono').owlCarousel({
+            loop: true,
+            margin: 30,
+            responsive: {
+                0: {
+                    items: 1,
+                },
+                769: {
+                    items: 2,
+                },
+                992: {
+                    items: 3,
+                }
+            }
+        });
+
+
+
     } else {
         listado = listado + "<div class='row'>\n\
                                     <div class='col-md-4 col-sm-12 col-xs-12'></div>\n\
@@ -79,82 +104,113 @@ function construirRegistroPaginacionDestacado(pos) {
     var imagen = objectToPaginationDestacado[pos].imagen;
     var tipoinmueble = objectToPaginationDestacado[pos].tipoinmueble;
     var linderos = objectToPaginationDestacado[pos].linderos;
+    var area = objectToPaginationDestacado[pos].area;
+    var banios = objectToPaginationDestacado[pos].banios;
+    var habitaciones = objectToPaginationDestacado[pos].habitaciones;
+    var parqueaderos = objectToPaginationDestacado[pos].parqueaderos;
 
 
-    return "<td class='seleccionable' onclick='viewInfoFeaturedPropertie(" + id + ");' width='50%'>\n\
-                    <table>\n\
-                        <tr>\n\
-                            <td>\n\
-                                <img class='rounded-circle' src='" + imagen + "' alt='Generic placeholder image' width='70' height='70'>\n\
-                            </td>\n\
-                            <td>\n\
-                                &nbsp; &nbsp;\n\
-                            </td>\n\
-                            <td>\n\
-                                <table class='tableEspacios'>\n\
-                                    <tr class='informacionInmuebleDestacado'>\n\
-                                        <td>\n\
-                                            <h6 class='informacionInmuebleDestacado'>" + ciudad + "</h6>\n\
-                                        </td>\n\
-                                    </tr>\n\
-                                    <tr class='informacionInmuebleDestacado'>\n\
-                                        <td>\n\
-                                            <h6 class='informacionInmuebleDestacado'>" + barrio + "</h6>\n\
-                                            <img src='Resources/public/image/LineaDivisora2.PNG' width='55'/>\n\
-                                        </td>\n\
-                                    </tr>\n\
-                                    <tr class='informacionInmuebleDestacado'>\n\
-                                        <td>\n\
-                                        </td>\n\
-                                    </tr>\n\
-                                    <tr class='informacionInmuebleDestacado'>\n\
-                                        <td>\n\
-                                        </td>\n\
-                                    </tr>\n\
-                                </table>\n\
-                            </td>\n\
-                        </tr>\n\
-                    </table>\n\
-                    <br>\n\
-                    <small class='textoContenido'>" + ((linderos.length > 500) ? linderos.substring(0, 500) : rellenarEspaciosTexto(linderos, 500)) + "</small>\n\
-                </td>\n\
-                <td>\n\
-                    &nbsp; &nbsp; &nbsp;\n\
-                </td>";
+//    return "<td class='seleccionable' onclick='viewInfoFeaturedPropertie(" + id + ");' width='50%'>\n\
+//                    <table>\n\
+//                        <tr>\n\
+//                            <td>\n\
+//                                <img class='rounded-circle' src='" + imagen + "' alt='Generic placeholder image' width='70' height='70'>\n\
+//                            </td>\n\
+//                            <td>\n\
+//                                &nbsp; &nbsp;\n\
+//                            </td>\n\
+//                            <td>\n\
+//                                <table class='tableEspacios'>\n\
+//                                    <tr class='informacionInmuebleDestacado'>\n\
+//                                        <td>\n\
+//                                            <h6 class='informacionInmuebleDestacado'>" + ciudad + "</h6>\n\
+//                                        </td>\n\
+//                                    </tr>\n\
+//                                    <tr class='informacionInmuebleDestacado'>\n\
+//                                        <td>\n\
+//                                            <h6 class='informacionInmuebleDestacado'>" + barrio + "</h6>\n\
+//                                            <img src='Resources/public/image/LineaDivisora2.PNG' width='55'/>\n\
+//                                        </td>\n\
+//                                    </tr>\n\
+//                                    <tr class='informacionInmuebleDestacado'>\n\
+//                                        <td>\n\
+//                                        </td>\n\
+//                                    </tr>\n\
+//                                    <tr class='informacionInmuebleDestacado'>\n\
+//                                        <td>\n\
+//                                        </td>\n\
+//                                    </tr>\n\
+//                                </table>\n\
+//                            </td>\n\
+//                        </tr>\n\
+//                    </table>\n\
+//                    <br>\n\
+//                    <small class='textoContenido'>" + ((linderos.length > 500) ? linderos.substring(0, 500) : rellenarEspaciosTexto(linderos, 500)) + "</small>\n\
+//                </td>\n\
+//                <td>\n\
+//                    &nbsp; &nbsp; &nbsp;\n\
+//                </td>";
 
 
 
-    return "<div class='carousel-item-b'>\n\
+    return "<div class='carousel-item-b seleccionable' onclick='viewInfoFeaturedPropertie(" + id + ");'>\n\
                 <div class='card-box-a card-shadow'>\n\
                     <div class='img-box-a'>\n\
-                        <img src='"+imagen+"' alt='' class='img-a img-fluid'>\n\
+                        <img style='width: 370px;height: 370px;' src='" + imagen + "' alt='' class='img-a img-fluid'>\n\
                     </div>\n\
-                <div class='card-overlay'>\n\
-                    <div class='card-overlay-a-content'>\n\
-                        <div class='card-header-a'>\n\
-                            <h2 class='card-title-a'>\n\
-                                <a>"+ciudad+"<br />"+barrio+"</a>\n\
-                            </h2>\n\
+                    <div class='card-overlay'>\n\
+                        <div class='card-overlay-a-content'>\n\
+                            <div class='card-header-a'>\n\
+                                <h2 class='card-title-a'>\n\
+                                    <a>" + ciudad + "<br />" + barrio + "</a>\n\
+                                </h2>\n\
+                            </div>\n\
+                            <div class='card-body-a'>\n\
+                                <div class='price-box d-flex'>\n\
+                                    <span class='price-a'>\n\
+                                        Valor | $ " + parseInt(precio).toLocaleString() + "\n\
+                                    </span>\n\
+                                </div>\n\
+                                <a href='#' class='link-a'>\n\
+                                    Click para ver<span class='ion-ios-arrow-forward'></span>\n\
+                                </a>\n\
+                            </div>\n\
+                            <div class='card-footer-a'>\n\
+                                <ul class='card-info d-flex justify-content-around'>\n\
+                                    <li>\n\
+                                        <h4 class='card-info-title'>\n\
+                                            Area\n\
+                                        </h4>\n\
+                                        <span>\n\
+                                            "+area+"<sup>2</sup>\n\
+                                        </span>\n\
+                                    </li>\n\
+                                    <li>\n\
+                                        <h4 class='card-info-title'>\n\
+                                            Hab.\n\
+                                        </h4>\n\
+                                        <span>\n\
+                                            "+habitaciones+"\n\
+                                        </span>\n\
+                                    </li>\n\
+                                    <li>\n\
+                                        <h4 class='card-info-title'>Baños</h4>\n\
+                                        <span>"+banios+"</span>\n\
+                                    </li>\n\
+                                    <li>\n\
+                                        <h4 class='card-info-title'>\n\
+                                            Parq.\n\
+                                        </h4>\n\
+                                        <span>\n\
+                                            "+parqueaderos+"\n\
+                                        </span>\n\
+                                    </li>\n\
+                                </ul>\n\
+                            </div>\n\
                         </div>\n\
-                    <div class='card-body-a'>\n\
-                <div class='price-box d-flex'>\n\
-                    <span class='price-a'>\n\
-                        Valor | $ "+precio+"\n\
-                    </span>\n\
+                    </div>\n\
                 </div>\n\
-                <a href='#' class='link-a'>\n\
-                    Click para ver<span class='ion-ios-arrow-forward'></span>\n\
-                </a>\n\
-            </div>\n\
-            <div class='card-footer-a'>\n\
-                <ul class='card-info d-flex justify-content-around'>\n\
-                    <li>\n\
-                        <h4 class='card-info-title'>\n\
-                            Area\n\
-                        </h4>\n\
-                        <span>\n\
-                            340m<sup>2</sup>\n\
-                        </span></li><li><h4 class='card-info-title'>Hab.</h4><span>2</span></li><li><h4 class='card-info-title'>Baños</h4><span>4</span></li><li><h4 class='card-info-title'>Parq.</h4><span>1</span></li></ul></div></div></div></div></div>";
+            </div>";
 }
 
 
@@ -180,15 +236,33 @@ function repaginarDestacado(cambioPosicion) {
 
     var posInicial = posicionActualPaginacionDestacado;
     var posFinal = (objectToPaginationDestacado.length < posicionActualPaginacionDestacado + 2) ? objectToPaginationDestacado.length : posicionActualPaginacionDestacado + 2;
-    var listado = "<tr>";
+    var listado = "<div class='owl-carousel owl-theme carruselHexagono'>";
 
     for (f = posInicial; f < posFinal; f++) {
         listado = listado + construirRegistroPaginacionDestacado(f);
     }
 
-    listado += "</tr>";
+    listado += "</div>";
 
     $("#property-carousel-outstanding").html(listado);
+
+
+    /*--/ Property owl /--*/
+    $('.carruselHexagono').owlCarousel({
+        loop: true,
+        margin: 30,
+        responsive: {
+            0: {
+                items: 1,
+            },
+            769: {
+                items: 2,
+            },
+            992: {
+                items: 3,
+            }
+        }
+    });
 
     showLoadBar(false);
 
