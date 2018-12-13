@@ -1,8 +1,8 @@
 /* Funciones jQuery */
 $(window).on('load', function (e) {
-    alert("Estoy en el load");   
+    alert("Estoy en el load");
     listProperties();
-    
+
 //
 //    if (getUrlParameter('typeOffer') !== undefined || getUrlParameter('nameNeighborhoodCity') !== undefined) {
 //
@@ -51,8 +51,8 @@ $(window).on('load', function (e) {
 function listProperties() {
     alert("Estoy en listproperties");
     user = 0;
-    departamento = $("#selState").val();
-    ciudad = $("#selCity").val();
+    departamento = (getUrlParameter('departament') !== '') ? getUrlParameter('departament') !== '' : '';
+    ciudad = (getUrlParameter('city') !== '') ? getUrlParameter('city') !== '' : '';
     barrio = $("#selBarrio").val();
     zona = $("#selZone").val();
     tipoInmueble = $("#selPropertieType").val();
@@ -66,12 +66,12 @@ function listProperties() {
     ascensor = 0;
     piscina = 0;
     nombrebarriociudad = "";
-    
+
     /*Se define el array de datos adicionales como un objeto, debido a que es necesario pasarlo por referencia para el llenado de los archivos*/
     var infoPlus = {
         temp: new Array()
     };
-    
+
     infoPlus.temp.push({datos: ['IdUser', user]});
     infoPlus.temp.push({datos: ['state', departamento]});
     infoPlus.temp.push({datos: ['areaMax', areaMaxima]});
@@ -88,7 +88,7 @@ function listProperties() {
     infoPlus.temp.push({datos: ['bath', banios]});
     infoPlus.temp.push({datos: ['parking', parqueaderos]});
     infoPlus.temp.push({datos: ['nombreCiudadBarrio', nombrebarriociudad]});
-    
+
 //    var valorMax = $('#lblvalorMaxInmueble').html();
 //    var areaMax = $('#lblAreaInmueble').html();
 //    var nombreCiudadBarrio = $('#txtSearchNeighborhoodCity').val();
@@ -144,7 +144,7 @@ function listProperties() {
 //}
 
 function construirGridPropertie(info) {
-    
+
     alert("Estoy en construir");
     alert(info.length);
 

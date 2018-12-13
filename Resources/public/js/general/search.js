@@ -73,46 +73,46 @@ function changeValuerapidSearch(valor, id) {
 }
 
 function rapidSearchGeneral() {
-    loadPropertie();
+    //loadPropertie();
     
-//    departamento = $("#selState").val();
-//    ciudad = $("#selCity").val();
-//    barrio = $("#selBarrio").val();
-//    zona = $("#selZone").val();
-//    tipoInmueble = $("#selPropertieType").val();
-//    tipoOferta = $("#selOfferType").val();
-//    valorMaximo = $("#lblvalorMaxInmueble").val();
-//    areaMaxima = $("#lblAreaInmueble").val();
-//    estrato = $("#selStratum").val();
-//    parqueaderos = $("#selParqueaderos").val();
-//    habitaciones = $("#selHabitaciones").val();
-//    banios = $("#selBanios").val();
-//    ascensor = $("#selPropertieType").val();
-//    piscina = $("#chkAscensor").val();
-//
-//    var url = "searchPropertie" +
-//            ((departamento !== "") ? ("&&departament=" + departamento) : "") +
-//            ((ciudad !== "") ? ("&&city=" + ciudad) : "") +
-//            ((barrio !== "") ? ("&&neighborhood=" + barrio) : "") +
-//            ((zona !== "") ? ("&&zone=" + zona) : "") +
-//            ((tipoInmueble !== "") ? ("&&typePropertie=" + tipoInmueble) : "") +
-//            ((tipoOferta !== "") ? ("&&offerType=" + tipoOferta) : "") +
-//            ((valorMaximo !== "") ? ("&&maxVal=" + valorMaximo) : "") +
-//            ((areaMaxima !== "") ? ("&&maxArea=" + areaMaxima) : "") +
-//            ((estrato !== "") ? ("&&stratum=" + estrato) : "") +
-//            ((parqueaderos !== "") ? ("&&parking=" + parqueaderos) : "") +
-//            ((habitaciones !== "") ? ("&&bedrooms=" + habitaciones) : "") +
-//            ((banios !== "") ? ("&&bathrooms=" + banios) : "") +
-//            ((ascensor !== "") ? ("&&lift=" + ascensor) : "") +
-//            ((piscina !== "") ? ("&&pool=" + piscina) : "");
-//
-//
-//    if (departamento !== "" || ciudad !== "" || barrio !== "" || zona !== ""
-//            || tipoInmueble !== "" || tipoOferta !== "" || valorMaximo !== "" || areaMaxima !== ""
-//            || estrato !== "" || parqueaderos !== "" || habitaciones !== "" || banios !== ""
-//            || ascensor !== "" || piscina !== "") {
-//        refreshPagePublic(url);
-//    } else {
-//        showToast("Ingrese o seleccione un criterio de busqueda", "error");
-//    }
+    departamento = $("#selState").val();
+    ciudad = $("#selCity").val();
+    barrio = $("#selBarrio").val();
+    zona = $("#selZone").val();
+    tipoInmueble = $("#selPropertieType").val();
+    tipoOferta = $("#selOfferType").val();
+    valorMaximo = $("#lblvalorMaxInmueble").val();
+    areaMaxima = $("#lblAreaInmueble").val();
+    estrato = $("#selStratum").val();
+    parqueaderos = $("#selParqueaderos").val();
+    habitaciones = $("#selHabitaciones").val();
+    banios = $("#selBanios").val();
+    ascensor = $("#selPropertieType").val();
+    piscina = $("#chkAscensor").val();
+
+    var url = "searchPropertie" +
+            ((departamento !== "") ? ("&&departament=" + departamento) : "") +
+            ((ciudad !== "") ? ("&&city=" + ciudad) : "") +
+            ((barrio !== "") ? ("&&neighborhood=" + barrio) : "") +
+            ((zona !== "") ? ("&&zone=" + zona) : "") +
+            ((tipoInmueble !== "") ? ("&&typePropertie=" + tipoInmueble) : "") +
+            ((tipoOferta !== "") ? ("&&offerType=" + tipoOferta) : "") +
+            ((valorMaximo !== "") ? ("&&maxVal=" + valorMaximo) : "") +
+            ((areaMaxima !== "") ? ("&&maxArea=" + areaMaxima) : "") +
+            ((estrato !== "") ? ("&&stratum=" + estrato) : "") +
+            ((parqueaderos !== "") ? ("&&parking=" + parqueaderos) : "") +
+            ((habitaciones !== "") ? ("&&bedrooms=" + habitaciones) : "") +
+            ((banios !== "") ? ("&&bathrooms=" + banios) : "") +
+            ((ascensor !== "") ? ("&&lift=" + ascensor) : "") +
+            ((piscina !== "") ? ("&&pool=" + piscina) : "");
+
+
+    if (departamento !== "" || ciudad !== "" || barrio !== "" || zona !== ""
+            || tipoInmueble !== "" || tipoOferta !== "" || valorMaximo !== "" || areaMaxima !== ""
+            || estrato !== "" || parqueaderos !== "" || habitaciones !== "" || banios !== ""
+            || ascensor !== "" || piscina !== "") {
+        refreshPagePublic(url);
+    } else {
+        showToast("Ingrese o seleccione un criterio de busqueda", "error");
+    }
 }

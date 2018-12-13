@@ -905,7 +905,7 @@ function refreshPage(url, value, settedvalue) {
 function refreshPagePublic(url) {
 
     url = (url === undefined || url === "" || url === null) ? "home" : url;
-
+    alert(url);
     window.location.href = "index.php?page=" + url;
 }
 

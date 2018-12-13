@@ -200,7 +200,7 @@
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <button type="submit" class="btn btn-b" onclick="rapidSearchGeneral();moverScrollView('divMoveToAfterFilter');">Buscar</button>
+                    <button type="button" class="btn btn-b" onclick="rapidSearchGeneral();">Buscar</button>
                 </div>
             </div>
         </form>
