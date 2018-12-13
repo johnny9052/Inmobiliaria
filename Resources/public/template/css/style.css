@@ -81,7 +81,7 @@ a:hover {
 }
 
 .text-brand {
-  color: #000000;
+  color: #3F5666;
   font-size: 2rem;
   font-weight: 600;
 }
@@ -99,7 +99,7 @@ a:hover {
 }
 
 .color-text-a {
-  color: #555555;
+  color: #3F5666;
 }
 
 .no-margin {
@@ -156,8 +156,7 @@ a:hover {
 }
 
 .list-a li:before {
-  content: '';
-  width: 10px;
+ width: 10px;
   height: 2px;
   position: absolute;
   background-color: #313131;
@@ -528,7 +527,7 @@ a:hover {
 }
 
 .navbar-default .nav-search {
-  color: #000000;
+  color: #b0b8b9; /*Color icono de busqueda en menu móvil*/
   font-size: 1.5rem;
 }
 
@@ -553,7 +552,7 @@ a:hover {
 .navbar-default.navbar-trans .nav-link,
 .navbar-default.navbar-reduce .nav-link {
   font-size: 1.1rem;
-  color: #ffffff; //Color fuente banner
+  color: #ffffff; /*Color fuente banner*/
   font-weight: 600;
   letter-spacing: 0.030em;
   transition: all 0.1s ease-in-out;
@@ -583,7 +582,7 @@ a:hover {
 
 .navbar-default.navbar-trans .nav-link:hover,
 .navbar-default.navbar-reduce .nav-link:hover {
-  color: #000000;
+  color: #ffffff;
 }
 
 .navbar-default.navbar-trans .nav-link:hover:before,
@@ -628,7 +627,7 @@ a:hover {
 }
 
 .navbar-default.navbar-reduce .nav-link {
-  color: #ffffff; //Color fuente cuando se reduce el banner
+  color: #ffffff; /*Color fuente cuando se reduce el banner*/
 }
 
 .navbar-default.navbar-reduce .nav-link:before {
@@ -664,12 +663,13 @@ a:hover {
   margin: 0;
   border-radius: 0;
   padding: 12px 0;
+  background-color: #3F5666;
 }
 
 .navbar-default .dropdown .dropdown-menu .dropdown-item {
   padding: 12px 18px;
   transition: all 500ms ease;
-  color: #ffffff;
+  color: #FFFFFF;
   font-weight: 600;
   min-width: 220px;
 }
@@ -706,7 +706,7 @@ a:hover {
 
 .navbar-toggler span {
   display: block;
-  background-color: #000000;
+  background-color: #b0b8b9;
   height: 3px;
   width: 25px;
   margin-top: 4px;
@@ -1305,8 +1305,9 @@ a:hover {
 }
 
 .card-box-ico {
-  padding: 1rem 3rem 1rem 2.5rem;
+  padding: 1rem 1rem 1rem 1rem;
   border: 5px solid #FAA624;
+  font-size: 2rem;
 }
 
 .card-box-ico span {
@@ -1315,7 +1316,7 @@ a:hover {
 }
 
 .title-c {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 600;
   margin-left: -40px;
 }
@@ -1514,7 +1515,7 @@ a:hover {
 .section-footer {
   padding-top: 60px;
   margin-top: 60px;
-  background: #f3f3f3;
+  background: #b0b8b9;
 }
 
 .section-footer ul {
@@ -1532,7 +1533,7 @@ a:hover {
 }
 
 footer {
-  background: #f3f3f3;
+  background: #b0b8b9;
   text-align: center;
   padding: 30px 0;
 }
@@ -1713,7 +1714,7 @@ footer .credits {
   }
 
   .intro .owl-theme .owl-dots {
-    right: 200px;
+    right: 0px;
   }
 
   .intro .intro-body {

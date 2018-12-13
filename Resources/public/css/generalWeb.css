@@ -11,10 +11,28 @@
         left:33%;
         text-align:center;
     }
-    
 
+    .botonFiltroBusquedaBanner{
+        background-color: #3F5666;
+        border-color: #b0b8b9;
+        width: 150px;
+
+    }
     .brandingHexagono{
         padding-left: 150px;
+    }
+
+    .textoCajaSearch{
+        font-size: 15px;
+        color: #ffffff;
+        font-weight: 300;
+        letter-spacing: 0.030em;
+        font-family: 'Source Sans Pro';
+    }
+
+    .logoBanner{
+        alt:60px; 
+        width:300px;
     }
 }
 
@@ -22,16 +40,19 @@
 @media only screen and (max-width: 950px) {
     /*PARA LA UBICACION DEL FILTRO DE BUSQUEDA*/
     .overlay-search {
-        background-color: #FFFFFF;
         color:#fff;
         position:absolute;
         z-index:12;
-        top:15%;
-        left:-15px;
+        top:50%;
+        left:50%;
+        transform:translate(-50%, -50%);
     }
 
     .botonFiltroBusquedaBanner{
+        font-size: 14px;
         width: 110px;
+        background-color: #3F5666;
+        border-color: #b0b8b9;
     }
 
     .bannerMenu{
@@ -46,6 +67,19 @@
         margin-right: 100px;
     }
 
+    .textoCajaSearch{
+        font-size: 10px;
+        color: #ffffff;
+        font-weight: 300;
+        letter-spacing: 0.030em;
+        font-family: 'Source Sans Pro';
+    }
+
+    .logoBanner{
+        alt:60px; 
+        width:180px;
+    }
+
 
 }
 
@@ -54,15 +88,24 @@
     filter: alpha(opacity=90); /* For IE8 and earlier */
 }
 
-.botonFiltroBusquedaBanner{
-    width: 150px;
-}
-
 .botonFiltroBusquedaBanner:hover{
-    background-color: gray;
+    border-color: #b0b8b9;
+    background-color: #b0b8b9;
 }
 
 .seleccionable{
     cursor: pointer !important;   
     pointer-events: auto;    
+}
+
+.botonSeleccionado{
+    background-color: #FAA624;
+}
+
+.lineSectionFooter{
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+    background: #3F5666;
+    text-align: center;
+    padding: 30px 0;
 }

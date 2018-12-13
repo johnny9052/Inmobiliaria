@@ -204,7 +204,7 @@ class PropertieDAO {
             (string) $obj->getNombreCiudadBarrio()
         ));
 
-        //echo $query;
+        echo $query;
         $this->repository->Execute($query);
     }
 

@@ -4,18 +4,23 @@ include("View/public/carousel.php");
 ?>
 <!-- CARRUSEL -->
 
-
-<!-- SERVICIOS -->
-<?php
-include("View/public/services.php");
-?>
-<!-- END SERVICIOS -->
-
 <!-- DESTACADOS -->
 <?php
 include("View/public/main/outstanding.php");
 ?>
 <!-- END DESTACADOS -->
+
+<!-- REGIONES -->
+<?php
+include("View/public/region.php");
+?>
+<!-- END REGIONES -->
+
+<!-- SERVICIOS -->
+<?php
+//include("View/public/services.php");
+?>
+<!-- END SERVICIOS -->
 
 <!--EQUIPO -->
 <?php
@@ -24,11 +29,7 @@ include("View/public/team.php");
 <!-- END EQUIPO -->
 
 
-<!-- REGIONES -->
-<?php
-include("View/public/region.php");
-?>
-<!-- END REGIONES -->
+
 
 <!--/ TESTIMONIOS /-->
 <?php

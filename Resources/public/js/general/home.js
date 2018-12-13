@@ -29,3 +29,10 @@ function rapidSearch() {
     }
 }
 
+function rapidSearchByCity(id) {
+
+    var url = "searchPropertie&&idciudad=" + id;
+        refreshPagePublic(url);
+    
+}
+

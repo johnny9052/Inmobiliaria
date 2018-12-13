@@ -4,7 +4,7 @@
             <div class="col-md-12">
                 <div class="title-wrap d-flex justify-content-between">
                     <div class="title-box">
-                        <h2 class="title-a">Testimonials</h2>
+                        <h2 class="title-a">Testimonios</h2>
                     </div>
                 </div>
             </div>
@@ -24,9 +24,7 @@
                             </div>
                             <div class="testimonials-content">
                                 <p class="testimonial-text">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, cupiditate ea nam praesentium
-                                    debitis hic ber quibusdam
-                                    voluptatibus officia expedita corpori.
+                                    Albert y Erika encontraron un espacio en el Paisaje Cultural Cafetero gracias a Hexágono, ahora viven rodeados de naturaleza al lado de sus seres queridos.
                                 </p>
                             </div>
                             <div class="testimonial-author-box">
@@ -51,14 +49,12 @@
                             </div>
                             <div class="testimonials-content">
                                 <p class="testimonial-text">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, cupiditate ea nam praesentium
-                                    debitis hic ber quibusdam
-                                    voluptatibus officia expedita corpori.
+                                    Pablo y Catalina compraron un nuevo apartamento para recibir a Samuel y que viviera en un ambiente con aire puro y escuchando el sonido de los pajaros.
                                 </p>
                             </div>
                             <div class="testimonial-author-box">
                                 <img src="Resources/public/template/img/mini-testimonial-2.jpg" alt="" class="testimonial-avatar">
-                                <h5 class="testimonial-author">Pablo & Emma</h5>
+                                <h5 class="testimonial-author">Pablo & Catalina</h5>
                             </div>
                         </div>
                     </div>

@@ -1,4 +1,5 @@
 <script src="Resources/public/js/general/home.js" type="text/javascript"></script>
+
 <div class="overlay-search filtroBusquedaBanner">
     <div class="row" style="padding-bottom: 0px !important;">
         <table>
@@ -17,13 +18,13 @@
                 <td colspan="3" >
                     <table style="width: 100%">
                         <tr>
-                            <td style="width: 80%;">
+                            <td style="width: 67%;">
                                 <input id="txtSearchNeighborhoodCity" name="txtSearchNeighborhoodCity" 
-                                       class="form-control" type="text" value="" autocomplete="off"
+                                       class="form-control textoCajaSearch" type="text" value="" autocomplete="off"
                                        placeholder="Ingrese el nombre del barrio o la ciudad" style="float: left"> 
                             </td>
                             <td>
-                                <button type="button" class="btn btn-block btn-primary btn-lg transparencia" onclick="rapidSearch();">Buscar</button>
+                                <button type="button" class="btn btn-block btn-primary btn-lg transparencia botonFiltroBusquedaBanner" onclick="rapidSearch();">Buscar</button>
                             </td>
                         </tr>
                     </table>
@@ -32,6 +33,7 @@
         </table>
     </div>
 </div>
+
 
 <div class="intro intro-carousel">
     <div id="carousel" class="owl-carousel owl-theme">

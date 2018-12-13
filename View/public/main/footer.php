@@ -1,52 +1,44 @@
-<section class="section-footer">
+<section class="section-footer ">
     <div class="container">
         <div class="row">
-            <div class="col-sm-12 col-md-4">
+            <div class="col-sm-12 col-md-4 ">
                 <div class="widget-a">
                     <div class="w-header-a">
-                        <h3 class="w-title-a text-brand">EstateAgency</h3>
+                        <h3 class="w-title-a text-brand">Hexágono</h3>
                     </div>
                     <div class="w-body-a">
                         <p class="w-text-a color-text-a">
-                            Enim minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip exea commodo consequat duis
-                            sed aute irure.
+                            Es una empresa dedicada al acompañamiento integral de empresas y personas en procesos 
+                            relacionados con las áreas juridica, tecnologica e inmobiliaria a tráves un conjunto de profesionales integrales
                         </p>
-                    </div>
-                    <div class="w-footer-a">
-                        <ul class="list-unstyled">
-                            <li class="color-a">
-                                <span class="color-text-a">Phone .</span> contact@example.com</li>
-                            <li class="color-a">
-                                <span class="color-text-a">Email .</span> +54 356 945234</li>
-                        </ul>
                     </div>
                 </div>
             </div>
             <div class="col-sm-12 col-md-4 section-md-t3">
                 <div class="widget-a">
                     <div class="w-header-a">
-                        <h3 class="w-title-a text-brand">The Company</h3>
+                        <h3 class="w-title-a text-brand">La compañia</h3>
                     </div>
                     <div class="w-body-a">
                         <div class="w-body-a">
                             <ul class="list-unstyled">
                                 <li class="item-list-a">
-                                    <i class="fa fa-angle-right"></i> <a href="#">Site Map</a>
+                                    <i class="fa fa-angle-right"></i> <a href="#" class="color-text-a">Inmobiliaria</a>
                                 </li>
                                 <li class="item-list-a">
-                                    <i class="fa fa-angle-right"></i> <a href="#">Legal</a>
+                                    <i class="fa fa-angle-right"></i> <a href="#" class="color-text-a">Contáctenos</a>
                                 </li>
                                 <li class="item-list-a">
-                                    <i class="fa fa-angle-right"></i> <a href="#">Agent Admin</a>
+                                    <i class="fa fa-angle-right"></i> <a href="#" class="color-text-a">Dependencias</a>
                                 </li>
                                 <li class="item-list-a">
-                                    <i class="fa fa-angle-right"></i> <a href="#">Careers</a>
+                                    <i class="fa fa-angle-right"></i> <a href="#" class="color-text-a">Equipo</a>
                                 </li>
                                 <li class="item-list-a">
-                                    <i class="fa fa-angle-right"></i> <a href="#">Affiliate</a>
+                                    <i class="fa fa-angle-right"></i> <a href="#" class="color-text-a">Servicios</a>
                                 </li>
                                 <li class="item-list-a">
-                                    <i class="fa fa-angle-right"></i> <a href="#">Privacy Policy</a>
+                                    <i class="fa fa-angle-right"></i> <a href="#" class="color-text-a">Política de privacidad</a>
                                 </li>
                             </ul>
                         </div>
@@ -56,28 +48,16 @@
             <div class="col-sm-12 col-md-4 section-md-t3">
                 <div class="widget-a">
                     <div class="w-header-a">
-                        <h3 class="w-title-a text-brand">International sites</h3>
+                        <h3 class="w-title-a text-brand">Contáctenos</h3>
                     </div>
-                    <div class="w-body-a">
+                    <div class="w-footer-a">
                         <ul class="list-unstyled">
-                            <li class="item-list-a">
-                                <i class="fa fa-angle-right"></i> <a href="#">Venezuela</a>
-                            </li>
-                            <li class="item-list-a">
-                                <i class="fa fa-angle-right"></i> <a href="#">China</a>
-                            </li>
-                            <li class="item-list-a">
-                                <i class="fa fa-angle-right"></i> <a href="#">Hong Kong</a>
-                            </li>
-                            <li class="item-list-a">
-                                <i class="fa fa-angle-right"></i> <a href="#">Argentina</a>
-                            </li>
-                            <li class="item-list-a">
-                                <i class="fa fa-angle-right"></i> <a href="#">Singapore</a>
-                            </li>
-                            <li class="item-list-a">
-                                <i class="fa fa-angle-right"></i> <a href="#">Philippines</a>
-                            </li>
+                            <li class="color-text-a">
+                                <img src="Resources/public/template/img/iconoTelefonoHexagono.PNG" alt="1" width="20"/> 3002680564 </li>
+                            <li class="color-text-a">
+                                <img src="Resources/public/template/img/iconoEmailHexagono.PNG" alt="1" width="20"/> contacto@hexagonogestores.com</li>
+                            <li class="color-text-a">
+                                <img src="Resources/public/template/img/iconoDireccionHexagono.PNG" alt="1" width="20"/> Calle 17 Norte # 11-07. Armenia, Quindío </li>
                         </ul>
                     </div>
                 </div>
@@ -91,20 +71,20 @@
             <div class="col-md-12">
                 <nav class="nav-footer">
                     <ul class="list-inline">
-                        <li class="list-inline-item">
-                            <a href="#">Home</a>
+                        <li class="list-inline-item ">
+                            <a href="#" class="color-text-a">Home</a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="#">About</a>
+                            <a href="#" class="color-text-a">About</a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="#">Property</a>
+                            <a href="#" class="color-text-a">Property</a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="#">Blog</a>
+                            <a href="#" class="color-text-a">Blog</a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="#">Contact</a>
+                            <a href="#" class="color-text-a">Contact</a>
                         </li>
                     </ul>
                 </nav>
@@ -127,12 +107,7 @@
                         </li>
                         <li class="list-inline-item">
                             <a href="#">
-                                <i class="fa fa-pinterest-p" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#">
-                                <i class="fa fa-dribbble" aria-hidden="true"></i>
+                                <i class="fa fa-linkedin" aria-hidden="true"></i>
                             </a>
                         </li>
                     </ul>
@@ -140,7 +115,7 @@
                 <div class="copyright-footer">
                     <p class="copyright color-text-a">
                         &copy; Copyright
-                        <span class="color-a">EstateAgency</span> All Rights Reserved.
+                        <span class="color-text-a">Hexágono Gestores Empresariales</span> All Rights Reserved.
                     </p>
                 </div>
                 <div class="credits">           

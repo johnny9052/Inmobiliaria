@@ -496,10 +496,7 @@
             <div class="row" id="lstProperties">
 
             </div>
-
-
-
-
+            
             <div class="row pagination-centered text-center" >
 
                 <div class="col-md-4"></div>

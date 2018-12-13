@@ -4,7 +4,7 @@
             <div class="col-md-12">
                 <div class="title-wrap d-flex justify-content-between">
                     <div class="title-box">
-                        <h2 class="title-a">Our Services</h2>
+                        <h2 class="title-a">Nuestros Servicios</h2>
                     </div>
                 </div>
             </div>
@@ -16,9 +16,9 @@
                         <div class="card-box-ico">
                             <span class="fa fa-gamepad"></span>
                         </div>
-                        <div class="card-title-c align-self-center">
-                            <h2 class="title-c">Lifestyle</h2>
-                        </div>
+<!--                        <div class="card-title-c align-self-center">
+                            <h2 class="title-2">¿Por qué escoger a hexágono?</h2>
+                        </div>-->
                     </div>
                     <div class="card-body-c">
                         <p class="content-c">

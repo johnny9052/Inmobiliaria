@@ -6,7 +6,7 @@
             <span></span>
             <span></span>
         </button>
-        <a href="index.html"><img src="Resources/public/template/img/logo.png" alt="60" width="300" class="left img-responsive"/></a>
+        <a href="index.html"><img src="Resources/public/template/img/logo.png" class="logoBanner left img-responsive"/></a>
         <button type="button" class="btn btn-link nav-search navbar-toggle-box-collapse d-md-none" data-toggle="collapse"
                 data-target="#navbarTogglerDemo01" aria-expanded="false">
             <span class="fa fa-search" aria-hidden="true"></span>
@@ -24,7 +24,7 @@
                     } else {
                         echo 'active';
                     }
-                    ?>" href="index.php?page=home">Home</a>
+                    ?>" href="index.php?page=home">Inicio</a>
                 </li>
 
 
