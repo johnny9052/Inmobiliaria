@@ -13,7 +13,7 @@ BEGIN
    select DISTINCT  inm.idinmueble as id, tip_inm.`nombreTipoInmueble` as tipo,
                tip_ofer.`nombreTipoOferta` as oferta, inm.precio as precio, ciud.`nombreCiudad` as ciudad, 
                zon.`nombreZona` as zona, bar.`nombreBarrio` as barrio, loadimagepropertie(inm.idinmueble) as imagen, 
-               inm.habitaciones as habitaciones, inm.parqueaderos as parqueaderos, 
+               inm.habitaciones as habitaciones, inm.parqueaderos as parqueaderos, inm.banos as banios, 
                inm.`areaTotal` as area, tip.`nombreTipoInmueble` as tipoinmueble
    from inmuebles as inm 
         inner join tiposinmuebles as tip_inm on inm.`tiposInmuebles_idtipoInmueble` = tip_inm.`idtipoInmueble` 

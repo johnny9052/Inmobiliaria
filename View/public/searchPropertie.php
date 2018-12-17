@@ -14,7 +14,7 @@
                 <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
-                            <a href="#">Inicio</a>
+                            <a href="index.php?page=home">Inicio</a>
                         </li>
                         <li class="breadcrumb-item active" aria-current="page">
                             Inmuebles
@@ -34,11 +34,8 @@
             <div class="col-sm-12">
                 <div class="grid-option">
                     <form>
-                        <select class="custom-select">
-                            <option selected>All</option>
-                            <option value="1">New to Old</option>
-                            <option value="2">For Rent</option>
-                            <option value="3">For Sale</option>
+                        <select id="selOfferTypeGeneral" name ="offerTypeGeneral" class="custom-select" onchange="searchOfferType();">
+                            <option value="-1" selected> Mostrar todo</option> 
                         </select>
                     </form>
                 </div>
