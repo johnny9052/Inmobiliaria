@@ -51,8 +51,8 @@ $(window).on('load', function (e) {
 function listProperties() {
     alert("Estoy en listproperties");
     user = 0;
-    departamento = (getUrlParameter('departament') !== '') ? getUrlParameter('departament') !== '' : '';
-    ciudad = (getUrlParameter('city') !== '') ? getUrlParameter('city') !== '' : '';
+    departamento = ((getUrlParameter('departament') !== undefined) ? getUrlParameter('departament') : '-1');
+    ciudad = ((getUrlParameter('city') !== undefined) ? getUrlParameter('city') : '-1');
     barrio = $("#selBarrio").val();
     zona = $("#selZone").val();
     tipoInmueble = $("#selPropertieType").val();
@@ -66,6 +66,8 @@ function listProperties() {
     ascensor = 0;
     piscina = 0;
     nombrebarriociudad = "";
+    
+    alert(departamento);
 
     /*Se define el array de datos adicionales como un objeto, debido a que es necesario pasarlo por referencia para el llenado de los archivos*/
     var infoPlus = {
@@ -96,7 +98,7 @@ function listProperties() {
 //    infoPlus.temp.push({datos: ['valorMax', replaceText(valorMax, ',', '')]});
 //    infoPlus.temp.push({datos: ['areaMax', areaMax]});
 //    infoPlus.temp.push({datos: ['nombreCiudadBarrio', nombreCiudadBarrio]});
-    Execute(scanInfo('listNoTable', true, '', infoPlus.temp), 'Propertie/CtlPropertie', '', 'construirGridPropertie(info);', '', '', 'System/');
+    Execute(scanInfo('listNoTable', false, '', infoPlus.temp), 'Propertie/CtlPropertie', '', 'construirGridPropertie(info);', '', '', 'System/');
 }
 //
 //
