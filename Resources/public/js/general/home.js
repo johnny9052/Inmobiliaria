@@ -18,7 +18,7 @@ function rapidSearch() {
     nombreBarrioCiudad = $("#txtSearchNeighborhoodCity").val();
 
     var url = "searchPropertie" +
-            ((tipoOferta !== "") ? ("&&typeOffer=" + tipoOferta) : "") +
+            ((tipoOferta !== "") ? ("&&offerType=" + tipoOferta) : "") +
             ((nombreBarrioCiudad !== "") ? ("&&nameNeighborhoodCity=" + nombreBarrioCiudad) : "");
 
 

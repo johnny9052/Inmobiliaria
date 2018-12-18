@@ -78,7 +78,7 @@ function buildListFeaturedProperties(info) {
 
 
 function viewInfoFeaturedPropertie(id) {
-    var url = "infoPropertie&&id=" + id;
+    var url = "property-single&&id=" + id;
     refreshPagePublic(url);
 }
 

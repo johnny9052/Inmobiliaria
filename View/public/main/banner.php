@@ -70,13 +70,6 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item <?php
                         if (isset($_GET['page'])) {
-                            if ($_GET['page'] === 'property-single') {
-                                echo 'active';
-                            }
-                        }
-                        ?>" href="index.php?page=property-single">Property Single</a>
-                        <a class="dropdown-item <?php
-                        if (isset($_GET['page'])) {
                             if ($_GET['page'] === 'blog-single') {
                                 echo 'active';
                             }

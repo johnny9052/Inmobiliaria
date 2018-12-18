@@ -2,6 +2,7 @@
 /* global markersListGlobal, google, URL */
 
 $(window).on("load", function (e) {
+    
     var id = getUrlParameter('id');
     $("#txtIdPDFPropertie").val(id);
     search(id);
@@ -161,7 +162,7 @@ function showData(info) {
 
 
     /*Se añade el punto del gps*/
-    //addMarker(new google.maps.LatLng(info[0].latitud, info[0].longitud), true);
+    addMarker(new google.maps.LatLng(info[0].latitud, info[0].longitud), true);
     /*Se cargan las imagenes y videos*/
 
     loadVideosPropertie(info[0].id);
@@ -225,11 +226,20 @@ function loadVideosPropertie(id) {
 
 function almacenarVideos(info, obj, id) {
     /*Se agregan todos los datos a la lista, y se pintan*/
+    
+    var listado ="";
+    
     for (var x = 0; x < info.length; x++) {
         if (info[x].dinamic_data !== "") {
             obj.listElements.push(info[x].dinamic_data);
         }
     }
+    
+    var listado = "<iframe src='"+(objURLVideosPropertie.listElements[0]).replace("watch?v=", "embed/")+"' width='100%' height='460' frameborder='0'webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>";
+            
+            
+    $("#pills-video").html(listado);
+    
 
     loadImagesPropertie(id);
 }

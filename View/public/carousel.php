@@ -5,13 +5,13 @@
         <table>
             <tr>
                 <td>
-                    <button id="btnArriendoFiltroHome" type="button" onclick="cambiarTipoOferta('arriendo', this.id);" class="btn btn-block btn-primary btn-lg transparencia botonFiltroBusquedaBanner">Arriendo</button>
+                    <button id="btnArriendoFiltroHome" type="button" onclick="cambiarTipoOferta(15, this.id);" class="btn btn-block btn-primary btn-lg transparencia botonFiltroBusquedaBanner">Arriendo</button>
                 </td>
                 <td>
-                    <button id="btnVentaFiltroHome" type="button" onclick="cambiarTipoOferta('venta', this.id);" class="btn btn-block btn-primary btn-lg transparencia botonFiltroBusquedaBanner">Venta</button>
+                    <button id="btnVentaFiltroHome" type="button" onclick="cambiarTipoOferta(16, this.id);" class="btn btn-block btn-primary btn-lg transparencia botonFiltroBusquedaBanner">Venta</button>
                 </td>
                 <td>
-                    <button id="btnVacacionalFiltroHome" type="button" onclick="cambiarTipoOferta('vacacional', this.id);" class="btn btn-block btn-primary btn-lg transparencia botonFiltroBusquedaBanner">Vacacional</button>
+                    <button id="btnVacacionalFiltroHome" type="button" onclick="cambiarTipoOferta(17, this.id);" class="btn btn-block btn-primary btn-lg transparencia botonFiltroBusquedaBanner">Vacacional</button>
                 </td>
             </tr>
             <tr>
