@@ -2,7 +2,7 @@
 /* global markersListGlobal, google, URL */
 
 $(window).on("load", function (e) {
-    
+
     var id = getUrlParameter('id');
     $("#txtIdPDFPropertie").val(id);
     search(id);
@@ -225,34 +225,38 @@ function loadVideosPropertie(id) {
 }
 
 function almacenarVideos(info, obj, id) {
+    
+
     /*Se agregan todos los datos a la lista, y se pintan*/
-    
-    var listado ="";
-    
+
+    var listado = "";
+
     for (var x = 0; x < info.length; x++) {
         if (info[x].dinamic_data !== "") {
             obj.listElements.push(info[x].dinamic_data);
         }
     }
-    
-    var listado = "<iframe src='"+(objURLVideosPropertie.listElements[0]).replace("watch?v=", "embed/")+"' width='100%' height='460' frameborder='0'webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>";
-            
-            
+
+    if (objURLVideosPropertie.listElements[0] !== undefined) {
+        listado = "<iframe src='" + (objURLVideosPropertie.listElements[0]).replace("watch?v=", "embed/") + "' width='100%' height='460' frameborder='0'webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>";
+    }
+
     $("#pills-video").html(listado);
-    
+
 
     loadImagesPropertie(id);
 }
 
 
-function loadImagesPropertie(id) {
+function loadImagesPropertie(id) {    
     Execute(scanInfo('loadImage', false, '', [{datos: ["id", id]}]), 'Propertie/CtlPropertie', '', 'buildImageProperties(info,objFilePropertie);', '', '', 'System/');
 }
 
 
 function buildImageProperties(info, obj) {
 
-    console.log(info);
+    
+
     var listado = "<div id='property-single-carousel' class='owl-carousel owl-arrow gallery-property carruselHexagono'>";
 
 
@@ -276,28 +280,31 @@ function buildImageProperties(info, obj) {
         }
         for (var y = 0; y < obj.listFileName.length; y++) {
             listado += " <div class='carousel-item-b'>\n\
-                            <img src='System/" + obj.listFileURL[y] + " 'style='max-width: 900px; max-height: 500px;>\n\
+                            <img src='System/" + obj.listFileURL[y] + "' style='max-width: 900px; max-height: 500px;'>\n\
                         </div>";
         }
         listado += "</div>";
+
+
+        console.log(listado);
 
         $("#carouselImages").html(listado);
 
 
         /*--/ Property owl /--*/
-        
-       $('.carruselHexagono').owlCarousel({
-		loop: true,
-		margin: 0,  
-		nav: true,
-		navText: ['<i class="ion-ios-arrow-back" aria-hidden="true"></i>', '<i class="ion-ios-arrow-forward" aria-hidden="true"></i>'],
-		responsive: {
-			0: {
-				items: 1,
-			}
-		}
-	});
-        
+
+        $('.carruselHexagono').owlCarousel({
+            loop: true,
+            margin: 0,
+            nav: true,
+            navText: ['<i class="ion-ios-arrow-back" aria-hidden="true"></i>', '<i class="ion-ios-arrow-forward" aria-hidden="true"></i>'],
+            responsive: {
+                0: {
+                    items: 1,
+                }
+            }
+        });
+
 //        $('.carruselHexagono').owlCarousel({
 //            loop: true,
 //            margin: 30,
