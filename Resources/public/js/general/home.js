@@ -31,7 +31,7 @@ function rapidSearch() {
 
 function rapidSearchByCity(id) {
 
-    var url = "searchPropertie&&idciudad=" + id;
+    var url = "searchPropertie&&city=" + id;
         refreshPagePublic(url);
     
 }

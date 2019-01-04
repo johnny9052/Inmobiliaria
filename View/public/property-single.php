@@ -206,7 +206,7 @@
                             </div>
                             <div class="tab-pane fade " id="pills-video" role="tabpanel" aria-labelledby="pills-video-tab">
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -231,28 +231,22 @@
                             </div>
                             <div class="col-md-6 col-lg-4">
                                 <div class="property-agent">
-                                    <h4 class="title-agent">Anabella Geller</h4>
+                                    <h4 class="title-agent">Laura Sofia Quintero Montoya</h4>
                                     <p class="color-text-a">
-                                        Nulla porttitor accumsan tincidunt. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet
-                                        dui. Quisque velit nisi,
-                                        pretium ut lacinia in, elementum id enim.
+                                        Gerente de Hexágono Gestores Integrales. Esta lista para ayudarlo a encontrar el lugar adecuado para vivir, para su oficina, su consultorio o el cliente ideal para la venta o arrendamiento de su inmueble.
                                     </p>
                                     <ul class="list-unstyled">
                                         <li class="d-flex justify-content-between">
-                                            <strong>Phone:</strong>
-                                            <span class="color-text-a">(222) 4568932</span>
+                                            <strong>Teléfono celular:</strong>
+                                            <span class="color-text-a">+57 314 8797255</span>
                                         </li>
                                         <li class="d-flex justify-content-between">
-                                            <strong>Mobile:</strong>
-                                            <span class="color-text-a">777 287 378 737</span>
-                                        </li>
-                                        <li class="d-flex justify-content-between">
-                                            <strong>Email:</strong>
-                                            <span class="color-text-a">annabella@example.com</span>
+                                            <strong>Correo:</strong>
+                                            <span class="color-text-a">gerencia@hexagonogestores.com</span>
                                         </li>
                                         <li class="d-flex justify-content-between">
                                             <strong>Skype:</strong>
-                                            <span class="color-text-a">Annabela.ge</span>
+                                            <span class="color-text-a">lauraquinterom</span>
                                         </li>
                                     </ul>
                                     <div class="socials-a">
@@ -274,12 +268,7 @@
                                             </li>
                                             <li class="list-inline-item">
                                                 <a href="#">
-                                                    <i class="fa fa-pinterest-p" aria-hidden="true"></i>
-                                                </a>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <a href="#">
-                                                    <i class="fa fa-dribbble" aria-hidden="true"></i>
+                                                    <i class="fa fa-linkedin" aria-hidden="true"></i>
                                                 </a>
                                             </li>
                                         </ul>
@@ -287,56 +276,66 @@
                                 </div>
                             </div>
                             <div class="col-md-12 col-lg-4">
-                                <div class="property-contact">
-                                    <form class="form-a">
-                                        <div class="row">
-                                            <div class="col-md-12 mb-1">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control form-control-lg form-control-a" id="inputName"
-                                                           placeholder="Name *" required>
+                                <section id="FormContainerContact">
+                                    <div class="row">
+                                        <div class="col-md-10 col-sm-10 col-xs-12">
+                                            <div class="form-group">                                                                        
+                                                <input id="txtId" name="id" class="form-control identificator"  type="hidden" value="">
+                                            </div>
+                                        </div>            
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-10 col-sm-10 col-xs-12">
+                                            <div class="form-group">                                                                        
+                                                <input id="txtMatricula" name="matricula" class="form-control identificator"  type="hidden" value="">
+                                            </div>
+                                        </div>            
+                                    </div>
+
+
+                                    <div class="property-contact">
+                                        <form class="form-a">
+                                            <div class="row">
+                                                <div class="col-md-12 mb-1">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control form-control-lg form-control-a" id="txtNameUser" name="name"
+                                                               placeholder="Nombre Completo *" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 mb-1">
+                                                    <div class="form-group">
+                                                        <input type="email" class="form-control form-control-lg form-control-a" id="txtEmailUserContact" name="email" 
+                                                               placeholder="Correo *" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 mb-1">
+                                                    <div class="form-group">
+                                                        <input type="number" class="form-control form-control-lg form-control-a" id="txtPhoneUser" name="phone"
+                                                               placeholder="Teléfono *" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 mb-1">
+                                                    <div class="form-group">
+                                                        <textarea class="form-control" placeholder="Mensaje *" id="txtMessage" name="message" cols="45"
+                                                                  rows="8" required></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <button type="button" onclick="sendContact();" class="btn btn-a">Enviar Mensaje</button>
                                                 </div>
                                             </div>
-                                            <div class="col-md-12 mb-1">
-                                                <div class="form-group">
-                                                    <input type="email" class="form-control form-control-lg form-control-a" id="inputEmail1"
-                                                           placeholder="Email *" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12 mb-1">
-                                                <div class="form-group">
-                                                    <textarea id="textMessage" class="form-control" placeholder="Comment *" name="message" cols="45"
-                                                              rows="8" required></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <button type="submit" class="btn btn-a">Send Message</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
+                                        </form>
+                                    </div>
+
+                                </section>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <section id="FormContainerContact">
-            <div class="row">
-                <div class="col-md-10 col-sm-10 col-xs-12">
-                    <div class="form-group">                                                                        
-                        <input id="txtId" name="id" class="form-control identificator"  type="hidden" value="">
-                    </div>
-                </div>            
-            </div>
-            <div class="row">
-                <div class="col-md-10 col-sm-10 col-xs-12">
-                    <div class="form-group">                                                                        
-                        <input id="txtMatricula" name="matricula" class="form-control identificator"  type="hidden" value="">
-                    </div>
-                </div>            
-            </div>
-        </section>
-        
+
+
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmpRlSVVxIje1GdQb7jlW5QwG-WBfVEnw&libraries=places&callback=myMap" async defer></script>
     </body>
 </html>

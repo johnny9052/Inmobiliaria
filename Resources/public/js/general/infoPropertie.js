@@ -163,6 +163,7 @@ function showData(info) {
 
     /*Se añade el punto del gps*/
     addMarker(new google.maps.LatLng(info[0].latitud, info[0].longitud), true);
+    moveToPosition(info[0].latitud, info[0].longitud);
     /*Se cargan las imagenes y videos*/
 
     loadVideosPropertie(info[0].id);
@@ -280,7 +281,7 @@ function buildImageProperties(info, obj) {
         }
         for (var y = 0; y < obj.listFileName.length; y++) {
             listado += " <div class='carousel-item-b'>\n\
-                            <img src='System/" + obj.listFileURL[y] + "' style='max-width: 900px; max-height: 500px;'>\n\
+                            <img src='System/" + obj.listFileURL[y] + "' style='max-width: 100%; max-height: 500px;'>\n\
                         </div>";
         }
         listado += "</div>";

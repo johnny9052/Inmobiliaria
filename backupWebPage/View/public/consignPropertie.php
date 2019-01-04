@@ -249,7 +249,7 @@ and open the template in the editor.
                             <div class="col-md-1"></div>
                             <div class="col-md-7"></div>
                             <div class="col-md-4 align-self-sm-end">
-                                <button id="btnUpdate" onclick="update();" type="button" class="btn-lg btn-primary">Consignar</button>
+                                <button id="btnUpdate" onclick="update();" type="button" class="btn btn-block btn-primary btn-lg transparencia botonFiltroBusquedaBanner">Consignar</button>
                             </div>
                             
                         </div>

@@ -16,7 +16,7 @@
         </div>
         <div id="new-carousel" class="owl-carousel owl-theme">
             <div class="carousel-item-c">
-                <div class="card-box-b card-shadow news-box seleccionable" onclick="rapidSearchByCity(25);">
+                <div class="card-box-b card-shadow news-box seleccionable" onclick="rapidSearchByCity(886);">
                     <div class="img-box-b">
                         <img src="Resources/public/template/img/post-2.jpg" alt="" class="img-b img-fluid">
                     </div>

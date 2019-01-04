@@ -21,17 +21,18 @@ var objURLVideosPropertie = {
 
 $(window).on("load", function (e) {
     /*Se obtiene un posible filtro de busqueda, si es que existe*/
+    
     var id = getUrlParameter('idFilter');
     list(id);
-    loadDepartment();
-    loadCity(-1);
-    loadNeighborhood(-1);
-    loadStratum();
-    loadPropertieType();
-    loadOfferType();
+    loadDepartmentManagment();
+    loadCityManagment(-1);
+    loadNeighborhoodManagment(-1);
+    loadStratumManagment();
+    loadPropertieTypeManagment();
+    loadOfferTypeManagment();
     loadCurtainType();
     loadVigilanceType();
-    loadZone();
+    loadZoneManagment();
     loadViewType();
     loadKitchenType();
     loadKitchenStructure();
@@ -41,32 +42,32 @@ $(window).on("load", function (e) {
 
 
 
-function loadDepartment() {
-    Execute(scanInfo('loadDepartment', false), 'General/CtlGeneral', '', 'buildSelect(info,"selState");', '', '', 'System/');
+function loadDepartmentManagment() {
+    Execute(scanInfo('loadDepartment', false), 'General/CtlGeneral', '', 'buildSelect(info,"selStateManagment");', '', '', 'System/');
 }
 
 
-function loadCity(id) {
-    Execute(scanInfo('loadCity', false, '', [{datos: ["id", id]}]), 'General/CtlGeneral', '', 'buildSelect(info,"selCity");', '', '', 'System/');
+function loadCityManagment(id) {
+    Execute(scanInfo('loadCity', false, '', [{datos: ["id", id]}]), 'General/CtlGeneral', '', 'buildSelect(info,"selCityManagment");', '', '', 'System/');
 }
 
 
-function loadNeighborhood(id) {
-    Execute(scanInfo('loadNeighborhood', false, '', [{datos: ["id", id]}]), 'General/CtlGeneral', '', 'buildSelect(info,"selBarrio");', '', '', 'System/');
+function loadNeighborhoodManagment(id) {
+    Execute(scanInfo('loadNeighborhood', false, '', [{datos: ["id", id]}]), 'General/CtlGeneral', '', 'buildSelect(info,"selBarrioManagment");', '', '', 'System/');
 }
 
-function loadStratum() {
-    Execute(scanInfo('loadStratum', false), 'General/CtlGeneral', '', 'buildSelect(info,"selStratum");', '', '', 'System/');
-}
-
-
-function loadPropertieType() {
-    Execute(scanInfo('loadPropertieType', false), 'General/CtlGeneral', '', 'buildSelect(info,"selPropertieType");', '', '', 'System/');
+function loadStratumManagment() {
+    Execute(scanInfo('loadStratum', false), 'General/CtlGeneral', '', 'buildSelect(info,"selStratumManagment");', '', '', 'System/');
 }
 
 
-function loadOfferType() {
-    Execute(scanInfo('loadOfferType', false), 'General/CtlGeneral', '', 'buildSelect(info,"selOfferType");', '', '', 'System/');
+function loadPropertieTypeManagment() {
+    Execute(scanInfo('loadPropertieType', false), 'General/CtlGeneral', '', 'buildSelect(info,"selPropertieTypeManagment");', '', '', 'System/');
+}
+
+
+function loadOfferTypeManagment() {
+    Execute(scanInfo('loadOfferType', false), 'General/CtlGeneral', '', 'buildSelect(info,"selOfferTypeManagment");', '', '', 'System/');
 }
 
 
@@ -79,8 +80,8 @@ function loadVigilanceType() {
     Execute(scanInfo('loadVigilanceType', false), 'General/CtlGeneral', '', 'buildSelect(info,"selVigilanceType");', '', '', 'System/');
 }
 
-function loadZone() {
-    Execute(scanInfo('loadZone', false), 'General/CtlGeneral', '', 'buildSelect(info,"selZone");', '', '', 'System/');
+function loadZoneManagment() {
+    Execute(scanInfo('loadZone', false), 'General/CtlGeneral', '', 'buildSelect(info,"selZoneManagment");', '', '', 'System/');
 }
 
 
@@ -203,15 +204,15 @@ function showData(info) {
     refreshCheckbox("chkZonaMascotas", info[0].zona_mascotas);
     refreshCheckbox("chkParqueaderoCubierto", info[0].parqueadero_cubierto);
     refreshCheckbox("chkAmoblado", info[0].amoblado);
-    refreshSelect("selState", info[0].id_departamento);
-    refreshSelect("selCity", info[0].id_ciudad);
-    refreshSelect("selBarrio", info[0].id_barrio);
-    refreshSelect("selStratum", info[0].id_estrato);
-    refreshSelect("selPropertieType", info[0].id_tipo_inmueble);
-    refreshSelect("selOfferType", info[0].id_tipo_oferta);
+    refreshSelect("selStateManagment", info[0].id_departamento);
+    refreshSelect("selCityManagment", info[0].id_ciudad);
+    refreshSelect("selBarrioManagment", info[0].id_barrio);
+    refreshSelect("selStratumManagment", info[0].id_estrato);
+    refreshSelect("selPropertieTypeManagment", info[0].id_tipo_inmueble);
+    refreshSelect("selOfferTypeManagment", info[0].id_tipo_oferta);
     refreshSelect("selCurtainType", info[0].id_tipo_cortina);
     refreshSelect("selVigilanceType", info[0].id_tipo_vigilancia);
-    refreshSelect("selZone", info[0].id_zona);
+    refreshSelect("selZoneManagment", info[0].id_zona);
     refreshSelect("selStatus", info[0].estado);
     refreshSelect("selViewType", info[0].id_tipo_vista);
     refreshSelect("selKitchenType", info[0].id_tipo_cocina);

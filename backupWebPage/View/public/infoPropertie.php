@@ -292,7 +292,7 @@ and open the template in the editor.
             <div class="col-md-6 col-sm-6 col-xs-12">  
                 <label for="txtDescription">Mensaje *</label>   
                 <div class="form-group">                    
-                    <textarea id="txtDescription" name="description" class="form-control" 
+                    <textarea id="txtMessage" name="message" class="form-control" 
                               name="message" rows="3" placeholder="Ingrese su mensaje" required></textarea>
                 </div>
             </div>                       

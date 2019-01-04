@@ -23,22 +23,18 @@
                         <div class="w-body-a">
                             <ul class="list-unstyled">
                                 <li class="item-list-a">
-                                    <i class="fa fa-angle-right"></i> <a href="#" class="color-text-a">Inmobiliaria</a>
+                                    <i class="fa fa-angle-right"></i> <a href="index.php?page=home" class="color-text-a">Inmobiliaria</a>
                                 </li>
                                 <li class="item-list-a">
-                                    <i class="fa fa-angle-right"></i> <a href="#" class="color-text-a">Contáctenos</a>
+                                    <i class="fa fa-angle-right"></i> <a href="index.php?page=contact" class="color-text-a">Contáctenos</a>
                                 </li>
                                 <li class="item-list-a">
-                                    <i class="fa fa-angle-right"></i> <a href="#" class="color-text-a">Dependencias</a>
+                                    <i class="fa fa-angle-right"></i> <a href="index.php?page=agents-grid" class="color-text-a">Equipo</a>
                                 </li>
                                 <li class="item-list-a">
-                                    <i class="fa fa-angle-right"></i> <a href="#" class="color-text-a">Equipo</a>
                                 </li>
                                 <li class="item-list-a">
-                                    <i class="fa fa-angle-right"></i> <a href="#" class="color-text-a">Servicios</a>
-                                </li>
-                                <li class="item-list-a">
-                                    <i class="fa fa-angle-right"></i> <a href="#" class="color-text-a">Política de privacidad</a>
+                                    <i class="fa fa-angle-right"></i> <a href="index.php?page=home" class="color-text-a">Política de privacidad</a>
                                 </li>
                             </ul>
                         </div>
@@ -53,7 +49,7 @@
                     <div class="w-footer-a">
                         <ul class="list-unstyled">
                             <li class="color-text-a">
-                                <img src="Resources/public/template/img/iconoTelefonoHexagono.PNG" alt="1" width="20"/> 3002680564 </li>
+                                <img src="Resources/public/template/img/iconoTelefonoHexagono.PNG" alt="1" width="20"/> +57 300 2680564</li>
                             <li class="color-text-a">
                                 <img src="Resources/public/template/img/iconoEmailHexagono.PNG" alt="1" width="20"/> contacto@hexagonogestores.com</li>
                             <li class="color-text-a">
@@ -72,19 +68,19 @@
                 <nav class="nav-footer">
                     <ul class="list-inline">
                         <li class="list-inline-item ">
-                            <a href="#" class="color-text-a">Home</a>
+                            <a href="index.php?page=home" class="color-text-a">Inicio</a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="#" class="color-text-a">About</a>
+                            <a href="index.php?page=searchPropertie" class="color-text-a">Buscar</a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="#" class="color-text-a">Property</a>
+                            <a href="index.php?page=record" class="color-text-a">Publicar</a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="#" class="color-text-a">Blog</a>
+                            <a href="index.php?page=agents-grid" class="color-text-a">Equipo</a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="#" class="color-text-a">Contact</a>
+                            <a href="index.php?page=contact" class="color-text-a">Contacto</a>
                         </li>
                     </ul>
                 </nav>

@@ -33,7 +33,7 @@ class Repository {
     private $con;
     private $objCon;
     private $clean;
-    private $emailSystem = "davidangaritag@gmail.com";
+    private $emailSystem = "contacto@hexagonogestores.com";
     private $internationalization;
 
     function Repository() {

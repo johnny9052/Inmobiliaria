@@ -26,22 +26,7 @@
                     }
                     ?>" href="index.php?page=home">Inicio</a>
                 </li>
-
-
-
-                <li class="nav-item">
-                    <a class="nav-link  <?php
-                    if (isset($_GET['page'])) {
-                        if ($_GET['page'] === 'about') {
-                            echo 'active';
-                        }
-                    }
-                    ?>" href="index.php?page=about">About</a>
-                </li>
-
-
-
-
+                
                 <li class="nav-item">
                     <a class="nav-link <?php
                     if (isset($_GET['page'])) {
@@ -49,9 +34,36 @@
                             echo 'active';
                         }
                     }
-                    ?>" href="index.php?page=searchPropertie">Property</a>
+                    ?>" href="index.php?page=searchPropertie">Buscar</a>
                 </li>
+
+
+
                 <li class="nav-item">
+                    <a class="nav-link  <?php
+                    if (isset($_GET['page'])) {
+                        if ($_GET['page'] === 'record') {
+                            echo 'active';
+                        }
+                    }
+                    ?>" href="index.php?page=record">Publicar</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link  <?php
+                    if (isset($_GET['page'])) {
+                        if ($_GET['page'] === 'agents-grid') {
+                            echo 'active';
+                        }
+                    }
+                    ?>" href="index.php?page=agents-grid">Equipo</a>
+                </li>
+
+
+
+
+                
+<!--                <li class="nav-item">
                     <a class="nav-link <?php
                     if (isset($_GET['page'])) {
                         if ($_GET['page'] === 'blog-grid') {
@@ -59,10 +71,10 @@
                         }
                     }
                     ?>" href="index.php?page=blog-grid">Blog</a>
-                </li>
+                </li>-->
 
 
-                <li class="nav-item dropdown">
+<!--                <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">
                         Pages
@@ -90,7 +102,7 @@
                         }
                         ?>" href="index.php?page=agent-single">Agent Single</a>
                     </div>
-                </li>
+                </li>-->
 
 
                 <li class="nav-item">
@@ -100,7 +112,7 @@
                             echo 'active';
                         }
                     }
-                    ?>" href="index.php?page=contact">Contact</a>
+                    ?>" href="index.php?page=contact">Contacto</a>
                 </li>
 
 
@@ -119,28 +131,28 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item <?php
                             if (isset($_GET['page'])) {
-                                if ($_GET['page'] === 'property-single') {
+                                if ($_GET['page'] === 'dropdown-item') {
                                     echo 'active';
                                 }
                             }
                             ?>" href="index.php?page=managementPropertie"><i class="fa fa-home">&nbsp</i>Gestion inmuebles</a>
                             <a class="dropdown-item <?php
                             if (isset($_GET['page'])) {
-                                if ($_GET['page'] === 'blog-single') {
+                                if ($_GET['page'] === 'managementPropertie') {
                                     echo 'active';
                                 }
                             }
                             ?>" href="index.php?page=infoUser"><i class="fa fa-user">&nbsp</i> Mi informacion</a>
                             <a class="dropdown-item <?php
                             if (isset($_GET['page'])) {
-                                if ($_GET['page'] === 'agents-grid') {
+                                if ($_GET['page'] === 'infoUser') {
                                     echo 'active';
                                 }
                             }
                             ?>" href="index.php?page=pqrs"><i class="fa fa-edit">&nbsp</i> PQRS</a>
                             <a class="dropdown-item <?php
                             if (isset($_GET['page'])) {
-                                if ($_GET['page'] === 'agent-single') {
+                                if ($_GET['page'] === 'pqrs') {
                                     echo 'active';
                                 }
                             }
